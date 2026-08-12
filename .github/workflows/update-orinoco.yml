@@ -74,7 +74,7 @@ jobs:
         with:
           cache: true
           frozen: true
-          pixi-version: 0.73.0
+          pixi-version: v0.73.0
       - name: Apply the content-preserving framework update
         env:
           ORINOCO_UPDATE_TEMPLATE: ${{ inputs.template_version }}

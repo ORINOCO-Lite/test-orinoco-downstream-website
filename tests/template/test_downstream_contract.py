@@ -155,7 +155,7 @@ class DownstreamContractTests(unittest.TestCase):
         for name in ("pages.yml", "update-orinoco.yml", "validate.yml"):
             text = (workflows / name).read_text(encoding="utf-8")
             with self.subTest(workflow=name):
-                self.assertIn("pixi-version: 0.73.0", text)
+                self.assertIn("pixi-version: v0.73.0", text)
 
     def test_consumer_workflow_jobs_are_inert_in_template_repository(self) -> None:
         workflows = ROOT / ".github" / "workflows"

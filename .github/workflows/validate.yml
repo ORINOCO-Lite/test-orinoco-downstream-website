@@ -19,7 +19,7 @@ jobs:
     uses: con/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@e7fe3de4fdacffdc2f2e601ed6da1708c8ac2753
     with:
       command: test-all
-      pixi-version: 0.73.0
+      pixi-version: v0.73.0
       runner: macos-14
   linux:
     name: Validate (Linux x86-64)
@@ -31,7 +31,7 @@ jobs:
     uses: con/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@e7fe3de4fdacffdc2f2e601ed6da1708c8ac2753
     with:
       command: test-all
-      pixi-version: 0.73.0
+      pixi-version: v0.73.0
       runner: ubuntu-24.04
       artifact-name: static-site-${{ github.sha }}
       artifact-path: build/site
