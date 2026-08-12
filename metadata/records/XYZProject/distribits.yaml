@@ -1,0 +1,14 @@
+pid: xyzrins:projects/distribits
+schema_type: xyzri:XYZProject
+title: distribits
+short_name: distribits
+display_label: distribits
+description: >-
+  Community for enthusiasts of tools and workflows in the domain of
+  distributed data.
+part_of:
+  - xyzrins:.
+attributes:
+  - predicate: foaf:homepage
+    value: https://www.distribits.live/
+    schema_type: dlthings:AttributeSpecification

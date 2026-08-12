@@ -1,0 +1,3652 @@
+{
+  "assets": {
+    "declarations": [
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/con-logo.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "4d6b2cf29b18e7c0bb744cc18f5dc5c54e262d08cf26423eef953e2873619ff7",
+        "size": 37225,
+        "source_path": "profiles/con/assets/img/con-logo.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/con-logo.svg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "39aa8c6f8c5274a92c2f72d52969ac1717c9bdc18b3069894263751dc63abd57",
+        "size": 125750,
+        "source_path": "profiles/con/assets/img/con-logo.svg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/datalad-logo.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "e145c07b7a9515a94664b326f1b9c31993833c3726425bbe73c1ddbde5073f10",
+        "size": 28205,
+        "source_path": "profiles/con/assets/img/datalad-logo.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/contact/email.svg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "5b3b3d3b0f4d7c08557b0c57b1ad697a4efa214273323f7590c385c32dfe089a",
+        "size": 7046,
+        "source_path": "profiles/con/assets/img/editorial/contact/email.svg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/contact/github.svg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "40dc36b6eb8ccd64fc6d33be75bbef6e5b317afb7d038691d6097425a84759f2",
+        "size": 3012,
+        "source_path": "profiles/con/assets/img/editorial/contact/github.svg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/contact/ror.svg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "688b61e7ff9a601ef2c759ecc2333a5e01c0156e9dbc9739921911f648560993",
+        "size": 3712,
+        "source_path": "profiles/con/assets/img/editorial/contact/ror.svg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/contact/twitter.svg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "f31c0d3c24df096b531e9a3e87203311b12cf9faf1a5d16c1c0f577dad0f3fbf",
+        "size": 1986,
+        "source_path": "profiles/con/assets/img/editorial/contact/twitter.svg",
+        "storage": "git"
+      },
+      {
+        "annex_key": "SHA256E-s126786--ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/brochure-bids.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/62/wM/SHA256E-s126786--ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566.png/SHA256E-s126786--ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566",
+        "size": 126786,
+        "source_path": "profiles/con/assets/img/editorial/engage/brochure-bids.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s107483--fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/brochure-datalad.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/06/J5/SHA256E-s107483--fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4.png/SHA256E-s107483--fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4",
+        "size": 107483,
+        "source_path": "profiles/con/assets/img/editorial/engage/brochure-datalad.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s141682--082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/brochure-debian-neurodebian.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/VM/X4/SHA256E-s141682--082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f.png/SHA256E-s141682--082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f",
+        "size": 141682,
+        "source_path": "profiles/con/assets/img/editorial/engage/brochure-debian-neurodebian.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s156673--e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/eppy-handout.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/k8/Fk/SHA256E-s156673--e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4.png/SHA256E-s156673--e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4",
+        "size": 156673,
+        "source_path": "profiles/con/assets/img/editorial/engage/eppy-handout.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s2560654--429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/fromtar-preview.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/m9/wz/SHA256E-s2560654--429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50.png/SHA256E-s2560654--429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50",
+        "size": 2560654,
+        "source_path": "profiles/con/assets/img/editorial/engage/fromtar-preview.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s37853226--8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/fromtar.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/J0/7z/SHA256E-s37853226--8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8.png/SHA256E-s37853226--8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8",
+        "size": 37853226,
+        "source_path": "profiles/con/assets/img/editorial/engage/fromtar.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s170665--f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/nipy-handout.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/j0/q1/SHA256E-s170665--f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25.png/SHA256E-s170665--f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25",
+        "size": 170665,
+        "source_path": "profiles/con/assets/img/editorial/engage/nipy-handout.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s326386--34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/trifold-qrcodes.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/V0/7V/SHA256E-s326386--34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e.png/SHA256E-s326386--34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e",
+        "size": 326386,
+        "source_path": "profiles/con/assets/img/editorial/engage/trifold-qrcodes.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s1061813--1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/unclesam-preview.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/XX/6m/SHA256E-s1061813--1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81.png/SHA256E-s1061813--1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81",
+        "size": 1061813,
+        "source_path": "profiles/con/assets/img/editorial/engage/unclesam-preview.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": "SHA256E-s11289379--c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1.png",
+        "availability": "available",
+        "path": "assets/files/img/editorial/engage/unclesam.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/FK/J2/SHA256E-s11289379--c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1.png/SHA256E-s11289379--c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1",
+        "size": 11289379,
+        "source_path": "profiles/con/assets/img/editorial/engage/unclesam.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/homepage/hero.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "daef858fc0d09fc9692393bbba14c4bc688ea40e00e9067becdf2461907e3e51",
+        "size": 36980,
+        "source_path": "profiles/con/assets/img/editorial/homepage/hero.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/support/ccn.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "97f187610c8bf12b4f6ff0d8cce1783380aa0e59f9f91e6b01fb6bba6af9bb39",
+        "size": 13898,
+        "source_path": "profiles/con/assets/img/editorial/support/ccn.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/support/nih.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "84b1693d37bcb41fdb4a6a1b1e86d3d044f099c618b57d00c10ddbafd7f5d03c",
+        "size": 8050,
+        "source_path": "profiles/con/assets/img/editorial/support/nih.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/editorial/support/nsf.gif",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "4768e586723786951b6c0bf4707ced14a24b40c626653728e295a14d6eba6779",
+        "size": 12384,
+        "source_path": "profiles/con/assets/img/editorial/support/nsf.gif",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/adina-wagner.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "a2c77453c6af241fdf34b3bd466beb7dcb95cef3676ff5c0c6143e69780dcb72",
+        "size": 10993,
+        "source_path": "profiles/con/assets/img/people/adina-wagner.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/austin-macdonald.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "ca4ffde88bccb18d4665d8df2d646f0f82d889b54c13fdcaddf10c46cc4e1f4c",
+        "size": 977030,
+        "source_path": "profiles/con/assets/img/people/austin-macdonald.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/benjamin-poldrack.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "c7286e788cf83f2fc4a5a4425239d6a96254b9c26cf67b478b47405b2a3a2fe5",
+        "size": 22224,
+        "source_path": "profiles/con/assets/img/people/benjamin-poldrack.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/chris-cheng.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "3178dec14a1eda64018539af4b12bee5e43b8dd7da2f31d7fbe86d9e0333ee45",
+        "size": 12290,
+        "source_path": "profiles/con/assets/img/people/chris-cheng.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/cody-baker.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "9e606d227e87e5618bfb84f3bc6d770865182072885ffc2f0199ec1cc27a2d6e",
+        "size": 8123,
+        "source_path": "profiles/con/assets/img/people/cody-baker.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": "MD5E-s27377--c36212977413bf3c46b43bd32de56f0d.jpg",
+        "availability": "available",
+        "path": "assets/files/img/people/david-kennedy.jpg",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/M2/pp/MD5E-s27377--c36212977413bf3c46b43bd32de56f0d.jpg/MD5E-s27377--c36212977413bf3c46b43bd32de56f0d.jpg",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "3d078485ef1d690200f54a019f3e1e2f1629baee85a20a867f6052dc6039f868",
+        "size": 27377,
+        "source_path": "profiles/con/assets/img/people/david-kennedy.jpg",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/franco-pestilli.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "d09103c99d60296df3dd32b42ba4236ef588e0616f6009ca1edb4188378085dc",
+        "size": 125717,
+        "source_path": "profiles/con/assets/img/people/franco-pestilli.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/gergana-alteva.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "fc227772e01527b58c88ae1825e423438f888ed9c3e96387fa53c930c7f7b5d3",
+        "size": 8615,
+        "source_path": "profiles/con/assets/img/people/gergana-alteva.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/horea-ioanas.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "e8fe74a239931439c3825ba3784a3e09a29303ac56129f0b5363e7b4e2461869",
+        "size": 369275,
+        "source_path": "profiles/con/assets/img/people/horea-ioanas.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/isaac-to.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "c139d2baeb7dccc89e36cfbb50888043a0f15e497b02ff5dfb83c5db1f648bdf",
+        "size": 122817,
+        "source_path": "profiles/con/assets/img/people/isaac-to.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/james-haxby.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "f9b03449d1a96f893654040e11857e839af1279b6c897cd3576b6554408bbc3a",
+        "size": 129814,
+        "source_path": "profiles/con/assets/img/people/james-haxby.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/jason-gors.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "dcd493111dbce473bd2780ddafd57617e401d6f69940cb1d2d0993d00d8c4b15",
+        "size": 22533,
+        "source_path": "profiles/con/assets/img/people/jason-gors.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": "MD5E-s88193--0b34903f516875d61b7776c52c3fb6b7.png",
+        "availability": "available",
+        "path": "assets/files/img/people/jean-baptiste-poline.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/9j/Xv/MD5E-s88193--0b34903f516875d61b7776c52c3fb6b7.png/MD5E-s88193--0b34903f516875d61b7776c52c3fb6b7.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "2e7d9a27270ec779b4ffdc8d234317b55896db6a1f44eaa8d567d55fee54cac5",
+        "size": 88193,
+        "source_path": "profiles/con/assets/img/people/jean-baptiste-poline.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/jeremy-manning.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "f457d2d841aee144ac274ae9685b5669fce8ae25a13ed9437108378a59be6a7a",
+        "size": 345330,
+        "source_path": "profiles/con/assets/img/people/jeremy-manning.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/joey-hess.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "c53c9404ef0897d64c8621aa100058a1022916a3c31713e1eed119461cdb1049",
+        "size": 13111,
+        "source_path": "profiles/con/assets/img/people/joey-hess.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/john-lee.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "eb040b375c079fcc006c59b8497d44d9a733ba40cc3e53f1f3b5b8363fd732d6",
+        "size": 72504,
+        "source_path": "profiles/con/assets/img/people/john-lee.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/john-wodder.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "10eaf9b40edf0766bbf1f3ef8a39f0717f99c53acedcff41cdb18ae01871237c",
+        "size": 17232,
+        "source_path": "profiles/con/assets/img/people/john-wodder.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/kyle-meyer.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "e671d522725e5aacdc3ac8b9d0687b69010696a805a359d467107a0af2cf9046",
+        "size": 32533,
+        "source_path": "profiles/con/assets/img/people/kyle-meyer.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/luke-chang.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "3c44b36af8c8a8b95e9b455ef962a36a13e4ca0e76098f83c6512aa57245e96a",
+        "size": 40001,
+        "source_path": "profiles/con/assets/img/people/luke-chang.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/matteo-visconti-di-oleggio-castello.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "9b0ab382d48d290448ec315fa53b83cf133d8bf6fcbcf3efb9a0cd0152568d3d",
+        "size": 7739,
+        "source_path": "profiles/con/assets/img/people/matteo-visconti-di-oleggio-castello.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/matthew-brett.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "fe65465e94703d025b18fc39ad046a998d6fa24c229660ebe7ff062d163af7c6",
+        "size": 26882,
+        "source_path": "profiles/con/assets/img/people/matthew-brett.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/matthijs-van-der-meer.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "52901f2208924d51351967af55d8f0d2f25ccfdd4afc94be2601d04878d50032",
+        "size": 48291,
+        "source_path": "profiles/con/assets/img/people/matthijs-van-der-meer.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/michael-hanke.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "95e68dcefc4d48642d10bb1caefbb568f311236d20dd59d16ea3515888f0b84e",
+        "size": 7453,
+        "source_path": "profiles/con/assets/img/people/michael-hanke.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/nikolaas-oosterhof.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "8dc782e7eac957362a4b76e75ac11a673cc27dfddef2c6dac7845824f44f5a1b",
+        "size": 21967,
+        "source_path": "profiles/con/assets/img/people/nikolaas-oosterhof.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/oliver-contier.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "55ed70b88cfb803d808742f1cbb2300e42d351480e2cc564716da371b4dcf4c8",
+        "size": 26282,
+        "source_path": "profiles/con/assets/img/people/oliver-contier.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/samuel-nastase.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "92ef43eb4a06ba86b65c8ee704f09d17c1d59a8d6db108f918d8dc9271df4142",
+        "size": 29837,
+        "source_path": "profiles/con/assets/img/people/samuel-nastase.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/satrajit-ghosh.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "83f67a43ff101e8544e9110daac12e2715dda8e4652cbcc2d0f2bfea3112a69c",
+        "size": 13129,
+        "source_path": "profiles/con/assets/img/people/satrajit-ghosh.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/soichi-hayashi.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "fac0b6acd1b90f9d5a6cb498638f06ec339096963384a2d91cf05e28ea30d70f",
+        "size": 5200,
+        "source_path": "profiles/con/assets/img/people/soichi-hayashi.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/tor-wager.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "23906905a376d41343c366dc1db8700a593b116526521dcb90b879b1e6afd716",
+        "size": 146280,
+        "source_path": "profiles/con/assets/img/people/tor-wager.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/vadim-melnik.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "b6b240f51a299e4d853e01cfa8fea795c012c6c17644c7286a06d51d401b03b4",
+        "size": 9008,
+        "source_path": "profiles/con/assets/img/people/vadim-melnik.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/people/vanessa-sochat.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "ee57e7e98765d9bdfbf82117c3e19a8e31cc78b3a6248e6849c36d663f46f1b8",
+        "size": 4513,
+        "source_path": "profiles/con/assets/img/people/vanessa-sochat.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/bids.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "49eff73f0d0c1fec5bd6884083965f1b5feaa78e6fff26f91b5ee8bdcc6f965a",
+        "size": 62518,
+        "source_path": "profiles/con/assets/img/projects/bids.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/con-duct.webp",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "ad108b887c4d3a4f9be081a4ec954db09f6acd234270b0116dd0ec9e1847eb60",
+        "size": 52082,
+        "source_path": "profiles/con/assets/img/projects/con-duct.webp",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/dandi.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "b4bb71f833102beeee74b3b88b7a5964b1c1b63355cc61072871cef719bf35f4",
+        "size": 71800,
+        "source_path": "profiles/con/assets/img/projects/dandi.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/datalad-registry.svg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "b1ec29c9a8bcca6b1b426f1ec2823afa2d1cf806899c601acaebfe2c3b86de0a",
+        "size": 15390,
+        "source_path": "profiles/con/assets/img/projects/datalad-registry.svg",
+        "storage": "git"
+      },
+      {
+        "annex_key": "MD5E-s8766--009e335513cf758daf30344cbc055260.webp",
+        "availability": "available",
+        "path": "assets/files/img/projects/distribits.webp",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/48/z5/MD5E-s8766--009e335513cf758daf30344cbc055260.webp/MD5E-s8766--009e335513cf758daf30344cbc055260.webp",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "848d266fdca5a0d6064b68709dcd6811bc17371585d3073d478a5408e0be49f5",
+        "size": 8766,
+        "source_path": "profiles/con/assets/img/projects/distribits.webp",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/duecredit.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "1e99fd244ec605c5f586d5a7e90a5954c3369173f8600ad5ea811ddb37039ec9",
+        "size": 5442,
+        "source_path": "profiles/con/assets/img/projects/duecredit.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": "MD5E-s52972--6f544d1fd8844fea1894f7530ed45420.png",
+        "availability": "available",
+        "path": "assets/files/img/projects/ember.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/vk/mj/MD5E-s52972--6f544d1fd8844fea1894f7530ed45420.png/MD5E-s52972--6f544d1fd8844fea1894f7530ed45420.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "2e1710f11ac6bf562a01b8c8fc2681d35954e71a6392335c88b8575674302dce",
+        "size": 52972,
+        "source_path": "profiles/con/assets/img/projects/ember.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/hypertools.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "4ac495b35abeaf02d2eda9b4f9dfc74310a9eb10af71b7c359e6b0372db45658",
+        "size": 7538,
+        "source_path": "profiles/con/assets/img/projects/hypertools.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/neurodebian.jpg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "72a92d814d38127483010298f68e4fc3304ac5629904773409ef020059340120",
+        "size": 8552,
+        "source_path": "profiles/con/assets/img/projects/neurodebian.jpg",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/nwb.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "c0f839437eb5e2e7dbd66a8fd169bb41f59d5c19794aa9e868de122100cf785b",
+        "size": 12458,
+        "source_path": "profiles/con/assets/img/projects/nwb.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/open-brain-consent.svg",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "4cdea9c9b3570f39f9aee0ca60001d7d50e6fd935eb5756f7d38fd95971bd069",
+        "size": 9674,
+        "source_path": "profiles/con/assets/img/projects/open-brain-consent.svg",
+        "storage": "git"
+      },
+      {
+        "annex_key": "MD5E-s57038--7cbe2a93dc7746968e565a55f382abef.png",
+        "availability": "available",
+        "path": "assets/files/img/projects/openneuro.png",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/K2/vp/MD5E-s57038--7cbe2a93dc7746968e565a55f382abef.png/MD5E-s57038--7cbe2a93dc7746968e565a55f382abef.png",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "2cb376d957fef783e6dc53c3d884117ed92be9f48a69fc46ea16e5882fede7cd",
+        "size": 57038,
+        "source_path": "profiles/con/assets/img/projects/openneuro.png",
+        "storage": "git-annex"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/pymvpa.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "2a7ee0cb7fba714d3f0ffd6d7d049d7bd0300c03555273aa5e555f223007747f",
+        "size": 56956,
+        "source_path": "profiles/con/assets/img/projects/pymvpa.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/pyout.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "902104f5399cc1b27abd91e2b27b6065e78950123563e4de78a6d3cd0d6d2870",
+        "size": 6492,
+        "source_path": "profiles/con/assets/img/projects/pyout.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/quail.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "35b0f9d0de6fd50ef70b098136a4380f207b509c11525c1c6c82a9b178a58b53",
+        "size": 8141,
+        "source_path": "profiles/con/assets/img/projects/quail.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/reproman.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "2279e09af6bd3041bdde1be2cb9fc6e6dd17e9dbd5c1a6d8b5ab1a3ff39644a2",
+        "size": 16882,
+        "source_path": "profiles/con/assets/img/projects/reproman.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/supereeg.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "85fd50a57d9f55a3b0a35a1393b356171d513f83c151168a5bc5fca711ce3cde",
+        "size": 36223,
+        "source_path": "profiles/con/assets/img/projects/supereeg.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": null,
+        "availability": "available",
+        "path": "assets/files/img/projects/yoda.png",
+        "payload_state": "committed",
+        "retrieval": null,
+        "sha256": "d4134997eba5cd858e4a009e061927bbede3a1a5c0b7c3417dba5cb7380a6e41",
+        "size": 14933,
+        "source_path": "profiles/con/assets/img/projects/yoda.png",
+        "storage": "git"
+      },
+      {
+        "annex_key": "MD5E-s37940--90e74fa17a709006dd527c5b36e41217.jpg",
+        "availability": "available",
+        "path": "assets/files/img/yaroslav-halchenko.jpg",
+        "payload_state": "hydrate-on-demand",
+        "retrieval": {
+          "mode": "read-only",
+          "object_url": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/6p/30/MD5E-s37940--90e74fa17a709006dd527c5b36e41217.jpg/MD5E-s37940--90e74fa17a709006dd527c5b36e41217.jpg",
+          "remote": "datasets.datalad.org",
+          "repository": "https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/"
+        },
+        "sha256": "8df356e4845e3546fdbb2d055332ff4c655913688ab6c4a5e676a50ce5bd8403",
+        "size": 37940,
+        "source_path": "profiles/con/assets/img/yaroslav-halchenko.jpg",
+        "storage": "git-annex"
+      }
+    ],
+    "manifest": {
+      "path": "assets/manifest.yaml",
+      "sha256": "60f23811299ee47c9ee0babe2b28af4b0923c712272f340b612ce942293f74f5"
+    },
+    "transport": "digest-verified-read-only-hydration-without-git-annex",
+    "unlisted_overlay_files": [
+      {
+        "path": "assets/files/css/custom.css",
+        "sha256": "1f008ae6272db1834fdb9a3268443211a95cc876a9fd8236258539fac704c117",
+        "size": 575
+      },
+      {
+        "path": "assets/files/css/schemes/con.css",
+        "sha256": "c7007ee417c252f881f50ea3cfa785ec74721535a2dbc0ae3d6e86227e41220f",
+        "size": 1336
+      }
+    ]
+  },
+  "canonical": {
+    "class_counts": {
+      "XYZInstrument": 1,
+      "XYZOrganization": 1,
+      "XYZPerson": 33,
+      "XYZProject": 24,
+      "XYZPublication": 126,
+      "XYZTopic": 1
+    },
+    "records": [
+      {
+        "class": "XYZInstrument",
+        "path": "metadata/records/XYZInstrument/datalad.yaml",
+        "pid": "xyzrins:instruments/datalad",
+        "schema_type": "xyzri:XYZInstrument",
+        "sha256": "c83afaca7601b72e920ccc70d8fde41e14eb9b3aaba6e155c1efe8fcce97202e",
+        "size": 332
+      },
+      {
+        "class": "XYZOrganization",
+        "path": "metadata/records/XYZOrganization/con.yaml",
+        "pid": "ror:04tfhh831",
+        "schema_type": "xyzri:XYZOrganization",
+        "sha256": "aef180163202957784dec8fc708e99c812c8eb949db8269a473fb899f862f4a9",
+        "size": 466
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/adina-wagner.yaml",
+        "pid": "xyzrins:persons/adina-wagner",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "ab14522628a0f8c0c3e4117bfdf722e44e9da864500aca59aaa09d9f61db08b4",
+        "size": 534
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/austin-macdonald.yaml",
+        "pid": "xyzrins:persons/austin-macdonald",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "891020a5e4254bbb4351f073fce90a32d4b1900980b13f4d56df14bcd5a9b985",
+        "size": 556
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/benjamin-poldrack.yaml",
+        "pid": "xyzrins:persons/benjamin-poldrack",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "66cc2284a8787d0d8d836bfc149e4a85b473c521d5dec0e19681b72a41b58565",
+        "size": 402
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/chris-cheng.yaml",
+        "pid": "xyzrins:persons/chris-cheng",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "799d797415b694a6c161c83133580f1496d5b11514255db7b9fb1e0d96c017e9",
+        "size": 561
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/chris-markiewicz.yaml",
+        "pid": "xyzrins:persons/chris-markiewicz",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "b32b220b67b658ebff3f1678eca426933737141a1f03b4e61e4045f9f1747c3f",
+        "size": 602
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/cody-baker.yaml",
+        "pid": "xyzrins:persons/cody-baker",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "43d0509e9caa961ce31ac933556d1d8257c94425894cb64d0e9e1982cd8f2598",
+        "size": 609
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/david-kennedy.yaml",
+        "pid": "xyzrins:persons/david-kennedy",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "d18aebb2ec31137c78dda05ecaf1b263be46c789c977b4721ba88364230717e6",
+        "size": 543
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/franco-pestilli.yaml",
+        "pid": "xyzrins:persons/franco-pestilli",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "475c9f7d85b2c649362c6327bfdf929beef5683eec2bf9b7de0cc7bc3965623a",
+        "size": 429
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/gergana-alteva.yaml",
+        "pid": "xyzrins:persons/gergana-alteva",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "87300748efcaab42f73579db7480f05aeec5e8f3e1f0caa6a8f912027fe32bf2",
+        "size": 519
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/horea-ioanas.yaml",
+        "pid": "xyzrins:persons/horea-ioanas",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "ead4dec9a5027c950ab6e0cc0c0c64872949da31953f1dc6d33fc77decd80b9e",
+        "size": 523
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/isaac-to.yaml",
+        "pid": "xyzrins:persons/isaac-to",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "506fca5df831c959a28e0f9adf2af57fd35c8453d44866251b2d954917151499",
+        "size": 522
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/james-haxby.yaml",
+        "pid": "xyzrins:persons/james-haxby",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "b9c1ff15a1d42f2f44373bc46aaa4997e5e3b909256a74d338458d23c6c04a0d",
+        "size": 668
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/jason-gors.yaml",
+        "pid": "xyzrins:persons/jason-gors",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "8d63906e90408ff47ad8c6b82fbe3a2df9e2793e50c0f969daa78fd4c3c3eaab",
+        "size": 458
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/jean-baptiste-poline.yaml",
+        "pid": "xyzrins:persons/jean-baptiste-poline",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "ee3d13015af2f3817d27e09b7f0eb092f9b28b182d6ef639e4ff322787af3478",
+        "size": 494
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/jeremy-manning.yaml",
+        "pid": "xyzrins:persons/jeremy-manning",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "5c722106b058b63d9c3220b32a178ab7c45223fe90f36677a4b0228a870308d2",
+        "size": 554
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/joey-hess.yaml",
+        "pid": "xyzrins:persons/joey-hess",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "98b284e92db2d332cba38afa2a351b0ea37ded8b907308f017d3b84f2b5586b1",
+        "size": 544
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/john-lee.yaml",
+        "pid": "xyzrins:persons/john-lee",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "1eb65744bc3eded44dff6dd1a8087d5dc49568641c1931740ce04934db620cdd",
+        "size": 866
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/john-wodder.yaml",
+        "pid": "xyzrins:persons/john-wodder",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "97ed136d7d78b574a9b40882a07f89399a87866879bdd314e1afdd268949776c",
+        "size": 529
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/kyle-meyer.yaml",
+        "pid": "xyzrins:persons/kyle-meyer",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "a498099baf04fe188423404a826aff47875041b6958636884cd0c5c85deb1641",
+        "size": 475
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/luke-chang.yaml",
+        "pid": "xyzrins:persons/luke-chang",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "0854f041d253cf2092123ced8edc663eac878e9fef4ef4e0f995b963560d9ad2",
+        "size": 641
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/matteo-visconti-di-oleggio-castello.yaml",
+        "pid": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "5134b44ac033b30ccbb5910e7da194e38d1badbbe2a33fed89f70c7ff14be87b",
+        "size": 634
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/matthew-brett.yaml",
+        "pid": "xyzrins:persons/matthew-brett",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "0cf39d9f76806318c593c566d8070b54625390a2390f6806066d5672e13043d6",
+        "size": 581
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/matthijs-van-der-meer.yaml",
+        "pid": "xyzrins:persons/matthijs-van-der-meer",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "5c1c9025d120b8a8cb9257ff6011c19db069621f3e2f73401c4bc7a9ab8e0211",
+        "size": 592
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/michael-hanke.yaml",
+        "pid": "xyzrins:persons/michael-hanke",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "3c4ed36906dc35e040cddd3dec30880e5d311732584c1d8a1e8951bef07c536a",
+        "size": 459
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/nikolaas-oosterhof.yaml",
+        "pid": "xyzrins:persons/nikolaas-oosterhof",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "1ea6b72aef73cb8d58315120f56e1519731520f9809419aecaa2d3a1772a9728",
+        "size": 488
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/oliver-contier.yaml",
+        "pid": "xyzrins:persons/oliver-contier",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "d38200af148d0da1951c267355606f625aaf82c856b651223d452572fb951e97",
+        "size": 518
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/samuel-nastase.yaml",
+        "pid": "xyzrins:persons/samuel-nastase",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "515ff5ba65a5e860cd732ec8a994252a390b1cf4f3ee4713a60a0ed26b4a6d3f",
+        "size": 555
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/satrajit-ghosh.yaml",
+        "pid": "xyzrins:persons/satrajit-ghosh",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "ba4a247365dc08db871a23a3d5ffbf57d1174292dab53165d784d2fb702cce66",
+        "size": 397
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/soichi-hayashi.yaml",
+        "pid": "xyzrins:persons/soichi-hayashi",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "d94ca0f56826307ff359c2fe0d5ec5c5df72122d1413dfd332da74e3f12ce74b",
+        "size": 507
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/tor-wager.yaml",
+        "pid": "xyzrins:persons/tor-wager",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "c4a47b0b39ba399631f0bcd1b593626159b80e60abb44eab1dd114ea31b113e0",
+        "size": 623
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/vadim-melnik.yaml",
+        "pid": "xyzrins:persons/vadim-melnik",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "1ab9e9e676ff6870615f03eedc58835c43939b348cf20ce1a444163d9bff463f",
+        "size": 528
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/vanessa-sochat.yaml",
+        "pid": "xyzrins:persons/vanessa-sochat",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "9d838619f208b2a9bb8bb0a78fd4106aa593ca2ec0365b9fc207f5ec4ebb0881",
+        "size": 387
+      },
+      {
+        "class": "XYZPerson",
+        "path": "metadata/records/XYZPerson/yaroslav-halchenko.yaml",
+        "pid": "xyzrins:persons/yaroslav-halchenko",
+        "schema_type": "xyzri:XYZPerson",
+        "sha256": "912bde9a8000d3b65395580a8c8fc426089975a53ba0f1f575669f6300bf88a0",
+        "size": 927
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/bids.yaml",
+        "pid": "xyzrins:projects/bids",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "4bbb2d30059c02eb182b061c782e03683f357884568f725ecefdade2e7648248",
+        "size": 592
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/con-duct.yaml",
+        "pid": "xyzrins:projects/con-duct",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "59ab3d0573639db0ceeeccbb6f8a1562cf1c458a6f0b8ba436b4de49fdec6b98",
+        "size": 485
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/con-tinuous.yaml",
+        "pid": "xyzrins:projects/con-tinuous",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "36d1e0612d9fe68559b83c30613c7d90c217f0bc909e49333cea706d08064bda",
+        "size": 510
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/dandi.yaml",
+        "pid": "xyzrins:projects/dandi",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "b5827114296876cfd6687e68610e1eda241589c6279b0fb06ba05e62a8c07d8a",
+        "size": 834
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/datalad-registry.yaml",
+        "pid": "xyzrins:projects/datalad-registry",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "d32732d0af99fc294ebb79fefabc019276207e074a1bf2a817f45ad52f8d1035",
+        "size": 698
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/datalad.yaml",
+        "pid": "xyzrins:projects/datalad",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "02b6dd283c85604e0fe0191c7d32c4c4f4118988a9ec44ead97120c55ba613cc",
+        "size": 1101
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/distribits.yaml",
+        "pid": "xyzrins:projects/distribits",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "7d9b6a67506045fa88e67d91dc35f1dfbe6331c7474c518a41e2526bf881d14f",
+        "size": 387
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/duecredit.yaml",
+        "pid": "xyzrins:projects/duecredit",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "e5a88a8e79d870d3aa93bd3bd042a92bdd42f5a9bf34ca4578893f5f49549358",
+        "size": 808
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/ember.yaml",
+        "pid": "xyzrins:projects/ember",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "bb518ed6ef850053052ddef7ba762a451a00d58cf7097307e13086421bdf9a10",
+        "size": 665
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/heudiconv.yaml",
+        "pid": "xyzrins:projects/heudiconv",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "c4f15549097087265ecc363385516d174fa3ef1f45c476df9e060bf746bac976",
+        "size": 886
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/hypertools.yaml",
+        "pid": "xyzrins:projects/hypertools",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "aa042b2c8e942e31856ad097d8ad58808230e59aa519686fc54aa323f5c00c01",
+        "size": 642
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/neurodebian.yaml",
+        "pid": "xyzrins:projects/neurodebian",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "2da5042358bb84f978628871e26f4f8410e77637cf4f6b1ec8a09f059d286a97",
+        "size": 771
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/nwb.yaml",
+        "pid": "xyzrins:projects/nwb",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "3111edd522c01e5881aebb945f55e490e2c7979f84c19dafbe002f67432ebb37",
+        "size": 448
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/open-brain-consent.yaml",
+        "pid": "xyzrins:projects/open-brain-consent",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "8a9fe7562801e35b8298d341ce4cca83521e39551f1b2a596113508fc6e03b00",
+        "size": 855
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/openneuro.yaml",
+        "pid": "xyzrins:projects/openneuro",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "bb06f0cd3fd5b8645451fda9a56aae215926d6006dce9d0600ecf4626fdccfb0",
+        "size": 620
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/pymvpa.yaml",
+        "pid": "xyzrins:projects/pymvpa",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "2e41faa0e3e111940b0bc4f343b90e5cd4b9c5cd1e825ed46a73603a0fabb968",
+        "size": 793
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/pyout.yaml",
+        "pid": "xyzrins:projects/pyout",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "8db03dc6f1436d395094c087a32f07d6a56421a485e4e75349cfc02c176caaf3",
+        "size": 383
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/quail.yaml",
+        "pid": "xyzrins:projects/quail",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "b2eb3deb5223b3938ee47059b2833ed25f46e692d6e93ad7f523f426aa3f0261",
+        "size": 646
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/reproman.yaml",
+        "pid": "xyzrins:projects/reproman",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "b3b822647be65feafa4f40d8a2d05639eee2c74a9a0e36fdfcdc4ef9d7512252",
+        "size": 800
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/repronim-reproducible-basics.yaml",
+        "pid": "xyzrins:projects/repronim-reproducible-basics",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "cab7217ed71fe7d572d4055abe9d7cb9315c4d07e8b5549cb6725b78f925bd48",
+        "size": 680
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/singularityhub-afterlife.yaml",
+        "pid": "xyzrins:projects/singularityhub-afterlife",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "a7cd39c5e5b8813d517e2a44e12b88128814078210ba7640fb37e27729e5d0ab",
+        "size": 558
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/site-root.yaml",
+        "pid": "xyzrins:.",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "72bb9e0aa1451312edd9fd0fd3ce4d1cd136648cba109a6c7f526156235099a9",
+        "size": 4176
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/supereeg.yaml",
+        "pid": "xyzrins:projects/supereeg",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "6ceed107c9064bb84e634635f08d718e25525fa8d7ec75ec2ec35120b866e046",
+        "size": 643
+      },
+      {
+        "class": "XYZProject",
+        "path": "metadata/records/XYZProject/yoda.yaml",
+        "pid": "xyzrins:projects/yoda",
+        "schema_type": "xyzri:XYZProject",
+        "sha256": "bd7d405db8324dd124dc456c378ef6a2d9a5897f6fdfca892e2fe0905e436142",
+        "size": 998
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/datalad-joss-2021.yaml",
+        "pid": "xyzrins:publications/datalad-joss-2021",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6e72cbdd80ae544d65a02397c3a4d3023b14be9c4f5dd6154895b44a3424c7df",
+        "size": 2774
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1002-brb3-2695.yaml",
+        "pid": "xyzrins:publications/doi-10-1002-brb3-2695",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "e548fa92a16e19d85415ebad53b4383b9ba3dd1b25b3b49d59c23759840a380f",
+        "size": 1054
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1002-hbm-25351.yaml",
+        "pid": "xyzrins:publications/doi-10-1002-hbm-25351",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "1178a8c6fbc8bd2c614c0eaa322f5ce131003e4d0ad67af2d69978cee7798249",
+        "size": 1035
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1007-s00418-023-02209-1.yaml",
+        "pid": "xyzrins:publications/doi-10-1007-s00418-023-02209-1",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "158d2ad7ece604a1d54afe715d449b07c9a74f25073e746056229d6f2500822b",
+        "size": 901
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1007-s00429-007-0160-2.yaml",
+        "pid": "xyzrins:publications/doi-10-1007-s00429-007-0160-2",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "fcb7f243c6ba928b6bf7d48d6b62b3f98663c26b3144336d995ce434fb56b4e7",
+        "size": 1929
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1007-s12021-008-9041-y.yaml",
+        "pid": "xyzrins:publications/doi-10-1007-s12021-008-9041-y",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "81556a95381711a6893cc3fc9db3b7544ecbdbad8023a6e717d6dec562a19f58",
+        "size": 963
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-biopsych-2021-02-385.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-biopsych-2021-02-385",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "b5af145cb307224e0b9883acdea69015761fa3ee9368685a7af219f9e6714a93",
+        "size": 1182
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-concog-2013-05-002.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-concog-2013-05-002",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "1c2c1bf6ba843f978712214d6c25327c5cbe01d34188cc86d89a0f6c40d536a8",
+        "size": 1797
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-mex-2021-101595.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-mex-2021-101595",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6ed4440ace2f3bcfbede1742d385074b69d8f936521afcf6e4bcce3bd619f34f",
+        "size": 905
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-mri-2007-03-013.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-mri-2007-03-013",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "d7e8042f9ef5cda3e35e7b6dfac4407ff051992c8222ca79e11de7e9f97f260e",
+        "size": 2042
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-neuroimage-2009-08-065.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-neuroimage-2009-08-065",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "9b33fd5e066475f181140c45ae17f62caaf2ba96077efb4daf9bb6614f282bb0",
+        "size": 2111
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-neuroimage-2013-04-019.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-neuroimage-2013-04-019",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "282b36dcc2849dbfabec24abb29b9dadbca2ee4d60fd75d317327da4dcb24efa",
+        "size": 2295
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-neuroimage-2022-119623.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-neuroimage-2022-119623",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "ac31d389733416df570eefb75c5268c59cd8e0bf9223f702014e4b586a1ebf9b",
+        "size": 1287
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-neuron-2011-08-026.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-neuron-2011-08-026",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "3674440589bbee3c81dd68394173e8a3f62e8f37df2083b1e85cee43107315f9",
+        "size": 1075
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-neuron-2016-10-033.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-neuron-2016-10-033",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "10789a2bce776f29a5a0705e2b186fb477e53c65bf8ec9f987b83d040a2ddb16",
+        "size": 934
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1016-j-neuron-2021-04-001.yaml",
+        "pid": "xyzrins:publications/doi-10-1016-j-neuron-2021-04-001",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "125688aca8f6a1bbc235977ff045ad0db2cae02fa4b23dbfbb5e0bc5fd6c04db",
+        "size": 1531
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-nn-4550.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-nn-4550",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "e4a4498c048ba9ee6371e4a334f8fe9cbcf211c1e9de466010e503e1e51faa36",
+        "size": 1024
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41398-022-02211-6.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41398-022-02211-6",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f690cbfe3126c11c737f4ad8ab12f4ec95297d27ce7b0c61d33d724a6365c433",
+        "size": 889
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41562-023-01647-0.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41562-023-01647-0",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "8abb6c1f831f3b2a2e6cd399ad87678ccffd31ecb7c5a27987b161f607ef39a2",
+        "size": 935
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41592-022-01681-2.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41592-022-01681-2",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "baa114a7f35edb5cdcf160727240aa7970c7dc0a1676d070668ca5b156cc1a53",
+        "size": 2269
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41592-023-02145-x.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41592-023-02145-x",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "62ea588e2c72425481152246726db5ee16413b6049a9738264c7541306321680",
+        "size": 1190
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41597-021-01033-3.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41597-021-01033-3",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f0b8b4ace3adf8bfe5ae84d63c5bb8541809e6a5a0418ff323d32e013655caa9",
+        "size": 2076
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41597-023-02614-0.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41597-023-02614-0",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f0a189ff75905767ebf9870a16520c9ea9b6bae8e7c9c79277a9fc0d1faf4abf",
+        "size": 2420
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41597-025-05154-x.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41597-025-05154-x",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6cb70eb67ad8bd4f4556d76c2368f32be2b776748abe138c2476e63a5e56233d",
+        "size": 1079
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41597-025-05503-w.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41597-025-05503-w",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "c89a972de27d9eaffc4d571d53a3e93c9733aa1a4d7bb932fd9a62c141d5da43",
+        "size": 956
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41597-025-05543-2.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41597-025-05543-2",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4491a3fa4e103e48c81168fc2825bff1af7e8322bea8e584db8668d84ffa9796",
+        "size": 1748
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41598-017-12559-1.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41598-017-12559-1",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "76d894147c4da50e5b898f39123223a9823a5c1d398efb388fbecbdb8da3f4ab",
+        "size": 1070
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-s41598-021-87069-2.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-s41598-021-87069-2",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "d6b5125dbbef9f33684cb30164f38f4993d77a59534b158974a19e3ce0aef03d",
+        "size": 889
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1038-sdata-2016-44.yaml",
+        "pid": "xyzrins:publications/doi-10-1038-sdata-2016-44",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4238d1a849896250b88f56c44157231b0be2643c1eee64cd15efa4961571453f",
+        "size": 2765
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1093-cercor-bhw068.yaml",
+        "pid": "xyzrins:publications/doi-10-1093-cercor-bhw068",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "66b74843f4081cdd4a67e0650a0a60a3a2bfcfb9d6bfe61036f5c52ddd88f7b9",
+        "size": 1016
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-034561.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-034561",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "c56a8aed5613b2976defb8753ecbe65b24ee7fa40bc1ff1515e5a20a051d7960",
+        "size": 1243
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-045104.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-045104",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "b4df8c45f873c666e61013c58bf8daf73c3c14ad2b6ead108e08d95ae0e07d9f",
+        "size": 973
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-045252.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-045252",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "89fa11457d7744115cc9161e7109334c445807901c5e29bf8131eae5cd632a5d",
+        "size": 1294
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-138297.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-138297",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "56474146cf4d16e6db0a182aa55abe41d77832a62a5358d5d020063716b99927",
+        "size": 1057
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2020-10-19-343129.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2020-10-19-343129",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "9e1c97857a3ccd97157114eadfae72e9e1da9cc774e4552fb7280bdf7aaa6590",
+        "size": 2994
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2020-12-23-424091.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2020-12-23-424091",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "a2892f49418cd8982ccfa96602bd9514ad134416e2da33e08355f2be08ebe7e1",
+        "size": 886
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2021-02-10-430678.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2021-02-10-430678",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f277bccdf4ecfd599e4a19e1d5817c8eb9aa8893016d7fb132dc6c56c95016f4",
+        "size": 1044
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2021-02-17-21251922.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2021-02-17-21251922",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "ca0a0d05fee2258e69fb40e19b6557a7c643453718aee7bf0b18a656f18a8517",
+        "size": 950
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2021-02-25-21252472.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2021-02-25-21252472",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "2fe98d1a00431e1df902a36de12becea92b4731231a7f7d758a036e487aae429",
+        "size": 3798
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2022-05-15-492022.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2022-05-15-492022",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "e6a1a33aa2ede8e046aca0b45ae141ef3508d936cea7b84cbef03d75a88964e5",
+        "size": 1075
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2023-02-17-528834.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2023-02-17-528834",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "165f7ec53bfd4fe2e0486adc165d23ba829b63387b9fc7dfbc8824703d0668de",
+        "size": 898
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2024-06-21-599974.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2024-06-21-599974",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "84a785230c6c4f39648ea87cdb8c2a97f38c99964dc7e32216565db4b00516de",
+        "size": 913
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-2024-11-26-624178.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-2024-11-26-624178",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6f12a17ac19a8ea3dcc9b8e6a6c2951ed2d364ae76270e7d8aae6ecfafe753f1",
+        "size": 1047
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1101-694364.yaml",
+        "pid": "xyzrins:publications/doi-10-1101-694364",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "46fb232aef558cfe0ed8c079d12b043663cd9d462f650a9f0025f6d8717e2a27",
+        "size": 2168
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1109-prni-2016-7552355.yaml",
+        "pid": "xyzrins:publications/doi-10-1109-prni-2016-7552355",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "c5cb60b44a80407a7d11aa3b1072c18212491ce914a289717232f30cecd4181a",
+        "size": 897
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1111-j-1467-9280-2009-02460-x.yaml",
+        "pid": "xyzrins:publications/doi-10-1111-j-1467-9280-2009-02460-x",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "aab530da5c4c81b26c47839adb277102831e7f1a18622ca225768e6e644c6cd1",
+        "size": 2063
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1117-12-360283.yaml",
+        "pid": "xyzrins:publications/doi-10-1117-12-360283",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4282c2090cff252d1dc444713dc2f1723060963b71af25dda9d6568405c74a0c",
+        "size": 782
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1117-12-388446.yaml",
+        "pid": "xyzrins:publications/doi-10-1117-12-388446",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "8f3744fd85cb1d8e95d801493cc7279548eb7ad055d7fdab9b22de37bc9ffbec",
+        "size": 809
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1145-3701716-3715483.yaml",
+        "pid": "xyzrins:publications/doi-10-1145-3701716-3715483",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6d334b74c585437b8a706b5296e771215a8ce57b1b87cd30d466187e4d4bfd5e",
+        "size": 1201
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1162-imag-a-00032.yaml",
+        "pid": "xyzrins:publications/doi-10-1162-imag-a-00032",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "a3c1eab65d8aed025b1588513e7a181521a7c8310f0891428fb15ba3a5960c17",
+        "size": 1114
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1162-imag-a-00074.yaml",
+        "pid": "xyzrins:publications/doi-10-1162-imag-a-00074",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "3819453a43186550de7d4aa9785ca918f85b275623c15706daf4177536934d48",
+        "size": 3341
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1162-imag-a-00103.yaml",
+        "pid": "xyzrins:publications/doi-10-1162-imag-a-00103",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "971a69612881f02e377d95b53b20d94bb1355ed7284f7966976b0875a8432ec9",
+        "size": 1409
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1162-jocn-a-00733.yaml",
+        "pid": "xyzrins:publications/doi-10-1162-jocn-a-00733",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "0d703fd7effd1f04a639a21f0f6848548132eea01bc7a7ddcca7a67c204529d6",
+        "size": 931
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1162-neco-2007-09-06-340.yaml",
+        "pid": "xyzrins:publications/doi-10-1162-neco-2007-09-06-340",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "ef20430f05b9e92de375adbd88253a196026b85e9fb4118eafefc8f58bd43666",
+        "size": 925
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1186-s13742-015-0072-7.yaml",
+        "pid": "xyzrins:publications/doi-10-1186-s13742-015-0072-7",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6fae3e2716aae3c3c6f4b114bd9b8e65ae3dff26f872904db140f11165ce4c79",
+        "size": 861
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-12688-f1000research-10783-2.yaml",
+        "pid": "xyzrins:publications/doi-10-12688-f1000research-10783-2",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "a9418865fe08955e9e1ab5f7fcb8eb8d16ba021370c1e97c3602d79410152a73",
+        "size": 1984
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-12688-f1000research-6229-1.yaml",
+        "pid": "xyzrins:publications/doi-10-12688-f1000research-6229-1",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "8fc62268e5829d6a9a884f0421cd0a82d736780270591247425253a61d4b0705",
+        "size": 895
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1371-journal-pbio-3002133.yaml",
+        "pid": "xyzrins:publications/doi-10-1371-journal-pbio-3002133",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "b9c52065b7df47867e65e6223dcf8259c5b52f5d21f3cc725ccedb9205d5c00f",
+        "size": 2479
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1371-journal-pone-0066620.yaml",
+        "pid": "xyzrins:publications/doi-10-1371-journal-pone-0066620",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "df6eb9dd53be22d8a4597a88596cc2b6c2f0ee0cde65e0d019b5c7e118f41142",
+        "size": 869
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1515-nf-2020-0037.yaml",
+        "pid": "xyzrins:publications/doi-10-1515-nf-2020-0037",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6715c021c89605fca575c628e9bc6501e112c82beda66c1479b08fa0b0d5a4c9",
+        "size": 2771
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1523-jneurosci-3395-15-2016.yaml",
+        "pid": "xyzrins:publications/doi-10-1523-jneurosci-3395-15-2016",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "0f51dfcd37e2c63b1c9712b17ca8d6b5f69c0ea37be275af6a8047ce0c29a148",
+        "size": 1376
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-1523-jneurosci-5547-11-2012.yaml",
+        "pid": "xyzrins:publications/doi-10-1523-jneurosci-5547-11-2012",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "9de79a405280ae899e7b4fcdd249a8f5a7c0c3e525c9733ecb7ed196ddebb18a",
+        "size": 1044
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-21105-joss-01294.yaml",
+        "pid": "xyzrins:publications/doi-10-21105-joss-01294",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f3c558dfab6a5b06213b41d4808768253c186b36bd0900d36d7882f0f4a744d5",
+        "size": 1403
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-21105-joss-01525.yaml",
+        "pid": "xyzrins:publications/doi-10-21105-joss-01525",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "0571dc152f3929a160ecb68ed1d8372f1fc5f566aff6f1ca9f6bbadf4864902b",
+        "size": 1048
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-21105-joss-05839.yaml",
+        "pid": "xyzrins:publications/doi-10-21105-joss-05839",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "8cf1d5db608f9db6fb783db963faf51023b717a30589bd225cc8e40a223a483c",
+        "size": 2142
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-2417-1200909-1683.yaml",
+        "pid": "xyzrins:publications/doi-10-2417-1200909-1683",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "597af0e1051057eef015779d958ad62e2bf0c9a2af046eb9e72d6e1a4a88a8af",
+        "size": 772
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-31219-osf-io-pu5vb.yaml",
+        "pid": "xyzrins:publications/doi-10-31219-osf-io-pu5vb",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "fac98c731d714b89d803c01b4acdb38ecef74f8d292910c1e9fbaf1f025dad61",
+        "size": 1057
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-31234-osf-io-f6mnp.yaml",
+        "pid": "xyzrins:publications/doi-10-31234-osf-io-f6mnp",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "5e88ab788696f23e2dddf88ea42429fb711f75614d9d2bc140c4bb883819d7ac",
+        "size": 737
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fnhum-2022-749767.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fnhum-2022-749767",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4eda630ad540c8e08c428dc25cbfcea0b7bd64e81a4b502790da39c8778f1069",
+        "size": 1111
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fninf-2011-00008.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fninf-2011-00008",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "6029f369ab74e656c3536248cf80a94e0fb556444ddd560b2d0e910c8f2345ed",
+        "size": 913
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fninf-2011-00013.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fninf-2011-00013",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "d97bc0ce8f9ffb371a369aef5481bfbfc5c536398bb2b9b23df54ddfe8ff5563",
+        "size": 3168
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fninf-2012-00009.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fninf-2012-00009",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "d161c4db1b69979d69f3a8685862341352f8989f29f06759d944b6cda23f76cc",
+        "size": 1148
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fninf-2012-00022.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fninf-2012-00022",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "afd1e550b89a11eff9b859bd391ab18d043a023fd2d08773d46d0863254f7df9",
+        "size": 1003
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fninf-2024-1376022.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fninf-2024-1376022",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "77e457f57fac0ae3279c876dafa0ff75a96480a4b0881ef81f363000954561c1",
+        "size": 2832
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fnins-2022-871228.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fnins-2022-871228",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "50507bd5434a8b15e9b8b071ab1426ca8a1802e661957abce406b492d7eaf6a3",
+        "size": 2203
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-fnins-2023-1233416.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-fnins-2023-1233416",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f8dbd7937e595571975c1ccbb265ba57505c2b4a404db2fd5c7af4e11ee00a57",
+        "size": 2431
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-neuro-01-007-2010.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-neuro-01-007-2010",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "43f02faef446aff6d9470c65214fd9e81aefb3105b40c2f52d02be686c3dbf56",
+        "size": 961
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-3389-neuro-11-003-2009.yaml",
+        "pid": "xyzrins:publications/doi-10-3389-neuro-11-003-2009",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4979be15b8294b1672fde5990ce378ead3f1eecc7f5bf4e87d995630b9582994",
+        "size": 1002
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-48550-arxiv-2309-05768.yaml",
+        "pid": "xyzrins:publications/doi-10-48550-arxiv-2309-05768",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "d970bab2725a3c4aad22939155777434d879083fecac04afd4a6db39daa20ed9",
+        "size": 2051
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-48550-arxiv-2401-00077.yaml",
+        "pid": "xyzrins:publications/doi-10-48550-arxiv-2401-00077",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "1de27f924748f0727cf1d82de1486940721a4c52d875bf251b278377b212988f",
+        "size": 2630
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-48550-arxiv-2504-07824.yaml",
+        "pid": "xyzrins:publications/doi-10-48550-arxiv-2504-07824",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f919733149e65baa59951c826d84a0a50366bcb8071e18bd2ae0ec07a29c7205",
+        "size": 922
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-5281-zenodo-3720628.yaml",
+        "pid": "xyzrins:publications/doi-10-5281-zenodo-3720628",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "133c41f1a75a56853e559ded6c72fbdeff1a522c6d2eb50a20c9d60304415a44",
+        "size": 1250
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-5281-zenodo-8253053.yaml",
+        "pid": "xyzrins:publications/doi-10-5281-zenodo-8253053",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "dcce1ab369b139b9ac8b0e8da11a611bb54c8962e4161425c57a730433c60184",
+        "size": 871
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-64898-2026-04-30-721944.yaml",
+        "pid": "xyzrins:publications/doi-10-64898-2026-04-30-721944",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "deceb7153406dff0cd903d87bc9884c48b8c0f48aeaed2ca0ee263342fbd39d0",
+        "size": 1694
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/doi-10-7490-f1000research-1116363-1.yaml",
+        "pid": "xyzrins:publications/doi-10-7490-f1000research-1116363-1",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "aaca7254c69e22fd7cd3db24a3bbf8a03fa4c92cc6d7fd1890b088493a2005b4",
+        "size": 1151
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-3zvyrxu7.yaml",
+        "pid": "xyzrins:publications/zotero-3zvyrxu7",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "2be30a9714d4b699bec49b832a56fe625dfc337cb6f4022ce8ba5a60a962554f",
+        "size": 735
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-4f4fcvy7.yaml",
+        "pid": "xyzrins:publications/zotero-4f4fcvy7",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "e13772c86586a1ef07faf1aeca180b3fbc53909573c308bdc0cc1600b462cb44",
+        "size": 760
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-4j5d6v7h.yaml",
+        "pid": "xyzrins:publications/zotero-4j5d6v7h",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "b8f6531683eb081186581b67ac30803347252c7b622c8166f31e9c190e08a0c7",
+        "size": 669
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-5t9a4qcy.yaml",
+        "pid": "xyzrins:publications/zotero-5t9a4qcy",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "fd0dc6fcdd4761fb34e9db591e314332ea20a22f3d8d75b033d8359bc0bb90d2",
+        "size": 673
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-5z7a6krc.yaml",
+        "pid": "xyzrins:publications/zotero-5z7a6krc",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "236343bd6dd0f6e66f3990f9f09bc9f6ed0dc151e91eb3a9f20df77f30095980",
+        "size": 719
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-6pq9qz2j.yaml",
+        "pid": "xyzrins:publications/zotero-6pq9qz2j",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "e8f6370b60ff93b2beb0fa448b0a73c72d2afd12a26ca660e5a85b0344dc465e",
+        "size": 640
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-7ahrxd2x.yaml",
+        "pid": "xyzrins:publications/zotero-7ahrxd2x",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "10926c2f0c9d9b478aa9522463254879abc6c3c32c109a16de6c29b15555daed",
+        "size": 943
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-7u85zj95.yaml",
+        "pid": "xyzrins:publications/zotero-7u85zj95",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "d4aec271983d0eda86b24592ddf94b712a02c15fad435ee0117614ad060f3498",
+        "size": 890
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-82iu29zk.yaml",
+        "pid": "xyzrins:publications/zotero-82iu29zk",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "b803368e341b472504f6dbe77ee415d92eb55398598364a79b9491e25dc85931",
+        "size": 759
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-99yqf7jr.yaml",
+        "pid": "xyzrins:publications/zotero-99yqf7jr",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4335840b7ecf1bf3501668c48d0abfdeaa721eddcd81fe3cc1df9c79e9dfe734",
+        "size": 655
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-abze6dsn.yaml",
+        "pid": "xyzrins:publications/zotero-abze6dsn",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "517dff2bce35c4e1e999a72f6cb7d8b41d458d72f0c097c504c7afceb3b789b3",
+        "size": 911
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-c62b4pex.yaml",
+        "pid": "xyzrins:publications/zotero-c62b4pex",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "9e24c70f1050357809ed4a0f542b4d4811e879eb5e36f4d14ee7451403c467d1",
+        "size": 890
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-d46pfxj5.yaml",
+        "pid": "xyzrins:publications/zotero-d46pfxj5",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "229b2e0026a44e241b3c2e2fdec0dbcb0ebfafb030552f80a356345e4359a568",
+        "size": 1322
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-dgvnva4t.yaml",
+        "pid": "xyzrins:publications/zotero-dgvnva4t",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "95493cba2dc0377928cf73de5833ced879940536d544f09d3c9140cc1604c39e",
+        "size": 950
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-e4ytlfl4.yaml",
+        "pid": "xyzrins:publications/zotero-e4ytlfl4",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "a4a164b1ba3e95c71ad3000cba39543f4f5d17a8e71e5643b5a9e8428624ab24",
+        "size": 590
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-egbb5ta7.yaml",
+        "pid": "xyzrins:publications/zotero-egbb5ta7",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "eb7a9367cfabf51638d05c8957dd457ffe273f5ba16c1d0b665c45af0040757b",
+        "size": 655
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-ercq9db2.yaml",
+        "pid": "xyzrins:publications/zotero-ercq9db2",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "b883fa18eac2f5d723956da79013cd6354109f1798985b3636862cca7aca7fb9",
+        "size": 1936
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-fdb48tzj.yaml",
+        "pid": "xyzrins:publications/zotero-fdb48tzj",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "eeb5259ec0d6a6c133bb567cc677d01231d70c952f73d374bb567392d748e435",
+        "size": 864
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-hywv9d2a.yaml",
+        "pid": "xyzrins:publications/zotero-hywv9d2a",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "d8c2be2a4babee4d78b74a1f2c6e957ef9bdcdd19124ba0d448fa0ae7d334a88",
+        "size": 783
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-iw32d26f.yaml",
+        "pid": "xyzrins:publications/zotero-iw32d26f",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4e5703c4caaa4df1522c0d0c18acb4003f79fd09d1d26531188ec49a7b58ab30",
+        "size": 1147
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-k7pww352.yaml",
+        "pid": "xyzrins:publications/zotero-k7pww352",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "843464f8719f8385c9b251578729191feeda743959d5dfe085ea7e2f698eca87",
+        "size": 799
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-kp46b5su.yaml",
+        "pid": "xyzrins:publications/zotero-kp46b5su",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "a22953f15b5255182423f1b3ccc9303d66ac424fce86c88e2b991af47b0943e4",
+        "size": 2268
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-m5e9bt5h.yaml",
+        "pid": "xyzrins:publications/zotero-m5e9bt5h",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "412379eaabb23319009c06fd22d79c2a7b42e5c0344bc572042a5f7df97d4a34",
+        "size": 957
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-msjlptey.yaml",
+        "pid": "xyzrins:publications/zotero-msjlptey",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "58112b6a2a0411acd66b92e22361db7bf5c2f65a2528cadcdbcd11f2d049fa8a",
+        "size": 802
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-pj5u5btz.yaml",
+        "pid": "xyzrins:publications/zotero-pj5u5btz",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "14085478a80c28b7b647e30a402dc02ebbf0aeae5832c7e2d57e9ef229e9841c",
+        "size": 600
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-ppl6eufk.yaml",
+        "pid": "xyzrins:publications/zotero-ppl6eufk",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "70ceab68fe4bb49a86559b5f6b985be368cc3d479ae083becdb4479ca97418a7",
+        "size": 828
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-q6fwwrde.yaml",
+        "pid": "xyzrins:publications/zotero-q6fwwrde",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "1865ea0975546beef947cd6efab02bbd749904ac98350fa8b32711c1fc1c5811",
+        "size": 776
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-qhqktyyq.yaml",
+        "pid": "xyzrins:publications/zotero-qhqktyyq",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "c98cee23e9a296442db1b0356a1d325bd48a6ca0f694927b66ace3f7f70fd2b7",
+        "size": 730
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-qltpv7jm.yaml",
+        "pid": "xyzrins:publications/zotero-qltpv7jm",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "a4db06c254cade9a653f1bbb14e4f07599635dcadbfedfb8ad46f3609380b3e6",
+        "size": 736
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-qqagikdx.yaml",
+        "pid": "xyzrins:publications/zotero-qqagikdx",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "0dc1d5ac74f2b0b69f85d82509092b3367e034c73421d65ab2b0312f4decfd02",
+        "size": 917
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-sarh7hnt.yaml",
+        "pid": "xyzrins:publications/zotero-sarh7hnt",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "3f8a5b1239d5781fc9ef5c51cb9cc94b81e17fef6ddde8642619f9a58aa31060",
+        "size": 1047
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-sfqu8qby.yaml",
+        "pid": "xyzrins:publications/zotero-sfqu8qby",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "e4cb48cdf0a59465ef8f91cf0ae1148778ab8a30a8a830bdb86cf3b64573afbd",
+        "size": 729
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-stis8ce3.yaml",
+        "pid": "xyzrins:publications/zotero-stis8ce3",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f92b92d327f39e8c356988b09e60a17c155b543c37c03fabb8c3d70b72a95ec4",
+        "size": 1091
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-tarqrcj3.yaml",
+        "pid": "xyzrins:publications/zotero-tarqrcj3",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "f28edfa25fd3be2ab3edaa174f5ac6c5476a22403750ba92199089942c4529ad",
+        "size": 962
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-u6pyqf8i.yaml",
+        "pid": "xyzrins:publications/zotero-u6pyqf8i",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "267a4b6d78655fb8700036bd4b0f9869b33768dd680c8a74a12710c3e65ddef6",
+        "size": 771
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-v65l6j8x.yaml",
+        "pid": "xyzrins:publications/zotero-v65l6j8x",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "994b689592b97244e0a04eed63a9cadde2aced3efcbd1c2d7a14e337517be467",
+        "size": 653
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-wbwu53im.yaml",
+        "pid": "xyzrins:publications/zotero-wbwu53im",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "71e2b861087865a91e78c894a938a9d44b8c5ad6b9615979ee3893302b97a35e",
+        "size": 1032
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-y8uq85mh.yaml",
+        "pid": "xyzrins:publications/zotero-y8uq85mh",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "2f21de99c4ec4f4a90206545ce50461fc98b227041cb6317faf5a06a5e934d6d",
+        "size": 939
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-ycvipyy4.yaml",
+        "pid": "xyzrins:publications/zotero-ycvipyy4",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "64029528c99f3450fd491e6384cbcb5fc49d353f8548428d02db8ef600541144",
+        "size": 694
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-yq6vtmde.yaml",
+        "pid": "xyzrins:publications/zotero-yq6vtmde",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "a3d1759bd83a9e9bfd208b99c72b5660b74de21d78d7af1b054f6239f2476fb8",
+        "size": 856
+      },
+      {
+        "class": "XYZPublication",
+        "path": "metadata/records/XYZPublication/zotero-yzynt7j3.yaml",
+        "pid": "xyzrins:publications/zotero-yzynt7j3",
+        "schema_type": "xyzri:XYZPublication",
+        "sha256": "4220656eb024ab820bf525b3571fdbe01f74b3f52956777c713b83cc38f2d798",
+        "size": 948
+      },
+      {
+        "class": "XYZTopic",
+        "path": "metadata/records/XYZTopic/neuroimaging.yaml",
+        "pid": "xyzrins:topics/neuroimaging",
+        "schema_type": "xyzri:XYZTopic",
+        "sha256": "b9bd5511fb1e952e2e4cdf53f0bdba40492ec97417b83fb88dfa8cf157354789",
+        "size": 89
+      }
+    ]
+  },
+  "counts": {
+    "accepted_presentation_bytes": 115204,
+    "accepted_presentation_files": 64,
+    "accepted_site_presentation_bytes": 121201,
+    "accepted_site_presentation_files": 72,
+    "asset_declarations": 71,
+    "asset_declared_bytes": 57407085,
+    "asset_digest_hydration_contracts": 16,
+    "asset_git_payloads": 55,
+    "canonical_records": 186,
+    "editor_component_test_definitions": 8,
+    "editorial_files": 10,
+    "graph_edges": 467,
+    "graph_nodes": 186,
+    "parent_python_test_methods": 106,
+    "pinned_theme_bytes": 13535424,
+    "pinned_theme_files": 467,
+    "playwright_definitions": 5,
+    "playwright_project_executions": 9,
+    "projection_files": 189,
+    "projection_input_files": 11,
+    "projection_provenance_files": 1,
+    "projection_records": 199,
+    "provenance_ledgers": 7,
+    "reference_records": 13,
+    "rendered_record_pages": 185,
+    "static_editor_catalog_records": 186,
+    "zotero_test_methods": 42
+  },
+  "editorial": {
+    "files": [
+      {
+        "path": "editorial/about.md",
+        "sha256": "024264ae6398d354b5aba0ee0a23d970c1a865c879314aa1625f26b77a3c5d57",
+        "size": 2400
+      },
+      {
+        "path": "editorial/contact.md",
+        "sha256": "7ebd86986f3345633d90b09f47690c172e83362eef6c7cb260ca8fcf1ccf174f",
+        "size": 849
+      },
+      {
+        "path": "editorial/engage.md",
+        "sha256": "744405af7a7c1f290f2046fb433830a5716be35b0e97cfd56fc4f0d3bba12198",
+        "size": 3395
+      },
+      {
+        "path": "editorial/explore.md",
+        "sha256": "4364d1e0decb82fab506d3b01f94f4cdf03203282b00942f72c08cbec8e0fff8",
+        "size": 663
+      },
+      {
+        "path": "editorial/instruments/_index.md",
+        "sha256": "5f7d1438e688453822decf5d7e508b5ca6d6a6ef4ef40dd96ec961c4268f1d43",
+        "size": 226
+      },
+      {
+        "path": "editorial/persons/_index.md",
+        "sha256": "a0d82b880bffc14d0d32adf84d6b67b69a9255dd7753b73591315980d85a1fca",
+        "size": 343
+      },
+      {
+        "path": "editorial/projects/_index.md",
+        "sha256": "ac667f69cfdc80d7a1331cc1131fa58f2ca7c3c4c0706e358246bae73744fedc",
+        "size": 1657
+      },
+      {
+        "path": "editorial/publications/_index.md",
+        "sha256": "4355e82d8f93eef008b6071061290a34826b553193e7bcf83f2cc386bddb50ae",
+        "size": 327
+      },
+      {
+        "path": "editorial/support.md",
+        "sha256": "b4f15a235d6131c9611159246eea77b60dd7d5890c199a8137ff93146bbb5eac",
+        "size": 1032
+      },
+      {
+        "path": "editorial/whoweare.md",
+        "sha256": "8d856131547d24055255a409e80f1265db0b3564d13d853fb3c7b02175ab0c63",
+        "size": 2356
+      }
+    ]
+  },
+  "format_version": 1,
+  "identity": {
+    "notice_path": "site/TEST-SITE.md",
+    "production_site": false,
+    "project_pages_url": "https://con.github.io/test-orinoco-downstream-website/",
+    "test_site": true
+  },
+  "kind": "full-fidelity-consumer-contract",
+  "presentation_framework": {
+    "mount_precedence": "below site-owned overrides and generated projection",
+    "site_bytes": 121201,
+    "site_files": 72,
+    "site_manifest": "generated/manifests/framework-import.json",
+    "site_path": "site/framework",
+    "theme_bytes": 13535424,
+    "theme_files": 467,
+    "theme_manifest": "generated/manifests/theme-import.json",
+    "theme_path": "site/framework/themes/congo"
+  },
+  "projection_inputs": {
+    "active_contract": "site/projection.yaml",
+    "active_digest": "generated/projection/SHA256SUMS",
+    "accepted_site_commit": "26907c487efaa2c31bba9d02398aa201ab6f774b",
+    "graph_producer": "site/projection-tools/pool2graph.py",
+    "historical_digest": "generated/projection/provenance/milestone-3-SHA256SUMS",
+    "import_manifest": "generated/manifests/projection-input-import.json",
+    "selection_filter": null,
+    "templates": "site/projection-templates"
+  },
+  "projection": {
+    "files": [
+      {
+        "path": "generated/projection/.gitattributes",
+        "sha256": "cc501953fa82bbf52615bffe7346142de337311fbb87dc7b69df00c7bd510a39",
+        "size": 27
+      },
+      {
+        "path": "generated/projection/provenance/milestone-3-SHA256SUMS",
+        "sha256": "98122b46df4876f4b4123dc7e6ec880dbbec16f029df2adeba3ba7e362b4d8d2",
+        "size": 92341
+      },
+      {
+        "path": "generated/projection/content/_index.md",
+        "sha256": "67a8242e89a7a279d02292c62577193856c0e098a0be52f93aa1c64437621bb0",
+        "size": 3160
+      },
+      {
+        "path": "generated/projection/content/instruments/datalad/_index.md",
+        "sha256": "ee9196aa4ab43cb8e9a2dfa7b8ecaa07f1c227d99f49b8a3785317533b82f195",
+        "size": 373
+      },
+      {
+        "path": "generated/projection/content/persons/adina-wagner/_index.md",
+        "sha256": "05bb0fa62b55b7fce0073316d9bae822f3f63a8c8076d3bee98a03e2e943f7eb",
+        "size": 322
+      },
+      {
+        "path": "generated/projection/content/persons/austin-macdonald/_index.md",
+        "sha256": "a8314bbeb59bfb84c5a152ff9c8d48e6e061bdba0757d1aaa10d8245bfc0ea4d",
+        "size": 332
+      },
+      {
+        "path": "generated/projection/content/persons/benjamin-poldrack/_index.md",
+        "sha256": "a51ecf823b9752b33716653226e52e5cb81b7737c3edf49e76f05f54a3312dad",
+        "size": 300
+      },
+      {
+        "path": "generated/projection/content/persons/chris-cheng/_index.md",
+        "sha256": "040d84e49cc8dfe33ce900d24a8f8310fb7eb15a09ee1492455f0c33e2e0d24b",
+        "size": 321
+      },
+      {
+        "path": "generated/projection/content/persons/chris-markiewicz/_index.md",
+        "sha256": "882e0cf5bf3adc2e5ef61d22f238a18ad23a06bfe436740172b6696a39d4fe9f",
+        "size": 497
+      },
+      {
+        "path": "generated/projection/content/persons/cody-baker/_index.md",
+        "sha256": "649d880cb9354f102bc0efdc565b55e42711405d2f0b351fbcf3e6bdfe49adc6",
+        "size": 377
+      },
+      {
+        "path": "generated/projection/content/persons/david-kennedy/_index.md",
+        "sha256": "a46478d3eaa578d21187ff4f1c0b6544af70abec2943988003d87ef0198e8f58",
+        "size": 285
+      },
+      {
+        "path": "generated/projection/content/persons/franco-pestilli/_index.md",
+        "sha256": "3d645832efbede7412f28f6faba1f3ff43def8585743e63c57368581688ccb33",
+        "size": 315
+      },
+      {
+        "path": "generated/projection/content/persons/gergana-alteva/_index.md",
+        "sha256": "2b95dd0d1df3cc8e40808ebf7fd69a32a99aa11b2040d0894c2e0856cbb82983",
+        "size": 296
+      },
+      {
+        "path": "generated/projection/content/persons/horea-ioanas/_index.md",
+        "sha256": "70d41636bb8839cab706cd5a69aa890bb912cd2273f908e59a02f46afb6ad2be",
+        "size": 299
+      },
+      {
+        "path": "generated/projection/content/persons/isaac-to/_index.md",
+        "sha256": "8c1cff5085004e019c38b0d8cda43fe5b40c9097f56cb7ab91753b290335af81",
+        "size": 293
+      },
+      {
+        "path": "generated/projection/content/persons/james-haxby/_index.md",
+        "sha256": "b0ede3ed440dab0923a321f8ad59fd8ef3e2d8e2c5e4983defa3afec45d1907a",
+        "size": 409
+      },
+      {
+        "path": "generated/projection/content/persons/jason-gors/_index.md",
+        "sha256": "26898dd365e732bdf9a380081ce204553f15abeb9cdd7782bcc5d6b1dd900861",
+        "size": 236
+      },
+      {
+        "path": "generated/projection/content/persons/jean-baptiste-poline/_index.md",
+        "sha256": "6d66ee388bbb4734983ad41d8e08eb3836db95140d9e988c6b35642d45e19c3f",
+        "size": 265
+      },
+      {
+        "path": "generated/projection/content/persons/jeremy-manning/_index.md",
+        "sha256": "d5d27c4dba19c6bf6146e743fa6a8b807d14278239a9e020c98e40a6e7497620",
+        "size": 273
+      },
+      {
+        "path": "generated/projection/content/persons/joey-hess/_index.md",
+        "sha256": "034ba0e524489129d02c1484207f62943c840bffca4575b21dbf721b4e4c9a9d",
+        "size": 336
+      },
+      {
+        "path": "generated/projection/content/persons/john-lee/_index.md",
+        "sha256": "e651f3332c602802bbfe44491cd92a084241fce6fa95cd0848480818b0acdcd6",
+        "size": 661
+      },
+      {
+        "path": "generated/projection/content/persons/john-wodder/_index.md",
+        "sha256": "6d4a529f6aea5238c0abc731ab1bd225c244d4f693b8d56a07d7adcadcf9e817",
+        "size": 313
+      },
+      {
+        "path": "generated/projection/content/persons/kyle-meyer/_index.md",
+        "sha256": "67158329a71a1429002fd05800f35e54fd401de8e32f852dbecbd07e01763a32",
+        "size": 261
+      },
+      {
+        "path": "generated/projection/content/persons/luke-chang/_index.md",
+        "sha256": "77cd21089158b0abeae0115582f57f878a22eef42b7208de9f8d8c8fd79831b2",
+        "size": 419
+      },
+      {
+        "path": "generated/projection/content/persons/matteo-visconti-di-oleggio-castello/_index.md",
+        "sha256": "2627c325ac40e89791e0edf0cd3af179d9efe8f940ce08e3586514bd5c45a78f",
+        "size": 377
+      },
+      {
+        "path": "generated/projection/content/persons/matthew-brett/_index.md",
+        "sha256": "301f320a2b8801098f7d304f4c26b87c90f4531e35923b44ca2370cde03235ff",
+        "size": 351
+      },
+      {
+        "path": "generated/projection/content/persons/matthijs-van-der-meer/_index.md",
+        "sha256": "934e34596074467faaf46b0cba16957f54b0496aad23c8fb97494f4efaea807a",
+        "size": 348
+      },
+      {
+        "path": "generated/projection/content/persons/michael-hanke/_index.md",
+        "sha256": "7daa1c180230c7e217a2a514e711c9d168e997b80f98ade1bd1abc01dbed8792",
+        "size": 370
+      },
+      {
+        "path": "generated/projection/content/persons/nikolaas-oosterhof/_index.md",
+        "sha256": "19ce92055f63f1ff1eabd0927d83cd1f7dafd89721cae23f2dcda304e08d3b7e",
+        "size": 355
+      },
+      {
+        "path": "generated/projection/content/persons/oliver-contier/_index.md",
+        "sha256": "3762ed619757b14e5f8fa9c3b1946b5f38f33aa71b0007506908fcdb20c752b2",
+        "size": 288
+      },
+      {
+        "path": "generated/projection/content/persons/samuel-nastase/_index.md",
+        "sha256": "6ba7a14c094ad00ea22bfd8f5b8f1ede5141dc210d30e214cfba7562e75c1d23",
+        "size": 331
+      },
+      {
+        "path": "generated/projection/content/persons/satrajit-ghosh/_index.md",
+        "sha256": "124fc329e1c3b66b45e44a549abc2240e3700ec4bbba39cf3af55fc16fb6edd7",
+        "size": 295
+      },
+      {
+        "path": "generated/projection/content/persons/soichi-hayashi/_index.md",
+        "sha256": "1adddd5b85791bdf54b4d1893557b5d19f1fb5c26b498a5ab068e2499009c74a",
+        "size": 286
+      },
+      {
+        "path": "generated/projection/content/persons/tor-wager/_index.md",
+        "sha256": "b81b30b1f25541f8f900b56440cef1579eafac9df6fc544ea22c196de962c283",
+        "size": 369
+      },
+      {
+        "path": "generated/projection/content/persons/vadim-melnik/_index.md",
+        "sha256": "a0f1f9d4cb28242071fbf87f4c4d26e5d5b6421eff6f210ea955d9c359e6b088",
+        "size": 302
+      },
+      {
+        "path": "generated/projection/content/persons/vanessa-sochat/_index.md",
+        "sha256": "d70a6c4ed31606c8d048a6a5927844639eec5023e4e58cf68ff380c5b1ac53ae",
+        "size": 285
+      },
+      {
+        "path": "generated/projection/content/persons/yaroslav-halchenko/_index.md",
+        "sha256": "c7c838f27cb247a9b369b77ab3ed85ccddbb7f530b5219cadb9ae9482de7e1de",
+        "size": 518
+      },
+      {
+        "path": "generated/projection/content/projects/bids/_index.md",
+        "sha256": "2766c661ed63405a68dd4a538bbca6aecbb7be2a8600d3c1be5d32b6919b2cfb",
+        "size": 441
+      },
+      {
+        "path": "generated/projection/content/projects/con-duct/_index.md",
+        "sha256": "00008cac72fec83022dc18b0ce547ea1509e0204f5c79846557f9b92baa42c9a",
+        "size": 325
+      },
+      {
+        "path": "generated/projection/content/projects/con-tinuous/_index.md",
+        "sha256": "7d31e4cf3b5038d470a6e6af91491bae19d01b9187027904a0c04f39a9788393",
+        "size": 341
+      },
+      {
+        "path": "generated/projection/content/projects/dandi/_index.md",
+        "sha256": "76217353e284b87ca6a8dd67056000c36d555ca29bc1172fba35e7a74bfebe0e",
+        "size": 674
+      },
+      {
+        "path": "generated/projection/content/projects/datalad/_index.md",
+        "sha256": "3df1621055358117631f75ecf858b22a8130d43bc7faeaa530b71d2331353af9",
+        "size": 1050
+      },
+      {
+        "path": "generated/projection/content/projects/datalad-registry/_index.md",
+        "sha256": "92fc06d59d32301ed383fec36a87611e2da9cc28edcfc584ba413e20ed19eae8",
+        "size": 493
+      },
+      {
+        "path": "generated/projection/content/projects/distribits/_index.md",
+        "sha256": "ac0bdfb79ced8d65ffe5e833b0ae3158c8bc6312647050f9868a5dadcf776ce0",
+        "size": 220
+      },
+      {
+        "path": "generated/projection/content/projects/duecredit/_index.md",
+        "sha256": "75704f99f76af106a8f038f13592d2b67883042c4b47192de28d4b1c4fdf2cc3",
+        "size": 636
+      },
+      {
+        "path": "generated/projection/content/projects/ember/_index.md",
+        "sha256": "b177147c7e7501b1818fa2beee9184759e76199624f6f0e41b98bd471531afa8",
+        "size": 524
+      },
+      {
+        "path": "generated/projection/content/projects/heudiconv/_index.md",
+        "sha256": "74432f05c1367eaded056e980b352dc5c6114931e1ca76c943851e9b2a0bf766",
+        "size": 674
+      },
+      {
+        "path": "generated/projection/content/projects/hypertools/_index.md",
+        "sha256": "caf53b6d6e7a10d9f25cdabecb80bf24889d90b1a3ab9b7265d3a1b4eb8a24d3",
+        "size": 447
+      },
+      {
+        "path": "generated/projection/content/projects/neurodebian/_index.md",
+        "sha256": "399d5c8e96151969c47ed781551a23e1248ab2d574992049c8f51fcc7d9c53b3",
+        "size": 561
+      },
+      {
+        "path": "generated/projection/content/projects/nwb/_index.md",
+        "sha256": "bda229af96e4537576f78bd987ffbd0b4e5dc5c83db57824ea730faf6c364d57",
+        "size": 301
+      },
+      {
+        "path": "generated/projection/content/projects/open-brain-consent/_index.md",
+        "sha256": "7a6040321830f6902e652defa3cb4399859f2e9de30fa0fa041c5411a73177d0",
+        "size": 662
+      },
+      {
+        "path": "generated/projection/content/projects/openneuro/_index.md",
+        "sha256": "7ec93409a1421977e271b852556e36ed8bd095653249f85120d60b6bbb88a550",
+        "size": 474
+      },
+      {
+        "path": "generated/projection/content/projects/pymvpa/_index.md",
+        "sha256": "7f3912819911d7b7eed4c2fd3478d4a6511caea710ca73154b3cdf288b914dba",
+        "size": 598
+      },
+      {
+        "path": "generated/projection/content/projects/pyout/_index.md",
+        "sha256": "6fb818f26179da8264210a01996a220d588f8c8d0831c1313822bdad0258dc58",
+        "size": 224
+      },
+      {
+        "path": "generated/projection/content/projects/quail/_index.md",
+        "sha256": "bf564c2b485c20901ef7b5ac5fbc86529f09a29df93e8c7286833eae6d2ccd8d",
+        "size": 462
+      },
+      {
+        "path": "generated/projection/content/projects/reproman/_index.md",
+        "sha256": "635ab50665043ab9dcd12002a1a29bd5ccf752a8819926922c64bb41d052f1c7",
+        "size": 593
+      },
+      {
+        "path": "generated/projection/content/projects/repronim-reproducible-basics/_index.md",
+        "sha256": "30b3b8b1de89f40fc33727b2fecd0a629d07f6ecce3f6d03becc60c334fd54dc",
+        "size": 483
+      },
+      {
+        "path": "generated/projection/content/projects/singularityhub-afterlife/_index.md",
+        "sha256": "c92b17b2e763d40c79bcbad855ce8fcc6c1146a381cfdd7d2b704b9dc987c591",
+        "size": 357
+      },
+      {
+        "path": "generated/projection/content/projects/supereeg/_index.md",
+        "sha256": "053771be3e17d910682d030a5ffdcb267bbcc38bd9d58ed80e7bb0e00e32068b",
+        "size": 454
+      },
+      {
+        "path": "generated/projection/content/projects/yoda/_index.md",
+        "sha256": "2983dd5b0210ca99e9c2a0a29fbf20b1df4f14ec0f96e573ebc3daf821aa9a99",
+        "size": 747
+      },
+      {
+        "path": "generated/projection/content/publications/datalad-joss-2021/_index.md",
+        "sha256": "183b9955dbd01b949a22adf4f6c7950679540aeb67d9fa69a0e8bff4e55e2c18",
+        "size": 2215
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1002-brb3-2695/_index.md",
+        "sha256": "6df8689bf5d6977ad10b425d08cba942b49892ae02deeb91cea93c493785b838",
+        "size": 966
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1002-hbm-25351/_index.md",
+        "sha256": "e580e7a53f25064d46cec3b251ea4550c67daafeb25e5f1936d92695bd8e7de7",
+        "size": 1000
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1007-s00418-023-02209-1/_index.md",
+        "sha256": "df1aa1114c68029810c959b63f2aaed26dc6fb4fdecb180fcef26f1d3ec4cab6",
+        "size": 803
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1007-s00429-007-0160-2/_index.md",
+        "sha256": "70202a9e57f2714dd7dbf622773904ab801fd33a2b6fcaffa5e4eaf31ea5e109",
+        "size": 1793
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1007-s12021-008-9041-y/_index.md",
+        "sha256": "b380b846c3d6afe484a8d594f0ab6d2438e0b8dd2529209cd98ebdbaa98cfa89",
+        "size": 841
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-biopsych-2021-02-385/_index.md",
+        "sha256": "9ff74603ca389f02afb99f41643a1fe8bce4d8bc551439295e40c29e92247dee",
+        "size": 988
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-concog-2013-05-002/_index.md",
+        "sha256": "0b049281a43464cd89b6664d7f6fefb8660bac0e04aec17d9e52f11b9d99e2bd",
+        "size": 1629
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-mex-2021-101595/_index.md",
+        "sha256": "68ff318425688b8a058f96784e648415c8dcef5894d80b49bb7753a81c9acd5d",
+        "size": 723
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-mri-2007-03-013/_index.md",
+        "sha256": "d4d1f7d1c0eb25da640d466e8a8eb36eb1a0618d7142d9df64331c5b61c026c8",
+        "size": 1844
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-neuroimage-2009-08-065/_index.md",
+        "sha256": "1fb537a0622557af85f18ba12f910563d0f795561b6b09054d6f2eece54c3b0d",
+        "size": 1926
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-neuroimage-2013-04-019/_index.md",
+        "sha256": "abcd1f585d76a0a10bc4036b5bd287f0df2f39c503052466cef4adf597a11315",
+        "size": 2209
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-neuroimage-2022-119623/_index.md",
+        "sha256": "5905f7a07dfbe40d337fc10333c5f087c1caad0b25d6e96ba52e99d4b8ccc0ec",
+        "size": 982
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-neuron-2011-08-026/_index.md",
+        "sha256": "140681127e912bfa231035ff520374f3293011da91b185eeda5f04ad345888d4",
+        "size": 924
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-neuron-2016-10-033/_index.md",
+        "sha256": "5aa0ea3e392abcbe1b2c297bda8c2e3831ce40675828fd4ebe8b8008e6abe720",
+        "size": 777
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1016-j-neuron-2021-04-001/_index.md",
+        "sha256": "aec836936f062ed516816484f77b0ae2e47ebbff61ddd76a9b53a574124d5409",
+        "size": 1500
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-nn-4550/_index.md",
+        "sha256": "8ed7c9829770220fb422a4595da465f38f07406db48e32f29219b5ee8e7a5c16",
+        "size": 861
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41398-022-02211-6/_index.md",
+        "sha256": "31519ad7545b9822d0055ec96aa2593bb3a11eca33b472ccb0affa5f7a1f238a",
+        "size": 700
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41562-023-01647-0/_index.md",
+        "sha256": "0fcb2de21059aec91d0e6d0a6eb7f109244cd895cae71a131e1074ac4ee36e2b",
+        "size": 810
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41592-022-01681-2/_index.md",
+        "sha256": "edcd2007f442e12676cf279df14d6d6ea67272f61c8ca302a1f3e2d86a2bf319",
+        "size": 1878
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41592-023-02145-x/_index.md",
+        "sha256": "ec5518d17d492dca152b079be0b192507a6bf71dd53e7d2ff4244854bd995bfb",
+        "size": 961
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41597-021-01033-3/_index.md",
+        "sha256": "5ab08374f31f529bc813a04c6b6fd652619e8c45e3cebff59bfb50fe568fbdb8",
+        "size": 1780
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41597-023-02614-0/_index.md",
+        "sha256": "8920e469bdb14e68ba518db53d333b84fa682819d755278e97fa6926405eaef2",
+        "size": 2057
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41597-025-05154-x/_index.md",
+        "sha256": "56b1250658e6a53b37838428560bd9a12a98460765dbb7f07478bb564a244b6e",
+        "size": 850
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41597-025-05503-w/_index.md",
+        "sha256": "31c49357ff3569da140238da779cbfd48d42b93cdaadc0c74ae83891f3f73396",
+        "size": 723
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41597-025-05543-2/_index.md",
+        "sha256": "8fd68f9cb6645f51ebbf8aab7a77cfcdb50fd0d89ba0f9169c3893d0f169eb8e",
+        "size": 1425
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41598-017-12559-1/_index.md",
+        "sha256": "b40bd4e66169a5cbef92ccc2507e806862360f957c18fcce290fb35002b0451b",
+        "size": 1041
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-s41598-021-87069-2/_index.md",
+        "sha256": "2439a6324c161ce5ed790f1ccd19d6c890d0bf3e92463da36514a8fa950cd264",
+        "size": 703
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1038-sdata-2016-44/_index.md",
+        "sha256": "2e75d53ab4cba888e36edc0a22089f69dd22f66e73dc50d477c5926c32c0cf12",
+        "size": 2300
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1093-cercor-bhw068/_index.md",
+        "sha256": "d5a911d7c61c4e2545022e05d53dedb0c780a39825dc38c1bb4fd6082d7b85f9",
+        "size": 762
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-034561/_index.md",
+        "sha256": "0a905237f54cfc393f3ded36c5b4f923d02fbc836fd87e2cd09978c0244bb181",
+        "size": 1168
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-045104/_index.md",
+        "sha256": "d86ff2da3a49779a8225d60a31989f9cc6590877ba1b216bde59f85c5813b8b1",
+        "size": 861
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-045252/_index.md",
+        "sha256": "c4cadcd45f22a9ef15936e4f84adccf7bec4a83377af1cd8e33e2f5a84d07db0",
+        "size": 1218
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-138297/_index.md",
+        "sha256": "4357922332a838cd56c78e48bfbb87213d1bd4d4146a0906d9af4069435071d2",
+        "size": 1005
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2020-10-19-343129/_index.md",
+        "sha256": "1142f33c495d5a23d4e1bc4cc6207186d13969f8fb1076fc97ae58497ee1a367",
+        "size": 2889
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2020-12-23-424091/_index.md",
+        "sha256": "f17bbdce84dd7ffe275f5ec458ba4fb8f012e5e89f1f4fabf4b4c0fa3ffdd29e",
+        "size": 781
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2021-02-10-430678/_index.md",
+        "sha256": "2dcfd828c2b732f168d1ac3c9d7a9b3294b004965b0d5c492b06f60b661afcd3",
+        "size": 973
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2021-02-17-21251922/_index.md",
+        "sha256": "c2b5c924f36fc3e0e10e0c6daa0fa1d1d90520b8d7bda08c111c12ffe226e786",
+        "size": 924
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2021-02-25-21252472/_index.md",
+        "sha256": "94595fcd60666b5482d9c9e5266ab6200e02d6072846cab2c2258ccac0b0ee77",
+        "size": 3568
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2022-05-15-492022/_index.md",
+        "sha256": "3634f29c3b9b937658a2ee67fb3aced8404cdb4bb732a1ed5d5c1c9819df6597",
+        "size": 1012
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2023-02-17-528834/_index.md",
+        "sha256": "6b3b2878aee972a52b6dfa7bb07b837944690a60f1ee9f0eacd2af53a92fa17e",
+        "size": 800
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2024-06-21-599974/_index.md",
+        "sha256": "355d6df726ab4e81c5cab3967f7e411208e0d563fa47c9a80671a29466cc6a4d",
+        "size": 813
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-2024-11-26-624178/_index.md",
+        "sha256": "155055a9cb1e44679c3c878a76a64ea427444b0bf4257176a910875f1b12fc04",
+        "size": 969
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1101-694364/_index.md",
+        "sha256": "0efaab6c7770c82eb9ce56be198f0c6b8056d4e066ca482d48e7e026c2d12a55",
+        "size": 2103
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1109-prni-2016-7552355/_index.md",
+        "sha256": "e4c324029312c2a484a6be40fb0c0c84cd8cabd37d6ca3f0f70a5fd98914cd37",
+        "size": 806
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1111-j-1467-9280-2009-02460-x/_index.md",
+        "sha256": "18b311d8b980c75a3e1c307a6d5838a1d3ad8b502c342747b0079b20821b05ce",
+        "size": 1930
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1117-12-360283/_index.md",
+        "sha256": "d7e4fcccfd6a896e808c554f7197a66d6da68d42b49166e228eaf955e2e30baa",
+        "size": 671
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1117-12-388446/_index.md",
+        "sha256": "8fe748dc14484af7f23f52fe31ad77259c62f8eef43b4c0c504e29b15fcc5654",
+        "size": 580
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1145-3701716-3715483/_index.md",
+        "sha256": "4af8dae4eaccfe9948b66fbcebaed5343c137730babedcbe9364af9f0d1b241e",
+        "size": 875
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1162-imag-a-00032/_index.md",
+        "sha256": "572c20769491e452f0da065d883d424bab69e8787bb6ba721a69247b27bfefe1",
+        "size": 997
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1162-imag-a-00074/_index.md",
+        "sha256": "193b3225c5823cca9b58dd21e23cc7a5b7366ecdb416380f10a98cded70b0ca0",
+        "size": 3009
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1162-imag-a-00103/_index.md",
+        "sha256": "69dd48c31997b210fcc7f02afa5060d2879b24612f36a0797a991e53f0fdb3b2",
+        "size": 1178
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1162-jocn-a-00733/_index.md",
+        "sha256": "4b9b5b38f98e4ae0d6cd15af346454dcd9860d95a67f44863e6fbc748417200a",
+        "size": 795
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1162-neco-2007-09-06-340/_index.md",
+        "sha256": "1ecc4b7d4ffa36702ef5baeeec5e9089de719386ffe6f2a7bbd281b764cf9f00",
+        "size": 823
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1186-s13742-015-0072-7/_index.md",
+        "sha256": "da1d9198784737ac4a0e27ac464d953484ef136a2583a2ecd94d55b0f0a55430",
+        "size": 755
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-12688-f1000research-10783-2/_index.md",
+        "sha256": "0d28e18bed3191e6fdf225921c294849d791e8ee48443fa5cc60f58fccc107bf",
+        "size": 1686
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-12688-f1000research-6229-1/_index.md",
+        "sha256": "9f179bb48c4087c3ebb8ed57e949c4f921607d168606fffefd56843a39f78b1f",
+        "size": 799
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1371-journal-pbio-3002133/_index.md",
+        "sha256": "395415e386d86645601f3e39aa6cb468d1deeccb8d1e099c95445270cd60a4ca",
+        "size": 2275
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1371-journal-pone-0066620/_index.md",
+        "sha256": "7bdd1fdee15f7c01d7b0fe48339bb19c91530df85d09d71169ef062f156a135e",
+        "size": 678
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1515-nf-2020-0037/_index.md",
+        "sha256": "a854ab9ab8797e533990dab129c5150d5d8fe3ba6eb4fdfb2104f232229d7245",
+        "size": 2213
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1523-jneurosci-3395-15-2016/_index.md",
+        "sha256": "e6fd92e874bb78b3156de3f3edf5404aec81478727d9cea33c931a9251370929",
+        "size": 1175
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-1523-jneurosci-5547-11-2012/_index.md",
+        "sha256": "524d1523a39151db0c8eaf9f8d0079096fd0edc9d68f7f956ebe96dc0f885524",
+        "size": 897
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-21105-joss-01294/_index.md",
+        "sha256": "f66e3d7a660f2b3676bcba12fd7449eb46fe6133efb370cb3b7b28d3a97f53b7",
+        "size": 1216
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-21105-joss-01525/_index.md",
+        "sha256": "01370bda3c25dc50eb78681aae30b58db16b7565c81de7341507feb4f832fa26",
+        "size": 841
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-21105-joss-05839/_index.md",
+        "sha256": "922a0e0b70782aebb5f0112022c15f8f1be5af1c62c268154660197007b7df33",
+        "size": 1707
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-2417-1200909-1683/_index.md",
+        "sha256": "641727ee09d0dc446dbab3365ac4378c74315cdea74a3e6e73da0c5a9aa56e1f",
+        "size": 744
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-31219-osf-io-pu5vb/_index.md",
+        "sha256": "77691331892827d18b20b5142f4599f2ab99c711b5df614e165598f435947449",
+        "size": 949
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-31234-osf-io-f6mnp/_index.md",
+        "sha256": "64bad0d28889a4ed9b173befb2430012b444a79865fe88dc623f03c9990d8ab6",
+        "size": 739
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fnhum-2022-749767/_index.md",
+        "sha256": "acad403089ef60fbe7325ddbdaa71280c327a793f01951ce98261f08b1f387ec",
+        "size": 1038
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fninf-2011-00008/_index.md",
+        "sha256": "0b09ab3a764f05e3ad762de3db5908fddd2138e5e4b055938bcfb6638374ff04",
+        "size": 615
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fninf-2011-00013/_index.md",
+        "sha256": "aaacc89ee62a7e892a918a1ea8e2f7c85cc0146b2d9248fb6c809470c0c41850",
+        "size": 3026
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fninf-2012-00009/_index.md",
+        "sha256": "b44a0336fa79717458f5b966782543e645b9c7a7a38aef074c8b788d198bf0a0",
+        "size": 966
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fninf-2012-00022/_index.md",
+        "sha256": "333d42b33c205c06ed258db609a3c655111db1b5632ad8cb59d7991ed8036921",
+        "size": 880
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fninf-2024-1376022/_index.md",
+        "sha256": "7e7d9486b0360b1a0ea6bd39825f01326a84a1a418a7a7f455934984064aa142",
+        "size": 2569
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fnins-2022-871228/_index.md",
+        "sha256": "ca1b3e7d5d6394ecce5d6fbe7093f7af18bd3b8fe56371ee50a349a08aa52c5b",
+        "size": 1949
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-fnins-2023-1233416/_index.md",
+        "sha256": "97a6ed5a641bd2939616ca80952970ba704b49bae72701e8916b7d4c7809f2c8",
+        "size": 2055
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-neuro-01-007-2010/_index.md",
+        "sha256": "7aad82ec9f0bca88da2101355db504758ac89a0d8132a64407013c6eb5489ed4",
+        "size": 838
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-3389-neuro-11-003-2009/_index.md",
+        "sha256": "2b413f777ab477abee3e7c80408e471a276b2c8a2667e857e4df09dacd4eb2f4",
+        "size": 829
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-48550-arxiv-2309-05768/_index.md",
+        "sha256": "72a712b1f11ebe04270eac2281bd6bbde069ca18748d23fdc5e6d51ecc2e8609",
+        "size": 1758
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-48550-arxiv-2401-00077/_index.md",
+        "sha256": "21448bc5cb1ac4fc2ef4fd3a603473f13fbd39398924af4b4a1d47b8c7f88b9a",
+        "size": 2418
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-48550-arxiv-2504-07824/_index.md",
+        "sha256": "24106787676928c2380b07a127f580e8c0c077f5eddea859a772166b32576926",
+        "size": 706
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-5281-zenodo-3720628/_index.md",
+        "sha256": "a71c3190616d1f586c193d50f7e0cda3215a2a5b38cf361a1b491fb5b3f99eb9",
+        "size": 1151
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-5281-zenodo-8253053/_index.md",
+        "sha256": "9c95f5da5dff5433ae1ad74225444c70d119aa1aa96ce4560b01e4d494d0f17b",
+        "size": 614
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-64898-2026-04-30-721944/_index.md",
+        "sha256": "88f97f999fd65a95f7c8b73d6131013cba09a4bdb5e3d7c06dd0d6de3c86e111",
+        "size": 1346
+      },
+      {
+        "path": "generated/projection/content/publications/doi-10-7490-f1000research-1116363-1/_index.md",
+        "sha256": "2c3f27937e5665d89339ef6d86e2626281c171704906a56cb699f7ad6951581b",
+        "size": 1050
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-3zvyrxu7/_index.md",
+        "sha256": "2c6ca562bdbcd0206240a4e751cb66a31726f8f355b48c70380eed573361bd96",
+        "size": 763
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-4f4fcvy7/_index.md",
+        "sha256": "1463e8ac7fd8a8a8039bf36d8b796d4383ebaa8652334efb11c875510faff642",
+        "size": 754
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-4j5d6v7h/_index.md",
+        "sha256": "3dbb6ec08c39a2579705730958a64ed9a34fc58a71dd7e9733c7d7fca45a6240",
+        "size": 563
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-5t9a4qcy/_index.md",
+        "sha256": "b3f206af66c2ee3f964c3afb1a86e9055d07699dda6521846861df278d1894d0",
+        "size": 553
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-5z7a6krc/_index.md",
+        "sha256": "393c3b1052113c96149c3699885ac0bab28e6cf5fdd0002eaf99abd42c3a5a33",
+        "size": 644
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-6pq9qz2j/_index.md",
+        "sha256": "29ac9c700a829ab3efc17e67e4c53a987e6ef31ecefa1d9438f4c71bc2e6575f",
+        "size": 670
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-7ahrxd2x/_index.md",
+        "sha256": "968ac4c53dd1ca24b657ab5d53196a4f44c6044568a729c79133ed48b722adce",
+        "size": 890
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-7u85zj95/_index.md",
+        "sha256": "491b5fad18f235f927a2a73c07cfaa7146a5ce4c7ff2a8f78856ec3dd089aa2e",
+        "size": 910
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-82iu29zk/_index.md",
+        "sha256": "ca5882fb587642e56cd95bb9047d9423d7cb6b6b23e997cfa1ca844dc5332506",
+        "size": 662
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-99yqf7jr/_index.md",
+        "sha256": "a329483411c7a489cb78e3d0ca44035490d09d43397585630b35bdc38e6a7223",
+        "size": 556
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-abze6dsn/_index.md",
+        "sha256": "2bf3131b13e2a40f98c6b3c843945314e73b7570dd2d194d057a5e96b7fcd351",
+        "size": 961
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-c62b4pex/_index.md",
+        "sha256": "e10e7021c2357d634303acfad8b5b779ad0f0e6daebddcc87de6fcf32214be43",
+        "size": 911
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-d46pfxj5/_index.md",
+        "sha256": "a2277d625c5d902a6c510d84081f772fec7f6c8f840c65dc0cc5200b5596e2c9",
+        "size": 1202
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-dgvnva4t/_index.md",
+        "sha256": "ec8f8f9d630875d2eb6b5d5188b03515a52642eae177b7d89096292e7871c99a",
+        "size": 1002
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-e4ytlfl4/_index.md",
+        "sha256": "db3ba49434418c48ab0c7f0aeb786fddaf40d5ddf9a9e864aa0d055296d0052a",
+        "size": 470
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-egbb5ta7/_index.md",
+        "sha256": "6e3497838ab4ff6a6ee7badcdf6b49b79914c98b7ce28ebf1f4e8e13cd133986",
+        "size": 556
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-ercq9db2/_index.md",
+        "sha256": "cb300e658d1daf03bad980ca5c962c98641939c369dfa34168e33ce8a9435da4",
+        "size": 1827
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-fdb48tzj/_index.md",
+        "sha256": "5b048603c01f8b36b7a3677416dfddd6397bf375eb152128d02b7322f07eaf0b",
+        "size": 943
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-hywv9d2a/_index.md",
+        "sha256": "cabd39f8c1b46713727f8ef6b01e27031c1de1b17efa13debb111b13a0ee7ab0",
+        "size": 784
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-iw32d26f/_index.md",
+        "sha256": "30a69b6dd50283e9241016ef7f12a92a25a91c6dc66e283df170047ac7c30c23",
+        "size": 1313
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-k7pww352/_index.md",
+        "sha256": "55f9742817c83bc782d5049e3cb0cb6d74049af84a44216c8542df35e4cae4af",
+        "size": 686
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-kp46b5su/_index.md",
+        "sha256": "821992a71771ef35ed6d4287ee16faca1ee5fefe1089bd200b5b1beead58edc3",
+        "size": 2080
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-m5e9bt5h/_index.md",
+        "sha256": "1252d67ac18fa287649982356b745879b442a6c81b6479526321fe01472e52c8",
+        "size": 1028
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-msjlptey/_index.md",
+        "sha256": "aebc6dd4d4282b0e0d211ed62198f5ecb9d3d7ac002ea8400956f4e43ad825a6",
+        "size": 814
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-pj5u5btz/_index.md",
+        "sha256": "85b788cd357d6d39a51c92b400e9703d1eb1af4b61dde60ca939369dad2b4aeb",
+        "size": 612
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-ppl6eufk/_index.md",
+        "sha256": "8b3698795566049e7d837b9d3403a6e01bc1221a1c98d9f0ec8ec823a87de8ff",
+        "size": 853
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-q6fwwrde/_index.md",
+        "sha256": "58c33efe791fc9936931734ccfe01ca91ad3f2ccdfb659f88e918ef02c37e939",
+        "size": 581
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-qhqktyyq/_index.md",
+        "sha256": "7e3e9a386cec91e0f2d75875e2d622bca3229b847e6ff5514a800b94103e46dd",
+        "size": 791
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-qltpv7jm/_index.md",
+        "sha256": "f2fb6c979185f01a574189ffb44dfbcad4f0b5060b2d263754f451a0337fa685",
+        "size": 774
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-qqagikdx/_index.md",
+        "sha256": "64611ea888d01b9624e637912d0aba5273b0bde9b3357ddc0bf96908640bdeff",
+        "size": 941
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-sarh7hnt/_index.md",
+        "sha256": "b3593fa0b9078306c903ee3219ce40fbfd1d9b963a9ff18f6cd9f134e88c7cfa",
+        "size": 1094
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-sfqu8qby/_index.md",
+        "sha256": "c1dba3c4ab0eca84ec1e43d5915c0d2424bd5b5a27691052448e7177a7f2d0ec",
+        "size": 668
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-stis8ce3/_index.md",
+        "sha256": "8c4e16fe6973ed4e91b4c58edfcc72861af02e6a4b4c8ddb5eae0aa1a81e270e",
+        "size": 1189
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-tarqrcj3/_index.md",
+        "sha256": "0a5acc85de254918922601338871c30c78ec03c9fae4eef860f38425fb8c3842",
+        "size": 958
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-u6pyqf8i/_index.md",
+        "sha256": "9ff6c4a1ac6e3cc97cc8ec742268d1c9028cc717124ae9bb43b26e284b18c3b4",
+        "size": 698
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-v65l6j8x/_index.md",
+        "sha256": "3dc402796f996fc3dc2ae766be9d0c4727335c63871152ca855e5c2f1d1e7aea",
+        "size": 635
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-wbwu53im/_index.md",
+        "sha256": "128e0f0f3657417b9b68ce6e67158c1b146db6d56a06a164fc16c25d975b5b4a",
+        "size": 1064
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-y8uq85mh/_index.md",
+        "sha256": "96a21eb1f78b997a3e800e72a61fef86d1c60af900a7da07b2bbe6f8fb17051a",
+        "size": 982
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-ycvipyy4/_index.md",
+        "sha256": "d267ed88a65b6552e8d596a2a32141b2e7ec372ef3f4c4a64e6bea38326f6667",
+        "size": 700
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-yq6vtmde/_index.md",
+        "sha256": "f18f68d55b489b3f2f48c62ff9875e049c35b3204b099e03b9da76814bffcd68",
+        "size": 715
+      },
+      {
+        "path": "generated/projection/content/publications/zotero-yzynt7j3/_index.md",
+        "sha256": "ab6799000c8720b3960228fec992ad538108dcb271f86b6c4123dcdd876ff515",
+        "size": 793
+      },
+      {
+        "path": "generated/projection/content/topics/neuroimaging/_index.md",
+        "sha256": "17ead009f31cea0fa2a143e5cbc5897ee41b342cde8ed4f891d4d9f6d9f3cde2",
+        "size": 89
+      },
+      {
+        "path": "generated/projection/records.jsonl",
+        "sha256": "f4e7e8c536e0cf4cd03f9e03603e365fe38707bc96598d905fa85521654ca432",
+        "size": 218560
+      },
+      {
+        "path": "generated/projection/static/graph.json",
+        "sha256": "a9f028b00706f924ee424d19c50417939ba362b143e33a241fdecd82d16d6843",
+        "size": 90357
+      }
+    ],
+    "graph_edges": 467,
+    "graph_nodes": 186,
+    "page_count": 185,
+    "record_count": 199
+  },
+  "provenance": {
+    "ledgers": [
+      {
+        "path": "metadata/provenance/assets.yaml",
+        "sha256": "59c5d12af3bb9dc7c2f45a24789c846e8f4da0a5e1f7af8c3c6bf8aa34de5f77",
+        "size": 19228
+      },
+      {
+        "path": "metadata/provenance/editorial.yaml",
+        "sha256": "e5e014f1c33eda61ac20f4e418ed0bdf63ed41ee20bd167d1eb192c74b001d98",
+        "size": 5032
+      },
+      {
+        "path": "metadata/provenance/people.yaml",
+        "sha256": "904b3494046fb6fe8197ba57e97f63d52d0afe7f9cef91001e39f37b7319a9e4",
+        "size": 8053
+      },
+      {
+        "path": "metadata/provenance/projection.yaml",
+        "sha256": "31d14047e90d55a0522bec277eb6a3c30b49097c85325900ce6e24ffd6f9ed13",
+        "size": 1511
+      },
+      {
+        "path": "metadata/provenance/projects.yaml",
+        "sha256": "c3f5dae602655e7a9a4877884fece0af9126f7e582b0a1426237dde62699f8e7",
+        "size": 7987
+      },
+      {
+        "path": "metadata/provenance/publications.yaml",
+        "sha256": "a5d7e493b4ac9ae3be051cbe372b2670af663e0c1d4e381d0397f1bcac6f8d76",
+        "size": 5173
+      },
+      {
+        "path": "metadata/provenance/selection.yaml",
+        "sha256": "94be458d36cb3b3508de6291142dad635eb5c59c67b8f09b0aa6667bee13a310",
+        "size": 2883
+      }
+    ]
+  },
+  "reference": {
+    "records": [
+      {
+        "class": "XYZAgentRole",
+        "path": "metadata/reference/XYZAgentRole/author.yaml",
+        "pid": "marcrel:aut",
+        "schema_type": "xyzri:XYZAgentRole",
+        "sha256": "5d55a6dbf7335a0acbcad49d2ceba20786959a81d3a8e8f07bdf7c17f39d9392",
+        "size": 798
+      },
+      {
+        "class": "XYZAgentRole",
+        "path": "metadata/reference/XYZAgentRole/contributor.yaml",
+        "pid": "marcrel:ctb",
+        "schema_type": "xyzri:XYZAgentRole",
+        "sha256": "4e72ce0acbae30d4b561a5157e70da3064a27ea26559fc0c96af79b36bf06fd6",
+        "size": 508
+      },
+      {
+        "class": "XYZAgentRole",
+        "path": "metadata/reference/XYZAgentRole/creator.yaml",
+        "pid": "marcrel:cre",
+        "schema_type": "xyzri:XYZAgentRole",
+        "sha256": "91d03c448a0f7bf1ecfc9d3b077bc619714ff6b7033ad5f62bfa71b60c2cb53a",
+        "size": 263
+      },
+      {
+        "class": "XYZAgentRole",
+        "path": "metadata/reference/XYZAgentRole/lead.yaml",
+        "pid": "marcrel:led",
+        "schema_type": "xyzri:XYZAgentRole",
+        "sha256": "9069026e8efbae4914a907c7cb2aad05b6dffaa1ea94d3c0f49c81ab8144e8de",
+        "size": 531
+      },
+      {
+        "class": "XYZAgentRole",
+        "path": "metadata/reference/XYZAgentRole/principal-investigator.yaml",
+        "pid": "obo:NCIT_C19924",
+        "schema_type": "xyzri:XYZAgentRole",
+        "sha256": "0648464a602530e0ea219336a2e77533ace5f93549bc578b7d947374c5b48352",
+        "size": 689
+      },
+      {
+        "class": "XYZAgentRole",
+        "path": "metadata/reference/XYZAgentRole/research-team-member.yaml",
+        "pid": "marcrel:rtm",
+        "schema_type": "xyzri:XYZAgentRole",
+        "sha256": "7e0aeb5e1bc093f670fc88e219cf4a31b3c3898feccfd9accc94ce3e7c9a5e0a",
+        "size": 293
+      },
+      {
+        "class": "XYZBibliographicType",
+        "path": "metadata/reference/XYZBibliographicType/academic-article.yaml",
+        "pid": "bibo:AcademicArticle",
+        "schema_type": "xyzri:XYZBibliographicType",
+        "sha256": "4880df31a42d245d31a7723dbf7ee40705430691a84af1ae405a5ae953bcdfc5",
+        "size": 257
+      },
+      {
+        "class": "XYZBibliographicType",
+        "path": "metadata/reference/XYZBibliographicType/article.yaml",
+        "pid": "bibo:Article",
+        "schema_type": "xyzri:XYZBibliographicType",
+        "sha256": "1b60b4e5eeee0f774e0e1ac99f08739ba2d0b80b6f8b5bc24ba6455904612729",
+        "size": 321
+      },
+      {
+        "class": "XYZBibliographicType",
+        "path": "metadata/reference/XYZBibliographicType/book-section.yaml",
+        "pid": "bibo:BookSection",
+        "schema_type": "xyzri:XYZBibliographicType",
+        "sha256": "3c2909946073a1a218bd92b9f56e02514b3c61263ba62d4de57d0ccf8c88f9da",
+        "size": 211
+      },
+      {
+        "class": "XYZBibliographicType",
+        "path": "metadata/reference/XYZBibliographicType/document.yaml",
+        "pid": "bibo:Document",
+        "schema_type": "xyzri:XYZBibliographicType",
+        "sha256": "80a537eedaa02e489f7683d2aeb06722bde07fe31a686f4bedd312b5687a3432",
+        "size": 306
+      },
+      {
+        "class": "XYZBibliographicType",
+        "path": "metadata/reference/XYZBibliographicType/manuscript.yaml",
+        "pid": "bibo:Manuscript",
+        "schema_type": "xyzri:XYZBibliographicType",
+        "sha256": "28d657b0f0c21df2e654b30058d66cb902c716674a04d2b035de2e42c4875f85",
+        "size": 277
+      },
+      {
+        "class": "XYZBibliographicType",
+        "path": "metadata/reference/XYZBibliographicType/thesis.yaml",
+        "pid": "bibo:Thesis",
+        "schema_type": "xyzri:XYZBibliographicType",
+        "sha256": "3c4a913c6d4c6ad34c176e58a6536baa93f8f6daa3b2dd1fb2073e2ecb5caf12",
+        "size": 290
+      },
+      {
+        "class": "XYZInstrumentType",
+        "path": "metadata/reference/XYZInstrumentType/software.yaml",
+        "pid": "obo:IAO_0000010",
+        "schema_type": "xyzri:XYZInstrumentType",
+        "sha256": "33e8b6ef347db93e4af3ac9e5620672b1082e52086e1f8f1bf1383dec7cc70a2",
+        "size": 245
+      }
+    ]
+  },
+  "selection": {
+    "active_provenance": "metadata/provenance/active-snapshot.json",
+    "filter": null,
+    "historical_selection_ledger": {
+      "explanation": "reviewed-subset describes the earlier legacy migration and is not an active consumer filter",
+      "path": "metadata/provenance/selection.yaml",
+      "policy_status": "historical-evidence-only"
+    },
+    "mode": "all",
+    "source_commit": "26907c487efaa2c31bba9d02398aa201ab6f774b"
+  },
+  "source_import_manifest": {
+    "entry_count": 501,
+    "path": "generated/manifests/source-import.json"
+  },
+  "sources": {
+    "engineering_workspace": {
+      "commit": "0df9ed8c9b32fb72f78d1c6aba101d03e563a1c7",
+      "repository": "https://github.com/con/orinoco-lite-dev.git"
+    },
+    "site": {
+      "commit": "26907c487efaa2c31bba9d02398aa201ab6f774b",
+      "repository": "https://github.com/con/centerforopenneuroscience.org.git"
+    },
+    "things_schema": {
+      "commit": "d26ea4135e28c25b134c64de1cdc15d15cd2f9f0",
+      "contract": "explicit-dlthings-curies",
+      "path": "src/demo-research-information/unreleased.yaml",
+      "repository": "https://github.com/leej3/things-schemas.git"
+    },
+    "zotero_evidence": {
+      "commit": "062da59cb5a00ca128b3df895426a54088bfc625",
+      "repository": "https://github.com/con/dump-research-info.git"
+    }
+  },
+  "static_editor": {
+    "bundle_format": "orinoco-shacl-review-bundle",
+    "bundle_version": 2,
+    "catalog_format": "orinoco-static-record-sources",
+    "catalog_path": "edit/data/record-sources.json",
+    "catalog_record_count": 186,
+    "catalog_version": 2,
+    "credential_mode": "none",
+    "selection_filter": null,
+    "source": "all canonical metadata records"
+  },
+  "test_traceability": {
+    "path": "tests/traceability.json",
+    "required_counts": {
+      "editor_javascript": 8,
+      "parent_python": 106,
+      "playwright_definitions": 5,
+      "playwright_executions": 9,
+      "zotero_python": 42
+    }
+  }
+}

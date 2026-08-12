@@ -1,0 +1,21 @@
+pid: xyzrins:publications/doi-10-31234-osf-io-f6mnp
+schema_type: xyzri:XYZPublication
+title: 'The Open Brain Consent: Informing research participants and obtaining consent to share
+  brain imaging data'
+display_label: 'The Open Brain Consent: Informing research participants and obtaining consent
+  to share brain imaging data'
+kind: bibo:AcademicArticle
+identifiers:
+- notation: 10.31234/osf.io/f6mnp
+  schema_type: dlthings:DOI
+- notation: zotero:group:6197458:item:CFGYPVL3
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: 2020-07
+  schema_type: dlthings:AttributeSpecification

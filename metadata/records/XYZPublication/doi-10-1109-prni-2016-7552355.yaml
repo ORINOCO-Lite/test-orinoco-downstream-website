@@ -1,0 +1,28 @@
+pid: xyzrins:publications/doi-10-1109-prni-2016-7552355
+schema_type: xyzri:XYZPublication
+title: 'Cross-modal searchlight classification: Methodological challenges and recommended
+  solutions'
+display_label: 'Cross-modal searchlight classification: Methodological challenges and recommended
+  solutions'
+kind: bibo:Article
+identifiers:
+- notation: 10.1109/prni.2016.7552355
+  schema_type: dlthings:DOI
+- notation: zotero:group:6197458:item:J697F9FM
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/samuel-nastase
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: bibo:locator
+  value: 1-4
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:issued
+  value: 2016-06
+  schema_type: dlthings:AttributeSpecification

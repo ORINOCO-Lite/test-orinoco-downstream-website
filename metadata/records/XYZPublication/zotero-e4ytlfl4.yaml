@@ -1,0 +1,19 @@
+pid: xyzrins:publications/zotero-e4ytlfl4
+schema_type: xyzri:XYZPublication
+title: Predictive Decoding of Neural Data
+display_label: Predictive Decoding of Neural Data
+kind: bibo:Thesis
+identifiers:
+- notation: http://www.onerussian.com/Sci/thesis
+  schema_type: dlthings:Identifier
+- notation: zotero:group:6197458:item:E4YTLFL4
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: 2009-05
+  schema_type: dlthings:AttributeSpecification

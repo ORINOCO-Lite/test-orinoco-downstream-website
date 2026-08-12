@@ -1,0 +1,17 @@
+pid: xyzrins:persons/john-wodder
+schema_type: xyzri:XYZPerson
+given_name: John
+family_name: Wodder
+formatted_name: John Wodder
+display_label: John Wodder
+description: >-
+  Emeritus Software Developer at the Center for Open Neuroscience. DANDI
+  client developer. Skilled in Python, Rust, DevOps, testing, packaging,
+  type-hinting, and CI.
+attributes:
+  - predicate: vcard:Email
+    value: jwodder@gmail.com
+    schema_type: dlthings:AttributeSpecification
+identifiers:
+  - notation: jwodder
+    schema_type: dlthings:Identifier

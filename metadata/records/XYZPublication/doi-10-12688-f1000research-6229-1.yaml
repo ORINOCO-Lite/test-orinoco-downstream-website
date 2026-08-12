@@ -1,0 +1,27 @@
+pid: xyzrins:publications/doi-10-12688-f1000research-6229-1
+schema_type: xyzri:XYZPublication
+title: A communication hub for a decentralized collaboration on studying real-life cognition
+display_label: A communication hub for a decentralized collaboration on studying real-life
+  cognition
+kind: bibo:AcademicArticle
+identifiers:
+- notation: 10.12688/f1000research.6229.1
+  schema_type: dlthings:DOI
+- notation: zotero:group:6197458:item:WUNRF8WV
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/michael-hanke
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: bibo:locator
+  value: 4, 62
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:issued
+  value: '2015'
+  schema_type: dlthings:AttributeSpecification

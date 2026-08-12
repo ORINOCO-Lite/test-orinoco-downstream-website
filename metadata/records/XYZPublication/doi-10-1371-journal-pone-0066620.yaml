@@ -1,0 +1,28 @@
+pid: xyzrins:publications/doi-10-1371-journal-pone-0066620
+schema_type: xyzri:XYZPublication
+title: Prioritized Detection of Personally Familiar Faces
+display_label: Prioritized Detection of Personally Familiar Faces
+kind: bibo:AcademicArticle
+identifiers:
+- notation: 10.1371/journal.pone.0066620
+  schema_type: dlthings:DOI
+- notation: 1932-6203
+  schema_type: dlthings:ISSN
+- notation: zotero:group:6197458:item:Z3AQGPJK
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/jason-gors
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: bibo:locator
+  value: 8, 6
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:issued
+  value: 2013-06
+  schema_type: dlthings:AttributeSpecification

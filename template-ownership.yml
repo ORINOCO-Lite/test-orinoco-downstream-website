@@ -1,0 +1,70 @@
+contract_version: 1
+
+classes:
+  template_owned:
+    behavior: copier-three-way-update
+    paths:
+      - README.md
+      - .gitignore
+      - .copier-answers.yml
+      - pixi.toml
+      - template-ownership.yml
+      - .github/workflows/**
+      - docs/ownership.md
+      - docs/updating.md
+      - docs/importing.md
+      - tools/template_contract.py
+      - tools/update_orinoco.py
+      - tools/verify_template_ownership.py
+      - tools/import_site_bundle.py
+      - tools/finalize_update_ledger.py
+      - tools/verify_deterministic_build.py
+      - tools/verify_hugo.py
+      - tests/template/**
+  initialized_site_owned:
+    behavior: create-once-never-overwrite
+    paths:
+      - orinoco.yaml
+      - orinoco-site-bundle.json
+      - metadata/**
+      - editorial/**
+      - assets/**
+      - site/**
+      - integrations/**
+  engine_lock:
+    behavior: updater-structured-merge
+    paths:
+      - orinoco.lock
+      - pixi.lock
+  extensions:
+    behavior: site-owned-stable-hook
+    paths:
+      - extensions/**
+  consumer_tests:
+    behavior: site-owned-acceptance
+    paths:
+      - tests/__init__.py
+      - tests/contract/**
+      - tests/browser/**
+      - tests/integrations/**
+      - tests/offline/**
+      - tests/parity/**
+      - tests/traceability.json
+      - package.json
+      - package-lock.json
+      - playwright.config.*
+  site_policy:
+    behavior: site-owned-policy
+    paths:
+      - LICENSE*
+      - CITATION*
+      - CONTRIBUTING*
+      - CODE_OF_CONDUCT*
+  generated:
+    behavior: replace-after-validation
+    paths:
+      - generated/**
+
+semantic_migrations:
+  policy: explicit-ledger-and-human-review
+  default: forbidden

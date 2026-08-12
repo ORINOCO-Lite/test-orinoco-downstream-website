@@ -1,0 +1,188 @@
+{
+  "entries": [
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "data/zotero_centerforopenneuroscience/README.md",
+      "source_sha256": "72879e31d8299872edf49f4f8bf064fe860da56b03ea2dd24e8e30dafc68d4d3",
+      "source_size": 4594,
+      "target_path": "integrations/zotero/source/candidates/README.md",
+      "target_sha256": "72879e31d8299872edf49f4f8bf064fe860da56b03ea2dd24e8e30dafc68d4d3"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "data/zotero_centerforopenneuroscience/XYZDataset.json",
+      "source_sha256": "738c18c90d3e082f1565cb28c65439ee3cfc2524c56752c6824e8af653fee146",
+      "source_size": 3804,
+      "target_path": "integrations/zotero/source/candidates/XYZDataset.json",
+      "target_sha256": "738c18c90d3e082f1565cb28c65439ee3cfc2524c56752c6824e8af653fee146"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "data/zotero_centerforopenneuroscience/XYZInstrument.json",
+      "source_sha256": "d20d6e41c5733bd230f36cc6c0718957a408bc9eb325e0ca8cc38d0b7a27cbb8",
+      "source_size": 3173,
+      "target_path": "integrations/zotero/source/candidates/XYZInstrument.json",
+      "target_sha256": "d20d6e41c5733bd230f36cc6c0718957a408bc9eb325e0ca8cc38d0b7a27cbb8"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "data/zotero_centerforopenneuroscience/XYZPublication.json",
+      "source_sha256": "a844c0300c3ee876692279210b587b522b31ffd180b933143eba41f3802dedc7",
+      "source_size": 192057,
+      "target_path": "integrations/zotero/source/candidates/XYZPublication.json",
+      "target_sha256": "a844c0300c3ee876692279210b587b522b31ffd180b933143eba41f3802dedc7"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "data/zotero_centerforopenneuroscience/XYZPublicationVenue.json",
+      "source_sha256": "227102d5f33a900d2dff33f7c9963ea38c32e9bd90b89a810766a70870665343",
+      "source_size": 5424,
+      "target_path": "integrations/zotero/source/candidates/XYZPublicationVenue.json",
+      "target_sha256": "227102d5f33a900d2dff33f7c9963ea38c32e9bd90b89a810766a70870665343"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "docs/references/zotero-creator-mappings.md",
+      "source_sha256": "7917455e996e393ed576c62ffd4ac1ddbf7dc3089a23b677fd74a8251383087c",
+      "source_size": 1149,
+      "target_path": "integrations/zotero/provenance/creator-mappings.md",
+      "target_sha256": "7917455e996e393ed576c62ffd4ac1ddbf7dc3089a23b677fd74a8251383087c"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "docs/references/zotero-reviewed-additions.md",
+      "source_sha256": "51dd2cbd9e7b6cd0e1fb3e8be48393ea261f33952e11046092914fd2065eb868",
+      "source_size": 1796,
+      "target_path": "integrations/zotero/provenance/reviewed-additions.md",
+      "target_sha256": "51dd2cbd9e7b6cd0e1fb3e8be48393ea261f33952e11046092914fd2065eb868"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "inputs/zotero_centerforopenneuroscience/README.md",
+      "source_sha256": "1db1d5b9f0af7126ce7d8741c9eae280c4316bdeff15b6185c227f1127f47027",
+      "source_size": 1653,
+      "target_path": "integrations/zotero/source/README.md",
+      "target_sha256": "1db1d5b9f0af7126ce7d8741c9eae280c4316bdeff15b6185c227f1127f47027"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "inputs/zotero_centerforopenneuroscience/creator-mappings.yaml",
+      "source_sha256": "0a0e37bebc42b3c55915ea4f4751824a3db5de50b8904d9cf88aecb4eccf29ac",
+      "source_size": 4105,
+      "target_path": "integrations/zotero/policy/creator-mappings.yaml",
+      "target_sha256": "0a0e37bebc42b3c55915ea4f4751824a3db5de50b8904d9cf88aecb4eccf29ac"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "inputs/zotero_centerforopenneuroscience/reviewed-additions.yaml",
+      "source_sha256": "5ef2a1ad65a4756eeaf7cd20500803ef0c7efe9b682a20c30611561e05855678",
+      "source_size": 1994,
+      "target_path": "integrations/zotero/policy/reviewed-additions.yaml",
+      "target_sha256": "5ef2a1ad65a4756eeaf7cd20500803ef0c7efe9b682a20c30611561e05855678"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "inputs/zotero_centerforopenneuroscience/site-migration.yaml",
+      "source_sha256": "e64b10d9f33d32baa495fe198330cd5a68539cac39e8fed5685df4224eea3a6c",
+      "source_size": 2363,
+      "target_path": "integrations/zotero/policy/site-migration.yaml",
+      "target_sha256": "e64b10d9f33d32baa495fe198330cd5a68539cac39e8fed5685df4224eea3a6c"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "inputs/zotero_centerforopenneuroscience/snapshot.json",
+      "source_sha256": "e824d6e007aeed49c36caa84d60d0458a882425b6fbdd69a18505ac8dbc6b28c",
+      "source_size": 1018661,
+      "target_path": "integrations/zotero/source/snapshot.json",
+      "target_sha256": "e824d6e007aeed49c36caa84d60d0458a882425b6fbdd69a18505ac8dbc6b28c"
+    },
+    {
+      "derived_target": "integrations/zotero/tools/zotero_ingest.py",
+      "disposition": "byte-identical-evidence",
+      "source_path": "scripts/zotero_ingest.py",
+      "source_sha256": "384c7b620e021c7b930302316f8b92fdc977aeae45ddda3df8eba22b905e6db7",
+      "source_size": 42046,
+      "target_path": "integrations/zotero/provenance/source-tools/zotero_ingest.py.source",
+      "target_sha256": "384c7b620e021c7b930302316f8b92fdc977aeae45ddda3df8eba22b905e6db7"
+    },
+    {
+      "active_status": "evidence-only; authenticated write mode is not exposed",
+      "disposition": "byte-identical-evidence",
+      "source_path": "scripts/zotero_reviewed_additions.py",
+      "source_sha256": "3ea226603040cf8647759db8ef86a18ca3fa42ee09640c6ca93a288c099060d4",
+      "source_size": 9044,
+      "target_path": "integrations/zotero/provenance/source-tools/zotero_reviewed_additions.py.source",
+      "target_sha256": "3ea226603040cf8647759db8ef86a18ca3fa42ee09640c6ca93a288c099060d4"
+    },
+    {
+      "derived_target": "integrations/zotero/tools/zotero_site_export.py",
+      "disposition": "byte-identical-evidence",
+      "source_path": "scripts/zotero_site_export.py",
+      "source_sha256": "469e51d64efb8da1d3eb338fde71be860b86ee239cd946bd5fce5afdaf2cb7fe",
+      "source_size": 28316,
+      "target_path": "integrations/zotero/provenance/source-tools/zotero_site_export.py.source",
+      "target_sha256": "469e51d64efb8da1d3eb338fde71be860b86ee239cd946bd5fce5afdaf2cb7fe"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "site/merge-policy.yaml",
+      "source_sha256": "063ba4a8cfd8424ec14d36f678f55886768ace63aa4c08f3079db1ddd3ab8a29",
+      "source_size": 3880,
+      "target_path": "integrations/zotero/policy/merge-policy.yaml",
+      "target_sha256": "063ba4a8cfd8424ec14d36f678f55886768ace63aa4c08f3079db1ddd3ab8a29"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "tests/test_cli.py",
+      "source_sha256": "9c8648063f923787ba2f46d30e476c968ddcaff2825d815e24f0c3fc7348285f",
+      "source_size": 5406,
+      "target_path": "integrations/zotero/provenance/source-tests/test_cli.py.source",
+      "target_sha256": "9c8648063f923787ba2f46d30e476c968ddcaff2825d815e24f0c3fc7348285f"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "tests/test_dump.py",
+      "source_sha256": "914fca75d348c61b686d1a09ad05d376a3b01a2eed91958d3a245d00c8ed1544",
+      "source_size": 4227,
+      "target_path": "integrations/zotero/provenance/source-tests/test_dump.py.source",
+      "target_sha256": "914fca75d348c61b686d1a09ad05d376a3b01a2eed91958d3a245d00c8ed1544"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "tests/test_zotero_ingest.py",
+      "source_sha256": "6cdac6482d2d4e6003b862652b84093215ca9318902d72e5f1e96142d119b741",
+      "source_size": 13684,
+      "target_path": "integrations/zotero/provenance/source-tests/test_zotero_ingest.py.source",
+      "target_sha256": "6cdac6482d2d4e6003b862652b84093215ca9318902d72e5f1e96142d119b741"
+    },
+    {
+      "disposition": "byte-identical-evidence",
+      "source_path": "tests/test_zotero_site_export.py",
+      "source_sha256": "49a186eac928acf591614e3e10986aeb64ccf5c6e5a99878628a9695158dd479",
+      "source_size": 22299,
+      "target_path": "integrations/zotero/provenance/source-tests/test_zotero_site_export.py.source",
+      "target_sha256": "49a186eac928acf591614e3e10986aeb64ccf5c6e5a99878628a9695158dd479"
+    }
+  ],
+  "format_version": 1,
+  "kind": "read-only-zotero-evidence-import",
+  "runtime_dependency": false,
+  "snapshot": {
+    "candidate_counts": {
+      "XYZDataset": 4,
+      "XYZInstrument": 3,
+      "XYZPublication": 126,
+      "XYZPublicationVenue": 20
+    },
+    "collections": 5,
+    "content_sha256": "5e0f5fe1d68c18214110a37c24a8e9177dc484f64a1d9d832f322b477bfef20d",
+    "group_id": 6197458,
+    "library_version": 451,
+    "top_level_items": 197
+  },
+  "source": {
+    "commit": "062da59cb5a00ca128b3df895426a54088bfc625",
+    "repository": "https://github.com/con/dump-research-info.git"
+  },
+  "write_to_zotero_supported": false
+}

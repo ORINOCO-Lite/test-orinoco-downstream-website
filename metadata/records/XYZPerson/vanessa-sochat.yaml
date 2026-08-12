@@ -1,0 +1,12 @@
+pid: xyzrins:persons/vanessa-sochat
+schema_type: xyzri:XYZPerson
+given_name: Vanessa
+family_name: Sochat
+formatted_name: Vanessa Sochat
+display_label: Vanessa Sochat
+description: >-
+  Emeritus member of the Center for Open Neuroscience. Research Software
+  Engineer at Stanford University. Singularity Hub developer.
+identifiers:
+  - notation: vsoch
+    schema_type: dlthings:Identifier

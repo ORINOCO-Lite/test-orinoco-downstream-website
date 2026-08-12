@@ -1,0 +1,20 @@
+pid: xyzrins:publications/zotero-99yqf7jr
+schema_type: xyzri:XYZPublication
+title: Image Segmentation on the basis of spatial connected features
+display_label: Image Segmentation on the basis of spatial connected features
+kind: bibo:BookSection
+identifiers:
+- notation: zotero:group:6197458:item:99YQF7JR
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: bibo:locator
+  value: 4, 39-43
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:issued
+  value: '1998'
+  schema_type: dlthings:AttributeSpecification

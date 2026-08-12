@@ -1,0 +1,253 @@
+version: 1
+batch: full-con-people
+status: hand-authored-migration-source
+
+evidence:
+  legacy_roster:
+    repository: https://github.com/con/centerforopenneuroscience.org.git
+    commit: e6e9200a0987a65097afff896105ff838be1659e
+    path: content/pages/whoweare.html
+  structured_people:
+    repository: https://github.com/con/dump-research-info.git
+    commit: 1c7e99ec6f296d5e6cb6a61e3b786227190802da
+    records: data/con_site/XYZPerson.json
+    inventory: inputs/con_site/inventory.json
+    coverage: inputs/con_site/coverage.json
+  reference_roles:
+    repository: https://github.com/con/dump-research-info.git
+    commit: 1c7e99ec6f296d5e6cb6a61e3b786227190802da
+    records: data/pool_psychoinformatics_de/XYZAgentRole.json
+
+transformations:
+  - Selected the 33 people visibly published on the legacy Who we are page.
+  - Preserved the four legacy groups and the visible order within each group.
+  - Added explicit xyzri:XYZPerson top-level discriminators.
+  - Removed evidence-only about links to the legacy page.
+  - Removed identifier creator fields while retaining their notations and types.
+  - Retained structured vcard:Email literals and the reviewed Yaroslav homepage.
+  - Omitted foaf:depiction and untyped owl:sameAs URLs pending separate review.
+  - Associated both directors as marcrel:led and all other people as marcrel:ctb.
+  - Retained the CON organization association ahead of the ordered people.
+
+exclusions:
+  - pid: xyzrins:persons/brock-wester
+    reason: >-
+      Present as project support data, but not visible on the legacy people
+      page.
+  - pid: xyzrins:persons/russell-poldrack
+    reason: >-
+      Present as project support data, but not visible on the legacy people
+      page.
+
+emeritus_policy: >-
+  The legacy page labels these people Emeritus but supplies no transition dates.
+  The group is recorded here as presentation provenance; no start or end dates
+  were invented and the native root Associations are not artificially ended.
+
+groups:
+  - name: Centroids
+    members:
+      - order: 1
+        pid: xyzrins:persons/yaroslav-halchenko
+        display_label: Yaroslav O. Halchenko
+        role: marcrel:led
+        legacy_line: 21
+        structured_index: 0
+      - order: 2
+        pid: xyzrins:persons/james-haxby
+        display_label: James V. Haxby
+        role: marcrel:led
+        legacy_line: 56
+        structured_index: 1
+      - order: 3
+        pid: xyzrins:persons/isaac-to
+        display_label: Isaac To
+        role: marcrel:ctb
+        legacy_line: 80
+        structured_index: 2
+      - order: 4
+        pid: xyzrins:persons/austin-macdonald
+        display_label: Austin Macdonald
+        role: marcrel:ctb
+        legacy_line: 97
+        structured_index: 3
+      - order: 5
+        pid: xyzrins:persons/vadim-melnik
+        display_label: Vadim Melnik
+        role: marcrel:ctb
+        legacy_line: 114
+        structured_index: 4
+      - order: 6
+        pid: xyzrins:persons/cody-baker
+        display_label: Cody Baker
+        role: marcrel:ctb
+        legacy_line: 132
+        structured_index: 5
+      - order: 7
+        pid: xyzrins:persons/john-lee
+        display_label: John Lee
+        role: marcrel:ctb
+        legacy_line: 151
+        structured_index: 33
+  - name: Collaborators
+    members:
+      - order: 8
+        pid: xyzrins:persons/adina-wagner
+        display_label: Adina Wagner
+        role: marcrel:ctb
+        legacy_line: 172
+        structured_index: 6
+      - order: 9
+        pid: xyzrins:persons/chris-markiewicz
+        display_label: Chris Markiewicz
+        role: marcrel:ctb
+        legacy_line: 194
+        structured_index: 34
+      - order: 10
+        pid: xyzrins:persons/david-kennedy
+        display_label: David N. Kennedy
+        role: marcrel:ctb
+        legacy_line: 216
+        structured_index: 7
+      - order: 11
+        pid: xyzrins:persons/jean-baptiste-poline
+        display_label: Jean-Baptiste Poline
+        role: marcrel:ctb
+        legacy_line: 233
+        structured_index: 8
+      - order: 12
+        pid: xyzrins:persons/joey-hess
+        display_label: Joey Hess
+        role: marcrel:ctb
+        legacy_line: 250
+        structured_index: 9
+      - order: 13
+        pid: xyzrins:persons/franco-pestilli
+        display_label: Franco Pestilli
+        role: marcrel:ctb
+        legacy_line: 278
+        structured_index: 10
+      - order: 14
+        pid: xyzrins:persons/michael-hanke
+        display_label: Michael Hanke
+        role: marcrel:ctb
+        legacy_line: 296
+        structured_index: 11
+      - order: 15
+        pid: xyzrins:persons/satrajit-ghosh
+        display_label: Satrajit Ghosh
+        role: marcrel:ctb
+        legacy_line: 322
+        structured_index: 12
+  - name: Affiliated Faculty
+    members:
+      - order: 16
+        pid: xyzrins:persons/jeremy-manning
+        display_label: Jeremy R. Manning
+        role: marcrel:ctb
+        legacy_line: 342
+        structured_index: 13
+      - order: 17
+        pid: xyzrins:persons/luke-chang
+        display_label: Luke Chang
+        role: marcrel:ctb
+        legacy_line: 362
+        structured_index: 14
+      - order: 18
+        pid: xyzrins:persons/matthijs-van-der-meer
+        display_label: Matt van der Meer
+        role: marcrel:ctb
+        legacy_line: 381
+        structured_index: 15
+      - order: 19
+        pid: xyzrins:persons/tor-wager
+        display_label: Tor D. Wager
+        role: marcrel:ctb
+        legacy_line: 400
+        structured_index: 16
+  - name: Emeritus
+    members:
+      - order: 20
+        pid: xyzrins:persons/jason-gors
+        display_label: Jason Gors
+        role: marcrel:ctb
+        legacy_line: 428
+        structured_index: 25
+      - order: 21
+        pid: xyzrins:persons/gergana-alteva
+        display_label: Gergana Alteva
+        role: marcrel:ctb
+        legacy_line: 443
+        structured_index: 26
+      - order: 22
+        pid: xyzrins:persons/oliver-contier
+        display_label: Oliver Contier
+        role: marcrel:ctb
+        legacy_line: 464
+        structured_index: 27
+      - order: 23
+        pid: xyzrins:persons/matteo-visconti-di-oleggio-castello
+        display_label: Matteo Visconti di Oleggio Castello
+        role: marcrel:ctb
+        legacy_line: 485
+        structured_index: 17
+      - order: 24
+        pid: xyzrins:persons/samuel-nastase
+        display_label: Samuel Nastase
+        role: marcrel:ctb
+        legacy_line: 505
+        structured_index: 23
+      - order: 25
+        pid: xyzrins:persons/nikolaas-oosterhof
+        display_label: Nikolaas N. Oosterhof
+        role: marcrel:ctb
+        legacy_line: 523
+        structured_index: 28
+      - order: 26
+        pid: xyzrins:persons/matthew-brett
+        display_label: Matthew Brett
+        role: marcrel:ctb
+        legacy_line: 545
+        structured_index: 24
+      - order: 27
+        pid: xyzrins:persons/kyle-meyer
+        display_label: Kyle Meyer
+        role: marcrel:ctb
+        legacy_line: 571
+        structured_index: 18
+      - order: 28
+        pid: xyzrins:persons/chris-cheng
+        display_label: Chris Cheng
+        role: marcrel:ctb
+        legacy_line: 591
+        structured_index: 29
+      - order: 29
+        pid: xyzrins:persons/soichi-hayashi
+        display_label: Soichi Hayashi
+        role: marcrel:ctb
+        legacy_line: 615
+        structured_index: 30
+      - order: 30
+        pid: xyzrins:persons/vanessa-sochat
+        display_label: Vanessa Sochat
+        role: marcrel:ctb
+        legacy_line: 633
+        structured_index: 22
+      - order: 31
+        pid: xyzrins:persons/benjamin-poldrack
+        display_label: Benjamin Poldrack
+        role: marcrel:ctb
+        legacy_line: 653
+        structured_index: 19
+      - order: 32
+        pid: xyzrins:persons/horea-ioanas
+        display_label: Horea-Ioan Ioanas
+        role: marcrel:ctb
+        legacy_line: 669
+        structured_index: 21
+      - order: 33
+        pid: xyzrins:persons/john-wodder
+        display_label: John Wodder
+        role: marcrel:ctb
+        legacy_line: 694
+        structured_index: 20

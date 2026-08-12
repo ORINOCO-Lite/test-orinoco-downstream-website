@@ -1,0 +1,18 @@
+pid: xyzrins:persons/luke-chang
+schema_type: xyzri:XYZPerson
+given_name: Luke
+family_name: Chang
+formatted_name: Luke Chang
+display_label: Luke Chang
+description: >-
+  Associate Professor of Psychological and Brain Sciences at Dartmouth
+  College. Director of the Computational Social and Affective Neuroscience
+  Lab. Develops tools studying computational processes underlying emotions,
+  social interactions, and neurobiological substrates.
+attributes:
+  - predicate: vcard:Email
+    value: luke.j.chang@dartmouth.edu
+    schema_type: dlthings:AttributeSpecification
+identifiers:
+  - notation: ljchang
+    schema_type: dlthings:Identifier

@@ -1,0 +1,28 @@
+pid: xyzrins:publications/doi-10-1016-j-neuron-2016-10-033
+schema_type: xyzri:XYZPublication
+title: To the Cloud! A Grassroots Proposal to Accelerate Brain Science Discovery
+display_label: To the Cloud! A Grassroots Proposal to Accelerate Brain Science Discovery
+kind: bibo:AcademicArticle
+identifiers:
+- notation: 10.1016/j.neuron.2016.10.033
+  schema_type: dlthings:DOI
+- notation: 0896-6273
+  schema_type: dlthings:ISSN
+- notation: zotero:group:6197458:item:G67VDG29
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/jean-baptiste-poline
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: bibo:locator
+  value: 92, 3, 622-627
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:issued
+  value: '2016'
+  schema_type: dlthings:AttributeSpecification

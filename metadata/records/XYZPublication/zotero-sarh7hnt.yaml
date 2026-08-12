@@ -1,0 +1,35 @@
+pid: xyzrins:publications/zotero-sarh7hnt
+schema_type: xyzri:XYZPublication
+title: 'How to make brain imaging research efficient and reproducible: building software and
+  standards'
+display_label: 'How to make brain imaging research efficient and reproducible: building software
+  and standards'
+kind: bibo:Document
+identifiers:
+- notation: zotero:group:6197458:item:SARH7HNT
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/jean-baptiste-poline
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/satrajit-ghosh
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/michael-hanke
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/david-kennedy
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: '2015'
+  schema_type: dlthings:AttributeSpecification

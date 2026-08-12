@@ -1,0 +1,33 @@
+pid: xyzrins:publications/zotero-tarqrcj3
+schema_type: xyzri:XYZPublication
+title: Attentional allocation locally warps representational space
+display_label: Attentional allocation locally warps representational space
+kind: bibo:Document
+identifiers:
+- notation: zotero:group:6197458:item:TARQRCJ3
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/samuel-nastase
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/nikolaas-oosterhof
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/jason-gors
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/james-haxby
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: '2014'
+  schema_type: dlthings:AttributeSpecification

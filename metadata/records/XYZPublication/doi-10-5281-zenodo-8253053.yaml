@@ -1,0 +1,24 @@
+pid: xyzrins:publications/doi-10-5281-zenodo-8253053
+schema_type: xyzri:XYZPublication
+title: Dartmouth Brain Imaging Center (DBIC) QA data (weekly QA scans etc.)
+display_label: Dartmouth Brain Imaging Center (DBIC) QA data (weekly QA scans etc.)
+kind: bibo:Document
+identifiers:
+- notation: 10.5281/zenodo.8253053
+  schema_type: dlthings:DOI
+- notation: https://zenodo.org/record/8253053
+  schema_type: dlthings:Identifier
+- notation: zotero:group:6197458:item:DB8BLT9J
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: '2023'
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:rights
+  value: Open Data Commons Public Domain Dedication & License 1.0
+  schema_type: dlthings:AttributeSpecification

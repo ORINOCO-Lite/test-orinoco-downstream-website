@@ -1,0 +1,44 @@
+version: 1
+profile: con
+
+base:
+  repository: https://hub.psychoinformatics.de/www/www-from-model.git
+  commit: a9ac9d5abc3898fd13d9b8392008f0c323c8dcd8
+  reviewed_range:
+    from: 5b401e0c478a4409442b3a8a285bd3efd5d30e05
+    to: a9ac9d5abc3898fd13d9b8392008f0c323c8dcd8
+  review: >-
+    One upstream CI-only change updates the deposit-changes action in
+    .forgejo/workflows/register-depictions.yaml. Presentation inputs are
+    unchanged.
+
+inputs:
+  schema_commit: d26ea4135e28c25b134c64de1cdc15d15cd2f9f0
+  dump_things_commit: 9f101d97c7f15d491f602db5a9c33ad9a19ad8bf
+  qri_commit: ef1141430a471455d4a5f4e07d7989ec717f56f4
+  graph_source: code/pool2graph.py
+  graph_source_commit: a9ac9d5abc3898fd13d9b8392008f0c323c8dcd8
+  templates:
+    - page_templates/homepage.md.j2
+    - page_templates/instrument.md.j2
+    - page_templates/person.md.j2
+    - page_templates/project.md.j2
+    - page_templates/publication.md.j2
+
+outputs:
+  qri_stream: profiles/con/projection/records.jsonl
+  generated_content: profiles/con/projection/content
+  editorial_content: profiles/con/editorial/content
+  graph: profiles/con/projection/static/graph.json
+  digest: profiles/con/projection/SHA256SUMS
+  asset_materialization: ignored-build-assembly
+
+isolation:
+  collection: con-public
+  upstream_content_modified: false
+  upstream_layouts_modified: false
+  upstream_templates_modified: false
+  upstream_workflows_modified: false
+  persistent_service_required: false
+  custom_renderer: false
+  generic_relationship_bridge: false

@@ -1,0 +1,23 @@
+pid: xyzrins:publications/doi-10-1117-12-360283
+schema_type: xyzri:XYZPublication
+title: Approach to parallel-hierarchical network learning for real-time image sequence recognition
+display_label: Approach to parallel-hierarchical network learning for real-time image sequence
+  recognition
+kind: bibo:Article
+identifiers:
+- notation: 10.1117/12.360283
+  schema_type: dlthings:DOI
+- notation: zotero:group:6197458:item:DD5DYRRP
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: bibo:locator
+  value: 3836:1, 71-81
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:issued
+  value: '1999'
+  schema_type: dlthings:AttributeSpecification

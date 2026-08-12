@@ -1,0 +1,5 @@
+# Source: public pool snapshot recorded in profiles/con/provenance/selection.yaml
+pid: obo:IAO_0000010
+schema_type: xyzri:XYZInstrumentType
+display_label: Software
+description: A set of instructions that direct a computer to do a specific task.

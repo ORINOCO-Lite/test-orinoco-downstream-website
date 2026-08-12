@@ -1,0 +1,32 @@
+pid: xyzrins:publications/doi-10-1038-s41598-017-12559-1
+schema_type: xyzri:XYZPublication
+title: The Neural Representation Of Personally Familiar And Unfamiliar Faces In The Distributed
+  System For Face Perception
+display_label: The Neural Representation Of Personally Familiar And Unfamiliar Faces In The
+  Distributed System For Face Perception
+kind: bibo:AcademicArticle
+identifiers:
+- notation: 10.1038/s41598-017-12559-1
+  schema_type: dlthings:DOI
+- notation: zotero:group:6197458:item:LMBPDTEZ
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/jason-gors
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: bibo:locator
+  value: 7, 1
+  schema_type: dlthings:AttributeSpecification
+- predicate: dcterms:issued
+  value: '2017'
+  schema_type: dlthings:AttributeSpecification

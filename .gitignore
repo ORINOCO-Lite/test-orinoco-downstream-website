@@ -1,0 +1,13 @@
+.DS_Store
+.pixi/
+.orinoco/
+build/
+node_modules/
+test-results/
+playwright-report/
+__pycache__/
+*.py[cod]
+*.rej
+
+# Review ledgers and deterministic manifests remain versioned.
+!generated/manifests/

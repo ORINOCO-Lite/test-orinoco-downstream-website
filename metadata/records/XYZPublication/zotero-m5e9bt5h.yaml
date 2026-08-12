@@ -1,0 +1,31 @@
+pid: xyzrins:publications/zotero-m5e9bt5h
+schema_type: xyzri:XYZPublication
+title: 'ReproIn: automatic generation of shareable, version-controlled BIDS datasets from
+  MR scanners'
+display_label: 'ReproIn: automatic generation of shareable, version-controlled BIDS datasets
+  from MR scanners'
+kind: bibo:Document
+identifiers:
+- notation: zotero:group:6197458:item:M5E9BT5H
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/james-haxby
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/satrajit-ghosh
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: '2018'
+  schema_type: dlthings:AttributeSpecification

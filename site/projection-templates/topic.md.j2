@@ -1,0 +1,14 @@
+{% extends "page.md.j2" %}
+{% block frontmatter -%}
+title: "{{ display_label }}"
+{% endblock -%}
+
+{% block content -%}
+{{ description }}
+
+{% if part_of -%}Part of:
+{% for item in part_of -%}
+- [{{ item.display_label }}](/{{ item.pid.replace('xyzrins:', '') }})
+{% endfor %}
+{% endif -%}
+{% endblock %}

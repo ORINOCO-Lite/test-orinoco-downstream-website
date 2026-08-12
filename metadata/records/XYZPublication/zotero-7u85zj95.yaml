@@ -1,0 +1,29 @@
+pid: xyzrins:publications/zotero-7u85zj95
+schema_type: xyzri:XYZPublication
+title: Variability of the Neuroimaging Results Across OS, and How to Avoid it
+display_label: Variability of the Neuroimaging Results Across OS, and How to Avoid it
+kind: bibo:Document
+identifiers:
+- notation: zotero:group:6197458:item:7U85ZJ95
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/satrajit-ghosh
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/jean-baptiste-poline
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/david-kennedy
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: '2018'
+  schema_type: dlthings:AttributeSpecification

@@ -1,0 +1,27 @@
+pid: xyzrins:publications/zotero-k7pww352
+schema_type: xyzri:XYZPublication
+title: Transmodal Analysis of Neural Signals
+display_label: Transmodal Analysis of Neural Signals
+kind: bibo:AcademicArticle
+identifiers:
+- notation: http://arxiv.org/abs/1307.2150
+  schema_type: dlthings:Identifier
+- notation: zotero:group:6197458:item:K7PWW352
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/michael-hanke
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/james-haxby
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: 2013-07
+  schema_type: dlthings:AttributeSpecification

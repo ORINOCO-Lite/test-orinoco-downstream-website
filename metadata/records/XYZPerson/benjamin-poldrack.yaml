@@ -1,0 +1,12 @@
+pid: xyzrins:persons/benjamin-poldrack
+schema_type: xyzri:XYZPerson
+given_name: Benjamin
+family_name: Poldrack
+formatted_name: Benjamin Poldrack
+display_label: Benjamin Poldrack
+description: >-
+  Emeritus member of the Center for Open Neuroscience. Affiliated with INM-7,
+  Research Centre Jülich. DataLad project contributor.
+identifiers:
+  - notation: bpoldrack
+    schema_type: dlthings:Identifier

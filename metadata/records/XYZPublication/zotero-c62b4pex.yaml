@@ -1,0 +1,29 @@
+pid: xyzrins:publications/zotero-c62b4pex
+schema_type: xyzri:XYZPublication
+title: 'Pybids: Python tools for manipulation and analysis of BIDS datasets'
+display_label: 'Pybids: Python tools for manipulation and analysis of BIDS datasets'
+kind: bibo:Document
+identifiers:
+- notation: zotero:group:6197458:item:C62B4PEX
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/michael-hanke
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/chris-markiewicz
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/jean-baptiste-poline
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: '2018'
+  schema_type: dlthings:AttributeSpecification

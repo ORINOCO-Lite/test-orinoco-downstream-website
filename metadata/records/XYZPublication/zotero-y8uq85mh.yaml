@@ -1,0 +1,31 @@
+pid: xyzrins:publications/zotero-y8uq85mh
+schema_type: xyzri:XYZPublication
+title: Application of the Neuroimaging Data Model to Represent and Exchange Primary and Derived
+  Data
+display_label: Application of the Neuroimaging Data Model to Represent and Exchange Primary
+  and Derived Data
+kind: bibo:Document
+identifiers:
+- notation: zotero:group:6197458:item:Y8UQ85MH
+  schema_type: dlthings:Identifier
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/michael-hanke
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/david-kennedy
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/jean-baptiste-poline
+  roles:
+  - marcrel:aut
+  schema_type: dlthings:Attribution
+attributes:
+- predicate: dcterms:issued
+  value: '2015'
+  schema_type: dlthings:AttributeSpecification

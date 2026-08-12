@@ -1,0 +1,142 @@
+version: 1
+milestone: 3
+status: reviewed-api-snapshot
+
+source:
+  repository: https://github.com/con/dump-research-info.git
+  commit: 04ad6ff735daedaf3173a4e2f72bf930a63c0e37
+  branch: codex/milestone-3-zotero
+  group_id: 6197458
+  api_root: https://api.zotero.org/groups/6197458
+  access: public-read-only
+  api_version: 3
+  library_version: 451
+  fetched_at: "2026-08-12T00:03:17.199831+00:00"
+  content_sha256: 5e0f5fe1d68c18214110a37c24a8e9177dc484f64a1d9d832f322b477bfef20d
+
+ingestion:
+  snapshot: inputs/zotero_centerforopenneuroscience/snapshot.json
+  promoted_publications: data/zotero_centerforopenneuroscience/XYZPublication.json
+  migration_policy: inputs/zotero_centerforopenneuroscience/site-migration.yaml
+  exporter: scripts/zotero_site_export.py
+  commands:
+    - pixi run zotero-fetch
+    - pixi run zotero-check
+    - pixi run zotero-site-candidates
+  publications_sha256: a844c0300c3ee876692279210b587b522b31ffd180b933143eba41f3802dedc7
+  policy_sha256: e64b10d9f33d32baa495fe198330cd5a68539cac39e8fed5685df4224eea3a6c
+  exporter_sha256: 74935d9adcad04a34f25ed7e060bf513ff50398903d287c241e5a0dff823aebf
+
+source_inventory:
+  total_top_level_items: 197
+  selected_top_level_items: 134
+  collection_memberships:
+    CON Articles: 127
+    CON Datasets: 4
+    CON Zenodo/OSF DOIs: 3
+    CON Software: 0
+  excluded_external: 55
+  excluded_unfiled: 8
+  duplicate_doi_groups: 6
+  promoted_records:
+    publications: 126
+    publication_venues: 20
+    datasets: 4
+    instruments: 3
+
+site_promotion:
+  publication_count: 126
+  existing_records_refreshed: 1
+  new_records: 125
+  output_sha256: b77d89cf1695e95097148c919579a71ec354b44cc0f09ba26cfd40104186d28e
+  kinds:
+    bibo:AcademicArticle: 79
+    bibo:Article: 7
+    bibo:BookSection: 3
+    bibo:Document: 34
+    bibo:Manuscript: 2
+    bibo:Thesis: 1
+  identifiers: >-
+    Keep DOI, ISSN, source URL, and Zotero group/item identifiers typed on the
+    publication. Use a stable internal xyzrins publication PID for routing,
+    preserving the accepted DataLad publication PID through one explicit
+    override.
+  topics:
+    canonical:
+      - xyzrins:topics/neuroimaging
+    linked_publications: 2
+
+relationship_review:
+  retained_person_attributions: 373
+  retained_curated_generations:
+    xyzrins:publications/datalad-joss-2021:
+      object: xyzrins:projects/datalad
+      evidence: accepted Milestone 2 site record
+      decision: >-
+        Preserve the site-owned native Generation to the DataLad project. It
+        is distinct from the omitted generic Zotero publishing placeholder.
+  omitted_attributions:
+    xyzrins:persons/brock-wester:
+      occurrences: 2
+      decision: >-
+        Omit until a human decides whether this modeled source identity should
+        receive a public person record in the static site.
+    xyzrins:persons/russell-poldrack:
+      occurrences: 19
+      decision: >-
+        Omit until a human decides whether this modeled source identity should
+        receive a public person record in the static site.
+  unresolved_source_creators:
+    occurrences: 1817
+    distinct_names: 1221
+    decision: >-
+      Do not invent person identities. Publication pages currently show only
+      creators reconciled to reviewed public person records, not a complete
+      author list.
+  omitted_generations:
+    object: obo:IAO_0000444
+    occurrences: 38
+    decision: >-
+      Omit the generic publishing-activity placeholder because it is not a
+      canonical graph node. Retain supported dates and typed ISSNs without
+      inventing a generating project or a compatibility relationship.
+
+venue_review:
+  transformed_records: 20
+  unresolved_names_without_issn: 42
+  site_records: 0
+  decision: >-
+    Keep venue records in the validated ingestion layer for now. Their only
+    source link is an at_location qualifier on the omitted generic publishing
+    activity. Adding venue records alone would leave them disconnected, while
+    retaining that activity would violate native target closure. Typed ISSNs
+    remain on the publication records.
+
+topic_review:
+  unresolved_tag_occurrences: 49
+  unresolved_distinct_values: 36
+  decision: >-
+    Promote only the already reconciled Neuroimaging topic. Keep all other
+    tags in the source snapshot until a human reviews the controlled
+    vocabulary.
+
+human_decisions:
+  - id: publication-person-visibility
+    question: >-
+      Should Brock Wester and Russell Poldrack receive public person records
+      so their reviewed publication attributions can enter the static graph?
+    blocks_current_preview: false
+  - id: complete-author-presentation
+    question: >-
+      Should future pages model every coauthor, display unresolved creator
+      strings separately, or continue to show only reconciled identities?
+    blocks_current_preview: false
+  - id: publishing-activity-model
+    question: >-
+      What canonical activity model should replace the generic publishing
+      placeholder before venue relationships are projected?
+    blocks_current_preview: false
+  - id: zotero-topic-vocabulary
+    question: >-
+      Which of the 36 unresolved tag values should become controlled topics?
+    blocks_current_preview: false

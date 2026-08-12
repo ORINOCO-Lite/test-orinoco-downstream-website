@@ -1,0 +1,43 @@
+[workspace]
+name = "test-orinoco-downstream-website"
+channels = ["conda-forge"]
+platforms = [{ platform = "osx-arm64", macos = "14.0" }, "linux-64"]
+
+[dependencies]
+python = ">=3.12,<3.13"
+copier = "==9.10.3"
+hugo = "==0.154.5"
+nodejs = ">=22,<23"
+pyyaml = "==6.0.2"
+
+[pypi-dependencies]
+orinoco-lite = { url = "https://github.com/con/orinoco-lite-dev/releases/download/v0.1.2/orinoco_lite-0.1.2-py3-none-any.whl#sha256=317a26324150814592ded4c28ac2394cc7f43ed590d30e6461749130a0d0ea67" }
+
+[tasks]
+validate = "orinoco validate"
+projection-update = "orinoco projection update"
+projection-verify = "orinoco projection verify"
+assets-hydrate = "orinoco assets hydrate"
+assets-verify = "orinoco assets verify"
+assets-prepare-online = { depends-on = ["assets-hydrate"], cmd = "orinoco assets verify" }
+build = "orinoco build --destination build/site"
+build-repeat = "orinoco build --destination build/site-repeat"
+verify-deterministic = { depends-on = ["build", "build-repeat"], cmd = "python tools/verify_deterministic_build.py build/site build/site-repeat --manifest build/deterministic-build.json" }
+verify-build = { depends-on = ["verify-deterministic"] }
+build-pages = "orinoco build --destination build/pages --base-url \"${ORINOCO_BASE_URL}\""
+build-browser-pages = "orinoco build --destination build/pages --base-url http://127.0.0.1:8766/test-orinoco-downstream-website/"
+serve = "orinoco serve --directory build/site --port 8765"
+apply-editor-bundle = "orinoco editor apply"
+verify-runtime = "orinoco runtime verify"
+verify-hugo = "python tools/verify_hugo.py --version 0.154.5 --extended"
+verify-ownership = "python tools/verify_template_ownership.py"
+import-site = "python tools/import_site_bundle.py"
+update-orinoco = "python tools/update_orinoco.py"
+update-check = "python tools/update_orinoco.py --check"
+test-template = "python -m unittest discover -s tests/template -p 'test_*.py'"
+test-consumer = "python -m unittest discover -s tests -p 'test_*.py'"
+install-browser-tests = "npm --prefix tests/browser ci"
+install-browser-browsers = { depends-on = ["install-browser-tests"], cmd = "npx --prefix tests/browser playwright install chromium webkit", env = { PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
+test-browser = { depends-on = ["build-browser-pages", "install-browser-browsers"], cmd = "npm --prefix tests/browser test", env = { ORINOCO_PAGES_ROOT = "build/pages", ORINOCO_PROJECT_PATH = "/test-orinoco-downstream-website/", PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
+test = { depends-on = ["verify-ownership", "test-consumer"] }
+test-all = { depends-on = ["assets-prepare-online", "validate", "projection-verify", "verify-runtime", "verify-hugo", "test", "verify-deterministic", "test-browser"] }
