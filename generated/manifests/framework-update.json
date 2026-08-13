@@ -1,32 +1,32 @@
 {
   "classification": "compatibility",
   "conflicts": [],
-  "created_at": "2026-08-13T15:19:21Z",
+  "created_at": "2026-08-13T16:45:24Z",
   "ledger_version": 1,
   "migrations": [],
   "previous": {
     "engine": {
       "distribution": "orinoco-lite",
-      "sha256": "c247cb8f63891724d63e86486941d4958517d96e44f01e72999b84c86b6359de",
-      "url": "https://github.com/con/orinoco-lite-dev/releases/download/v0.1.9/orinoco_lite-0.1.9-py3-none-any.whl",
-      "version": "0.1.9"
+      "sha256": "1034ae0de2d160a382eca08f5008de7f90b5aa01a864169358f8f73de7e74705",
+      "url": "https://github.com/con/orinoco-lite-dev/releases/download/v0.1.10/orinoco_lite-0.1.10-py3-none-any.whl",
+      "version": "0.1.10"
     },
     "runtime": {
-      "manifest_sha256": "afef6b7d5a61131cbdb6db6a136e6f381bdf8eb9caf1a641a35df3ef94da07bc",
-      "sha256": "7850eb9af3205034fcb97c5034ec0a3811df7d174332c7563d011bb0b5bcbba0",
-      "url": "https://github.com/con/orinoco-lite-dev/releases/download/v0.1.9/orinoco-runtime-0.1.9.tar.gz",
-      "version": "0.1.9"
+      "manifest_sha256": "592a186e08ea472ca569cd4700aca444ecf82ce6bae286920505484fe83800af",
+      "sha256": "24416557d2791b2c4959c0a2532abbf523669d466721f009cf92d0ce6b7abbcd",
+      "url": "https://github.com/con/orinoco-lite-dev/releases/download/v0.1.10/orinoco-runtime-0.1.10.tar.gz",
+      "version": "0.1.10"
     },
     "template": {
-      "commit": "9ae15a1deaf044c6a08c3fe9c8a07724ff0dc467",
-      "copier_ref": "v0.1.7",
+      "commit": "76a11c5a2c3792d8e5a0d6ebe65c7f20c824bb96",
+      "copier_ref": "v0.1.8",
       "source": "gh:con/orinoco-lite-template",
-      "version": "v0.1.7"
+      "version": "v0.1.8"
     },
     "workflow": {
-      "ref": "con/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@0a0b0891e4e7ae3648d4e9d7d6e7e988194600aa",
+      "ref": "con/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@1e1001ead15f5a96ef56bc2e18be92070922244f",
       "repository": "con/orinoco-lite-dev",
-      "sha": "0a0b0891e4e7ae3648d4e9d7d6e7e988194600aa"
+      "sha": "1e1001ead15f5a96ef56bc2e18be92070922244f"
     }
   },
   "reconciled_target_equivalent": [],
@@ -2267,10 +2267,10 @@
       "version": "0.1.10"
     },
     "template": {
-      "commit": "76a11c5a2c3792d8e5a0d6ebe65c7f20c824bb96",
-      "copier_ref": "v0.1.8",
+      "commit": "28aecf3c850fbd0e17ba0a6f0bcce721bd25ba88",
+      "copier_ref": "v0.1.11",
       "source": "gh:con/orinoco-lite-template",
-      "version": "v0.1.8"
+      "version": "v0.1.11"
     },
     "workflow": {
       "ref": "con/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@1e1001ead15f5a96ef56bc2e18be92070922244f",
