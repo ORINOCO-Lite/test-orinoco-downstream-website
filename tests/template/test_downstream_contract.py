@@ -219,7 +219,7 @@ class DownstreamContractTests(unittest.TestCase):
         )
         self.assertIn("--port 8765", tasks["serve"])
         self.assertEqual(
-            'orinoco build --destination build/pages --base-url "${ORINOCO_BASE_URL}"',
+            "python tools/build_pages.py build/pages",
             tasks["build-pages"],
         )
         self.assertRegex(
@@ -234,6 +234,34 @@ class DownstreamContractTests(unittest.TestCase):
             ["template_owned"],
             verifier.classify("tools/verify_local_preview.py", classes),
         )
+        self.assertEqual(
+            ["template_owned"],
+            verifier.classify("tools/build_pages.py", classes),
+        )
+
+    def test_pages_builder_expands_and_validates_the_environment_url(self) -> None:
+        builder = load_tool("build_pages")
+        with patch.dict(
+            builder.os.environ,
+            {"ORINOCO_BASE_URL": "https://con.github.io/example"},
+            clear=False,
+        ), patch.object(builder.subprocess, "run") as run:
+            self.assertEqual(0, builder.main(["build/pages"]))
+        run.assert_called_once_with(
+            [
+                "orinoco",
+                "build",
+                "--destination",
+                "build/pages",
+                "--base-url",
+                "https://con.github.io/example/",
+            ],
+            check=True,
+        )
+
+        with patch.dict(builder.os.environ, {"ORINOCO_BASE_URL": ""}, clear=False):
+            with self.assertRaisesRegex(SystemExit, "absolute HTTP\(S\) URL"):
+                builder.main(["build/pages"])
 
     def test_hugo_verifier_accepts_distribution_revisions_strictly(self) -> None:
         verifier = load_tool("verify_hugo")

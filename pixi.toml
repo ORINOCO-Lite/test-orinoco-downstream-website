@@ -25,7 +25,7 @@ build-repeat = "orinoco build --destination build/site-repeat --base-url /"
 verify-deterministic = { depends-on = ["build", "build-repeat"], cmd = "python tools/verify_deterministic_build.py build/site build/site-repeat --manifest build/deterministic-build.json" }
 verify-local-preview = { depends-on = ["build"], cmd = "python tools/verify_local_preview.py build/site" }
 verify-build = { depends-on = ["verify-deterministic", "verify-local-preview"] }
-build-pages = "orinoco build --destination build/pages --base-url \"${ORINOCO_BASE_URL}\""
+build-pages = "python tools/build_pages.py build/pages"
 build-browser-pages = "orinoco build --destination build/pages --base-url http://127.0.0.1:8766/test-orinoco-downstream-website/"
 serve = "orinoco serve --directory build/site --port 8765"
 apply-editor-bundle = "orinoco editor apply"
