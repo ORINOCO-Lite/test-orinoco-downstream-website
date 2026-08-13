@@ -10,7 +10,13 @@ import subprocess
 import sys
 
 
-VERSION = re.compile(r"\bhugo v(?P<version>[0-9]+\.[0-9]+\.[0-9]+)(?P<extended>\+extended)?\b")
+VERSION = re.compile(
+    r"\bhugo v(?P<version>[0-9]+\.[0-9]+\.[0-9]+)"
+    r"(?:-(?P<revision>[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*))?"
+    r"(?P<variants>(?:\+[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*)*)"
+    r"(?=\s|$)",
+    re.IGNORECASE,
+)
 
 
 def parser() -> argparse.ArgumentParser:
@@ -42,7 +48,12 @@ def main(argv: list[str] | None = None) -> int:
         failures.append(
             f"expected Hugo {args.version}, found {match.group('version')}"
         )
-    if args.extended and match.group("extended") is None:
+    variants = {
+        item.lower()
+        for item in match.group("variants").split("+")
+        if item
+    }
+    if args.extended and "extended" not in variants:
         failures.append("Hugo Extended is required")
     if failures:
         for failure in failures:

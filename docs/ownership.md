@@ -20,3 +20,8 @@ The ownership verifier checks all three and, when installed, also checks the dis
 
 Semantic content changes are never smuggled into a framework update.
 If a schema change genuinely requires one, the update must name a migration, list the allowed site-owned paths, isolate the semantic diff, and leave the ledger in `human-review` status.
+
+The site owns every byte below `tests/browser/`, including `package.json` and `package-lock.json`.
+The template owns `tools/install_browser_tests.py`, which may change only ignored `node_modules` state.
+It snapshots and hashes both npm inputs, performs the install, verifies all three Playwright package versions, and restores then fails if either tracked input changes.
+The macOS 14 compatibility overlay is therefore an environment repair, not a transfer of browser-test ownership to the template.
