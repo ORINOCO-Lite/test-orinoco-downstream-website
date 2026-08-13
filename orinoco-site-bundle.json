@@ -1053,7 +1053,7 @@
     "site/framework/themes/congo/tailwind.config.js": "initialized_site_owned",
     "site/framework/themes/congo/theme.toml": "initialized_site_owned",
     "site/layouts/_partials/article-link.html": "initialized_site_owned",
-    "site/layouts/_partials/extend-footer.html": "initialized_site_owned",
+    "site/layouts/_partials/extend-head.html": "initialized_site_owned",
     "site/layouts/_partials/picture.html": "initialized_site_owned",
     "site/layouts/_partials/taxonomy-list-grid.html": "initialized_site_owned",
     "site/layouts/_partials/taxonomy-list-vertical-item.html": "initialized_site_owned",
@@ -2147,7 +2147,7 @@
     "site/framework/themes/congo/tailwind.config.js": "65b87ec49eb307ce4c2b260665509473f4ca2d8f77348040fcabfe4853f80e32",
     "site/framework/themes/congo/theme.toml": "055b51f2663f55c1a7f22321021916ec9995fafbf4b0bb07733bdda3fb10cd98",
     "site/layouts/_partials/article-link.html": "8c6dec127173b36a4d54ea495b4d977c88b01c4cb6fae22688319d019c3e041e",
-    "site/layouts/_partials/extend-footer.html": "49ceb27215b5b6a834ab8e57fc9548e9a5d8a4dcd4d3ca5e98c362f05b89217c",
+    "site/layouts/_partials/extend-head.html": "0f8c2ef54078a9b893e337493d5eafe07cfb103005ac62e637f3d3256de4f626",
     "site/layouts/_partials/picture.html": "a66a92df88380597e59ba6239f421cf0181081efa812ec7b2daa0ff52e836c0c",
     "site/layouts/_partials/taxonomy-list-grid.html": "708b379de69f97cd1018c582118e710666fb00243b74a6139898e2a398a719e6",
     "site/layouts/_partials/taxonomy-list-vertical-item.html": "f7b7ca371ab12bd90094ce618e0c4f61e0b48630eea8a57ad8636b9bbf8853c2",
@@ -2184,7 +2184,7 @@
     "tests/parity/__init__.py": "357fae3460ff93b9107dc3b7a060fd9813e89a7ad35c5b7d420928bae7954776",
     "tests/parity/site-bundle-ownership.yml": "ac0d0ac33fcba2bb66f3ee54c819501a7889da98e76854ac9f0fdec76511eca8",
     "tests/parity/site_bundle_inventory.py": "350cba528fd4251841f71ce7f0f5f6425dc8516658572ceb2e11f7e19a3d722f",
-    "tests/parity/test_full_fidelity.py": "89a81109f47dc26ca3e94377e20b7bbc3e0a0dac9ccbac9132416fa53d3682dd",
+    "tests/parity/test_full_fidelity.py": "f3f4ac7cfc00b144e300225b30e3155201be3077062ff9f73dc9bbf7e292f2a5",
     "tests/traceability.json": "7a6f6c160daa846a04ca082559e2277c024aadf727da33776d23a13fc6a54da6"
   },
   "format": "orinoco-site-bundle-v1",
@@ -3242,7 +3242,7 @@
     "site/framework/themes/congo/tailwind.config.js": 6121,
     "site/framework/themes/congo/theme.toml": 530,
     "site/layouts/_partials/article-link.html": 2613,
-    "site/layouts/_partials/extend-footer.html": 392,
+    "site/layouts/_partials/extend-head.html": 408,
     "site/layouts/_partials/picture.html": 776,
     "site/layouts/_partials/taxonomy-list-grid.html": 1523,
     "site/layouts/_partials/taxonomy-list-vertical-item.html": 2569,
@@ -3279,7 +3279,7 @@
     "tests/parity/__init__.py": 50,
     "tests/parity/site-bundle-ownership.yml": 678,
     "tests/parity/site_bundle_inventory.py": 11975,
-    "tests/parity/test_full_fidelity.py": 38165,
+    "tests/parity/test_full_fidelity.py": 38017,
     "tests/traceability.json": 149773
   },
   "source": {
@@ -3288,7 +3288,7 @@
     "scope": "full"
   },
   "summary": {
-    "bytes": 21745331,
+    "bytes": 21745199,
     "classes": {
       "consumer_tests": 20,
       "generated": 205,

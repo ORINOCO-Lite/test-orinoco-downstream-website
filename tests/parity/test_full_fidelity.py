@@ -758,17 +758,13 @@ class FullFidelityConsumerTests(unittest.TestCase):
                 any(line.startswith("160000 ") for line in index.splitlines())
             )
 
-    def test_notice_is_prominent_in_repository_and_rendered_site(self) -> None:
-        notice = (ROOT / "site/TEST-SITE.md").read_text(encoding="utf-8")
-        partial = (
-            ROOT / "site/layouts/_partials/extend-footer.html"
-        ).read_text(encoding="utf-8")
-        for content in (notice, partial):
-            self.assertIn(
-                "not the production Center for Open Neuroscience",
-                " ".join(content.split()),
-            )
-        self.assertIn("fixed inset-x-0 top-0", partial)
+    def test_test_site_notice_is_not_rendered(self) -> None:
+        self.assertFalse(
+            (ROOT / "site/layouts/_partials/extend-footer.html").exists()
+        )
+        index = (ROOT / "build/site/index.html").read_text(encoding="utf-8")
+        self.assertNotIn("TEST SITE", index)
+        self.assertNotIn("not the production Center for Open Neuroscience", index)
 
     def test_offline_acceptance_uses_an_os_level_network_deny_profile(self) -> None:
         profile = (
