@@ -7,7 +7,8 @@ The repository deliberately carries the complete accepted CON snapshot: 186 cano
 There is no content-selection subset.
 
 This repository is a distribution fixture, not a production-content approval.
-Its inclusion of a record, page, image, or other asset does not by itself grant permission to republish or reuse that material.
+Reuse is encouraged under the matrix in [`LICENSES.md`](../LICENSES.md): original software is MIT, original prose is CC BY 4.0, and factual metadata is CC0 1.0.
+Media and third-party material remain subject to their item-specific licenses and notices.
 
 ## Ownership boundaries
 
