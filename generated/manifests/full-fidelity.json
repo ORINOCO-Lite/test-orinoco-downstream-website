@@ -2384,7 +2384,8 @@
   "counts": {
     "accepted_presentation_bytes": 115204,
     "accepted_presentation_files": 64,
-    "accepted_site_presentation_bytes": 121201,
+    "accepted_site_presentation_annex_payload_materializations": 13,
+    "accepted_site_presentation_bytes": 1378923,
     "accepted_site_presentation_files": 72,
     "asset_declarations": 71,
     "asset_declared_bytes": 57407085,
@@ -2474,7 +2475,8 @@
   "kind": "full-fidelity-consumer-contract",
   "presentation_framework": {
     "mount_precedence": "below site-owned overrides and generated projection",
-    "site_bytes": 121201,
+    "site_annex_payload_materializations": 13,
+    "site_bytes": 1378923,
     "site_files": 72,
     "site_manifest": "generated/manifests/framework-import.json",
     "site_path": "site/framework",
@@ -2482,16 +2484,6 @@
     "theme_files": 467,
     "theme_manifest": "generated/manifests/theme-import.json",
     "theme_path": "site/framework/themes/congo"
-  },
-  "projection_inputs": {
-    "active_contract": "site/projection.yaml",
-    "active_digest": "generated/projection/SHA256SUMS",
-    "accepted_site_commit": "26907c487efaa2c31bba9d02398aa201ab6f774b",
-    "graph_producer": "site/projection-tools/pool2graph.py",
-    "historical_digest": "generated/projection/provenance/milestone-3-SHA256SUMS",
-    "import_manifest": "generated/manifests/projection-input-import.json",
-    "selection_filter": null,
-    "templates": "site/projection-templates"
   },
   "projection": {
     "files": [
@@ -3445,6 +3437,16 @@
     "graph_nodes": 186,
     "page_count": 185,
     "record_count": 199
+  },
+  "projection_inputs": {
+    "accepted_site_commit": "26907c487efaa2c31bba9d02398aa201ab6f774b",
+    "active_contract": "site/projection.yaml",
+    "active_digest": "generated/projection/SHA256SUMS",
+    "graph_producer": "site/projection-tools/pool2graph.py",
+    "historical_digest": "generated/projection/provenance/milestone-3-SHA256SUMS",
+    "import_manifest": "generated/manifests/projection-input-import.json",
+    "selection_filter": null,
+    "templates": "site/projection-templates"
   },
   "provenance": {
     "ledgers": [
