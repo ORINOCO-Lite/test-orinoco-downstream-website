@@ -5285,9 +5285,9 @@
       "size": 2613
     },
     {
-      "path": "site/layouts/_partials/extend-footer.html",
-      "sha256": "49ceb27215b5b6a834ab8e57fc9548e9a5d8a4dcd4d3ca5e98c362f05b89217c",
-      "size": 392
+      "path": "site/layouts/_partials/extend-head.html",
+      "sha256": "0f8c2ef54078a9b893e337493d5eafe07cfb103005ac62e637f3d3256de4f626",
+      "size": 408
     },
     {
       "path": "site/layouts/_partials/picture.html",
@@ -5471,8 +5471,8 @@
     },
     {
       "path": "tests/parity/test_full_fidelity.py",
-      "sha256": "89a81109f47dc26ca3e94377e20b7bbc3e0a0dac9ccbac9132416fa53d3682dd",
-      "size": 38165
+      "sha256": "f3f4ac7cfc00b144e300225b30e3155201be3077062ff9f73dc9bbf7e292f2a5",
+      "size": 38017
     },
     {
       "path": "tests/traceability.json",
@@ -5487,7 +5487,7 @@
     "commit": "26907c487efaa2c31bba9d02398aa201ab6f774b",
     "declared_files": 1092,
     "manifest": "orinoco-site-bundle.json",
-    "manifest_sha256": "c77fc77a1ae416112d7ccf88c4296cdf7046d722868d248cb9824e3dfb5a12cf",
+    "manifest_sha256": "04cfcffcf0f41f97ab3de8bbe6063933431697301813b3bf47711657ba87bb50",
     "repository": "https://github.com/con/centerforopenneuroscience.org.git",
     "scope": "full"
   }
