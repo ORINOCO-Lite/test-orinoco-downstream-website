@@ -75,7 +75,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026c-h151e31d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/wcwidth-0.8.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/zipp-4.1.0-pyhcf101f3_0.conda
-      - pypi: direct+https://github.com/con/orinoco-lite-dev/releases/download/v0.1.9/orinoco_lite-0.1.9-py3-none-any.whl#sha256=c247cb8f63891724d63e86486941d4958517d96e44f01e72999b84c86b6359de
+      - pypi: direct+https://github.com/con/orinoco-lite-dev/releases/download/v0.1.10/orinoco_lite-0.1.10-py3-none-any.whl#sha256=1034ae0de2d160a382eca08f5008de7f90b5aa01a864169358f8f73de7e74705
       - pypi: https://files.pythonhosted.org/packages/00/cc/7fbd75d3362e939eb98bcf9bd22f3f7df8c237a85148899ed3d38e5614e5/json_flattener-0.1.9-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/02/10/5da547df7a391dcde17f59520a231527b8571e6f46fc8efb02ccb370ab12/docutils-0.22.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -243,7 +243,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/readline-8.3-h46df422_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-hd3d0363_3.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/yaml-0.2.5-h925e9cb_3.conda
-      - pypi: direct+https://github.com/con/orinoco-lite-dev/releases/download/v0.1.9/orinoco_lite-0.1.9-py3-none-any.whl#sha256=c247cb8f63891724d63e86486941d4958517d96e44f01e72999b84c86b6359de
+      - pypi: direct+https://github.com/con/orinoco-lite-dev/releases/download/v0.1.10/orinoco_lite-0.1.10-py3-none-any.whl#sha256=1034ae0de2d160a382eca08f5008de7f90b5aa01a864169358f8f73de7e74705
       - pypi: https://files.pythonhosted.org/packages/00/cc/7fbd75d3362e939eb98bcf9bd22f3f7df8c237a85148899ed3d38e5614e5/json_flattener-0.1.9-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/02/10/5da547df7a391dcde17f59520a231527b8571e6f46fc8efb02ccb370ab12/docutils-0.22.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -1451,9 +1451,9 @@ packages:
     - yaml >=0.2.5,<0.3.0a0
   size: 83386
   timestamp: 1753484079473
-- pypi: direct+https://github.com/con/orinoco-lite-dev/releases/download/v0.1.9/orinoco_lite-0.1.9-py3-none-any.whl#sha256=c247cb8f63891724d63e86486941d4958517d96e44f01e72999b84c86b6359de
+- pypi: direct+https://github.com/con/orinoco-lite-dev/releases/download/v0.1.10/orinoco_lite-0.1.10-py3-none-any.whl#sha256=1034ae0de2d160a382eca08f5008de7f90b5aa01a864169358f8f73de7e74705
   name: orinoco-lite
-  version: 0.1.9
+  version: 0.1.10
   requires_dist:
   - dump-things-service==6.3.6
   - jinja2==3.1.6

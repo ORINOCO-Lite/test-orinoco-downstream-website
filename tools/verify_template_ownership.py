@@ -37,6 +37,7 @@ REQUIRED_TEMPLATE_FILES = {
     "tools/import_site_bundle.py",
     "tools/finalize_update_ledger.py",
     "tools/verify_deterministic_build.py",
+    "tools/verify_local_preview.py",
     "tools/verify_hugo.py",
     "tools/install_browser_tests.py",
 }

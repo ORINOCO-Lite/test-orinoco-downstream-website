@@ -128,8 +128,19 @@ class DownstreamContractTests(unittest.TestCase):
         self.assertIn("assets-prepare-online", tasks["test-all"]["depends-on"])
         self.assertNotIn("assets-verify", tasks["test-all"]["depends-on"])
         self.assertIn("test-browser", tasks["test-all"]["depends-on"])
-        self.assertIn("verify-deterministic", tasks["test-all"]["depends-on"])
+        self.assertIn("verify-build", tasks["test-all"]["depends-on"])
         self.assertIn("verify-hugo", tasks["test-all"]["depends-on"])
+        self.assertEqual(
+            ["build"], tasks["verify-local-preview"]["depends-on"]
+        )
+        self.assertEqual(
+            "python tools/verify_local_preview.py build/site",
+            tasks["verify-local-preview"]["cmd"],
+        )
+        self.assertEqual(
+            ["verify-deterministic", "verify-local-preview"],
+            tasks["verify-build"]["depends-on"],
+        )
         self.assertNotIn("install-browser-browsers", tasks)
         self.assertEqual(
             "python tools/install_browser_tests.py",
@@ -195,15 +206,34 @@ class DownstreamContractTests(unittest.TestCase):
         )
         self.assertEqual("1.62.1", package["devDependencies"]["@playwright/test"])
 
-    def test_local_build_and_serve_share_the_root_base_url(self) -> None:
+    def test_local_build_is_host_neutral_and_pages_paths_stay_explicit(self) -> None:
         pixi = tomllib.loads((ROOT / "pixi.toml").read_text(encoding="utf-8"))
         tasks = pixi["tasks"]
-        local_base = "--base-url http://127.0.0.1:8765/"
-        self.assertIn(local_base, tasks["build"])
-        self.assertIn(local_base, tasks["build-repeat"])
+        self.assertEqual(
+            "orinoco build --destination build/site --base-url /",
+            tasks["build"],
+        )
+        self.assertEqual(
+            "orinoco build --destination build/site-repeat --base-url /",
+            tasks["build-repeat"],
+        )
         self.assertIn("--port 8765", tasks["serve"])
-        self.assertNotIn(local_base, tasks["build-pages"])
-        self.assertIn("http://127.0.0.1:8766/", tasks["build-browser-pages"])
+        self.assertEqual(
+            'orinoco build --destination build/pages --base-url "${ORINOCO_BASE_URL}"',
+            tasks["build-pages"],
+        )
+        self.assertRegex(
+            tasks["build-browser-pages"],
+            r"--base-url http://127\.0\.0\.1:8766/[^/]+/$",
+        )
+
+        verifier = load_verifier()
+        ownership = verifier.load_yaml(ROOT / "template-ownership.yml")
+        classes = verifier.ownership_classes(ownership)
+        self.assertEqual(
+            ["template_owned"],
+            verifier.classify("tools/verify_local_preview.py", classes),
+        )
 
     def test_hugo_verifier_accepts_distribution_revisions_strictly(self) -> None:
         verifier = load_tool("verify_hugo")

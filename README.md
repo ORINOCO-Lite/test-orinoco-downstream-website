@@ -36,7 +36,9 @@ Once warmed, `pixi run assets-verify` confirms that the checked manifest and loc
 The ordinary online `pixi run test-all` gate runs those two phases in that order through `assets-prepare-online`, so it also works from a cold clone.
 
 `pixi run test-all` is the complete acceptance gate: configuration, projection, and runtime validation, exact Hugo Extended 0.154.5, all consumer tests, two independent byte-compared static builds, and the checked Chromium/WebKit browser scenarios.
-`pixi run build` and `pixi run serve` share the local root URL `http://127.0.0.1:8765/`; Pages and browser-project builds retain their separate project-path base URLs.
+`pixi run build` emits host-neutral root-relative links, so the same local artifact works at both `http://127.0.0.1:8765/` and `http://localhost:8765/` when served with `pixi run serve`.
+`pixi run test-all` verifies both loopback names against that one artifact.
+Pages and browser-project builds retain their separate explicit project-path base URLs and public canonical metadata.
 The browser installer runs the checked npm lock unchanged.
 On macOS 14 only, it overlays Playwright 1.61.1 in `node_modules` to match WebKit revision 2251 without the newer `PushAPIEnabled` protocol request, then verifies `@playwright/test`, `playwright`, and `playwright-core`.
 The overlay uses `--no-save`, `--package-lock=false`, and `--ignore-scripts`; it restores and fails if npm changes either consumer-owned package input.
