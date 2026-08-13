@@ -168,6 +168,26 @@ class DownstreamContractTests(unittest.TestCase):
                         str(job.get("if", "")),
                     )
 
+    def test_update_workflow_commit_has_required_agent_attribution(self) -> None:
+        workflow_path = ROOT / ".github" / "workflows" / "update-orinoco.yml"
+        workflow_text = workflow_path.read_text(encoding="utf-8")
+        workflow = yaml.safe_load(workflow_text)
+        self.assertIn("\n  workflow_dispatch:\n", workflow_text)
+        self.assertNotIn("\n  schedule:\n", workflow_text)
+        self.assertNotIn("cron:", workflow_text)
+        pull_request = workflow["jobs"]["update"]["steps"][-1]
+        self.assertEqual(
+            "chore(deps): update Orinoco framework\n\n"
+            "Co-Authored-By: Codex CLI 0.143.0 / GPT 5.6-sol "
+            "<codex@openai.com>\n",
+            pull_request["with"]["commit-message"],
+        )
+        self.assertTrue(
+            pull_request["with"]["body"].startswith(
+                "**AI-generated draft — not reviewed by John**\n"
+            )
+        )
+
     def test_deterministic_comparator_uses_exact_inventory_and_digests(self) -> None:
         comparator = load_tool("verify_deterministic_build")
         with tempfile.TemporaryDirectory() as temporary:

@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -229,6 +230,24 @@ def verify_updated_template(
         )
 
 
+def copier_data(args: argparse.Namespace) -> dict[str, Any]:
+    """Return the coordinate overlay shared by update and proof renders."""
+
+    return {
+        "template_version": args.to_template,
+        "engine_version": args.to_engine,
+        "engine_url": args.engine_url,
+        "engine_sha256": args.engine_sha256,
+        "runtime_version": args.to_runtime,
+        "runtime_url": args.runtime_url,
+        "runtime_sha256": args.runtime_sha256,
+        "runtime_manifest_sha256": args.runtime_manifest_sha256,
+        "workflow_sha": args.workflow_sha,
+        "workflow_ref": args.workflow_ref,
+        "workflow_repository": workflow_repository(args.workflow_ref),
+    }
+
+
 def copier_command(args: argparse.Namespace, root: Path, pretend: bool) -> list[str]:
     executable = shutil.which("copier")
     if executable is None:
@@ -246,20 +265,7 @@ def copier_command(args: argparse.Namespace, root: Path, pretend: bool) -> list[
     if args.to_template:
         command.extend(["--vcs-ref", args.to_template])
 
-    data = {
-        "template_version": args.to_template,
-        "engine_version": args.to_engine,
-        "engine_url": args.engine_url,
-        "engine_sha256": args.engine_sha256,
-        "runtime_version": args.to_runtime,
-        "runtime_url": args.runtime_url,
-        "runtime_sha256": args.runtime_sha256,
-        "runtime_manifest_sha256": args.runtime_manifest_sha256,
-        "workflow_sha": args.workflow_sha,
-        "workflow_ref": args.workflow_ref,
-        "workflow_repository": workflow_repository(args.workflow_ref),
-    }
-    for key, value in data.items():
+    for key, value in copier_data(args).items():
         if value is not None:
             command.extend(["--data", f"{key}={value}"])
     command.append(root.as_posix())
@@ -284,6 +290,185 @@ def conflict_paths(root: Path) -> list[str]:
         ):
             result.add(path.relative_to(root).as_posix())
     return sorted(result)
+
+
+def render_release(
+    root: Path,
+    source: str,
+    version: str,
+    data: dict[str, Any],
+    destination: Path,
+) -> None:
+    """Render an exact release without executing template tasks."""
+
+    executable = shutil.which("copier")
+    if executable is None:
+        raise ContractError("Copier is unavailable; run this command through Pixi")
+    data_path = destination.parent / f"{destination.name}-answers.yml"
+    dump_yaml(data_path, data)
+    result = run(
+        [
+            executable,
+            "copy",
+            "--quiet",
+            "--defaults",
+            "--overwrite",
+            "--skip-tasks",
+            "--vcs-ref",
+            version,
+            "--data-file",
+            data_path.as_posix(),
+            source,
+            destination.as_posix(),
+        ],
+        cwd=root,
+        capture=True,
+    )
+    if result.returncode:
+        detail = result.stderr.strip() if result.stderr else "unknown render failure"
+        raise ContractError(f"cannot render Copier template {version!r}: {detail}")
+
+
+def executable_bits(path: Path) -> int:
+    return path.stat().st_mode & 0o111
+
+
+def equivalent_bootstrap_targets(
+    root: Path,
+    source: str,
+    previous_version: str,
+    target_version: str,
+    answers: dict[str, Any],
+    args: argparse.Namespace,
+    current_classes: dict[str, list[str]],
+) -> dict[str, tuple[bytes, int]]:
+    """Preapprove only O/B/T merges that are exactly the target bytes."""
+
+    base_data = {
+        key: value for key, value in answers.items() if not key.startswith("_")
+    }
+    target_data = dict(base_data)
+    target_data.update(
+        {key: value for key, value in copier_data(args).items() if value is not None}
+    )
+    approved: dict[str, tuple[bytes, int]] = {}
+    with tempfile.TemporaryDirectory(prefix="orinoco-update-renders-") as temporary:
+        workspace = Path(temporary)
+        base = workspace / "base"
+        target = workspace / "target"
+        render_release(root, source, previous_version, base_data, base)
+        render_release(root, source, target_version, target_data, target)
+        base_classes = ownership_classes(load_yaml(base / "template-ownership.yml"))
+        target_classes = ownership_classes(
+            load_yaml(target / "template-ownership.yml")
+        )
+        for target_path in sorted(target.rglob("*")):
+            if not target_path.is_file() or target_path.is_symlink():
+                continue
+            relative = target_path.relative_to(target).as_posix()
+            if any(
+                classify(relative, mapping) != ["template_owned"]
+                for mapping in (base_classes, current_classes, target_classes)
+            ):
+                continue
+            base_path = base / relative
+            ours_path = root / relative
+            if not all(
+                path.is_file() and not path.is_symlink()
+                for path in (base_path, ours_path)
+            ):
+                continue
+            base_bytes = base_path.read_bytes()
+            ours_bytes = ours_path.read_bytes()
+            target_bytes = target_path.read_bytes()
+            if ours_bytes == base_bytes or any(
+                b"\0" in value for value in (base_bytes, ours_bytes, target_bytes)
+            ):
+                continue
+            try:
+                for value in (base_bytes, ours_bytes, target_bytes):
+                    value.decode("utf-8")
+            except UnicodeDecodeError:
+                continue
+            target_mode = executable_bits(target_path)
+            if executable_bits(ours_path) != target_mode:
+                continue
+            merged = subprocess.run(
+                [
+                    "git",
+                    "merge-file",
+                    "--stdout",
+                    ours_path.as_posix(),
+                    base_path.as_posix(),
+                    target_path.as_posix(),
+                ],
+                cwd=root,
+                check=False,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+            )
+            if merged.returncode == 0 and merged.stdout == target_bytes:
+                approved[relative] = (target_bytes, target_mode)
+    return approved
+
+
+def reconcile_equivalent_rejections(
+    root: Path,
+    conflicts: list[str],
+    approved: dict[str, tuple[bytes, int]],
+) -> tuple[list[str], list[str]]:
+    """Remove only rejection witnesses preapproved by the O/B/T proof."""
+
+    reconciled: list[str] = []
+    for conflict in conflicts:
+        if not conflict.endswith(".rej"):
+            continue
+        relative = conflict.removesuffix(".rej")
+        expected = approved.get(relative)
+        destination = root / relative
+        if (
+            expected is None
+            or not destination.is_file()
+            or destination.is_symlink()
+            or destination.read_bytes() != expected[0]
+            or executable_bits(destination) != expected[1]
+        ):
+            continue
+        (root / conflict).unlink()
+        reconciled.append(relative)
+    return conflict_paths(root), sorted(reconciled)
+
+
+def reconcile_populated_placeholders(
+    root: Path,
+    content_before: dict[str, str],
+    *class_maps: dict[str, list[str]],
+) -> list[str]:
+    """Remove only newly introduced `.gitkeep` beside protected site data."""
+
+    removed: list[str] = []
+    for placeholder in sorted(root.rglob(".gitkeep")):
+        relative = placeholder.relative_to(root).as_posix()
+        if relative in content_before:
+            continue
+        classifications = [classify(relative, classes) for classes in class_maps]
+        if not classifications or any(
+            len(matches) != 1 or matches[0] not in PROTECTED_UPDATE_CLASSES
+            for matches in classifications
+        ):
+            continue
+        directory = Path(relative).parent.as_posix()
+        prefix = "" if directory == "." else directory + "/"
+        has_real_protected_file = any(
+            path != relative
+            and path.startswith(prefix)
+            and Path(path).name != ".gitkeep"
+            for path in content_before
+        )
+        if has_real_protected_file:
+            placeholder.unlink()
+            removed.append(relative)
+    return removed
 
 
 def update_lock(
@@ -518,9 +703,37 @@ def execute(args: argparse.Namespace) -> int:
     )
     migrations = parse_migrations(args.migration)
 
+    existing_conflicts = conflict_paths(root)
+    if existing_conflicts:
+        raise ContractError(
+            "pre-existing conflict artifacts require review before an update: "
+            + ", ".join(existing_conflicts)
+        )
+    approved_equivalent = equivalent_bootstrap_targets(
+        root,
+        template_source,
+        previous_template_version,
+        args.to_template,
+        answers_before,
+        args,
+        classes,
+    )
+
     copier = copier_command(args, root, False)
     result = run(copier, cwd=root)
     conflicts = conflict_paths(root)
+    reconciled_conflicts: list[str] = []
+    removed_placeholders: list[str] = []
+    if result.returncode == 0:
+        conflicts, reconciled_conflicts = reconcile_equivalent_rejections(
+            root, conflicts, approved_equivalent
+        )
+        updated_classes = ownership_classes(
+            load_yaml(root / "template-ownership.yml")
+        )
+        removed_placeholders = reconcile_populated_placeholders(
+            root, content_before, classes, updated_classes
+        )
     answers_after = load_yaml(answers_path)
     verify_updated_template(
         answers_after,
@@ -567,6 +780,8 @@ def execute(args: argparse.Namespace) -> int:
             "changed": site_changes,
         },
         "conflicts": conflicts,
+        "reconciled_target_equivalent": reconciled_conflicts,
+        "removed_populated_placeholders": removed_placeholders,
         "migrations": migrations,
         "validation": {"status": "pending"},
         "rollback": "revert the complete framework update commit",
