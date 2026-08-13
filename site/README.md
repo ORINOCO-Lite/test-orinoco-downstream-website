@@ -139,10 +139,10 @@ Rolling back a merged framework-only update means reverting the complete update 
 ## Documentation above this layer
 
 - [Orinoco Lite template](https://github.com/con/orinoco-lite-template): generic creation, ownership, and update-facade maintenance.
-- [Orinoco Lite architecture](https://github.com/con/orinoco-lite-dev/blob/codex/milestone-4/README.md#architecture): review-candidate overview of the engineering, distribution, and downstream layers.
-- [Orinoco Lite engine](https://github.com/con/orinoco-lite-dev/tree/codex/milestone-4/packages/orinoco-lite): command and immutable runtime implementation under engineering review.
+- [Orinoco Lite architecture](https://github.com/con/orinoco-lite-dev/blob/main/README.md#architecture): accepted overview of the engineering, distribution, and downstream layers.
+- [Orinoco Lite engine](https://github.com/con/orinoco-lite-dev/tree/main/packages/orinoco-lite): command and immutable runtime implementation.
 - [Orinoco Lite releases](https://github.com/con/orinoco-lite-dev/releases): immutable engine wheels, runtime archives, integrity manifests, and release evidence consumed through `orinoco.lock`.
-- [Milestone 4 distribution contract](https://github.com/con/orinoco-lite-dev/blob/codex/milestone-4/docs/milestone-4.md): cross-repository contracts and acceptance boundaries under review.
+- [Milestone 4 distribution contract](https://github.com/con/orinoco-lite-dev/blob/main/docs/milestone-4.md): accepted cross-repository contracts and remaining production boundaries.
 
 Those layers should not acquire CON records, site-specific presentation policy, or this consumer's provenance.
 Conversely, this guide uses released commands and contracts and does not duplicate engine implementation details or template release procedures.
