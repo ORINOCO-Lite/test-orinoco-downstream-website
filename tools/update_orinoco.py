@@ -41,6 +41,9 @@ WORKFLOW_REFERENCE = re.compile(
 TEMPLATE_VERSION = re.compile(
     r"^v[0-9]+\.[0-9]+\.[0-9]+(?:[a-z0-9.-]+)?$"
 )
+STABLE_TEMPLATE_VERSION = re.compile(
+    r"^v(?P<major>[0-9]+)\.(?P<minor>[0-9]+)\.(?P<patch>[0-9]+)$"
+)
 
 
 def timestamp() -> str:
@@ -329,6 +332,72 @@ def render_release(
         raise ContractError(f"cannot render Copier template {version!r}: {detail}")
 
 
+def intervening_release_commits(
+    root: Path,
+    source: str,
+    previous_version: str,
+    target_version: str,
+) -> list[tuple[str, str]]:
+    """Return exact commits for stable releases strictly inside the update."""
+
+    previous = STABLE_TEMPLATE_VERSION.fullmatch(previous_version)
+    target = STABLE_TEMPLATE_VERSION.fullmatch(target_version)
+    if previous is None or target is None:
+        return []
+
+    def key(match: re.Match[str]) -> tuple[int, int, int]:
+        return tuple(
+            int(match.group(name)) for name in ("major", "minor", "patch")
+        )
+
+    previous_key = key(previous)
+    target_key = key(target)
+    if previous_key >= target_key:
+        return []
+    remote = git_template_source(root, source)
+    result = run(
+        [
+            "git",
+            "-c",
+            "protocol.ext.allow=never",
+            "ls-remote",
+            "--tags",
+            "--",
+            remote,
+            "refs/tags/v*",
+            "refs/tags/v*^{}",
+        ],
+        cwd=root,
+        capture=True,
+    )
+    if result.returncode:
+        raise ContractError("cannot enumerate intervening Copier template releases")
+    references: dict[str, str] = {}
+    for line in result.stdout.splitlines():
+        commit, separator, reference = line.partition("\t")
+        if separator and valid_hex(commit, 40):
+            references[reference] = commit
+    releases: list[tuple[tuple[int, int, int], str, str]] = []
+    prefix = "refs/tags/"
+    for reference, commit in references.items():
+        if not reference.startswith(prefix) or reference.endswith("^{}"):
+            continue
+        version = reference.removeprefix(prefix)
+        match = STABLE_TEMPLATE_VERSION.fullmatch(version)
+        if match is None:
+            continue
+        version_key = key(match)
+        if previous_key < version_key < target_key:
+            releases.append(
+                (
+                    version_key,
+                    version,
+                    references.get(reference + "^{}", commit),
+                )
+            )
+    return [(version, commit) for _, version, commit in sorted(releases)]
+
+
 def executable_bits(path: Path) -> int:
     return path.stat().st_mode & 0o111
 
@@ -342,7 +411,7 @@ def equivalent_bootstrap_targets(
     args: argparse.Namespace,
     current_classes: dict[str, list[str]],
 ) -> dict[str, tuple[bytes, int]]:
-    """Preapprove only O/B/T merges that are exactly the target bytes."""
+    """Preapprove exact target merges or exact intervening release states."""
 
     base_data = {
         key: value for key, value in answers.items() if not key.startswith("_")
@@ -362,6 +431,26 @@ def equivalent_bootstrap_targets(
         target_classes = ownership_classes(
             load_yaml(target / "template-ownership.yml")
         )
+        release_coordinate_keys = set(copier_data(args)) | {"template_source"}
+        release_data = {
+            key: value
+            for key, value in base_data.items()
+            if key not in release_coordinate_keys
+        }
+        intervening: list[tuple[Path, dict[str, list[str]]]] = []
+        for version, commit in intervening_release_commits(
+            root, source, previous_version, target_version
+        ):
+            release = workspace / f"release-{version}"
+            render_release(root, source, commit, release_data, release)
+            intervening.append(
+                (
+                    release,
+                    ownership_classes(
+                        load_yaml(release / "template-ownership.yml")
+                    ),
+                )
+            )
         for target_path in sorted(target.rglob("*")):
             if not target_path.is_file() or target_path.is_symlink():
                 continue
@@ -392,6 +481,21 @@ def equivalent_bootstrap_targets(
                 continue
             target_mode = executable_bits(target_path)
             if executable_bits(ours_path) != target_mode:
+                continue
+            released_equivalent = False
+            for release, release_classes in intervening:
+                release_path = release / relative
+                if (
+                    classify(relative, release_classes) == ["template_owned"]
+                    and release_path.is_file()
+                    and not release_path.is_symlink()
+                    and release_path.read_bytes() == ours_bytes
+                    and executable_bits(release_path) == target_mode
+                ):
+                    released_equivalent = True
+                    break
+            if released_equivalent:
+                approved[relative] = (target_bytes, target_mode)
                 continue
             merged = subprocess.run(
                 [

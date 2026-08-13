@@ -17,8 +17,7 @@ jobs:
   build:
     if: >-
       github.repository != 'con/orinoco-lite-template' &&
-      (github.event_name == 'workflow_dispatch' ||
-      github.ref == format('refs/heads/{0}', github.event.repository.default_branch))
+      github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     runs-on: ubuntu-24.04
     steps:
       - name: Check out the single repository
@@ -44,7 +43,9 @@ jobs:
           path: build/pages
 
   deploy:
-    if: github.repository != 'con/orinoco-lite-template'
+    if: >-
+      github.repository != 'con/orinoco-lite-template' &&
+      github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
