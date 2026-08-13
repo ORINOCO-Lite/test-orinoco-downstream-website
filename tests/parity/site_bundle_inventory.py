@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 from pathlib import PurePosixPath
+import re
 import sys
 from typing import Any
 
@@ -40,6 +41,16 @@ IGNORED_PARTS = {
 }
 FORBIDDEN_ANYWHERE = {".git", ".gitmodules", ".env", "credentials"}
 MANIFEST_NAME = "orinoco-site-bundle.json"
+ANNEX_KEY_PATTERN = (
+    rb"(?:MD5E|SHA256E)-s[0-9]+--[0-9a-f]{32,64}"
+    rb"(?:\.[A-Za-z0-9][A-Za-z0-9._-]*)?"
+)
+ANNEX_POINTER_PATTERN = re.compile(
+    rb"^(?:(?:\.\./)+)?/?(?:\.git/)?annex/objects/"
+    rb"(?:(?:[^/\r\n]+/)+)?"
+    rb"(?P<key>" + ANNEX_KEY_PATTERN + rb")"
+    rb"(?:/(?P=key))?\r?\n?$"
+)
 
 
 class InventoryError(RuntimeError):
@@ -52,6 +63,24 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def annex_pointer_key(path: Path) -> str | None:
+    """Return the annex key when a regular file is pointer-form text."""
+
+    if not path.is_file() or path.stat().st_size > 4096:
+        return None
+    match = ANNEX_POINTER_PATTERN.fullmatch(path.read_bytes())
+    return match.group("key").decode("ascii") if match is not None else None
+
+
+def reject_annex_pointer(path: Path, normalized: str) -> None:
+    key = annex_pointer_key(path)
+    if key is not None:
+        raise InventoryError(
+            f"bundle contains a git-annex pointer-form regular file: "
+            f"{normalized} ({key})"
+        )
 
 
 def path_matches(path: str, pattern: str) -> bool:
@@ -122,6 +151,7 @@ def inventory(root: Path, ownership: Path) -> dict[str, Any]:
             continue
         if not path.is_file():
             raise InventoryError(f"bundle contains a non-regular file: {normalized}")
+        reject_annex_pointer(path, normalized)
         classification = classify(normalized, classes)
         files[normalized] = sha256(path)
         classifications[normalized] = classification
@@ -239,6 +269,7 @@ def verify_declared_inventory(
             raise InventoryError(f"declared bundle path is a symbolic link: {normalized}")
         if not path.is_file():
             raise InventoryError(f"declared bundle file is missing: {normalized}")
+        reject_annex_pointer(path, normalized)
         if path.stat().st_size != sizes[normalized]:
             raise InventoryError(f"declared bundle size mismatch: {normalized}")
         if sha256(path) != files[normalized]:

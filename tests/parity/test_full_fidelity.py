@@ -12,6 +12,8 @@ import unittest
 
 import yaml
 
+from tests.parity.site_bundle_inventory import IGNORED_PARTS, annex_pointer_key
+
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFESTS = ROOT / "generated" / "manifests"
@@ -374,17 +376,123 @@ class FullFidelityConsumerTests(unittest.TestCase):
         )
         self.assertEqual(
             self.framework_import["counts"],
-            {"bytes": 121_201, "files": 72, "modes": {"100644": 72}},
+            {
+                "annex_payload_materializations": 13,
+                "byte_identical_files": 59,
+                "bytes": 1_378_923,
+                "files": 72,
+                "modes": {"100644": 72},
+            },
+        )
+        self.assertEqual(
+            self.framework_import["materialization"],
+            {
+                "downstream_requirement": (
+                    "ordinary verified bytes; git-annex is not required"
+                ),
+                "source": {
+                    "commit": (
+                        "6c8b9a5b7260dc20dfe1453dd863b353e8f90f06"
+                    ),
+                    "repository": (
+                        "https://github.com/leej3/www-from-model.git"
+                    ),
+                    "role": "allowed-hydrated-read-only-mirror",
+                },
+                "verification": [
+                    "source Git blob SHA-256",
+                    "MD5E annex key payload size",
+                    "MD5E annex key payload MD5",
+                    "ordinary-Git target SHA-256",
+                ],
+            },
         )
         self.assertFalse(
             self.framework_import["license_boundary"]["runtime_redistribution"]
         )
+        materialized = []
         for entry in self.framework_import["entries"]:
             path = ROOT / entry["target_path"]
             self.assertTrue(path.is_file(), entry["target_path"])
             self.assertFalse(path.is_symlink(), entry["target_path"])
-            self.assertEqual(sha256(path), entry["source_sha256"])
-            self.assertEqual(entry["source_sha256"], entry["target_sha256"])
+            self.assertEqual(path.stat().st_size, entry["size"])
+            self.assertEqual(sha256(path), entry["target_sha256"])
+            if entry["disposition"] == "verified-annex-payload-materialization":
+                materialized.append(entry)
+                key = entry["annex_key"]
+                backend, key_details = key.split("-s", 1)
+                size_text, digest_with_extension = key_details.split("--", 1)
+                payload_md5 = digest_with_extension.split(".", 1)[0]
+                self.assertEqual(backend, "MD5E")
+                self.assertEqual(entry["payload_size"], int(size_text))
+                self.assertEqual(entry["payload_size"], entry["size"])
+                self.assertEqual(entry["payload_md5"], payload_md5)
+                self.assertEqual(
+                    hashlib.md5(path.read_bytes()).hexdigest(), payload_md5
+                )
+                self.assertEqual(entry["target_storage"], "ordinary-git")
+                self.assertNotEqual(
+                    entry["source_sha256"], entry["target_sha256"]
+                )
+                source_pointer = f"/annex/objects/{key}\n".encode("ascii")
+                self.assertEqual(len(source_pointer), entry["source_size"])
+                self.assertEqual(
+                    hashlib.sha256(source_pointer).hexdigest(),
+                    entry["source_sha256"],
+                )
+                git_object = (
+                    f"blob {len(source_pointer)}\0".encode("ascii")
+                    + source_pointer
+                )
+                self.assertEqual(
+                    hashlib.sha1(git_object).hexdigest(), entry["source_blob"]
+                )
+                self.assertEqual(
+                    entry["source_representation"],
+                    "git-annex-pointer-blob",
+                )
+                self.assertEqual(
+                    entry["materialization_source"],
+                    {
+                        **self.framework_import["materialization"]["source"],
+                        "source_path": entry["source_path"],
+                    },
+                )
+                if path.suffix == ".png":
+                    self.assertTrue(path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
+            else:
+                self.assertEqual(
+                    entry["disposition"],
+                    "byte-identical-consumer-presentation",
+                )
+                self.assertEqual(
+                    entry["source_sha256"], entry["target_sha256"]
+                )
+        self.assertEqual(len(materialized), 13)
+        self.assertEqual(sum(entry["payload_size"] for entry in materialized), 1_258_562)
+        css = ROOT / "site/framework/assets/css/compiled/main.css"
+        self.assertTrue(
+            css.read_bytes().startswith(
+                b"/*! Congo v2.13.0 | MIT License | https://github.com/jpanther/congo */"
+            )
+        )
+        graph_js = ROOT / "site/framework/static/graph.js"
+        self.assertTrue(graph_js.read_bytes().startswith(b"(function(){"))
+        self.assertIn(b'document.createElement("link")', graph_js.read_bytes())
+        graph = load_json(ROOT / "site/framework/static/graph.json")
+        self.assertIsInstance(graph["nodes"], list)
+        self.assertIsInstance(graph["edges"], list)
+
+        pointer_files = []
+        for path in ROOT.rglob("*"):
+            relative = path.relative_to(ROOT)
+            if set(relative.parts) & IGNORED_PARTS:
+                continue
+            if path.is_file() and not path.is_symlink():
+                key = annex_pointer_key(path)
+                if key is not None:
+                    pointer_files.append((relative.as_posix(), key))
+        self.assertEqual(pointer_files, [])
         module = (ROOT / "site/config/module.toml").read_text(encoding="utf-8")
         for path in (
             "site/framework/assets",
@@ -392,6 +500,69 @@ class FullFidelityConsumerTests(unittest.TestCase):
             "site/framework/static",
         ):
             self.assertIn(f'source = "{path}"', module)
+
+    def test_built_framework_runtime_contains_payloads_not_pointers(self) -> None:
+        build_root = ROOT / "build"
+        build_root.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(
+            prefix="framework-runtime-", dir=build_root
+        ) as temporary:
+            destination = Path(temporary)
+            result = subprocess.run(
+                [
+                    "orinoco",
+                    "build",
+                    "--destination",
+                    str(destination),
+                    "--base-url",
+                    "http://127.0.0.1:8765/",
+                ],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=300,
+            )
+            self.assertEqual(
+                result.returncode,
+                0,
+                result.stderr or result.stdout,
+            )
+
+            pointer_files = []
+            for path in destination.rglob("*"):
+                if path.is_file() and not path.is_symlink():
+                    key = annex_pointer_key(path)
+                    if key is not None:
+                        pointer_files.append(
+                            (path.relative_to(destination).as_posix(), key)
+                        )
+            self.assertEqual(pointer_files, [])
+
+            stylesheets = list(
+                (destination / "css").glob("main.bundle.min.*.css")
+            )
+            self.assertEqual(len(stylesheets), 1)
+            compiled_css = stylesheets[0].read_bytes()
+            self.assertGreater(len(compiled_css), 50_000)
+            self.assertTrue(compiled_css.startswith(b":root{"))
+            self.assertIn(b"--tw-border-spacing-x:0", compiled_css)
+
+            target_digests = {
+                Path(entry["target_path"]).name: entry["target_sha256"]
+                for entry in self.framework_import["entries"]
+                if entry["disposition"]
+                == "verified-annex-payload-materialization"
+            }
+            for name in (
+                "meerkat_person.png",
+                "meerkat_project.png",
+                "meerkat_topic.png",
+            ):
+                image = destination / "img" / name
+                self.assertTrue(image.is_file(), name)
+                self.assertTrue(image.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
+                self.assertEqual(sha256(image), target_digests[name])
 
     def test_pinned_theme_is_flattened_with_distinct_mit_provenance(self) -> None:
         self.assertEqual(
@@ -627,6 +798,9 @@ class FullFidelityConsumerTests(unittest.TestCase):
 
     def test_complete_site_bundle_inventory_is_current(self) -> None:
         manifest = load_json(ROOT / "orinoco-site-bundle.json")
+        import_ledger = load_json(
+            ROOT / "metadata/provenance/site-import-26907c487efa.json"
+        )
         self.assertEqual(manifest["format"], "orinoco-site-bundle-v1")
         self.assertEqual(len(manifest["files"]), 1_092)
         self.assertEqual(manifest["summary"]["files"], 1_092)
@@ -647,6 +821,54 @@ class FullFidelityConsumerTests(unittest.TestCase):
                 "commit": "26907c487efaa2c31bba9d02398aa201ab6f774b",
                 "scope": "full",
             },
+        )
+        self.assertEqual(import_ledger["source"]["declared_files"], 1_092)
+        self.assertEqual(
+            import_ledger["source"]["manifest"],
+            "orinoco-site-bundle.json",
+        )
+        self.assertEqual(
+            import_ledger["source"]["manifest_sha256"],
+            sha256(ROOT / "orinoco-site-bundle.json"),
+        )
+        self.assertEqual(
+            import_ledger["files"],
+            [
+                {
+                    "path": path,
+                    "sha256": manifest["files"][path],
+                    "size": manifest["sizes"][path],
+                }
+                for path in sorted(manifest["files"])
+            ],
+        )
+        self.assertEqual(
+            import_ledger["corrections"],
+            [
+                {
+                    "files": 13,
+                    "kind": "framework-annex-payload-materialization",
+                    "materialization_source": {
+                        "commit": (
+                            "6c8b9a5b7260dc20dfe1453dd863b353e8f90f06"
+                        ),
+                        "repository": (
+                            "https://github.com/leej3/www-from-model.git"
+                        ),
+                        "role": "allowed-hydrated-read-only-mirror",
+                    },
+                    "reason": (
+                        "accepted framework source blobs contained git-annex "
+                        "pointer paths instead of runtime payload bytes"
+                    ),
+                    "verification": [
+                        "source Git blob SHA-256",
+                        "MD5E annex key payload size",
+                        "MD5E annex key payload MD5",
+                        "ordinary-Git target SHA-256",
+                    ],
+                }
+            ],
         )
         result = subprocess.run(
             [
@@ -717,6 +939,22 @@ class FullFidelityConsumerTests(unittest.TestCase):
             )
             self.assertNotEqual(changed.returncode, 0)
             self.assertIn("mismatch", changed.stderr)
+
+            sample.write_bytes(original)
+            sample.write_text(
+                "/annex/objects/"
+                "MD5E-s1--d41d8cd98f00b204e9800998ecf8427e.bin\n",
+                encoding="utf-8",
+            )
+            pointer = subprocess.run(
+                command,
+                cwd=fixture,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertNotEqual(pointer.returncode, 0)
+            self.assertIn("git-annex pointer-form", pointer.stderr)
 
             sample.write_bytes(original)
             sample.unlink()
