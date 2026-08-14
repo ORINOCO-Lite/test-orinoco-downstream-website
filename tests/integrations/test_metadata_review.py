@@ -193,6 +193,65 @@ class MetadataReviewHostTests(unittest.TestCase):
 
             self.assertFalse(destination.exists())
 
+    def test_optional_source_runs_only_when_selected_and_receives_input(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            plugin = root / "integrations/optional/adapter.py"
+            plugin.parent.mkdir(parents=True)
+            plugin.write_text(
+                textwrap.dedent(
+                    """
+                    PLUGIN_API_VERSION = 1
+                    def review(context):
+                        supplied = context["source_input"]
+                        empty = {
+                            "summary": {"added": 0, "removed": 0, "changed": 0,
+                                        "unchanged": 0, "different": False},
+                            "added": [], "removed": [], "changed": [],
+                        }
+                        return {
+                            "adapter_api_version": 1,
+                            "source_id": "optional",
+                            "canonical_promotion": False,
+                            "source": {"input": supplied},
+                            "source_diff": empty,
+                            "candidate_diff": empty,
+                            "canonical_diff": empty,
+                            "artifacts": {},
+                            "evidence_updates": [],
+                        }
+                    """
+                ),
+                encoding="utf-8",
+            )
+            config = root / "sources.toml"
+            config.write_text(
+                "contract_version = 1\n[[sources]]\nid = \"optional\"\n"
+                "plugin = \"integrations/optional/adapter.py\"\n"
+                "enabled_by_default = false\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(review.MetadataReviewError, "No metadata"):
+                review.run(
+                    "review",
+                    root=root,
+                    config=config,
+                    build=root / "build/default",
+                )
+
+            result = review.run(
+                "review",
+                root=root,
+                config=config,
+                build=root / "build/selected",
+                selected_sources=["optional"],
+                source_inputs={"optional": "/pinned/checkout"},
+            )
+            self.assertEqual(
+                result["sources"][0]["source"]["input"], "/pinned/checkout"
+            )
+
 
 class ZoteroAdapterContractTests(unittest.TestCase):
     def test_snapshot_map_namespaces_collection_and_item_keys(self) -> None:
