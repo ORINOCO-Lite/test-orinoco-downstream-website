@@ -1,0 +1,11 @@
+contract_version = 1
+
+[[sources]]
+id = "zotero"
+plugin = "integrations/zotero/metadata_adapter.py"
+snapshot = "integrations/zotero/source/snapshot.json"
+candidates = "integrations/zotero/source/candidates"
+creator_map = "integrations/zotero/policy/creator-mappings.yaml"
+review_identities = "integrations/metadata/zotero-review-identities.yaml"
+site_policy = "integrations/zotero/policy/site-migration.yaml"
+group_id = 6197458
