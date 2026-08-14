@@ -21,23 +21,46 @@ Ignored artifacts are written below `build/metadata-review/dump-research-info/re
 
 ## Generate the evidence commit
 
-After this adapter code has merged, create a clean downstream branch and run:
+After this adapter code has merged, create a clean downstream branch and keep the `dump-research-info` checkout at the revision to be reviewed.
+Resolve both input revisions into the literal generator command recorded by DataLad:
 
 ```console
-./integrations/metadata/metadata-review \
-  datalad-run-dump-research-info -- \
-  --source /path/to/dump-research-info
+SOURCE=/path/to/dump-research-info
+test -z "$(git status --porcelain=v1 --untracked-files=all)"
+test -z "$(git -C "$SOURCE" status --porcelain=v1 --untracked-files=all)"
+SOURCE_COMMIT=$(git -C "$SOURCE" rev-parse HEAD^{commit})
+DOWNSTREAM_COMMIT=$(git rev-parse HEAD^{commit})
+
+pixi run \
+  --config-file integrations/metadata/pixi-config.toml \
+  --manifest-path integrations/metadata/pixi.toml \
+  datalad run --explicit \
+  -m "review dump-research-info con_site at ${SOURCE_COMMIT:0:12}" \
+  -i integrations/dump-research-info/metadata_adapter.py \
+  -i integrations/metadata \
+  -i metadata/records \
+  -i metadata/reference \
+  -o integrations/dump-research-info/source/con-site-gap \
+  "./integrations/metadata/metadata-review \
+    extract-dump-research-info -- \
+    --source '$SOURCE' \
+    --expected-source-commit '$SOURCE_COMMIT' \
+    --downstream-revision '$DOWNSTREAM_COMMIT' \
+    --output integrations/dump-research-info/source/con-site-gap"
 ```
 
-The task uses DataLad and git-annex from this integration's committed Pixi lock.
-It requires both checkouts to be clean, resolves the exact source and downstream commits, and executes `datalad run` in this ordinary downstream Git repository.
-The recorded command writes only `integrations/dump-research-info/source/con-site-gap/**`; DataLad creates the provenance-bearing commit directly on the current branch.
+The command uses DataLad and git-annex from this integration's committed Pixi lock.
+The adapter requires the source checkout to be clean and fail-closes if either recorded revision no longer describes its input.
+`datalad run` executes in this ordinary downstream Git repository and writes only `integrations/dump-research-info/source/con-site-gap/**`; DataLad creates the provenance-bearing commit directly on the current branch.
 No `.datalad` metadata, submodule, copy step, or second provenance repository is introduced.
 
-Inspect that generated commit, then reproduce it through the same detached environment:
+Inspect that generated commit, then reproduce it through the same locked Pixi environment:
 
 ```console
-./integrations/metadata/metadata-review datalad-rerun -- HEAD
+pixi run \
+  --config-file integrations/metadata/pixi-config.toml \
+  --manifest-path integrations/metadata/pixi.toml \
+  datalad rerun HEAD
 ```
 
 The source checkout must still be at the commit embedded in the recorded command.

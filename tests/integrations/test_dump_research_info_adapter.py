@@ -31,10 +31,6 @@ adapter = load_module(
     "orinoco_dump_research_info_adapter",
     ROOT / "integrations/dump-research-info/metadata_adapter.py",
 )
-run_with_datalad = load_module(
-    "orinoco_dump_research_info_datalad_runner",
-    ROOT / "integrations/dump-research-info/run_with_datalad.py",
-)
 
 
 def commit_repository(root: Path, message: str) -> str:
@@ -128,6 +124,16 @@ def write_fixture(root: Path) -> tuple[Path, Path]:
 
 
 class DumpResearchInfoAdapterTests(unittest.TestCase):
+    def test_documented_provenance_boundary_is_direct_datalad_run(self) -> None:
+        readme = (ROOT / "integrations/dump-research-info/README.md").read_text()
+        manifest = (ROOT / "integrations/metadata/pixi.toml").read_text()
+
+        self.assertIn("pixi run \\\n", readme)
+        self.assertIn("datalad run --explicit", readme)
+        self.assertIn('"./integrations/metadata/metadata-review \\\n', readme)
+        self.assertNotIn("datalad-run-dump-research-info", readme)
+        self.assertNotIn("datalad-run-dump-research-info", manifest)
+
     def test_extract_is_deterministic_and_reports_gap_without_promotion(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -230,7 +236,7 @@ class DumpResearchInfoAdapterTests(unittest.TestCase):
             )
 
             with self.assertRaisesRegex(
-                review_host.MetadataReviewError, "datalad-run-dump-research-info"
+                review_host.MetadataReviewError, "under datalad run"
             ):
                 review_host.run(
                     "refresh-evidence",
@@ -243,26 +249,6 @@ class DumpResearchInfoAdapterTests(unittest.TestCase):
             self.assertFalse(evidence.exists())
             self.assertFalse(
                 (root / "metadata/records/XYZPerson/source-only.yaml").exists()
-            )
-
-    def test_datalad_runner_records_exact_revisions_and_only_evidence_output(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            source, downstream = write_fixture(Path(temporary))
-            arguments = run_with_datalad.datalad_arguments(source, root=downstream)
-            source_commit = adapter.git_commit(source)
-            downstream_commit = adapter.git_commit(downstream)
-
-            self.assertEqual(arguments[:3], ["datalad", "run", "--explicit"])
-            self.assertEqual(
-                arguments[arguments.index("-o") + 1],
-                "integrations/dump-research-info/source/con-site-gap",
-            )
-            command = arguments[-1]
-            self.assertIn(f"--expected-source-commit {source_commit}", command)
-            self.assertIn(f"--downstream-revision {downstream_commit}", command)
-            self.assertIn(
-                "--output integrations/dump-research-info/source/con-site-gap",
-                command,
             )
 
     def test_standalone_output_must_belong_to_datalad_run_dataset(self) -> None:

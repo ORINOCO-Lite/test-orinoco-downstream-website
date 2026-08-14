@@ -39,5 +39,5 @@ Select one and pass its input explicitly after Pixi's argument delimiter:
   --source-input dump-research-info=/path/to/dump-research-info
 ```
 
-See [`../dump-research-info/README.md`](../dump-research-info/README.md) for the in-repository `datalad run` task and the code-PR/evidence-PR/content-PR separation.
+See [`../dump-research-info/README.md`](../dump-research-info/README.md) for the in-repository `pixi run ... datalad run` command and the code-PR/evidence-PR/content-PR separation.
 Direct `refresh-evidence` is deliberately blocked for that adapter: its evidence must arrive in the commit created by the DataLad task.

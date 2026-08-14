@@ -22,6 +22,4 @@ git-annex = "==10.20260717"
 review = "python tools/review.py review"
 refresh-evidence = "python tools/review.py refresh-evidence"
 extract-dump-research-info = { cmd = "python integrations/dump-research-info/metadata_adapter.py --downstream .", cwd = "../.." }
-datalad-run-dump-research-info = { cmd = "python integrations/dump-research-info/run_with_datalad.py", cwd = "../.." }
-datalad-rerun = { cmd = "datalad rerun", cwd = "../.." }
 test = { cmd = "python -m unittest discover -s ../../tests/integrations -p 'test_*.py' -v", env = { PYTHONPATH = "../.." } }
