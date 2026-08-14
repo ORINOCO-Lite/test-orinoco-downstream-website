@@ -1,0 +1,132 @@
+[
+  {
+    "about": [
+      "https://centerforopenneuroscience.org/projects"
+    ],
+    "attributed_to": [
+      {
+        "object": "xyzrins:persons/jeremy-manning",
+        "roles": [
+          "obo:MS_1002035"
+        ],
+        "schema_type": "dlthings:Attribution"
+      }
+    ],
+    "display_label": "Heusser et al. 2018 JMLR",
+    "identifiers": [
+      {
+        "creator": "https://www.jmlr.org/",
+        "notation": "17-434",
+        "schema_type": "dlthings:Identifier"
+      }
+    ],
+    "pid": "http://jmlr.org/papers/v18/17-434.html",
+    "title": "HyperTools: a Python Toolbox for Gaining Geometric Insights into High-Dimensional Data"
+  },
+  {
+    "about": [
+      "https://centerforopenneuroscience.org/projects"
+    ],
+    "attributed_to": [
+      {
+        "object": "xyzrins:persons/jeremy-manning",
+        "roles": [
+          "obo:MS_1002035"
+        ],
+        "schema_type": "dlthings:Attribution"
+      }
+    ],
+    "display_label": "Owen et al. 2020 Cerebral Cortex",
+    "identifiers": [
+      {
+        "notation": "10.1093/cercor/bhaa115",
+        "schema_type": "dlthings:DOI"
+      }
+    ],
+    "pid": "https://doi.org/10.1093/cercor/bhaa115",
+    "title": "A Gaussian Process Model of Human Electrocorticographic Data"
+  },
+  {
+    "about": [
+      "https://centerforopenneuroscience.org/"
+    ],
+    "attributed_to": [
+      {
+        "object": "xyzrins:persons/yaroslav-halchenko",
+        "roles": [
+          "obo:MS_1002034"
+        ],
+        "schema_type": "dlthings:Attribution"
+      },
+      {
+        "object": "xyzrins:persons/michael-hanke",
+        "roles": [
+          "obo:MS_1002035"
+        ],
+        "schema_type": "dlthings:Attribution"
+      }
+    ],
+    "display_label": "Halchenko, Poldrack, Hanke 2022",
+    "identifiers": [
+      {
+        "notation": "10.1146/annurev-neuro-100119-110036",
+        "schema_type": "dlthings:DOI"
+      }
+    ],
+    "pid": "https://doi.org/10.1146/annurev-neuro-100119-110036",
+    "title": "Open Neuroscience"
+  },
+  {
+    "about": [
+      "https://centerforopenneuroscience.org/"
+    ],
+    "attributed_to": [
+      {
+        "object": "xyzrins:persons/yaroslav-halchenko",
+        "roles": [
+          "obo:MS_1002034"
+        ],
+        "schema_type": "dlthings:Attribution"
+      },
+      {
+        "object": "xyzrins:persons/michael-hanke",
+        "roles": [
+          "obo:MS_1002035"
+        ],
+        "schema_type": "dlthings:Attribution"
+      }
+    ],
+    "display_label": "Halchenko & Hanke 2015",
+    "identifiers": [
+      {
+        "notation": "10.12688/f1000research.7628.1",
+        "schema_type": "dlthings:DOI"
+      }
+    ],
+    "pid": "https://doi.org/10.12688/f1000research.7628.1",
+    "title": "Four aspects to make science open by design and not as an after-thought"
+  },
+  {
+    "about": [
+      "https://centerforopenneuroscience.org/projects"
+    ],
+    "attributed_to": [
+      {
+        "object": "xyzrins:persons/jeremy-manning",
+        "roles": [
+          "obo:MS_1002034"
+        ],
+        "schema_type": "dlthings:Attribution"
+      }
+    ],
+    "display_label": "Manning et al. 2017 JOSS",
+    "identifiers": [
+      {
+        "notation": "10.21105/joss.00424",
+        "schema_type": "dlthings:DOI"
+      }
+    ],
+    "pid": "https://doi.org/10.21105/joss.00424",
+    "title": "Quail: A Python toolbox for analyzing and plotting free recall data"
+  }
+]

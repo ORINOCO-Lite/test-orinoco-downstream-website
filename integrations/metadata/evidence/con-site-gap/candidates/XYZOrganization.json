@@ -1,0 +1,41 @@
+[
+  {
+    "display_label": "University of Texas at Austin",
+    "name": "University of Texas at Austin",
+    "pid": "ror:00hj54h04"
+  },
+  {
+    "display_label": "McGill University",
+    "name": "McGill University",
+    "pid": "ror:01pxwe438"
+  },
+  {
+    "display_label": "Research Centre J\u00fclich",
+    "name": "Forschungszentrum J\u00fclich",
+    "pid": "ror:02nv7yv05",
+    "short_name": "FZJ"
+  },
+  {
+    "display_label": "MIT",
+    "name": "Massachusetts Institute of Technology",
+    "pid": "ror:042nb2s44",
+    "short_name": "MIT"
+  },
+  {
+    "display_label": "UMass Chan Medical School",
+    "name": "University of Massachusetts Chan Medical School",
+    "pid": "ror:0464eyp60",
+    "short_name": "UMass Chan"
+  },
+  {
+    "at_location": "https://www.wikidata.org/entity/Q131908",
+    "display_label": "Dartmouth College",
+    "name": "Dartmouth College",
+    "pid": "ror:049s0rh22"
+  },
+  {
+    "display_label": "Harvard Medical School",
+    "name": "Harvard Medical School",
+    "pid": "xyzrins:organizations/hms"
+  }
+]

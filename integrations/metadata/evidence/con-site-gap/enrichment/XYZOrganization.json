@@ -1,0 +1,16 @@
+[
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZOrganization/con.yaml",
+    "downstream_pid": "ror:04tfhh831",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/"
+      ],
+      "part_of": [
+        "ror:049s0rh22"
+      ]
+    },
+    "source_pid": "ror:04tfhh831"
+  }
+]

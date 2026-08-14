@@ -1,0 +1,521 @@
+{
+  "ambiguous": [],
+  "artifacts": {
+    "candidate_tree_sha256": "eaec9fc572dc9911c5b7d3f69933e93f96301340ba45fe7c061b18b9c7c3469f",
+    "enrichment_tree_sha256": "a8daae494cde474392978864b5a26a4e7fee436ffb3e0c21b72d019b450a5cc7"
+  },
+  "canonical_promotion": false,
+  "format": "orinoco-con-site-metadata-gap",
+  "inputs": {
+    "downstream_commit": "6cc26739074f4ec852ed8053c8ea43b30997177b",
+    "dump_research_info_commit": "397b56080d14aeb94592f308b2f0bf325a298c13",
+    "extractor_sha256": "6e1dd47753c02265ca54cc191a22ae95f4e66fcf1867b9fd08548f4f66116c4b",
+    "source_directory": "data/con_site"
+  },
+  "matches": [
+    {
+      "downstream_path": "metadata/records/XYZOrganization/con.yaml",
+      "downstream_pid": "ror:04tfhh831",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZOrganization",
+      "source_pid": "ror:04tfhh831"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/adina-wagner.yaml",
+      "downstream_pid": "xyzrins:persons/adina-wagner",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/adina-wagner"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/austin-macdonald.yaml",
+      "downstream_pid": "xyzrins:persons/austin-macdonald",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/austin-macdonald"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/benjamin-poldrack.yaml",
+      "downstream_pid": "xyzrins:persons/benjamin-poldrack",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/benjamin-poldrack"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/chris-cheng.yaml",
+      "downstream_pid": "xyzrins:persons/chris-cheng",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/chris-cheng"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/cody-baker.yaml",
+      "downstream_pid": "xyzrins:persons/cody-baker",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/cody-baker"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/david-kennedy.yaml",
+      "downstream_pid": "xyzrins:persons/david-kennedy",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/david-kennedy"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/franco-pestilli.yaml",
+      "downstream_pid": "xyzrins:persons/franco-pestilli",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/franco-pestilli"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/gergana-alteva.yaml",
+      "downstream_pid": "xyzrins:persons/gergana-alteva",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/gergana-alteva"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/horea-ioanas.yaml",
+      "downstream_pid": "xyzrins:persons/horea-ioanas",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/horea-ioanas"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/isaac-to.yaml",
+      "downstream_pid": "xyzrins:persons/isaac-to",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/isaac-to"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/james-haxby.yaml",
+      "downstream_pid": "xyzrins:persons/james-haxby",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/james-haxby"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/jason-gors.yaml",
+      "downstream_pid": "xyzrins:persons/jason-gors",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/jason-gors"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/jean-baptiste-poline.yaml",
+      "downstream_pid": "xyzrins:persons/jean-baptiste-poline",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/jean-baptiste-poline"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/jeremy-manning.yaml",
+      "downstream_pid": "xyzrins:persons/jeremy-manning",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/jeremy-manning"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/joey-hess.yaml",
+      "downstream_pid": "xyzrins:persons/joey-hess",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/joey-hess"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/john-wodder.yaml",
+      "downstream_pid": "xyzrins:persons/john-wodder",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/john-wodder"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/kyle-meyer.yaml",
+      "downstream_pid": "xyzrins:persons/kyle-meyer",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/kyle-meyer"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/luke-chang.yaml",
+      "downstream_pid": "xyzrins:persons/luke-chang",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/luke-chang"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/matteo-visconti-di-oleggio-castello.yaml",
+      "downstream_pid": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/matteo-visconti-di-oleggio-castello"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/matthew-brett.yaml",
+      "downstream_pid": "xyzrins:persons/matthew-brett",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/matthew-brett"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/matthijs-van-der-meer.yaml",
+      "downstream_pid": "xyzrins:persons/matthijs-van-der-meer",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/matthijs-van-der-meer"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/michael-hanke.yaml",
+      "downstream_pid": "xyzrins:persons/michael-hanke",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/michael-hanke"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/nikolaas-oosterhof.yaml",
+      "downstream_pid": "xyzrins:persons/nikolaas-oosterhof",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/nikolaas-oosterhof"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/oliver-contier.yaml",
+      "downstream_pid": "xyzrins:persons/oliver-contier",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/oliver-contier"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/samuel-nastase.yaml",
+      "downstream_pid": "xyzrins:persons/samuel-nastase",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/samuel-nastase"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/satrajit-ghosh.yaml",
+      "downstream_pid": "xyzrins:persons/satrajit-ghosh",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/satrajit-ghosh"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/soichi-hayashi.yaml",
+      "downstream_pid": "xyzrins:persons/soichi-hayashi",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/soichi-hayashi"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/tor-wager.yaml",
+      "downstream_pid": "xyzrins:persons/tor-wager",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/tor-wager"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/vadim-melnik.yaml",
+      "downstream_pid": "xyzrins:persons/vadim-melnik",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/vadim-melnik"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/vanessa-sochat.yaml",
+      "downstream_pid": "xyzrins:persons/vanessa-sochat",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/vanessa-sochat"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPerson/yaroslav-halchenko.yaml",
+      "downstream_pid": "xyzrins:persons/yaroslav-halchenko",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZPerson",
+      "source_pid": "xyzrins:persons/yaroslav-halchenko"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/bids.yaml",
+      "downstream_pid": "xyzrins:projects/bids",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/bids"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/con-duct.yaml",
+      "downstream_pid": "xyzrins:projects/con-duct",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/con-duct"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/con-tinuous.yaml",
+      "downstream_pid": "xyzrins:projects/con-tinuous",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/con-tinuous"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/dandi.yaml",
+      "downstream_pid": "xyzrins:projects/dandi",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/dandi"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/datalad.yaml",
+      "downstream_pid": "xyzrins:projects/datalad",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/datalad"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/datalad-registry.yaml",
+      "downstream_pid": "xyzrins:projects/datalad-registry",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/datalad-registry"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/distribits.yaml",
+      "downstream_pid": "xyzrins:projects/distribits",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/distribits"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/duecredit.yaml",
+      "downstream_pid": "xyzrins:projects/duecredit",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/duecredit"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/ember.yaml",
+      "downstream_pid": "xyzrins:projects/ember",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/ember"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/heudiconv.yaml",
+      "downstream_pid": "xyzrins:projects/heudiconv",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/heudiconv"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/hypertools.yaml",
+      "downstream_pid": "xyzrins:projects/hypertools",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/hypertools"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/neurodebian.yaml",
+      "downstream_pid": "xyzrins:projects/neurodebian",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/neurodebian"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/nwb.yaml",
+      "downstream_pid": "xyzrins:projects/nwb",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/nwb"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/open-brain-consent.yaml",
+      "downstream_pid": "xyzrins:projects/open-brain-consent",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/open-brain-consent"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/openneuro.yaml",
+      "downstream_pid": "xyzrins:projects/openneuro",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/openneuro"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/pymvpa.yaml",
+      "downstream_pid": "xyzrins:projects/pymvpa",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/pymvpa"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/pyout.yaml",
+      "downstream_pid": "xyzrins:projects/pyout",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/pyout"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/quail.yaml",
+      "downstream_pid": "xyzrins:projects/quail",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/quail"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/reproman.yaml",
+      "downstream_pid": "xyzrins:projects/reproman",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/reproman"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/repronim-reproducible-basics.yaml",
+      "downstream_pid": "xyzrins:projects/repronim-reproducible-basics",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/repronim-reproducible-basics"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/supereeg.yaml",
+      "downstream_pid": "xyzrins:projects/supereeg",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/supereeg"
+    },
+    {
+      "downstream_path": "metadata/records/XYZProject/yoda.yaml",
+      "downstream_pid": "xyzrins:projects/yoda",
+      "downstream_scope": "canonical",
+      "match_method": "exact-pid",
+      "source_class": "XYZProject",
+      "source_pid": "xyzrins:projects/yoda"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPublication/doi-10-1002-hbm-25351.yaml",
+      "downstream_pid": "xyzrins:publications/doi-10-1002-hbm-25351",
+      "downstream_scope": "canonical",
+      "match_method": "identifier",
+      "source_class": "XYZPublication",
+      "source_pid": "https://doi.org/10.1002/hbm.25351"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPublication/doi-10-1007-s12021-008-9041-y.yaml",
+      "downstream_pid": "xyzrins:publications/doi-10-1007-s12021-008-9041-y",
+      "downstream_scope": "canonical",
+      "match_method": "identifier",
+      "source_class": "XYZPublication",
+      "source_pid": "https://doi.org/10.1007/s12021-008-9041-y"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPublication/doi-10-1038-sdata-2016-44.yaml",
+      "downstream_pid": "xyzrins:publications/doi-10-1038-sdata-2016-44",
+      "downstream_scope": "canonical",
+      "match_method": "identifier",
+      "source_class": "XYZPublication",
+      "source_pid": "https://doi.org/10.1038/sdata.2016.44"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPublication/doi-10-21105-joss-05839.yaml",
+      "downstream_pid": "xyzrins:publications/doi-10-21105-joss-05839",
+      "downstream_scope": "canonical",
+      "match_method": "identifier",
+      "source_class": "XYZPublication",
+      "source_pid": "https://doi.org/10.21105/joss.05839"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPublication/doi-10-3389-fninf-2012-00022.yaml",
+      "downstream_pid": "xyzrins:publications/doi-10-3389-fninf-2012-00022",
+      "downstream_scope": "canonical",
+      "match_method": "identifier",
+      "source_class": "XYZPublication",
+      "source_pid": "https://doi.org/10.3389/fninf.2012.00022"
+    },
+    {
+      "downstream_path": "metadata/records/XYZPublication/doi-10-7490-f1000research-1116363-1.yaml",
+      "downstream_pid": "xyzrins:publications/doi-10-7490-f1000research-1116363-1",
+      "downstream_scope": "canonical",
+      "match_method": "identifier",
+      "source_class": "XYZPublication",
+      "source_pid": "https://doi.org/10.7490/f1000research.1116363.1"
+    }
+  ],
+  "summary": {
+    "ambiguous_records": 0,
+    "enrichment_records": 60,
+    "matched_records": 60,
+    "source_only_by_class": {
+      "XYZGrant": 3,
+      "XYZOrganization": 7,
+      "XYZPerson": 2,
+      "XYZPublication": 5,
+      "XYZPublicationVenue": 2
+    },
+    "source_only_records": 19,
+    "source_records": 79,
+    "unresolved_relation_targets": 2
+  },
+  "unresolved_relation_targets": [
+    "xyzrins:persons/brock-wester",
+    "xyzrins:persons/russell-poldrack"
+  ],
+  "version": 1,
+  "warnings": [
+    "xyzrins:grants/nih-ember contains an explicitly documented placeholder URL",
+    "xyzrins:grants/nih-openneuro contains an explicitly documented placeholder URL"
+  ]
+}

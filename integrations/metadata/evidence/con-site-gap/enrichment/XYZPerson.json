@@ -1,0 +1,1077 @@
+[
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "adswa",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "adswa",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "adswa",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/adina-wagner.yaml",
+    "downstream_pid": "xyzrins:persons/adina-wagner",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/adina-wagner"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "asmacdo",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "asmacdo",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "asmacdo",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/austin-macdonald.yaml",
+    "downstream_pid": "xyzrins:persons/austin-macdonald",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/austin-macdonald"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "bpoldrack",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "bpoldrack",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "bpoldrack",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/benjamin-poldrack.yaml",
+    "downstream_pid": "xyzrins:persons/benjamin-poldrack",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/benjamin-poldrack"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "chrispycheng",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "chrispycheng",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "chrispycheng",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/chris-cheng.yaml",
+    "downstream_pid": "xyzrins:persons/chris-cheng",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/chris-cheng"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "CodyCBakerPhD",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "CodyCBakerPhD",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "CodyCBakerPhD",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/cody-baker.yaml",
+    "downstream_pid": "xyzrins:persons/cody-baker",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/cody-baker"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "dnkennedy",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "dnkennedy",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "dnkennedy",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/david-kennedy.yaml",
+    "downstream_pid": "xyzrins:persons/david-kennedy",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/david-kennedy"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "francopestilli",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "francopestilli",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "francopestilli",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/franco-pestilli.yaml",
+    "downstream_pid": "xyzrins:persons/franco-pestilli",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/franco-pestilli"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "glalteva",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "glalteva",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "glalteva",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/gergana-alteva.yaml",
+    "downstream_pid": "xyzrins:persons/gergana-alteva",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/gergana-alteva"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "TheChymera",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "TheChymera",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "TheChymera",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/horea-ioanas.yaml",
+    "downstream_pid": "xyzrins:persons/horea-ioanas",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/horea-ioanas"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "candleindark",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "candleindark",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "candleindark",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/isaac-to.yaml",
+    "downstream_pid": "xyzrins:persons/isaac-to",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/isaac-to"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "JamesVHaxby",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "JamesVHaxby",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "JamesVHaxby",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/james-haxby.yaml",
+    "downstream_pid": "xyzrins:persons/james-haxby",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/james-haxby"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "jgors",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jgors",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jgors",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/jason-gors.yaml",
+    "downstream_pid": "xyzrins:persons/jason-gors",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/jason-gors"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "jbpoline",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jbpoline",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jbpoline",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/jean-baptiste-poline.yaml",
+    "downstream_pid": "xyzrins:persons/jean-baptiste-poline",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/jean-baptiste-poline"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "jeremymanning",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jeremymanning",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jeremymanning",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/jeremy-manning.yaml",
+    "downstream_pid": "xyzrins:persons/jeremy-manning",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/jeremy-manning"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "joeyh",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "joeyh",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "joeyh",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/joey-hess.yaml",
+    "downstream_pid": "xyzrins:persons/joey-hess",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/joey-hess"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "jwodder",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jwodder",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "jwodder",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/john-wodder.yaml",
+    "downstream_pid": "xyzrins:persons/john-wodder",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/john-wodder"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "kyleam",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "kyleam",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "kyleam",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/kyle-meyer.yaml",
+    "downstream_pid": "xyzrins:persons/kyle-meyer",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/kyle-meyer"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "ljchang",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "ljchang",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "ljchang",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/luke-chang.yaml",
+    "downstream_pid": "xyzrins:persons/luke-chang",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/luke-chang"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "mvdoc",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "mvdoc",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "mvdoc",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/matteo-visconti-di-oleggio-castello.yaml",
+    "downstream_pid": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/matteo-visconti-di-oleggio-castello"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "matthew-brett",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "matthew-brett",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "matthew-brett",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/matthew-brett.yaml",
+    "downstream_pid": "xyzrins:persons/matthew-brett",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/matthew-brett"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "vandermeerlab",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "vandermeerlab",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "vandermeerlab",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/matthijs-van-der-meer.yaml",
+    "downstream_pid": "xyzrins:persons/matthijs-van-der-meer",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/matthijs-van-der-meer"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "hanke",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "hanke",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "hanke",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/michael-hanke.yaml",
+    "downstream_pid": "xyzrins:persons/michael-hanke",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/michael-hanke"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "nno",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "nno",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "nno",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/nikolaas-oosterhof.yaml",
+    "downstream_pid": "xyzrins:persons/nikolaas-oosterhof",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/nikolaas-oosterhof"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "oliver-contier",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "oliver-contier",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "oliver-contier",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/oliver-contier.yaml",
+    "downstream_pid": "xyzrins:persons/oliver-contier",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/oliver-contier"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "snastase",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "snastase",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "snastase",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/samuel-nastase.yaml",
+    "downstream_pid": "xyzrins:persons/samuel-nastase",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/samuel-nastase"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "satra",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "satra",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "satra",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/satrajit-ghosh.yaml",
+    "downstream_pid": "xyzrins:persons/satrajit-ghosh",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/satrajit-ghosh"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "soichih",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "soichih",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "soichih",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/soichi-hayashi.yaml",
+    "downstream_pid": "xyzrins:persons/soichi-hayashi",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/soichi-hayashi"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "torwager",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "torwager",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "torwager",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/tor-wager.yaml",
+    "downstream_pid": "xyzrins:persons/tor-wager",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/tor-wager"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "vmdocua",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "vmdocua",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "vmdocua",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/vadim-melnik.yaml",
+    "downstream_pid": "xyzrins:persons/vadim-melnik",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/vadim-melnik"
+  },
+  {
+    "differing_fields": {
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "vsoch",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "vsoch",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "vsoch",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/vanessa-sochat.yaml",
+    "downstream_pid": "xyzrins:persons/vanessa-sochat",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/vanessa-sochat"
+  },
+  {
+    "differing_fields": {
+      "attributes": {
+        "downstream": [
+          {
+            "predicate": "vcard:Email",
+            "schema_type": "dlthings:AttributeSpecification",
+            "value": "yaroslav.o.halchenko@oneukrainian.com"
+          },
+          {
+            "predicate": "foaf:homepage",
+            "schema_type": "dlthings:AttributeSpecification",
+            "value": "https://centerforopenneuroscience.org/whoweare"
+          }
+        ],
+        "source": [
+          {
+            "predicate": "vcard:Email",
+            "schema_type": "dlthings:AttributeSpecification",
+            "value": "yaroslav.o.halchenko@oneukrainian.com"
+          }
+        ]
+      },
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "yarikoptic",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "yarikoptic",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "creator": "rrid:SCR_002630",
+            "notation": "yarikoptic",
+            "schema_type": "dlthings:Identifier"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPerson/yaroslav-halchenko.yaml",
+    "downstream_pid": "xyzrins:persons/yaroslav-halchenko",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/whoweare"
+      ]
+    },
+    "source_pid": "xyzrins:persons/yaroslav-halchenko"
+  }
+]

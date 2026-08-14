@@ -1,0 +1,719 @@
+[
+  {
+    "differing_fields": {
+      "attributed_to": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/satrajit-ghosh",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ]
+      },
+      "display_label": {
+        "downstream": "The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data",
+        "source": "Open Brain Consent 2021"
+      },
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "10.1002/hbm.25351",
+            "schema_type": "dlthings:DOI"
+          },
+          {
+            "notation": "https://doi.org/10.1002/hbm.25351",
+            "schema_type": "dlthings:Identifier"
+          },
+          {
+            "notation": "zotero:group:6197458:item:245NKVXU",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "notation": "10.1002/hbm.25351",
+            "schema_type": "dlthings:DOI"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPublication/doi-10-1002-hbm-25351.yaml",
+    "downstream_pid": "xyzrins:publications/doi-10-1002-hbm-25351",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "https://doi.org/10.1002/hbm.25351"
+  },
+  {
+    "differing_fields": {
+      "attributed_to": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/james-haxby",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ]
+      },
+      "display_label": {
+        "downstream": "PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data",
+        "source": "Hanke et al. 2009 Neuroinformatics"
+      },
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "10.1007/s12021-008-9041-y",
+            "schema_type": "dlthings:DOI"
+          },
+          {
+            "notation": "zotero:group:6197458:item:TH5UEY9U",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "notation": "10.1007/s12021-008-9041-y",
+            "schema_type": "dlthings:DOI"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPublication/doi-10-1007-s12021-008-9041-y.yaml",
+    "downstream_pid": "xyzrins:publications/doi-10-1007-s12021-008-9041-y",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "https://doi.org/10.1007/s12021-008-9041-y"
+  },
+  {
+    "differing_fields": {
+      "attributed_to": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/satrajit-ghosh",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/jean-baptiste-poline",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/vanessa-sochat",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ]
+      },
+      "display_label": {
+        "downstream": "The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments",
+        "source": "Gorgolewski et al. 2016"
+      },
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "10.1038/sdata.2016.44",
+            "schema_type": "dlthings:DOI"
+          },
+          {
+            "notation": "2052-4463",
+            "schema_type": "dlthings:ISSN"
+          },
+          {
+            "notation": "http://www.nature.com/articles/sdata201644",
+            "schema_type": "dlthings:Identifier"
+          },
+          {
+            "notation": "https://www.nature.com/articles/sdata201644",
+            "schema_type": "dlthings:Identifier"
+          },
+          {
+            "notation": "zotero:group:6197458:item:4IBTF6HG",
+            "schema_type": "dlthings:Identifier"
+          },
+          {
+            "notation": "zotero:group:6197458:item:9KS9CGNB",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "notation": "10.1038/sdata.2016.44",
+            "schema_type": "dlthings:DOI"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZPublication/doi-10-1038-sdata-2016-44.yaml",
+    "downstream_pid": "xyzrins:publications/doi-10-1038-sdata-2016-44",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "https://doi.org/10.1038/sdata.2016.44"
+  },
+  {
+    "differing_fields": {
+      "attributed_to": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/satrajit-ghosh",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/john-wodder",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/horea-ioanas",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/john-lee",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/isaac-to",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/chris-markiewicz",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/austin-macdonald",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/david-kennedy",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/james-haxby",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/james-haxby",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ]
+      },
+      "display_label": {
+        "downstream": "HeuDiConv \u2014 flexible DICOM conversion into structureddirectory layouts",
+        "source": "Halchenko et al. 2024 JOSS"
+      },
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "10.21105/joss.05839",
+            "schema_type": "dlthings:DOI"
+          },
+          {
+            "notation": "2475-9066",
+            "schema_type": "dlthings:ISSN"
+          },
+          {
+            "notation": "https://joss.theoj.org/papers/10.21105/joss.05839",
+            "schema_type": "dlthings:Identifier"
+          },
+          {
+            "notation": "zotero:group:6197458:item:W9MC83Q7",
+            "schema_type": "dlthings:Identifier"
+          },
+          {
+            "notation": "zotero:group:6197458:item:XHF43I5N",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "notation": "10.21105/joss.05839",
+            "schema_type": "dlthings:DOI"
+          }
+        ]
+      },
+      "title": {
+        "downstream": "HeuDiConv \u2014 flexible DICOM conversion into structureddirectory layouts",
+        "source": "HeuDiConv - flexible DICOM conversion into structured directory layouts"
+      }
+    },
+    "downstream_path": "metadata/records/XYZPublication/doi-10-21105-joss-05839.yaml",
+    "downstream_pid": "xyzrins:publications/doi-10-21105-joss-05839",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "https://doi.org/10.21105/joss.05839"
+  },
+  {
+    "differing_fields": {
+      "attributed_to": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "obo:MS_1002035"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "obo:MS_1002035"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ]
+      },
+      "display_label": {
+        "downstream": "Open is not enough. Let's take the next step: An integrated, community-driven computing platform for neuroscience",
+        "source": "Halchenko & Hanke 2012"
+      },
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "10.3389/fninf.2012.00022",
+            "schema_type": "dlthings:DOI"
+          },
+          {
+            "notation": "1662-5196",
+            "schema_type": "dlthings:ISSN"
+          },
+          {
+            "notation": "zotero:group:6197458:item:R9YLFWR2",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "notation": "10.3389/fninf.2012.00022",
+            "schema_type": "dlthings:DOI"
+          }
+        ]
+      },
+      "title": {
+        "downstream": "Open is not enough. Let's take the next step: An integrated, community-driven computing platform for neuroscience",
+        "source": "Open is not enough. Let's take the next step: an integrated, community-driven computing platform for neuroscience"
+      }
+    },
+    "downstream_path": "metadata/records/XYZPublication/doi-10-3389-fninf-2012-00022.yaml",
+    "downstream_pid": "xyzrins:publications/doi-10-3389-fninf-2012-00022",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/"
+      ]
+    },
+    "source_pid": "https://doi.org/10.3389/fninf.2012.00022"
+  },
+  {
+    "differing_fields": {
+      "attributed_to": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/kyle-meyer",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/benjamin-poldrack",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:aut"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/kyle-meyer",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/benjamin-poldrack",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/michael-hanke",
+            "roles": [
+              "obo:MS_1002034"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/kyle-meyer",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/matteo-visconti-di-oleggio-castello",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/benjamin-poldrack",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "obo:MS_1002036"
+            ],
+            "schema_type": "dlthings:Attribution"
+          }
+        ]
+      },
+      "display_label": {
+        "downstream": "YODA: YODA\u2019s organigram on data analysis",
+        "source": "YODA 2018 F1000Research"
+      },
+      "identifiers": {
+        "downstream": [
+          {
+            "notation": "10.7490/f1000research.1116363.1",
+            "schema_type": "dlthings:DOI"
+          },
+          {
+            "notation": "https://github.com/myyoda/poster/blob/master/ohbm2018.pdf",
+            "schema_type": "dlthings:Identifier"
+          },
+          {
+            "notation": "zotero:group:6197458:item:S7T734SL",
+            "schema_type": "dlthings:Identifier"
+          }
+        ],
+        "source": [
+          {
+            "notation": "10.7490/f1000research.1116363.1",
+            "schema_type": "dlthings:DOI"
+          }
+        ]
+      },
+      "title": {
+        "downstream": "YODA: YODA\u2019s organigram on data analysis",
+        "source": "YODA: YODA's Organigram on Data Analysis"
+      }
+    },
+    "downstream_path": "metadata/records/XYZPublication/doi-10-7490-f1000research-1116363-1.yaml",
+    "downstream_pid": "xyzrins:publications/doi-10-7490-f1000research-1116363-1",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "https://doi.org/10.7490/f1000research.1116363.1"
+  }
+]

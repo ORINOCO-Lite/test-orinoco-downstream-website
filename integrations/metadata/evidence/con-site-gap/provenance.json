@@ -1,0 +1,26 @@
+{
+  "format": "datalad-run-provenance",
+  "version": 1,
+  "canonical_promotion": false,
+  "datalad": {
+    "dataset_id": "4c3e1884-d6d1-4c99-b06f-b7ebb51a14c4",
+    "run_commit": "e20aec908cf2ed04fde60becbd123a3a0cd634c0",
+    "version": "1.6.2"
+  },
+  "command": "python scripts/extract_con_site_gap.py --source inputs/dump-research-info/data/con_site --downstream inputs/downstream --output outputs",
+  "inputs": {
+    "dump_research_info_commit": "397b56080d14aeb94592f308b2f0bf325a298c13",
+    "dump_research_info_path": "data/con_site",
+    "downstream_commit": "6cc26739074f4ec852ed8053c8ea43b30997177b",
+    "extractor_sha256": "6e1dd47753c02265ca54cc191a22ae95f4e66fcf1867b9fd08548f4f66116c4b"
+  },
+  "outputs": {
+    "git_tree": "198d59918cd05a4a50723354cd239a5e21f4753c",
+    "candidate_tree_sha256": "eaec9fc572dc9911c5b7d3f69933e93f96301340ba45fe7c061b18b9c7c3469f",
+    "enrichment_tree_sha256": "a8daae494cde474392978864b5a26a4e7fee436ffb3e0c21b72d019b450a5cc7"
+  },
+  "rerun": {
+    "status": "passed",
+    "output_git_tree": "198d59918cd05a4a50723354cd239a5e21f4753c"
+  }
+}

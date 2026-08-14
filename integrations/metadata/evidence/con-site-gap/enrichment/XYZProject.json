@@ -1,0 +1,318 @@
+[
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/bids.yaml",
+    "downstream_pid": "xyzrins:projects/bids",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/bids"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/con-duct.yaml",
+    "downstream_pid": "xyzrins:projects/con-duct",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/con-duct"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/con-tinuous.yaml",
+    "downstream_pid": "xyzrins:projects/con-tinuous",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/con-tinuous"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/dandi.yaml",
+    "downstream_pid": "xyzrins:projects/dandi",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/dandi"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/datalad.yaml",
+    "downstream_pid": "xyzrins:projects/datalad",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/datalad"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/datalad-registry.yaml",
+    "downstream_pid": "xyzrins:projects/datalad-registry",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/datalad-registry"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/distribits.yaml",
+    "downstream_pid": "xyzrins:projects/distribits",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/distribits"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/duecredit.yaml",
+    "downstream_pid": "xyzrins:projects/duecredit",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/duecredit"
+  },
+  {
+    "differing_fields": {
+      "associated_with": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:rtm"
+            ],
+            "schema_type": "dlthings:Association"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/brock-wester",
+            "roles": [
+              "obo:NCIT_C19924"
+            ],
+            "schema_type": "dlthings:Association"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:rtm"
+            ],
+            "schema_type": "dlthings:Association"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/brock-wester",
+            "roles": [
+              "obo:NCIT_C19924"
+            ],
+            "schema_type": "dlthings:Association"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZProject/ember.yaml",
+    "downstream_pid": "xyzrins:projects/ember",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/ember"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/heudiconv.yaml",
+    "downstream_pid": "xyzrins:projects/heudiconv",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/heudiconv"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/hypertools.yaml",
+    "downstream_pid": "xyzrins:projects/hypertools",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/hypertools"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/neurodebian.yaml",
+    "downstream_pid": "xyzrins:projects/neurodebian",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/neurodebian"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/nwb.yaml",
+    "downstream_pid": "xyzrins:projects/nwb",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/nwb"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/open-brain-consent.yaml",
+    "downstream_pid": "xyzrins:projects/open-brain-consent",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/open-brain-consent"
+  },
+  {
+    "differing_fields": {
+      "associated_with": {
+        "downstream": [
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:rtm"
+            ],
+            "schema_type": "dlthings:Association"
+          }
+        ],
+        "source": [
+          {
+            "object": "xyzrins:persons/russell-poldrack",
+            "roles": [
+              "obo:NCIT_C19924"
+            ],
+            "schema_type": "dlthings:Association"
+          },
+          {
+            "object": "xyzrins:persons/yaroslav-halchenko",
+            "roles": [
+              "marcrel:rtm"
+            ],
+            "schema_type": "dlthings:Association"
+          }
+        ],
+        "source_only_entries": [
+          {
+            "object": "xyzrins:persons/russell-poldrack",
+            "roles": [
+              "obo:NCIT_C19924"
+            ],
+            "schema_type": "dlthings:Association"
+          }
+        ]
+      }
+    },
+    "downstream_path": "metadata/records/XYZProject/openneuro.yaml",
+    "downstream_pid": "xyzrins:projects/openneuro",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/openneuro"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/pymvpa.yaml",
+    "downstream_pid": "xyzrins:projects/pymvpa",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/pymvpa"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/pyout.yaml",
+    "downstream_pid": "xyzrins:projects/pyout",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/pyout"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/quail.yaml",
+    "downstream_pid": "xyzrins:projects/quail",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/quail"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/reproman.yaml",
+    "downstream_pid": "xyzrins:projects/reproman",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/reproman"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/repronim-reproducible-basics.yaml",
+    "downstream_pid": "xyzrins:projects/repronim-reproducible-basics",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/repronim-reproducible-basics"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/supereeg.yaml",
+    "downstream_pid": "xyzrins:projects/supereeg",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/supereeg"
+  },
+  {
+    "differing_fields": {},
+    "downstream_path": "metadata/records/XYZProject/yoda.yaml",
+    "downstream_pid": "xyzrins:projects/yoda",
+    "missing_fields": {
+      "about": [
+        "https://centerforopenneuroscience.org/projects"
+      ]
+    },
+    "source_pid": "xyzrins:projects/yoda"
+  }
+]
