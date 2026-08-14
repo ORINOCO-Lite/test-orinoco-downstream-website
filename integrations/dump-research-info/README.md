@@ -34,6 +34,13 @@ It requires both checkouts to be clean, resolves the exact source and downstream
 The recorded command writes only `integrations/dump-research-info/source/con-site-gap/**`; DataLad creates the provenance-bearing commit directly on the current branch.
 No `.datalad` metadata, submodule, copy step, or second provenance repository is introduced.
 
-Inspect that generated commit, verify `datalad rerun` reproduces it with the source checkout at the recorded commit, and submit the commit as the separate metadata-evidence pull request.
+Inspect that generated commit, then reproduce it through the same detached environment:
+
+```console
+./integrations/metadata/metadata-review datalad-rerun -- HEAD
+```
+
+The source checkout must still be at the commit embedded in the recorded command.
+After the rerun produces no changes, submit the DataLad commit as the separate metadata-evidence pull request.
 It must not modify the adapter, common host, or canonical metadata.
 Any selected canonical promotion belongs in a later content pull request.
