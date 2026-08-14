@@ -132,6 +132,11 @@ def load_config(path: Path = CONFIG) -> list[dict[str, object]]:
         plugin = source.get("plugin")
         if not isinstance(plugin, str) or not plugin:
             raise MetadataReviewError(f"Source {source_id} has no plugin path")
+        enabled = source.get("enabled_by_default", True)
+        if not isinstance(enabled, bool):
+            raise MetadataReviewError(
+                f"Source {source_id} enabled_by_default must be a Boolean"
+            )
         seen.add(source_id)
         result.append(source)
     return result
@@ -321,7 +326,15 @@ def render_markdown(report: Mapping[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def run(mode: str, *, root: Path = ROOT, config: Path = CONFIG, build: Path = BUILD) -> dict[str, object]:
+def run(
+    mode: str,
+    *,
+    root: Path = ROOT,
+    config: Path = CONFIG,
+    build: Path = BUILD,
+    selected_sources: Sequence[str] | None = None,
+    source_inputs: Mapping[str, str] | None = None,
+) -> dict[str, object]:
     if mode not in {"review", "refresh-evidence"}:
         raise MetadataReviewError(f"Unsupported metadata review mode {mode!r}")
     if build.exists():
@@ -329,9 +342,36 @@ def run(mode: str, *, root: Path = ROOT, config: Path = CONFIG, build: Path = BU
             raise MetadataReviewError(f"Metadata build root is unsafe: {build}")
         shutil.rmtree(build)
     build.mkdir(parents=True)
+    configured_sources = load_config(config)
+    configured_ids = {str(source["id"]) for source in configured_sources}
+    requested = set(selected_sources or [])
+    unknown = requested - configured_ids
+    if unknown:
+        raise MetadataReviewError(
+            "Unknown metadata source(s): " + ", ".join(sorted(unknown))
+        )
+    inputs = dict(source_inputs or {})
+    unknown_inputs = set(inputs) - configured_ids
+    if unknown_inputs:
+        raise MetadataReviewError(
+            "Inputs were supplied for unknown metadata source(s): "
+            + ", ".join(sorted(unknown_inputs))
+        )
+    active_sources = [
+        source
+        for source in configured_sources
+        if (
+            str(source["id"]) in requested
+            if selected_sources is not None
+            else source.get("enabled_by_default", True)
+        )
+    ]
+    if not active_sources:
+        raise MetadataReviewError("No metadata sources were selected")
+
     results: list[dict[str, object]] = []
     all_updates: list[tuple[str, list[dict[str, object]]]] = []
-    for source in load_config(config):
+    for source in active_sources:
         source_id = str(source["id"])
         output = build / source_id
         output.mkdir()
@@ -341,6 +381,7 @@ def run(mode: str, *, root: Path = ROOT, config: Path = CONFIG, build: Path = BU
             "root": str(root),
             "output": str(output),
             "config": dict(source),
+            "source_input": inputs.get(source_id),
         }
         try:
             adapter_result = module.review(context)
@@ -385,9 +426,35 @@ def run(mode: str, *, root: Path = ROOT, config: Path = CONFIG, build: Path = BU
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("mode", choices=("review", "refresh-evidence"))
+    parser.add_argument(
+        "--only",
+        action="append",
+        default=None,
+        metavar="SOURCE_ID",
+        help="run only this source adapter (repeatable)",
+    )
+    parser.add_argument(
+        "--source-input",
+        action="append",
+        default=[],
+        metavar="SOURCE_ID=VALUE",
+        help="pass a caller-provided input to one source adapter (repeatable)",
+    )
     args = parser.parse_args(argv)
+    source_inputs: dict[str, str] = {}
+    for item in args.source_input:
+        source_id, separator, value = item.partition("=")
+        if not separator or not source_id or not value:
+            parser.error("--source-input must be SOURCE_ID=VALUE")
+        if source_id in source_inputs:
+            parser.error(f"--source-input repeats source {source_id!r}")
+        source_inputs[source_id] = value
     try:
-        report = run(args.mode)
+        report = run(
+            args.mode,
+            selected_sources=args.only,
+            source_inputs=source_inputs,
+        )
     except MetadataReviewError as error:
         parser.exit(1, f"metadata-review: {error}\n")
     summaries = {
