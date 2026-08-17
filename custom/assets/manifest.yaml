@@ -2,7 +2,7 @@ version: 1
 profile: con
 
 assets:
-  assets/files/img/con-logo.svg:
+  custom/assets/files/img/con-logo.svg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/logos/logo_blue_big.svg
@@ -13,7 +13,7 @@ assets:
     size: 125750
     sha256: 39aa8c6f8c5274a92c2f72d52969ac1717c9bdc18b3069894263751dc63abd57
     role: site-brand
-  assets/files/img/con-logo.png:
+  custom/assets/files/img/con-logo.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/logos/logo_blue_big.png
@@ -24,7 +24,7 @@ assets:
     size: 37225
     sha256: 4d6b2cf29b18e7c0bb744cc18f5dc5c54e262d08cf26423eef953e2873619ff7
     role: upstream-compatible-header-brand
-  assets/files/img/datalad-logo.png:
+  custom/assets/files/img/datalad-logo.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/datalad_logo.png
@@ -35,7 +35,7 @@ assets:
     size: 28205
     sha256: e145c07b7a9515a94664b326f1b9c31993833c3726425bbe73c1ddbde5073f10
     role: project-and-instrument-depiction
-  assets/files/img/yaroslav-halchenko.jpg:
+  custom/assets/files/img/yaroslav-halchenko.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/yarik.jpg
@@ -54,7 +54,7 @@ assets:
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/6p/30/MD5E-s37940--90e74fa17a709006dd527c5b36e41217.jpg/MD5E-s37940--90e74fa17a709006dd527c5b36e41217.jpg
       mode: read-only
 
-  assets/files/img/editorial/contact/email.svg:
+  custom/assets/files/img/editorial/contact/email.svg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/contact/email.svg
@@ -65,7 +65,7 @@ assets:
     size: 7046
     sha256: 5b3b3d3b0f4d7c08557b0c57b1ad697a4efa214273323f7590c385c32dfe089a
     role: contact-icon
-  assets/files/img/editorial/contact/github.svg:
+  custom/assets/files/img/editorial/contact/github.svg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/contact/github.svg
@@ -76,7 +76,7 @@ assets:
     size: 3012
     sha256: 40dc36b6eb8ccd64fc6d33be75bbef6e5b317afb7d038691d6097425a84759f2
     role: contact-icon
-  assets/files/img/editorial/contact/ror.svg:
+  custom/assets/files/img/editorial/contact/ror.svg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/contact/ror-icon-rgb.svg
@@ -87,7 +87,7 @@ assets:
     size: 3712
     sha256: 688b61e7ff9a601ef2c759ecc2333a5e01c0156e9dbc9739921911f648560993
     role: contact-icon
-  assets/files/img/editorial/contact/twitter.svg:
+  custom/assets/files/img/editorial/contact/twitter.svg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/contact/twitter.svg
@@ -98,7 +98,7 @@ assets:
     size: 1986
     sha256: f31c0d3c24df096b531e9a3e87203311b12cf9faf1a5d16c1c0f577dad0f3fbf
     role: contact-icon
-  assets/files/img/editorial/engage/brochure-bids.png:
+  custom/assets/files/img/editorial/engage/brochure-bids.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/brochure_bids.png
@@ -116,7 +116,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/62/wM/SHA256E-s126786--ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566.png/SHA256E-s126786--ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566.png
       mode: read-only
-  assets/files/img/editorial/engage/brochure-datalad.png:
+  custom/assets/files/img/editorial/engage/brochure-datalad.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/brochure_datalad.png
@@ -134,7 +134,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/06/J5/SHA256E-s107483--fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4.png/SHA256E-s107483--fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4.png
       mode: read-only
-  assets/files/img/editorial/engage/brochure-debian-neurodebian.png:
+  custom/assets/files/img/editorial/engage/brochure-debian-neurodebian.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/brochure_debian-neurodebian.png
@@ -152,7 +152,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/VM/X4/SHA256E-s141682--082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f.png/SHA256E-s141682--082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f.png
       mode: read-only
-  assets/files/img/editorial/engage/eppy-handout.png:
+  custom/assets/files/img/editorial/engage/eppy-handout.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/eppy-handout.png
@@ -170,7 +170,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/k8/Fk/SHA256E-s156673--e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4.png/SHA256E-s156673--e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4.png
       mode: read-only
-  assets/files/img/editorial/engage/fromtar-preview.png:
+  custom/assets/files/img/editorial/engage/fromtar-preview.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/fromtar_preview.png
@@ -188,7 +188,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/m9/wz/SHA256E-s2560654--429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50.png/SHA256E-s2560654--429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50.png
       mode: read-only
-  assets/files/img/editorial/engage/fromtar.png:
+  custom/assets/files/img/editorial/engage/fromtar.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/fromtar.png
@@ -206,7 +206,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/J0/7z/SHA256E-s37853226--8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8.png/SHA256E-s37853226--8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8.png
       mode: read-only
-  assets/files/img/editorial/engage/nipy-handout.png:
+  custom/assets/files/img/editorial/engage/nipy-handout.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/nipy-handout.png
@@ -224,7 +224,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/j0/q1/SHA256E-s170665--f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25.png/SHA256E-s170665--f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25.png
       mode: read-only
-  assets/files/img/editorial/engage/trifold-qrcodes.png:
+  custom/assets/files/img/editorial/engage/trifold-qrcodes.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/trifold-qrcodes.png
@@ -242,7 +242,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/V0/7V/SHA256E-s326386--34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e.png/SHA256E-s326386--34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e.png
       mode: read-only
-  assets/files/img/editorial/engage/unclesam-preview.png:
+  custom/assets/files/img/editorial/engage/unclesam-preview.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/unclesam_preview.png
@@ -260,7 +260,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/XX/6m/SHA256E-s1061813--1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81.png/SHA256E-s1061813--1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81.png
       mode: read-only
-  assets/files/img/editorial/engage/unclesam.png:
+  custom/assets/files/img/editorial/engage/unclesam.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/unclesam.png
@@ -278,7 +278,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/FK/J2/SHA256E-s11289379--c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1.png/SHA256E-s11289379--c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1.png
       mode: read-only
-  assets/files/img/editorial/homepage/hero.png:
+  custom/assets/files/img/editorial/homepage/hero.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/logos/logo_blue_big_with_margins.png
@@ -289,7 +289,7 @@ assets:
     size: 36980
     sha256: daef858fc0d09fc9692393bbba14c4bc688ea40e00e9067becdf2461907e3e51
     role: homepage-hero
-  assets/files/img/editorial/support/ccn.png:
+  custom/assets/files/img/editorial/support/ccn.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/ccn-logo_h100.png
@@ -300,7 +300,7 @@ assets:
     size: 13898
     sha256: 97f187610c8bf12b4f6ff0d8cce1783380aa0e59f9f91e6b01fb6bba6af9bb39
     role: supporter-logo
-  assets/files/img/editorial/support/nih.png:
+  custom/assets/files/img/editorial/support/nih.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/nih-logo.png
@@ -311,7 +311,7 @@ assets:
     size: 8050
     sha256: 84b1693d37bcb41fdb4a6a1b1e86d3d044f099c618b57d00c10ddbafd7f5d03c
     role: supporter-logo
-  assets/files/img/editorial/support/nsf.gif:
+  custom/assets/files/img/editorial/support/nsf.gif:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/nsf-logo.gif
@@ -322,7 +322,7 @@ assets:
     size: 12384
     sha256: 4768e586723786951b6c0bf4707ced14a24b40c626653728e295a14d6eba6779
     role: supporter-logo
-  assets/files/img/people/adina-wagner.jpg:
+  custom/assets/files/img/people/adina-wagner.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/adina.jpg
@@ -333,7 +333,7 @@ assets:
     size: 10993
     sha256: a2c77453c6af241fdf34b3bd466beb7dcb95cef3676ff5c0c6143e69780dcb72
     role: person-portrait
-  assets/files/img/people/austin-macdonald.jpg:
+  custom/assets/files/img/people/austin-macdonald.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/asmacdo.jpg
@@ -344,7 +344,7 @@ assets:
     size: 977030
     sha256: ca4ffde88bccb18d4665d8df2d646f0f82d889b54c13fdcaddf10c46cc4e1f4c
     role: person-portrait
-  assets/files/img/people/benjamin-poldrack.jpg:
+  custom/assets/files/img/people/benjamin-poldrack.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/ben.jpg
@@ -355,7 +355,7 @@ assets:
     size: 22224
     sha256: c7286e788cf83f2fc4a5a4425239d6a96254b9c26cf67b478b47405b2a3a2fe5
     role: person-portrait
-  assets/files/img/people/chris-cheng.jpg:
+  custom/assets/files/img/people/chris-cheng.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/chris.jpg
@@ -366,7 +366,7 @@ assets:
     size: 12290
     sha256: 3178dec14a1eda64018539af4b12bee5e43b8dd7da2f31d7fbe86d9e0333ee45
     role: person-portrait
-  assets/files/img/people/cody-baker.jpg:
+  custom/assets/files/img/people/cody-baker.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/cody.jpg
@@ -377,7 +377,7 @@ assets:
     size: 8123
     sha256: 9e606d227e87e5618bfb84f3bc6d770865182072885ffc2f0199ec1cc27a2d6e
     role: person-portrait
-  assets/files/img/people/david-kennedy.jpg:
+  custom/assets/files/img/people/david-kennedy.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/kennedy.jpg
@@ -395,7 +395,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/M2/pp/MD5E-s27377--c36212977413bf3c46b43bd32de56f0d.jpg/MD5E-s27377--c36212977413bf3c46b43bd32de56f0d.jpg
       mode: read-only
-  assets/files/img/people/franco-pestilli.jpg:
+  custom/assets/files/img/people/franco-pestilli.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/franco.jpg
@@ -406,7 +406,7 @@ assets:
     size: 125717
     sha256: d09103c99d60296df3dd32b42ba4236ef588e0616f6009ca1edb4188378085dc
     role: person-portrait
-  assets/files/img/people/gergana-alteva.jpg:
+  custom/assets/files/img/people/gergana-alteva.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/gergana.jpg
@@ -417,7 +417,7 @@ assets:
     size: 8615
     sha256: fc227772e01527b58c88ae1825e423438f888ed9c3e96387fa53c930c7f7b5d3
     role: person-portrait
-  assets/files/img/people/horea-ioanas.jpg:
+  custom/assets/files/img/people/horea-ioanas.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/chr.jpg
@@ -428,7 +428,7 @@ assets:
     size: 369275
     sha256: e8fe74a239931439c3825ba3784a3e09a29303ac56129f0b5363e7b4e2461869
     role: person-portrait
-  assets/files/img/people/isaac-to.jpg:
+  custom/assets/files/img/people/isaac-to.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/ito.jpg
@@ -439,7 +439,7 @@ assets:
     size: 122817
     sha256: c139d2baeb7dccc89e36cfbb50888043a0f15e497b02ff5dfb83c5db1f648bdf
     role: person-portrait
-  assets/files/img/people/james-haxby.jpg:
+  custom/assets/files/img/people/james-haxby.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/jim.jpg
@@ -450,7 +450,7 @@ assets:
     size: 129814
     sha256: f9b03449d1a96f893654040e11857e839af1279b6c897cd3576b6554408bbc3a
     role: person-portrait
-  assets/files/img/people/jason-gors.jpg:
+  custom/assets/files/img/people/jason-gors.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/jason.jpg
@@ -461,7 +461,7 @@ assets:
     size: 22533
     sha256: dcd493111dbce473bd2780ddafd57617e401d6f69940cb1d2d0993d00d8c4b15
     role: person-portrait
-  assets/files/img/people/jean-baptiste-poline.png:
+  custom/assets/files/img/people/jean-baptiste-poline.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/jb.png
@@ -479,7 +479,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/9j/Xv/MD5E-s88193--0b34903f516875d61b7776c52c3fb6b7.png/MD5E-s88193--0b34903f516875d61b7776c52c3fb6b7.png
       mode: read-only
-  assets/files/img/people/jeremy-manning.png:
+  custom/assets/files/img/people/jeremy-manning.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/jeremy.jpg
@@ -490,7 +490,7 @@ assets:
     size: 345330
     sha256: f457d2d841aee144ac274ae9685b5669fce8ae25a13ed9437108378a59be6a7a
     role: person-portrait
-  assets/files/img/people/joey-hess.jpg:
+  custom/assets/files/img/people/joey-hess.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/joey.jpg
@@ -501,7 +501,7 @@ assets:
     size: 13111
     sha256: c53c9404ef0897d64c8621aa100058a1022916a3c31713e1eed119461cdb1049
     role: person-portrait
-  assets/files/img/people/john-lee.jpg:
+  custom/assets/files/img/people/john-lee.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/johnlee.jpg
@@ -512,7 +512,7 @@ assets:
     size: 72504
     sha256: eb040b375c079fcc006c59b8497d44d9a733ba40cc3e53f1f3b5b8363fd732d6
     role: person-portrait
-  assets/files/img/people/john-wodder.jpg:
+  custom/assets/files/img/people/john-wodder.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/jwodder.jpg
@@ -523,7 +523,7 @@ assets:
     size: 17232
     sha256: 10eaf9b40edf0766bbf1f3ef8a39f0717f99c53acedcff41cdb18ae01871237c
     role: person-portrait
-  assets/files/img/people/kyle-meyer.jpg:
+  custom/assets/files/img/people/kyle-meyer.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/kyle.jpg
@@ -534,7 +534,7 @@ assets:
     size: 32533
     sha256: e671d522725e5aacdc3ac8b9d0687b69010696a805a359d467107a0af2cf9046
     role: person-portrait
-  assets/files/img/people/luke-chang.jpg:
+  custom/assets/files/img/people/luke-chang.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/chang.jpg
@@ -545,7 +545,7 @@ assets:
     size: 40001
     sha256: 3c44b36af8c8a8b95e9b455ef962a36a13e4ca0e76098f83c6512aa57245e96a
     role: person-portrait
-  assets/files/img/people/matteo-visconti-di-oleggio-castello.jpg:
+  custom/assets/files/img/people/matteo-visconti-di-oleggio-castello.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/matteo.jpg
@@ -556,7 +556,7 @@ assets:
     size: 7739
     sha256: 9b0ab382d48d290448ec315fa53b83cf133d8bf6fcbcf3efb9a0cd0152568d3d
     role: person-portrait
-  assets/files/img/people/matthew-brett.jpg:
+  custom/assets/files/img/people/matthew-brett.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/matthew.jpg
@@ -567,7 +567,7 @@ assets:
     size: 26882
     sha256: fe65465e94703d025b18fc39ad046a998d6fa24c229660ebe7ff062d163af7c6
     role: person-portrait
-  assets/files/img/people/matthijs-van-der-meer.jpg:
+  custom/assets/files/img/people/matthijs-van-der-meer.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/mvdm.jpg
@@ -578,7 +578,7 @@ assets:
     size: 48291
     sha256: 52901f2208924d51351967af55d8f0d2f25ccfdd4afc94be2601d04878d50032
     role: person-portrait
-  assets/files/img/people/michael-hanke.jpg:
+  custom/assets/files/img/people/michael-hanke.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/michael.jpg
@@ -589,7 +589,7 @@ assets:
     size: 7453
     sha256: 95e68dcefc4d48642d10bb1caefbb568f311236d20dd59d16ea3515888f0b84e
     role: person-portrait
-  assets/files/img/people/nikolaas-oosterhof.jpg:
+  custom/assets/files/img/people/nikolaas-oosterhof.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/nick.jpg
@@ -600,7 +600,7 @@ assets:
     size: 21967
     sha256: 8dc782e7eac957362a4b76e75ac11a673cc27dfddef2c6dac7845824f44f5a1b
     role: person-portrait
-  assets/files/img/people/oliver-contier.jpg:
+  custom/assets/files/img/people/oliver-contier.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/oli.jpg
@@ -611,7 +611,7 @@ assets:
     size: 26282
     sha256: 55ed70b88cfb803d808742f1cbb2300e42d351480e2cc564716da371b4dcf4c8
     role: person-portrait
-  assets/files/img/people/samuel-nastase.jpg:
+  custom/assets/files/img/people/samuel-nastase.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/sam.jpg
@@ -622,7 +622,7 @@ assets:
     size: 29837
     sha256: 92ef43eb4a06ba86b65c8ee704f09d17c1d59a8d6db108f918d8dc9271df4142
     role: person-portrait
-  assets/files/img/people/satrajit-ghosh.jpg:
+  custom/assets/files/img/people/satrajit-ghosh.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/satra.jpg
@@ -633,7 +633,7 @@ assets:
     size: 13129
     sha256: 83f67a43ff101e8544e9110daac12e2715dda8e4652cbcc2d0f2bfea3112a69c
     role: person-portrait
-  assets/files/img/people/soichi-hayashi.jpg:
+  custom/assets/files/img/people/soichi-hayashi.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/soichi.jpg
@@ -644,7 +644,7 @@ assets:
     size: 5200
     sha256: fac0b6acd1b90f9d5a6cb498638f06ec339096963384a2d91cf05e28ea30d70f
     role: person-portrait
-  assets/files/img/people/tor-wager.jpg:
+  custom/assets/files/img/people/tor-wager.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/tor.jpg
@@ -655,7 +655,7 @@ assets:
     size: 146280
     sha256: 23906905a376d41343c366dc1db8700a593b116526521dcb90b879b1e6afd716
     role: person-portrait
-  assets/files/img/people/vadim-melnik.jpg:
+  custom/assets/files/img/people/vadim-melnik.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/vadim.jpg
@@ -666,7 +666,7 @@ assets:
     size: 9008
     sha256: b6b240f51a299e4d853e01cfa8fea795c012c6c17644c7286a06d51d401b03b4
     role: person-portrait
-  assets/files/img/people/vanessa-sochat.png:
+  custom/assets/files/img/people/vanessa-sochat.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/vanessa.png
@@ -677,7 +677,7 @@ assets:
     size: 4513
     sha256: ee57e7e98765d9bdfbf82117c3e19a8e31cc78b3a6248e6849c36d663f46f1b8
     role: person-portrait
-  assets/files/img/projects/bids.png:
+  custom/assets/files/img/projects/bids.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/bids_logo.png
@@ -688,7 +688,7 @@ assets:
     size: 62518
     sha256: 49eff73f0d0c1fec5bd6884083965f1b5feaa78e6fff26f91b5ee8bdcc6f965a
     role: project-logo
-  assets/files/img/projects/con-duct.webp:
+  custom/assets/files/img/projects/con-duct.webp:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/duct.webp
@@ -699,7 +699,7 @@ assets:
     size: 52082
     sha256: ad108b887c4d3a4f9be081a4ec954db09f6acd234270b0116dd0ec9e1847eb60
     role: project-logo
-  assets/files/img/projects/dandi.png:
+  custom/assets/files/img/projects/dandi.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/dandi_logo.png
@@ -710,7 +710,7 @@ assets:
     size: 71800
     sha256: b4bb71f833102beeee74b3b88b7a5964b1c1b63355cc61072871cef719bf35f4
     role: project-logo
-  assets/files/img/projects/datalad-registry.svg:
+  custom/assets/files/img/projects/datalad-registry.svg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/registry_logo.svg
@@ -721,7 +721,7 @@ assets:
     size: 15390
     sha256: b1ec29c9a8bcca6b1b426f1ec2823afa2d1cf806899c601acaebfe2c3b86de0a
     role: project-logo
-  assets/files/img/projects/distribits.webp:
+  custom/assets/files/img/projects/distribits.webp:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/distribits_logo.webp
@@ -739,7 +739,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/48/z5/MD5E-s8766--009e335513cf758daf30344cbc055260.webp/MD5E-s8766--009e335513cf758daf30344cbc055260.webp
       mode: read-only
-  assets/files/img/projects/duecredit.png:
+  custom/assets/files/img/projects/duecredit.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/duecredit_logo.png
@@ -750,7 +750,7 @@ assets:
     size: 5442
     sha256: 1e99fd244ec605c5f586d5a7e90a5954c3369173f8600ad5ea811ddb37039ec9
     role: project-logo
-  assets/files/img/projects/ember.png:
+  custom/assets/files/img/projects/ember.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/ember_logo.png
@@ -768,7 +768,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/vk/mj/MD5E-s52972--6f544d1fd8844fea1894f7530ed45420.png/MD5E-s52972--6f544d1fd8844fea1894f7530ed45420.png
       mode: read-only
-  assets/files/img/projects/hypertools.png:
+  custom/assets/files/img/projects/hypertools.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/hypertools_logo.png
@@ -779,7 +779,7 @@ assets:
     size: 7538
     sha256: 4ac495b35abeaf02d2eda9b4f9dfc74310a9eb10af71b7c359e6b0372db45658
     role: project-logo
-  assets/files/img/projects/neurodebian.jpg:
+  custom/assets/files/img/projects/neurodebian.jpg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/neurodebian_logo.jpg
@@ -790,7 +790,7 @@ assets:
     size: 8552
     sha256: 72a92d814d38127483010298f68e4fc3304ac5629904773409ef020059340120
     role: project-logo
-  assets/files/img/projects/nwb.png:
+  custom/assets/files/img/projects/nwb.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/nwb_logo.png
@@ -801,7 +801,7 @@ assets:
     size: 12458
     sha256: c0f839437eb5e2e7dbd66a8fd169bb41f59d5c19794aa9e868de122100cf785b
     role: project-logo
-  assets/files/img/projects/open-brain-consent.svg:
+  custom/assets/files/img/projects/open-brain-consent.svg:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/obc_logo.svg
@@ -812,7 +812,7 @@ assets:
     size: 9674
     sha256: 4cdea9c9b3570f39f9aee0ca60001d7d50e6fd935eb5756f7d38fd95971bd069
     role: project-logo
-  assets/files/img/projects/openneuro.png:
+  custom/assets/files/img/projects/openneuro.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/openneuro_logo.png
@@ -830,7 +830,7 @@ assets:
       object_url: >-
         https://datasets.datalad.org/centerforopenneuroscience/con.org/.git/annex/objects/K2/vp/MD5E-s57038--7cbe2a93dc7746968e565a55f382abef.png/MD5E-s57038--7cbe2a93dc7746968e565a55f382abef.png
       mode: read-only
-  assets/files/img/projects/pymvpa.png:
+  custom/assets/files/img/projects/pymvpa.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/pymvpa_logo.png
@@ -841,7 +841,7 @@ assets:
     size: 56956
     sha256: 2a7ee0cb7fba714d3f0ffd6d7d049d7bd0300c03555273aa5e555f223007747f
     role: project-logo
-  assets/files/img/projects/pyout.png:
+  custom/assets/files/img/projects/pyout.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/pyout_logo.png
@@ -852,7 +852,7 @@ assets:
     size: 6492
     sha256: 902104f5399cc1b27abd91e2b27b6065e78950123563e4de78a6d3cd0d6d2870
     role: project-logo
-  assets/files/img/projects/quail.png:
+  custom/assets/files/img/projects/quail.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/quail_logo.png
@@ -863,7 +863,7 @@ assets:
     size: 8141
     sha256: 35b0f9d0de6fd50ef70b098136a4380f207b509c11525c1c6c82a9b178a58b53
     role: project-logo
-  assets/files/img/projects/reproman.png:
+  custom/assets/files/img/projects/reproman.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/niceman_logo.png
@@ -874,7 +874,7 @@ assets:
     size: 16882
     sha256: 2279e09af6bd3041bdde1be2cb9fc6e6dd17e9dbd5c1a6d8b5ab1a3ff39644a2
     role: project-logo
-  assets/files/img/projects/supereeg.png:
+  custom/assets/files/img/projects/supereeg.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/supereeg_logo.png
@@ -885,7 +885,7 @@ assets:
     size: 36223
     sha256: 85fd50a57d9f55a3b0a35a1393b356171d513f83c151168a5bc5fca711ce3cde
     role: project-logo
-  assets/files/img/projects/yoda.png:
+  custom/assets/files/img/projects/yoda.png:
     source_repository: https://github.com/con/centerforopenneuroscience.org.git
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/yoda_logo.png
@@ -898,82 +898,82 @@ assets:
     role: project-logo
 
 projection_links:
-  generated/projection/content/projects/datalad/logo.png: assets/files/img/datalad-logo.png
-  generated/projection/content/instruments/datalad/logo.png: assets/files/img/datalad-logo.png
-  generated/projection/content/persons/yaroslav-halchenko/portrait.jpg: assets/files/img/yaroslav-halchenko.jpg
-  generated/projection/content/persons/james-haxby/portrait.jpg: assets/files/img/people/james-haxby.jpg
-  generated/projection/content/persons/isaac-to/portrait.jpg: assets/files/img/people/isaac-to.jpg
-  generated/projection/content/persons/austin-macdonald/portrait.jpg: assets/files/img/people/austin-macdonald.jpg
-  generated/projection/content/persons/vadim-melnik/portrait.jpg: assets/files/img/people/vadim-melnik.jpg
-  generated/projection/content/persons/cody-baker/portrait.jpg: assets/files/img/people/cody-baker.jpg
-  generated/projection/content/persons/john-lee/portrait.jpg: assets/files/img/people/john-lee.jpg
-  generated/projection/content/persons/adina-wagner/portrait.jpg: assets/files/img/people/adina-wagner.jpg
-  generated/projection/content/persons/david-kennedy/portrait.jpg: assets/files/img/people/david-kennedy.jpg
-  generated/projection/content/persons/jean-baptiste-poline/portrait.png: assets/files/img/people/jean-baptiste-poline.png
-  generated/projection/content/persons/joey-hess/portrait.jpg: assets/files/img/people/joey-hess.jpg
-  generated/projection/content/persons/franco-pestilli/portrait.jpg: assets/files/img/people/franco-pestilli.jpg
-  generated/projection/content/persons/michael-hanke/portrait.jpg: assets/files/img/people/michael-hanke.jpg
-  generated/projection/content/persons/satrajit-ghosh/portrait.jpg: assets/files/img/people/satrajit-ghosh.jpg
-  generated/projection/content/persons/jeremy-manning/portrait.png: assets/files/img/people/jeremy-manning.png
-  generated/projection/content/persons/luke-chang/portrait.jpg: assets/files/img/people/luke-chang.jpg
-  generated/projection/content/persons/matthijs-van-der-meer/portrait.jpg: assets/files/img/people/matthijs-van-der-meer.jpg
-  generated/projection/content/persons/tor-wager/portrait.jpg: assets/files/img/people/tor-wager.jpg
-  generated/projection/content/persons/jason-gors/portrait.jpg: assets/files/img/people/jason-gors.jpg
-  generated/projection/content/persons/gergana-alteva/portrait.jpg: assets/files/img/people/gergana-alteva.jpg
-  generated/projection/content/persons/oliver-contier/portrait.jpg: assets/files/img/people/oliver-contier.jpg
-  generated/projection/content/persons/matteo-visconti-di-oleggio-castello/portrait.jpg: assets/files/img/people/matteo-visconti-di-oleggio-castello.jpg
-  generated/projection/content/persons/samuel-nastase/portrait.jpg: assets/files/img/people/samuel-nastase.jpg
-  generated/projection/content/persons/nikolaas-oosterhof/portrait.jpg: assets/files/img/people/nikolaas-oosterhof.jpg
-  generated/projection/content/persons/matthew-brett/portrait.jpg: assets/files/img/people/matthew-brett.jpg
-  generated/projection/content/persons/kyle-meyer/portrait.jpg: assets/files/img/people/kyle-meyer.jpg
-  generated/projection/content/persons/chris-cheng/portrait.jpg: assets/files/img/people/chris-cheng.jpg
-  generated/projection/content/persons/soichi-hayashi/portrait.jpg: assets/files/img/people/soichi-hayashi.jpg
-  generated/projection/content/persons/vanessa-sochat/portrait.png: assets/files/img/people/vanessa-sochat.png
-  generated/projection/content/persons/benjamin-poldrack/portrait.jpg: assets/files/img/people/benjamin-poldrack.jpg
-  generated/projection/content/persons/horea-ioanas/portrait.jpg: assets/files/img/people/horea-ioanas.jpg
-  generated/projection/content/persons/john-wodder/portrait.jpg: assets/files/img/people/john-wodder.jpg
-  generated/projection/content/projects/dandi/logo.png: assets/files/img/projects/dandi.png
-  generated/projection/content/projects/ember/logo.png: assets/files/img/projects/ember.png
-  generated/projection/content/projects/openneuro/logo.png: assets/files/img/projects/openneuro.png
-  generated/projection/content/projects/datalad-registry/logo.svg: assets/files/img/projects/datalad-registry.svg
-  generated/projection/content/projects/duecredit/logo.png: assets/files/img/projects/duecredit.png
-  generated/projection/content/projects/neurodebian/logo.jpg: assets/files/img/projects/neurodebian.jpg
-  generated/projection/content/projects/pymvpa/logo.png: assets/files/img/projects/pymvpa.png
-  generated/projection/content/projects/reproman/logo.png: assets/files/img/projects/reproman.png
-  generated/projection/content/projects/con-duct/logo.webp: assets/files/img/projects/con-duct.webp
-  generated/projection/content/projects/pyout/logo.png: assets/files/img/projects/pyout.png
-  generated/projection/content/projects/quail/logo.png: assets/files/img/projects/quail.png
-  generated/projection/content/projects/hypertools/logo.png: assets/files/img/projects/hypertools.png
-  generated/projection/content/projects/supereeg/logo.png: assets/files/img/projects/supereeg.png
-  generated/projection/content/projects/open-brain-consent/logo.svg: assets/files/img/projects/open-brain-consent.svg
-  generated/projection/content/projects/distribits/logo.webp: assets/files/img/projects/distribits.webp
-  generated/projection/content/projects/bids/logo.png: assets/files/img/projects/bids.png
-  generated/projection/content/projects/nwb/logo.png: assets/files/img/projects/nwb.png
-  generated/projection/content/projects/yoda/logo.png: assets/files/img/projects/yoda.png
+  generated/projection/content/projects/datalad/logo.png: custom/assets/files/img/datalad-logo.png
+  generated/projection/content/instruments/datalad/logo.png: custom/assets/files/img/datalad-logo.png
+  generated/projection/content/persons/yaroslav-halchenko/portrait.jpg: custom/assets/files/img/yaroslav-halchenko.jpg
+  generated/projection/content/persons/james-haxby/portrait.jpg: custom/assets/files/img/people/james-haxby.jpg
+  generated/projection/content/persons/isaac-to/portrait.jpg: custom/assets/files/img/people/isaac-to.jpg
+  generated/projection/content/persons/austin-macdonald/portrait.jpg: custom/assets/files/img/people/austin-macdonald.jpg
+  generated/projection/content/persons/vadim-melnik/portrait.jpg: custom/assets/files/img/people/vadim-melnik.jpg
+  generated/projection/content/persons/cody-baker/portrait.jpg: custom/assets/files/img/people/cody-baker.jpg
+  generated/projection/content/persons/john-lee/portrait.jpg: custom/assets/files/img/people/john-lee.jpg
+  generated/projection/content/persons/adina-wagner/portrait.jpg: custom/assets/files/img/people/adina-wagner.jpg
+  generated/projection/content/persons/david-kennedy/portrait.jpg: custom/assets/files/img/people/david-kennedy.jpg
+  generated/projection/content/persons/jean-baptiste-poline/portrait.png: custom/assets/files/img/people/jean-baptiste-poline.png
+  generated/projection/content/persons/joey-hess/portrait.jpg: custom/assets/files/img/people/joey-hess.jpg
+  generated/projection/content/persons/franco-pestilli/portrait.jpg: custom/assets/files/img/people/franco-pestilli.jpg
+  generated/projection/content/persons/michael-hanke/portrait.jpg: custom/assets/files/img/people/michael-hanke.jpg
+  generated/projection/content/persons/satrajit-ghosh/portrait.jpg: custom/assets/files/img/people/satrajit-ghosh.jpg
+  generated/projection/content/persons/jeremy-manning/portrait.png: custom/assets/files/img/people/jeremy-manning.png
+  generated/projection/content/persons/luke-chang/portrait.jpg: custom/assets/files/img/people/luke-chang.jpg
+  generated/projection/content/persons/matthijs-van-der-meer/portrait.jpg: custom/assets/files/img/people/matthijs-van-der-meer.jpg
+  generated/projection/content/persons/tor-wager/portrait.jpg: custom/assets/files/img/people/tor-wager.jpg
+  generated/projection/content/persons/jason-gors/portrait.jpg: custom/assets/files/img/people/jason-gors.jpg
+  generated/projection/content/persons/gergana-alteva/portrait.jpg: custom/assets/files/img/people/gergana-alteva.jpg
+  generated/projection/content/persons/oliver-contier/portrait.jpg: custom/assets/files/img/people/oliver-contier.jpg
+  generated/projection/content/persons/matteo-visconti-di-oleggio-castello/portrait.jpg: custom/assets/files/img/people/matteo-visconti-di-oleggio-castello.jpg
+  generated/projection/content/persons/samuel-nastase/portrait.jpg: custom/assets/files/img/people/samuel-nastase.jpg
+  generated/projection/content/persons/nikolaas-oosterhof/portrait.jpg: custom/assets/files/img/people/nikolaas-oosterhof.jpg
+  generated/projection/content/persons/matthew-brett/portrait.jpg: custom/assets/files/img/people/matthew-brett.jpg
+  generated/projection/content/persons/kyle-meyer/portrait.jpg: custom/assets/files/img/people/kyle-meyer.jpg
+  generated/projection/content/persons/chris-cheng/portrait.jpg: custom/assets/files/img/people/chris-cheng.jpg
+  generated/projection/content/persons/soichi-hayashi/portrait.jpg: custom/assets/files/img/people/soichi-hayashi.jpg
+  generated/projection/content/persons/vanessa-sochat/portrait.png: custom/assets/files/img/people/vanessa-sochat.png
+  generated/projection/content/persons/benjamin-poldrack/portrait.jpg: custom/assets/files/img/people/benjamin-poldrack.jpg
+  generated/projection/content/persons/horea-ioanas/portrait.jpg: custom/assets/files/img/people/horea-ioanas.jpg
+  generated/projection/content/persons/john-wodder/portrait.jpg: custom/assets/files/img/people/john-wodder.jpg
+  generated/projection/content/projects/dandi/logo.png: custom/assets/files/img/projects/dandi.png
+  generated/projection/content/projects/ember/logo.png: custom/assets/files/img/projects/ember.png
+  generated/projection/content/projects/openneuro/logo.png: custom/assets/files/img/projects/openneuro.png
+  generated/projection/content/projects/datalad-registry/logo.svg: custom/assets/files/img/projects/datalad-registry.svg
+  generated/projection/content/projects/duecredit/logo.png: custom/assets/files/img/projects/duecredit.png
+  generated/projection/content/projects/neurodebian/logo.jpg: custom/assets/files/img/projects/neurodebian.jpg
+  generated/projection/content/projects/pymvpa/logo.png: custom/assets/files/img/projects/pymvpa.png
+  generated/projection/content/projects/reproman/logo.png: custom/assets/files/img/projects/reproman.png
+  generated/projection/content/projects/con-duct/logo.webp: custom/assets/files/img/projects/con-duct.webp
+  generated/projection/content/projects/pyout/logo.png: custom/assets/files/img/projects/pyout.png
+  generated/projection/content/projects/quail/logo.png: custom/assets/files/img/projects/quail.png
+  generated/projection/content/projects/hypertools/logo.png: custom/assets/files/img/projects/hypertools.png
+  generated/projection/content/projects/supereeg/logo.png: custom/assets/files/img/projects/supereeg.png
+  generated/projection/content/projects/open-brain-consent/logo.svg: custom/assets/files/img/projects/open-brain-consent.svg
+  generated/projection/content/projects/distribits/logo.webp: custom/assets/files/img/projects/distribits.webp
+  generated/projection/content/projects/bids/logo.png: custom/assets/files/img/projects/bids.png
+  generated/projection/content/projects/nwb/logo.png: custom/assets/files/img/projects/nwb.png
+  generated/projection/content/projects/yoda/logo.png: custom/assets/files/img/projects/yoda.png
 
 static_links:
-  site/static/apple-touch-icon.png: assets/files/img/con-logo.png
-  site/static/favicon-16x16.png: assets/files/img/con-logo.png
-  site/static/favicon-32x32.png: assets/files/img/con-logo.png
-  site/static/mstile-150x150.png: assets/files/img/con-logo.png
-  site/static/img/editorial/homepage/hero.png: assets/files/img/editorial/homepage/hero.png
-  site/static/img/editorial/contact/ror.svg: assets/files/img/editorial/contact/ror.svg
-  site/static/img/editorial/contact/email.svg: assets/files/img/editorial/contact/email.svg
-  site/static/img/editorial/contact/twitter.svg: assets/files/img/editorial/contact/twitter.svg
-  site/static/img/editorial/contact/github.svg: assets/files/img/editorial/contact/github.svg
-  site/static/img/editorial/engage/trifold-qrcodes.png: assets/files/img/editorial/engage/trifold-qrcodes.png
-  site/static/img/editorial/engage/eppy-handout.png: assets/files/img/editorial/engage/eppy-handout.png
-  site/static/img/editorial/engage/nipy-handout.png: assets/files/img/editorial/engage/nipy-handout.png
-  site/static/img/editorial/engage/brochure-debian-neurodebian.png: assets/files/img/editorial/engage/brochure-debian-neurodebian.png
-  site/static/img/editorial/engage/brochure-datalad.png: assets/files/img/editorial/engage/brochure-datalad.png
-  site/static/img/editorial/engage/brochure-bids.png: assets/files/img/editorial/engage/brochure-bids.png
-  site/static/img/editorial/engage/unclesam-preview.png: assets/files/img/editorial/engage/unclesam-preview.png
-  site/static/img/editorial/engage/fromtar-preview.png: assets/files/img/editorial/engage/fromtar-preview.png
-  site/static/img/editorial/engage/unclesam.png: assets/files/img/editorial/engage/unclesam.png
-  site/static/img/editorial/engage/fromtar.png: assets/files/img/editorial/engage/fromtar.png
-  site/static/img/editorial/support/ccn.png: assets/files/img/editorial/support/ccn.png
-  site/static/img/editorial/support/nsf.gif: assets/files/img/editorial/support/nsf.gif
-  site/static/img/editorial/support/nih.png: assets/files/img/editorial/support/nih.png
+  site/static/apple-touch-icon.png: custom/assets/files/img/con-logo.png
+  site/static/favicon-16x16.png: custom/assets/files/img/con-logo.png
+  site/static/favicon-32x32.png: custom/assets/files/img/con-logo.png
+  site/static/mstile-150x150.png: custom/assets/files/img/con-logo.png
+  site/static/img/editorial/homepage/hero.png: custom/assets/files/img/editorial/homepage/hero.png
+  site/static/img/editorial/contact/ror.svg: custom/assets/files/img/editorial/contact/ror.svg
+  site/static/img/editorial/contact/email.svg: custom/assets/files/img/editorial/contact/email.svg
+  site/static/img/editorial/contact/twitter.svg: custom/assets/files/img/editorial/contact/twitter.svg
+  site/static/img/editorial/contact/github.svg: custom/assets/files/img/editorial/contact/github.svg
+  site/static/img/editorial/engage/trifold-qrcodes.png: custom/assets/files/img/editorial/engage/trifold-qrcodes.png
+  site/static/img/editorial/engage/eppy-handout.png: custom/assets/files/img/editorial/engage/eppy-handout.png
+  site/static/img/editorial/engage/nipy-handout.png: custom/assets/files/img/editorial/engage/nipy-handout.png
+  site/static/img/editorial/engage/brochure-debian-neurodebian.png: custom/assets/files/img/editorial/engage/brochure-debian-neurodebian.png
+  site/static/img/editorial/engage/brochure-datalad.png: custom/assets/files/img/editorial/engage/brochure-datalad.png
+  site/static/img/editorial/engage/brochure-bids.png: custom/assets/files/img/editorial/engage/brochure-bids.png
+  site/static/img/editorial/engage/unclesam-preview.png: custom/assets/files/img/editorial/engage/unclesam-preview.png
+  site/static/img/editorial/engage/fromtar-preview.png: custom/assets/files/img/editorial/engage/fromtar-preview.png
+  site/static/img/editorial/engage/unclesam.png: custom/assets/files/img/editorial/engage/unclesam.png
+  site/static/img/editorial/engage/fromtar.png: custom/assets/files/img/editorial/engage/fromtar.png
+  site/static/img/editorial/support/ccn.png: custom/assets/files/img/editorial/support/ccn.png
+  site/static/img/editorial/support/nsf.gif: custom/assets/files/img/editorial/support/nsf.gif
+  site/static/img/editorial/support/nih.png: custom/assets/files/img/editorial/support/nih.png
 
 fallback_policy:
   mode: upstream-neutral

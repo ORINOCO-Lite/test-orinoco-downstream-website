@@ -427,9 +427,11 @@ def equivalent_bootstrap_targets(
         target = workspace / "target"
         render_release(root, source, previous_version, base_data, base)
         render_release(root, source, target_version, target_data, target)
-        base_classes = ownership_classes(load_yaml(base / "template-ownership.yml"))
+        base_classes = ownership_classes(
+            load_yaml(base / ".orinoco-lite/template-ownership.yml")
+        )
         target_classes = ownership_classes(
-            load_yaml(target / "template-ownership.yml")
+            load_yaml(target / ".orinoco-lite/template-ownership.yml")
         )
         release_coordinate_keys = set(copier_data(args)) | {"template_source"}
         release_data = {
@@ -447,7 +449,7 @@ def equivalent_bootstrap_targets(
                 (
                     release,
                     ownership_classes(
-                        load_yaml(release / "template-ownership.yml")
+                        load_yaml(release / ".orinoco-lite/template-ownership.yml")
                     ),
                 )
             )
@@ -794,7 +796,7 @@ def execute(args: argparse.Namespace) -> int:
         print("Copier update check completed without changing the checkout")
         return 0
 
-    ownership = load_yaml(root / "template-ownership.yml")
+    ownership = load_yaml(root / ".orinoco-lite/template-ownership.yml")
     classes = ownership_classes(ownership)
     lock_path = root / "orinoco.lock"
     lock_before = load_yaml(lock_path)
@@ -832,7 +834,7 @@ def execute(args: argparse.Namespace) -> int:
             root, conflicts, approved_equivalent
         )
         updated_classes = ownership_classes(
-            load_yaml(root / "template-ownership.yml")
+            load_yaml(root / ".orinoco-lite/template-ownership.yml")
         )
         removed_placeholders = reconcile_populated_placeholders(
             root, content_before, classes, updated_classes
