@@ -89,51 +89,51 @@ editorial:
   routes:
     - name: About
       path: /about/
-      source: editorial/about.md
+      source: custom/editorial/about.md
       navigation: main
       weight: 10
     - name: Projects
       path: /projects/
-      source: editorial/projects/_index.md
+      source: custom/editorial/projects/_index.md
       navigation: main
       weight: 20
     - name: Who we are
       path: /whoweare/
-      source: editorial/whoweare.md
+      source: custom/editorial/whoweare.md
       navigation: main
       weight: 30
     - name: All people
       path: /persons/
-      source: editorial/persons/_index.md
+      source: custom/editorial/persons/_index.md
       navigation: related
       weight: 40
     - name: Publications
       path: /publications/
-      source: editorial/publications/_index.md
+      source: custom/editorial/publications/_index.md
       navigation: main
       weight: 50
     - name: Outputs
       path: /instruments/
-      source: editorial/instruments/_index.md
+      source: custom/editorial/instruments/_index.md
       navigation: main
       weight: 60
     - name: Explore
       path: /explore/
-      source: editorial/explore.md
+      source: custom/editorial/explore.md
       navigation: main
       weight: 70
     - name: Engage
       path: /engage/
-      source: editorial/engage.md
+      source: custom/editorial/engage.md
       navigation: main
       weight: 80
     - name: Support
       path: /support/
-      source: editorial/support.md
+      source: custom/editorial/support.md
       navigation: main
       weight: 90
     - name: Contact
       path: /contact/
-      source: editorial/contact.md
+      source: custom/editorial/contact.md
       navigation: footer
       weight: 100

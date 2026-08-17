@@ -8,7 +8,8 @@ classes:
       - .gitignore
       - .copier-answers.yml
       - pixi.toml
-      - template-ownership.yml
+      - .orinoco-lite/template-ownership.yml
+      - .agents/skills/**
       - .github/workflows/**
       - docs/ownership.md
       - docs/updating.md
@@ -21,8 +22,8 @@ classes:
       - orinoco.yaml
       - .orinoco-lite/provenance/**
       - metadata/**
-      - editorial/**
-      - assets/**
+      - custom/editorial/**
+      - custom/assets/**
       - site/**
       - integrations/**
   engine_lock:

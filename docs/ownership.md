@@ -1,11 +1,11 @@
 # File ownership
 
-`template-ownership.yml` is the executable ownership contract.
+`.orinoco-lite/template-ownership.yml` is the executable ownership contract.
 
 | Class | Who changes it | Examples |
 | --- | --- | --- |
 | `template_owned` | Copier, with three-way conflict handling | workflows, command facade, updater, verifier, and generic docs |
-| `initialized_site_owned` | The site after one-time creation | `orinoco.yaml`, metadata, editorial material, assets, `site/`, and integrations |
+| `initialized_site_owned` | The site after one-time creation | `orinoco.yaml`, metadata, `custom/`, `site/`, and integrations |
 | `engine_lock` | The pinned updater, as a reviewed structured diff | `orinoco.lock` and `pixi.lock` |
 | `extensions` | The site | stable custom behavior under `extensions/` |
 | `consumer_tests` | The site after one-time creation | browser, integration, and offline behavior tests |

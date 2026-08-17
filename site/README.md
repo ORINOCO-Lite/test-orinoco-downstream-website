@@ -17,8 +17,8 @@ Media and third-party material remain subject to their item-specific licenses an
 | `metadata/records/` | Canonical YAML; edit these records and preserve their stable PIDs. |
 | `metadata/reference/` | Explicit reference closure required by canonical records. |
 | `.orinoco-lite/` | Implementation support behind the checked commands. |
-| `editorial/` | Human-authored pages and navigation content. |
-| `assets/` | Site-owned payloads and the digest/retrieval contract in `assets/manifest.yaml`. |
+| `custom/editorial/` | Human-authored pages and navigation content. |
+| `custom/assets/` | Site-owned payloads and the digest/retrieval contract in `custom/assets/manifest.yaml`. |
 | `site/config/`, `site/layouts/`, `site/static/` | CON-specific Hugo configuration and presentation overrides. |
 | `site/framework/` | Accepted presentation snapshot retained by this consumer; changes require an ordinary downstream review. |
 | `integrations/` | Optional, read-only source-ingestion evidence and tools; never a deployed runtime dependency. |
@@ -27,7 +27,9 @@ Media and third-party material remain subject to their item-specific licenses an
 | `orinoco.lock` | Exact template, engine, runtime, and reusable-workflow release authority. |
 
 The template owns a small framework facade around those paths: workflows, commands, updater and ownership tools, and generic contract documentation.
-The [executable ownership contract](../template-ownership.yml) is authoritative when the prose and a path disagree.
+The executable ownership contract at
+`.orinoco-lite/template-ownership.yml` is authoritative when the prose and a
+path disagree.
 The updater protects site-owned bytes and stops for review rather than silently reconciling them.
 
 ## Edit, validate, and preview
@@ -48,7 +50,8 @@ Review the source metadata diff and the rendered build; do not commit or
 hand-edit projection output.
 
 Editorial, presentation, and committed asset changes do not alter canonical metadata, but still require validation and a complete build review.
-When changing `assets/manifest.yaml`, preserve the declared source, size, digest, storage, and retrieval evidence and then run:
+When changing `custom/assets/manifest.yaml`, preserve the declared source,
+size, digest, storage, and retrieval evidence and then run:
 
 ```console
 pixi run assets-hydrate
@@ -72,7 +75,8 @@ Do not hard-code a loopback origin, Pages hostname, or production domain into si
 
 ## Asset storage
 
-The 71 content assets declared in `assets/manifest.yaml` have two storage policies:
+The 71 content assets declared in `custom/assets/manifest.yaml` have two
+storage policies:
 
 - 55 payloads are committed as ordinary Git files; and
 - 16 large, digest-addressed payloads are hydrated on demand from their declared read-only URLs by `pixi run assets-hydrate`.
