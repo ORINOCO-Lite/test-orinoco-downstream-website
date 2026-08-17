@@ -9,8 +9,8 @@ paths:
   canonical: metadata/records
   reference: metadata/reference
   provenance: .orinoco-lite/provenance
-  editorial: editorial
-  assets: assets
+  editorial: custom/editorial
+  assets: custom/assets
   site: site
   integrations: integrations
   generated: generated

@@ -2,7 +2,7 @@
 # runtime supplies the framework paths; this repository supplies only the
 # flattened downstream paths declared here.
 [[mounts]]
-  source = "assets/files"
+  source = "custom/assets/files"
   target = "assets"
 
 [[mounts]]

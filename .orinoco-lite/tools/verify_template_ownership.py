@@ -27,7 +27,7 @@ REQUIRED_TEMPLATE_FILES = {
     ".gitignore",
     ".copier-answers.yml",
     "pixi.toml",
-    "template-ownership.yml",
+    ".orinoco-lite/template-ownership.yml",
     ".github/workflows/validate.yml",
     ".github/workflows/pages.yml",
     ".github/workflows/update-orinoco.yml",
@@ -91,7 +91,7 @@ def verify_engine_environment(
 
 def verify(root: Path) -> list[str]:
     failures: list[str] = []
-    ownership = load_yaml(root / "template-ownership.yml")
+    ownership = load_yaml(root / ".orinoco-lite/template-ownership.yml")
     classes = ownership_classes(ownership)
 
     missing = sorted(path for path in REQUIRED_TEMPLATE_FILES if not (root / path).is_file())
