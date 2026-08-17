@@ -40,12 +40,10 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/yarik.jpg
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/jpeg
     mode: "0644"
-    annex_key: MD5E-s37940--90e74fa17a709006dd527c5b36e41217.jpg
     size: 37940
-    md5: 90e74fa17a709006dd527c5b36e41217
     sha256: 8df356e4845e3546fdbb2d055332ff4c655913688ab6c4a5e676a50ce5bd8403
     role: person-portrait
     retrieval:
@@ -105,10 +103,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/brochure_bids.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s126786--ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566.png
     size: 126786
     sha256: ab3b07fb003ea5d32b9cb8526d36f3c6d8512a850d8b4effc3d2705e127a0566
     role: engagement-artwork
@@ -124,10 +121,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/brochure_datalad.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s107483--fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4.png
     size: 107483
     sha256: fc27d7be260f42b4f2488f892865b52488e4b6163d8ca4eabc3acd4bd9770cd4
     role: engagement-artwork
@@ -143,10 +139,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/brochure_debian-neurodebian.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s141682--082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f.png
     size: 141682
     sha256: 082c8d44bc8d0e4d69b620dabb2d43ad018c493fabd9a5d539db7c71e946ad9f
     role: engagement-artwork
@@ -162,10 +157,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/eppy-handout.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s156673--e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4.png
     size: 156673
     sha256: e364b936ba3e760a1512b2e712e04636461561e22f7484dd2f7783855d0b57c4
     role: engagement-artwork
@@ -181,10 +175,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/fromtar_preview.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s2560654--429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50.png
     size: 2560654
     sha256: 429425798c73dfa1dcdc5f07383b72dcc86a911917759911fc71978336388f50
     role: engagement-artwork
@@ -200,10 +193,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/fromtar.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s37853226--8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8.png
     size: 37853226
     sha256: 8a4dced59a30f412f9ecf97faa21fa49806b8e87cfab636ed9e339d40d520bd8
     role: engagement-artwork
@@ -219,10 +211,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/nipy-handout.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s170665--f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25.png
     size: 170665
     sha256: f1acd71927ac3fa79e3525f9918ff2ad9d8e7cee9c724454c7ad2dce6f293e25
     role: engagement-artwork
@@ -238,10 +229,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/trifolds/trifold-qrcodes.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s326386--34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e.png
     size: 326386
     sha256: 34750bb80389a3ff14b801c21b6144b458c911bb5404ab031bf43c4e5c8e958e
     role: engagement-artwork
@@ -257,10 +247,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/unclesam_preview.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s1061813--1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81.png
     size: 1061813
     sha256: 1f5f80c9995ca5649633a01dd5de39aa37a179e58e10893a7441b98184fcbe81
     role: engagement-artwork
@@ -276,10 +265,9 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/banners/unclesam.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: SHA256E-s11289379--c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1.png
     size: 11289379
     sha256: c68adae5e06d22b4ddbd473928f2f94d02ffbb578da339858387de702e8b3ea1
     role: engagement-artwork
@@ -394,12 +382,10 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/kennedy.jpg
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/jpeg
     mode: "0644"
-    annex_key: MD5E-s27377--c36212977413bf3c46b43bd32de56f0d.jpg
     size: 27377
-    md5: c36212977413bf3c46b43bd32de56f0d
     sha256: 3d078485ef1d690200f54a019f3e1e2f1629baee85a20a867f6052dc6039f868
     role: person-portrait
     retrieval:
@@ -480,12 +466,10 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/team/jb.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: MD5E-s88193--0b34903f516875d61b7776c52c3fb6b7.png
     size: 88193
-    md5: 0b34903f516875d61b7776c52c3fb6b7
     sha256: 2e7d9a27270ec779b4ffdc8d234317b55896db6a1f44eaa8d567d55fee54cac5
     role: person-portrait
     retrieval:
@@ -742,12 +726,10 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/distribits_logo.webp
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/webp
     mode: "0644"
-    annex_key: MD5E-s8766--009e335513cf758daf30344cbc055260.webp
     size: 8766
-    md5: 009e335513cf758daf30344cbc055260
     sha256: 848d266fdca5a0d6064b68709dcd6811bc17371585d3073d478a5408e0be49f5
     role: project-logo
     retrieval:
@@ -773,12 +755,10 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/ember_logo.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: MD5E-s52972--6f544d1fd8844fea1894f7530ed45420.png
     size: 52972
-    md5: 6f544d1fd8844fea1894f7530ed45420
     sha256: 2e1710f11ac6bf562a01b8c8fc2681d35954e71a6392335c88b8575674302dce
     role: project-logo
     retrieval:
@@ -837,12 +817,10 @@ assets:
     source_commit: e6e9200a0987a65097afff896105ff838be1659e
     source_path: theme/static/img/3rd/openneuro_logo.png
     availability: available
-    storage: git-annex
+    storage: remote
     media_type: image/png
     mode: "0644"
-    annex_key: MD5E-s57038--7cbe2a93dc7746968e565a55f382abef.png
     size: 57038
-    md5: 7cbe2a93dc7746968e565a55f382abef
     sha256: 2cb376d957fef783e6dc53c3d884117ed92be9f48a69fc46ea16e5882fede7cd
     role: project-logo
     retrieval:
@@ -1008,7 +986,6 @@ omissions:
     kind: portrait
     availability: unavailable
     source_path: theme/static/img/team/markiewicz.jpg
-    annex_key: MD5E-s50332--e1edc9ffd97f17a56ad4c94c5c31c1e5.jpg
     expected_size: 50332
     projection_link: null
     fallback: meerkat-person
@@ -1036,8 +1013,6 @@ omissions:
 storage_policy: >-
   Every publishable asset is declared independently with its media type,
   mode, digest, source, and availability. Ordinary payloads remain Git blobs.
-  Annex-backed assets retain per-object read-only retrieval provenance and
-  are hydrated by digest without requiring git-annex. Annex symlink pointers
-  are not copied into this repository and payloads must never be recommitted
-  as ordinary Git blobs. Projection and static links contain no duplicate
-  payloads.
+  Remote assets retain a read-only source URL plus expected size and SHA-256
+  and are hydrated into ignored cache state. Projection and static links
+  contain no duplicate payloads.

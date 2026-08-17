@@ -8,7 +8,7 @@ site:
 paths:
   canonical: metadata/records
   reference: metadata/reference
-  provenance: metadata/provenance
+  provenance: .orinoco-lite/provenance
   editorial: editorial
   assets: assets
   site: site

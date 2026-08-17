@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
-import hashlib
 import importlib.util
 import json
 import os
@@ -20,7 +19,6 @@ from typing import Any, Mapping, Sequence
 ROOT = Path(__file__).resolve().parents[3]
 CONFIG = ROOT / "integrations" / "metadata" / "sources.toml"
 BUILD = ROOT / "build" / "metadata-review"
-TRACKED_REPORT = ROOT / "generated" / "manifests" / "metadata-review.json"
 PLUGIN_API_VERSION = 1
 MISSING = object()
 sys.modules.setdefault("orinoco_metadata_review", sys.modules[__name__])
@@ -35,14 +33,6 @@ class FileState:
     exists: bool
     payload: bytes | None
     mode: int | None
-
-
-def canonical_json(value: object) -> bytes:
-    return (json.dumps(value, sort_keys=True, separators=(",", ":")) + "\n").encode()
-
-
-def sha256(value: bytes) -> str:
-    return hashlib.sha256(value).hexdigest()
 
 
 def pointer_segment(value: object) -> str:
@@ -92,8 +82,6 @@ def semantic_diff(
         changed.append(
             {
                 "id": identity,
-                "before_sha256": sha256(canonical_json(before[identity])),
-                "after_sha256": sha256(canonical_json(after[identity])),
                 "changes": changes,
             }
         )
@@ -211,13 +199,10 @@ def validate_result(
 
 def allowed_destination(root: Path, source_id: str, value: object) -> Path:
     destination = safe_repo_path(root, value, label="evidence destination")
-    allowed = (
-        (root / "integrations" / source_id / "source").resolve(),
-        (root / "generated" / "manifests").resolve(),
-    )
+    allowed = ((root / "integrations" / source_id / "source").resolve(),)
     if not any(destination == prefix or destination.is_relative_to(prefix) for prefix in allowed):
         raise MetadataReviewError(
-            f"Evidence destination is outside the source and manifest roots: {destination}"
+            f"Evidence destination is outside the integration source root: {destination}"
         )
     if destination.is_symlink():
         raise MetadataReviewError(f"Evidence destination is a symlink: {destination}")
@@ -412,14 +397,6 @@ def run(
             )
         for source_id, updates in all_updates:
             apply_updates(root, source_id, updates)
-        tracked = json.loads(json.dumps(report))
-        for source in tracked["sources"]:
-            source.pop("evidence_updates", None)
-            source.pop("artifacts", None)
-        replace_file(
-            root / "generated/manifests/metadata-review.json",
-            json.dumps(tracked, indent=2, sort_keys=True).encode() + b"\n",
-        )
     return report
 
 

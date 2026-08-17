@@ -12,36 +12,35 @@ pyyaml = "==6.0.2"
 
 [pypi-dependencies]
 orinoco-lite = { url = "https://github.com/con/orinoco-lite-dev/releases/download/v0.1.10/orinoco_lite-0.1.10-py3-none-any.whl#sha256=1034ae0de2d160a382eca08f5008de7f90b5aa01a864169358f8f73de7e74705" }
+datalad = ">=1.6.2,<2"
 
 [tasks]
-validate = "orinoco validate"
-projection-update = "orinoco projection update"
-projection-verify = "orinoco projection verify"
+projection-update = "mkdir -p generated && orinoco projection update"
+validate = { depends-on = ["projection-update"], cmd = "orinoco validate" }
+projection-verify = { depends-on = ["projection-update"], cmd = "orinoco projection verify" }
 assets-hydrate = "orinoco assets hydrate"
 assets-verify = "orinoco assets verify"
 assets-prepare-online = { depends-on = ["assets-hydrate"], cmd = "orinoco assets verify" }
-build = "orinoco build --destination build/site --base-url /"
-build-repeat = "orinoco build --destination build/site-repeat --base-url /"
-verify-deterministic = { depends-on = ["build", "build-repeat"], cmd = "python tools/verify_deterministic_build.py build/site build/site-repeat --manifest build/deterministic-build.json" }
-verify-local-preview = { depends-on = ["build"], cmd = "python tools/verify_local_preview.py build/site" }
+build = { depends-on = ["projection-update"], cmd = "orinoco build --destination build/site --base-url /" }
+build-repeat = { depends-on = ["projection-update"], cmd = "orinoco build --destination build/site-repeat --base-url /" }
+verify-deterministic = { depends-on = ["build", "build-repeat"], cmd = "python .orinoco-lite/tools/verify_deterministic_build.py build/site build/site-repeat --manifest build/deterministic-build.json" }
+verify-local-preview = { depends-on = ["build"], cmd = "python .orinoco-lite/tools/verify_local_preview.py build/site" }
 verify-build = { depends-on = ["verify-deterministic", "verify-local-preview"] }
-build-pages = "python tools/build_pages.py build/pages"
-build-browser-pages = "orinoco build --destination build/pages --base-url http://127.0.0.1:8766/test-orinoco-downstream-website/"
+build-pages = { depends-on = ["projection-update"], cmd = "python .orinoco-lite/tools/build_pages.py build/pages" }
+build-browser-pages = { depends-on = ["projection-update"], cmd = "orinoco build --destination build/pages --base-url http://127.0.0.1:8766/test-orinoco-downstream-website/" }
 serve = "orinoco serve --directory build/site --port 8765"
 apply-editor-bundle = "orinoco editor apply"
 verify-runtime = "orinoco runtime verify"
-verify-hugo = "python tools/verify_hugo.py --version 0.154.5 --extended"
-verify-ownership = "python tools/verify_template_ownership.py"
-import-site = "python tools/import_site_bundle.py"
-update-orinoco = "python tools/update_orinoco.py"
-update-check = "python tools/update_orinoco.py --check"
-test-template = "python -m unittest discover -s tests/template -p 'test_*.py'"
-test-consumer = { depends-on = ["verify-build"], cmd = "python -m unittest discover -s tests -p 'test_*.py'" }
-install-browser-tests = "python tools/install_browser_tests.py"
-install-browser-chromium = { depends-on = ["install-browser-tests"], cmd = "npx --prefix tests/browser playwright install chromium", env = { PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
-test-browser-chromium = { depends-on = ["build-browser-pages", "install-browser-chromium"], cmd = "npm --prefix tests/browser test -- --project=chromium", env = { ORINOCO_PAGES_ROOT = "build/pages", ORINOCO_PROJECT_PATH = "/test-orinoco-downstream-website/", PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
-install-browser-webkit = { depends-on = ["test-browser-chromium"], cmd = "npx --prefix tests/browser playwright install --with-deps webkit", env = { PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
-test-browser-webkit = { depends-on = ["install-browser-webkit"], cmd = "npm --prefix tests/browser test -- --project=webkit", env = { ORINOCO_PAGES_ROOT = "build/pages", ORINOCO_PROJECT_PATH = "/test-orinoco-downstream-website/", PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
+verify-hugo = "python .orinoco-lite/tools/verify_hugo.py --version 0.154.5 --extended"
+verify-ownership = "python .orinoco-lite/tools/verify_template_ownership.py"
+update-orinoco = "python .orinoco-lite/tools/update_orinoco.py"
+update-check = "python .orinoco-lite/tools/update_orinoco.py --check"
+test-consumer = "python -m unittest discover -s .orinoco-lite/tests -p 'test_*.py'"
+install-browser-tests = "python .orinoco-lite/tools/install_browser_tests.py"
+install-browser-chromium = { depends-on = ["install-browser-tests"], cmd = "npx --prefix .orinoco-lite/tests/browser playwright install chromium", env = { PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
+test-browser-chromium = { depends-on = ["build-browser-pages", "install-browser-chromium"], cmd = "npm --prefix .orinoco-lite/tests/browser test -- --project=chromium", env = { ORINOCO_PAGES_ROOT = "build/pages", ORINOCO_PROJECT_PATH = "/test-orinoco-downstream-website/", PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
+install-browser-webkit = { depends-on = ["test-browser-chromium"], cmd = "npx --prefix .orinoco-lite/tests/browser playwright install --with-deps webkit", env = { PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
+test-browser-webkit = { depends-on = ["install-browser-webkit"], cmd = "npm --prefix .orinoco-lite/tests/browser test -- --project=webkit", env = { ORINOCO_PAGES_ROOT = "build/pages", ORINOCO_PROJECT_PATH = "/test-orinoco-downstream-website/", PLAYWRIGHT_BROWSERS_PATH = "build/playwright-browsers" } }
 test-browser = { depends-on = ["test-browser-webkit"] }
 test = { depends-on = ["verify-ownership", "test-consumer"] }
 test-all = { depends-on = ["assets-prepare-online", "validate", "projection-verify", "verify-runtime", "verify-hugo", "test", "verify-build", "test-browser"] }

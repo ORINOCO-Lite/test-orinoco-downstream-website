@@ -8,8 +8,6 @@ This directory retains the complete reviewed Milestone 3 Zotero evidence from
   candidate class files.
 - `policy/` contains the reviewed creator, addition, migration, and merge
   policies.
-- `provenance/` contains the human review notes plus exact source copies of the
-  upstream tools and all 42 upstream test definitions.
 - `tools/` contains the two read-only acquisition/transformation tools adapted
   to the flattened repository layout.
 
@@ -17,9 +15,4 @@ The active tools may read the public Zotero API and write review candidates to
 local build state. They cannot write to Zotero or promote a candidate into
 `metadata/records`. Promotion is a separate, human-reviewed content change.
 
-The source copy of `zotero_reviewed_additions.py` is retained only as historical
-evidence because it includes an authenticated `--apply` mode. It has the
-`.source` suffix and is not part of the supported consumer command surface.
-
-`generated/manifests/zotero-import.json` records the source-to-target mapping,
-hashes, library version, and candidate counts.
+Git history records changes to this integration and its source snapshot.

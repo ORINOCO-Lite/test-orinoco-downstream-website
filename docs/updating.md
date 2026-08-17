@@ -1,12 +1,24 @@
 # Framework updates
 
-Check for an update without changing the checkout:
+A framework update changes the pinned template, engine, runtime, and reusable workflow as one reviewable unit.
+It does not discover mutable "latest" aliases, merge itself, or silently rewrite site-owned content.
+
+Review the target [template release](https://github.com/con/orinoco-lite-template/releases) and [engine/runtime release](https://github.com/con/orinoco-lite-dev/releases) before starting.
+Record every exact version, URL, digest, and workflow commit.
+
+## Check without changing the checkout
 
 ```console
 pixi run update-check
 ```
 
-Apply reviewed exact releases:
+The check uses the exact release recorded in `.copier-answers.yml` unless target coordinates are supplied.
+It leaves the worktree unchanged.
+
+## Apply exact reviewed coordinates
+
+Start from a clean worktree.
+Commit or stash unrelated work first.
 
 ```console
 pixi run update-orinoco -- \
@@ -22,42 +34,79 @@ pixi run update-orinoco -- \
   --workflow-ref owner/repository/.github/workflows/orinoco-consumer-ci.yml@<40-hex-commit>
 ```
 
-The updater requires a clean Git worktree, snapshots every site-owned file and every existing generated projection byte, runs Copier with `.rej` conflicts, updates `orinoco.lock`, refreshes `pixi.lock`, and writes `generated/manifests/framework-update.json`.
-That update ledger is the only generated path exempt from the before/after byte comparison.
-It stops if site content changed, a template conflict exists, or a pin is incomplete.
+The updater:
 
-Before changing the checkout, the updater independently renders the current and
-target template releases. A pre-applied template-owned bootstrap edit is accepted
-only when a three-way merge of the downstream file, current release, and target
-release produces the exact target bytes and mode, or when the downstream file is
-byte-for-byte an exact stable intervening template release of that same
-template-owned path. This permits a reviewed bootstrap from an earlier immutable
-release to advance without treating arbitrary framework edits as safe. All
-site-owned or generated changes still stop visibly. If Copier reintroduces a
-template `.gitkeep` into an already populated protected directory, the updater
-removes only that new placeholder; placeholders in empty directories and every
-pre-existing protected byte remain unchanged.
+1. resolves the current and target template tags to peeled commits;
+2. snapshots all protected site-owned files;
+3. renders both releases to prove any pre-applied template bootstrap is three-way equivalent;
+4. runs Copier with `.rej` conflicts;
+5. updates `orinoco.lock`, `.copier-answers.yml`, and the frozen `pixi.lock`;
+6. proves protected bytes did not change; and
+7. writes an ignored diagnostic ledger under `.orinoco-lite/state/`.
 
-Consumers created before template v0.1.3 must first copy
-`copier-template/tools/update_orinoco.py` from the exact reviewed target tag to
-`tools/update_orinoco.py` byte-for-byte and commit that single bootstrap file.
-This narrow handoff is necessary because an older updater cannot implement the new
-three-way proof itself. Do not bootstrap any site-owned or generated path, and do
-not combine arbitrary framework customization with this one-time updater sync.
+It stops on a moving or unavailable tag, an incomplete pin, a template-owned conflict, or an undeclared protected change.
+A newly introduced `.gitkeep` may be removed only when the protected directory already contains real data.
 
-Template versions are exact tags backed by immutable GitHub Releases.
-The updater resolves the current and target tags to their peeled 40-hex commits, resolves the target again after Copier finishes, rejects an unavailable or moving tag, and records both resolved commits in the update ledger.
-The commit is evidence resolved at update time; it is not baked into `.copier-answers.yml` or `orinoco.lock`, because a release tree cannot contain its own commit ID.
+Consumers older than template v0.1.3 require the narrow updater bootstrap documented by that target release. Consumers crossing the support-directory migration must likewise run the updater from the old path once; the update installs its successor at `.orinoco-lite/tools/update_orinoco.py`, and subsequent runs use the normal Pixi task.
+Do not bootstrap site-owned paths.
 
-An update can be deferred by leaving the pull request open or closing it.
-To roll back a merged update, revert the update commit so the previous `orinoco.lock`, `.copier-answers.yml`, template files, and generated outputs are restored together.
-No canonical content rollback is needed unless the reviewed update explicitly contained a semantic migration.
+## Review and commit
 
-The update workflow runs only by explicit `workflow_dispatch`.
-Before dispatching it, review an immutable release and enter its exact template,
-engine, runtime, and reusable-workflow coordinates and digests.
-It opens a pull request and never merges automatically.
-There is no scheduled release discovery until a separately reviewed mechanism can
-discover complete immutable coordinates without relying on mutable aliases or empty
-workflow inputs.
-Security releases use the `security` classification so their urgency is visible, without bypassing review.
+After a successful update:
+
+```console
+pixi run test-all
+pixi run python .orinoco-lite/tools/finalize_update_ledger.py \
+  --status passed \
+  --command "pixi run test-all"
+git diff --check
+git status --short
+```
+
+Review at least:
+
+- the complete `orinoco.lock`, `.copier-answers.yml`, and `pixi.lock` diffs;
+- confirmation in the workflow log that protected site-owned paths did not change;
+- any `.rej` file or recorded reconciliation;
+- validation status and commands; and
+- the generated site and browser behavior appropriate to this consumer.
+
+Commit all update outputs as one focused commit.
+The explicit GitHub update workflow performs the same transition, runs `test-all`, finalizes the ledger, and opens an ordinary review pull request.
+It runs only through `workflow_dispatch` and never merges the pull request.
+
+Security updates use the `security` classification to communicate urgency; they retain the same review and merge boundary.
+
+## Defer, abandon, or roll back
+
+### Defer an unmerged update
+
+Leave the pull request open or close it.
+The deployed/default branch remains unchanged.
+
+### Abandon an uncommitted local update
+
+Because the updater required a clean starting tree, first inspect `git status --short`, then restore tracked files and preview untracked cleanup:
+
+```console
+git restore --source=HEAD --staged --worktree -- .
+git clean -nd
+```
+
+If the preview contains only files created by the abandoned update, remove exactly those files or run `git clean -fd`.
+Never use that cleanup when the starting tree contained independent untracked work.
+
+### Roll back a merged update
+
+Revert the complete update commit with `git revert <update-commit>`, review the inverse diff, run `pixi run test-all`, and merge the revert normally.
+Do not run Copier backward or move release tags.
+
+Reverting the single update commit restores its previous facade, answers, and locks together.
+If the update included an explicit semantic migration, the revert also includes that declared content diff; review its domain meaning instead of assuming it is mechanically safe.
+
+## Ownership exception for semantic migrations
+
+A normal update may not change protected content.
+If a reviewed schema change requires a semantic migration, pass an explicit `--migration ID=summary` and one `--allow-site-change PATH` for every permitted path.
+The updater records the exact before/after hashes and leaves the ledger in `human-review` status.
+This is an exception requiring domain review, not a general overwrite switch.

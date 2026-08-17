@@ -2,26 +2,36 @@
 
 `template-ownership.yml` is the executable ownership contract.
 
-Copier owns the small framework facade: workflows, commands, updater, ownership verifier, and these contract documents.
-If a downstream edit to one of those files overlaps a template update, Copier writes a `.rej` conflict and the update stops for human review.
+| Class | Who changes it | Examples |
+| --- | --- | --- |
+| `template_owned` | Copier, with three-way conflict handling | workflows, command facade, updater, verifier, and generic docs |
+| `initialized_site_owned` | The site after one-time creation | `orinoco.yaml`, metadata, editorial material, assets, `site/`, and integrations |
+| `engine_lock` | The pinned updater, as a reviewed structured diff | `orinoco.lock` and `pixi.lock` |
+| `extensions` | The site | stable custom behavior under `extensions/` |
+| `consumer_tests` | The site after one-time creation | browser, integration, and offline behavior tests |
+| `site_policy` | The site | license, citation, contribution, and conduct files |
+| `generated` | Ignored runtime output | projection under `generated/` |
 
-The site owns `orinoco.yaml`, every canonical and reference record, provenance, editorial content, assets, presentation overlay, integration evidence, and extensions.
-Copier creates those paths once and excludes them from all later updates.
-The updater hashes them before and after every run and rejects an undeclared change.
-It applies the same byte-for-byte protection to the complete committed `generated/` projection; only `generated/manifests/framework-update.json` may change as updater bookkeeping.
+If a downstream edit to a template-owned path overlaps an update, Copier writes a `.rej` conflict and the update stops for human review.
+Site-specific operating guidance belongs in `site/README.md`, not in this template-owned document.
 
-`orinoco.lock` is structured release state.
-The updater may change exact engine, runtime, template, and workflow pins; its diff is always part of the update pull request.
-`generated/` is replaceable only after declared inputs validate.
-For a concrete release, `pixi.toml` appends the reviewed `orinoco.lock` SHA-256 as a `#sha256=` fragment on the exact wheel URL.
-Pixi 0.73 preserves that fragment in the `pixi.lock` package's `direct+` URL and version, but does not duplicate it in a separate `sha256` field.
-Ownership verification therefore checks the exact manifest hash fragment and locked direct URL/version together.
-The ownership verifier checks all three and, when installed, also checks the distribution metadata version.
+Copier creates initialized and test paths once, then excludes them from later overwrites.
+The updater compares protected site-owned bytes before and after its run.
+Generated projection and detailed updater state are ignored; Git records the
+reviewable framework and source changes.
 
-Semantic content changes are never smuggled into a framework update.
-If a schema change genuinely requires one, the update must name a migration, list the allowed site-owned paths, isolate the semantic diff, and leave the ledger in `human-review` status.
+`orinoco.lock` is the readable release authority.
+Its diff carries exact engine, runtime, template, and workflow changes.
+The matching `pixi.toml` wheel URL includes the reviewed SHA-256, and the frozen `pixi.lock` must resolve the same URL and version.
+Ownership verification checks those pins together and, when the engine is installed, checks its distribution version.
 
-The site owns every byte below `tests/browser/`, including `package.json` and `package-lock.json`.
-The template owns `tools/install_browser_tests.py`, which may change only ignored `node_modules` state.
-It snapshots and hashes both npm inputs, performs the install, verifies all three Playwright package versions, and restores then fails if either tracked input changes.
-The macOS 14 compatibility overlay is therefore an environment repair, not a transfer of browser-test ownership to the template.
+Semantic content changes are never implicit.
+A framework update that genuinely requires one must name a migration and list exact allowed site-owned paths.
+The ledger records the changed hashes and remains in `human-review` status.
+
+The site owns every tracked byte below `.orinoco-lite/tests/browser/`, including the npm manifest and lock.
+The template owns only the installer facade; it must leave those tracked inputs unchanged.
+See the checked browser README for the site-owned acceptance surface.
+
+The template contract is maintained in the [template repository](https://github.com/con/orinoco-lite-template).
+Command semantics belong to the [engine repository](https://github.com/con/orinoco-lite-dev).

@@ -31,10 +31,7 @@ test -z "$(git -C "$SOURCE" status --porcelain=v1 --untracked-files=all)"
 SOURCE_COMMIT=$(git -C "$SOURCE" rev-parse HEAD^{commit})
 DOWNSTREAM_COMMIT=$(git rev-parse HEAD^{commit})
 
-pixi run \
-  --config-file integrations/metadata/pixi-config.toml \
-  --manifest-path integrations/metadata/pixi.toml \
-  datalad run --explicit \
+pixi run datalad run --explicit \
   -m "review dump-research-info con_site at ${SOURCE_COMMIT:0:12}" \
   -i integrations/dump-research-info/metadata_adapter.py \
   -i integrations/metadata \
@@ -49,18 +46,16 @@ pixi run \
     --output integrations/dump-research-info/source/con-site-gap"
 ```
 
-The command uses DataLad and git-annex from this integration's committed Pixi lock.
+The command uses DataLad from this integration's committed Pixi lock in an
+ordinary Git repository; no large-file backend is installed or required.
 The adapter requires the source checkout to be clean and fail-closes if either recorded revision no longer describes its input.
 `datalad run` executes in this ordinary downstream Git repository and writes only `integrations/dump-research-info/source/con-site-gap/**`; DataLad creates the provenance-bearing commit directly on the current branch.
-No `.datalad` metadata, submodule, copy step, or second provenance repository is introduced.
+No annex, submodule, copy step, or second provenance repository is introduced.
 
 Inspect that generated commit, then reproduce it through the same locked Pixi environment:
 
 ```console
-pixi run \
-  --config-file integrations/metadata/pixi-config.toml \
-  --manifest-path integrations/metadata/pixi.toml \
-  datalad rerun HEAD
+pixi run datalad rerun HEAD
 ```
 
 The source checkout must still be at the commit embedded in the recorded command.
