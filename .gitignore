@@ -1,7 +1,9 @@
 .DS_Store
 .pixi/
 .orinoco/
+.orinoco-lite/state/
 build/
+generated/
 node_modules/
 test-results/
 playwright-report/
@@ -9,5 +11,5 @@ __pycache__/
 *.py[cod]
 *.rej
 
-# Review ledgers and deterministic manifests remain versioned.
-!generated/manifests/
+# Tracked Orinoco support files live under .orinoco-lite/. Generated projection,
+# update state, downloads, installed runtimes, and caches remain ignored.

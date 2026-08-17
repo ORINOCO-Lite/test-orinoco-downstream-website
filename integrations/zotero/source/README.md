@@ -18,7 +18,7 @@ and must never be loaded by `dump-research-info` directly. Candidate generation
 verifies its provenance, ordering, unique keys, counts, and digest before
 transforming it.
 
-`site-migration.yaml` is the reviewed translation boundary for the static CON
+`site-policy.yaml` is the reviewed translation boundary for the static CON
 profile. It lists permitted and deliberately omitted relationship targets plus
 the one preserved publication PID override. Every behavioral policy entry must
 match the current source records; stale entries and unknown policy fields stop

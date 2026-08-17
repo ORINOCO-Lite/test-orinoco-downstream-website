@@ -1,9 +1,0 @@
-* annex.largefiles=nothing
-img/** -diff
-img/yaroslav-halchenko.jpg annex.largefiles=anything
-img/people/david-kennedy.jpg annex.largefiles=anything
-img/people/jean-baptiste-poline.png annex.largefiles=anything
-img/projects/ember.png annex.largefiles=anything
-img/projects/openneuro.png annex.largefiles=anything
-img/projects/distribits.webp annex.largefiles=anything
-img/editorial/engage/* annex.largefiles=anything

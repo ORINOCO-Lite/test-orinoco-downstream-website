@@ -12,7 +12,8 @@ Run a read-only review of every configured live source against its committed sou
 The command writes ignored JSON, Markdown, fetched-source, candidate, and canonical-impact artifacts below `build/metadata-review/`.
 It never changes tracked files.
 
-After inspecting that report, explicitly refresh only the committed source snapshot, deterministic source candidates, and aggregate provenance ledger:
+After inspecting that report, explicitly refresh only the committed source
+snapshot and deterministic source candidates:
 
 ```console
 ./integrations/metadata/metadata-review refresh-evidence

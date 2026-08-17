@@ -24,7 +24,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-hda65f42_10.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/c-ares-1.34.8-h280c20c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/git-2.55.0-pl5321h5685339_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/git-annex-10.20260601-nodep_h1234567_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-78.3-py310h44b86e0_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/keyutils-1.6.3-hb9d3cd8_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/krb5-1.22.2-hbde042b_1.conda
@@ -138,7 +137,6 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/14/2f/967ba146e6d58cf6a652da73885f52fc68001525b4197effc174321d70b4/jmespath-1.1.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/19/a9/c34aebedd3a4c9afe5101b1b8713710b3fec18087c8a36c35d2f909861bd/platformdirs-4.11.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/21/29/1b80a006de7e70626d1ee063e8db8098436729bb0b6656323ac6248234c5/git_annex-10.20260717-py3-none-macosx_14_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/3f/51/d4db610ef29373b879047326cbf6fa98b6c1969d6f6dc423279de2b1be2c/requests_toolbelt-1.0.0-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/46/fd/e64797b827685839499f380ee7b8bed6565a0e578019bfa58d40b29bb97f/datalad-1.6.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4a/0d/9c59313ab43d0858a9a665e80763bd830dc78d5f379afc3815e123c486c2/keyrings.alt-5.0.2-py3-none-any.whl
@@ -234,17 +232,6 @@ packages:
   run_exports: {}
   size: 11598127
   timestamp: 1783981072661
-- conda: https://conda.anaconda.org/conda-forge/linux-64/git-annex-10.20260601-nodep_h1234567_0.conda
-  sha256: 1df1ee65626f94b426e73080554f1c624c98c8f89ede8935fb53e5ede699b967
-  md5: b082ab6b8fa11b1eb4630874b8dc8db9
-  constrains:
-  - gnupg >=2.1.1
-  license: AGPL-3.0-only
-  license_family: AGPL
-  purls: []
-  run_exports: {}
-  size: 38538511
-  timestamp: 1781871477793
 - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-78.3-py310h44b86e0_2.conda
   sha256: 9f07834f0c546ab14d885ce0366285f61f44e326c0edd1fc63b8294e113ae432
   md5: 72a381cbad04f24b1c2a43ef707f45b4
@@ -1279,11 +1266,6 @@ packages:
   - ruff>=0.6.2 ; extra == 'all'
   - mypy>=1.11.2 ; extra == 'all'
   - pytest>=8.3.2 ; extra == 'all'
-  requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/21/29/1b80a006de7e70626d1ee063e8db8098436729bb0b6656323ac6248234c5/git_annex-10.20260717-py3-none-macosx_14_0_arm64.whl
-  name: git-annex
-  version: '10.20260717'
-  sha256: 1e441e2bebd5a1b9c6c0c9dc69d7c6c6cf4fee6d4535ea8614d71a26bbb69168
   requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/23/35/5b85772eb82528ef22ba29487ad544a7049dfd27f35b1a5a55dbc0843048/charset_normalizer-3.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
   name: charset-normalizer

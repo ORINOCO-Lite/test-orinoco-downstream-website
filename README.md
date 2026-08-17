@@ -24,13 +24,15 @@ pixi run update-orinoco -- --to-template v0.2.0 --to-engine 0.2.0
 
 The checked `orinoco.lock` is the release authority.
 The template is released with exact published engine, runtime, workflow, and frozen Pixi coordinates.
-Updates produce a reviewable ledger at `generated/manifests/framework-update.json`; they never merge themselves.
+Updates produce focused lock and template-facade diffs; they never merge themselves.
 
 The default installs the engine wheel from an exact immutable release URL.
 PyPI distribution is optional and remains a separate release/license decision.
 
-After editing canonical metadata, `pixi run projection-update` refreshes the committed generated projection for review.
-`pixi run projection-verify` proves that it is current and reproducible; validation also performs that proof through the locked runtime.
+After editing canonical metadata, `pixi run validate` regenerates the ignored
+projection and validates the resulting records, pages, and graph. `pixi run
+build` does the same before building. The source commit therefore shows the
+metadata change rather than a duplicate generated tree.
 `pixi run assets-hydrate` is the explicit networked step for declared remote assets.
 Once warmed, `pixi run assets-verify` confirms that the checked manifest and local payloads are complete without silently fetching them.
 The ordinary online `pixi run test-all` gate runs those two phases in that order through `assets-prepare-online`, so it also works from a cold clone.
@@ -54,22 +56,12 @@ Do not use `assets-prepare-online` for that denied-network phase: it deliberatel
 
 - `metadata/records/` contains canonical YAML records.
 - `metadata/reference/` contains the explicit reference closure.
-- `metadata/provenance/` records source and review decisions.
+- `.orinoco-lite/` contains implementation support used by the checked commands.
 - `editorial/`, `assets/`, and `site/` contain site-owned presentation inputs.
 - `integrations/` contains optional, read-only source-ingestion evidence and tools; it is not a deployed runtime dependency.
 - `extensions/` is the stable downstream customization surface.
-- `generated/` contains replaceable, reproducible outputs.
+- `generated/` contains ignored projection output recreated by validation and
+  builds.
 
-To ingest a complete prepared site without transferring its Git history:
-
-```console
-pixi run import-site -- /path/to/site-bundle \
-  --source-repository https://example.org/owner/site \
-  --source-commit 0123456789abcdef0123456789abcdef01234567 \
-  --scope full
-```
-
-The importer accepts only declared site-owned roots, verifies optional bundle digests, and writes an import provenance record.
-It never imports `.git`, `.gitmodules`, workflows, credentials, or framework tools.
-
-See [ownership](docs/ownership.md), [updates](docs/updating.md), and [site-bundle import](docs/importing.md).
+See [ownership](docs/ownership.md), [updates](docs/updating.md), and the
+[site operating guide](site/README.md).
