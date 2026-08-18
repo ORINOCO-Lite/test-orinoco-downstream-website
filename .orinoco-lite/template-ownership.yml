@@ -16,16 +16,17 @@ classes:
       - docs/getting-started.md
       - .orinoco-lite/README.md
       - .orinoco-lite/tools/**
+      - .orinoco-lite/source-adapters/**
   initialized_site_owned:
     behavior: create-once-never-overwrite
     paths:
       - orinoco.yaml
       - .orinoco-lite/provenance/**
-      - metadata/**
+      - metadata/records/**
       - custom/editorial/**
       - custom/assets/**
       - site/**
-      - integrations/**
+      - source-adapters/**
   engine_lock:
     behavior: updater-structured-merge
     paths:
@@ -41,7 +42,7 @@ classes:
       - .orinoco-lite/tests/__init__.py
       - .orinoco-lite/tests/contract/**
       - .orinoco-lite/tests/browser/**
-      - .orinoco-lite/tests/integrations/**
+      - .orinoco-lite/tests/source-adapters/**
       - .orinoco-lite/tests/offline/**
       - package.json
       - package-lock.json

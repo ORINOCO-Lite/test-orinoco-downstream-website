@@ -1,4 +1,4 @@
-contract_version: 1
+contract_version: 2
 
 site:
   name: "Center for Open Neuroscience — Orinoco Test Site"
@@ -6,13 +6,12 @@ site:
   base_url: "https://con.github.io/test-orinoco-downstream-website/"
 
 paths:
-  canonical: metadata/records
-  reference: metadata/reference
+  records: metadata/records
   provenance: .orinoco-lite/provenance
   editorial: custom/editorial
   assets: custom/assets
   site: site
-  integrations: integrations
+  source_adapters: source-adapters
   generated: generated
   extensions: extensions
   build: build

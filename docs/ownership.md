@@ -4,11 +4,11 @@
 
 | Class | Who changes it | Examples |
 | --- | --- | --- |
-| `template_owned` | Copier, with three-way conflict handling | workflows, command facade, updater, verifier, and generic docs |
-| `initialized_site_owned` | The site after one-time creation | `orinoco.yaml`, metadata, `custom/`, `site/`, and integrations |
+| `template_owned` | Copier, with three-way conflict handling | workflows, command facade, updater, verifier, generic adapters, and generic docs |
+| `initialized_site_owned` | The site after one-time creation | `orinoco.yaml`, metadata, `custom/`, `site/`, and source adapters |
 | `engine_lock` | The pinned updater, as a reviewed structured diff | `orinoco.lock` and `pixi.lock` |
 | `extensions` | The site | stable custom behavior under `extensions/` |
-| `consumer_tests` | The site after one-time creation | browser, integration, and offline behavior tests |
+| `consumer_tests` | The site after one-time creation | browser, source-adapter, and offline behavior tests |
 | `site_policy` | The site | license, citation, contribution, and conduct files |
 | `generated` | Ignored runtime output | projection under `generated/` |
 
@@ -17,8 +17,10 @@ Site-specific operating guidance belongs in `site/README.md`, not in this templa
 
 Copier creates initialized and test paths once, then excludes them from later overwrites.
 The updater compares protected site-owned bytes before and after its run.
-Generated projection and detailed updater state are ignored; Git records the
-reviewable framework and source changes.
+Generated projection and detailed updater state are ignored; Git records the reviewable framework and source changes.
+
+Source adapters use `source-adapters/`; their site-owned tests use
+`.orinoco-lite/tests/source-adapters/`.
 
 `orinoco.lock` is the readable release authority.
 Its diff carries exact engine, runtime, template, and workflow changes.
