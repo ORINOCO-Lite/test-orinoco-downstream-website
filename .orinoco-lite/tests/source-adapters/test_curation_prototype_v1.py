@@ -534,6 +534,23 @@ class DecisionValidationVectors(unittest.TestCase):
         ):
             decision_book(inventory, [unknown])
 
+        malformed_inventory = decision(value, "reject")
+        malformed_document = {
+            "format": CORE.DECISIONS_FORMAT,
+            "decisions": [malformed_inventory],
+            "transactions": [
+                {
+                    "inventory_id": f"{CORE.INVENTORY_PREFIX}truncated",
+                    "decision_ids": [malformed_inventory["decision_id"]],
+                }
+            ],
+        }
+        with self.assertRaisesRegex(
+            CORE.CurationPrototypeError,
+            "transaction inventory_id has an unsupported identity format",
+        ):
+            CORE.parse_decisions(yaml.safe_dump(malformed_document, sort_keys=False))
+
     def test_missing_audit_fields_invalid_dates_and_empty_evidence_fail(self) -> None:
         value = candidate("zotero")
         inventory = CORE.build_inventory("zotero", [value])

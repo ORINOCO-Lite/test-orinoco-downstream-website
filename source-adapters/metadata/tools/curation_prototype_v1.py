@@ -929,13 +929,11 @@ def parse_decisions(text: str) -> DecisionBook:
             raise CurationPrototypeError(
                 "Every decision transaction requires only inventory_id and decision_ids"
             )
-        inventory_id = _require_nonempty(
-            raw["inventory_id"], "transaction inventory_id"
+        inventory_id = _validate_prefixed_identity(
+            raw["inventory_id"],
+            INVENTORY_PREFIX,
+            "transaction inventory_id",
         )
-        if not inventory_id.startswith(INVENTORY_PREFIX):
-            raise CurationPrototypeError(
-                "transaction inventory_id is not a prototype-v1 inventory id"
-            )
         decision_ids = raw["decision_ids"]
         if not isinstance(decision_ids, list):
             raise CurationPrototypeError("transaction decision_ids must be a list")
