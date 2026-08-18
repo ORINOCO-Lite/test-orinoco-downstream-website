@@ -1,4 +1,4 @@
-_commit: v0.1.11
+_commit: v0.1.13
 _src_path: gh:con/orinoco-lite-template
 project_name: Center for Open Neuroscience — Orinoco Test Site
 project_slug: test-orinoco-downstream-website
@@ -6,15 +6,15 @@ site_description: Test-only full-content Orinoco Lite downstream for the Center 
   Open Neuroscience.
 repository_slug: con/test-orinoco-downstream-website
 site_base_url: https://con.github.io/test-orinoco-downstream-website/
-engine_version: 0.1.11
-engine_url: https://github.com/con/orinoco-lite-dev/releases/download/v0.1.11/orinoco_lite-0.1.11-py3-none-any.whl
-engine_sha256: 483c256e91c555a535f417df2f78b42138b72d44b8b4f030e1fd145ebb41e52e
-runtime_version: 0.1.11
-runtime_url: https://github.com/con/orinoco-lite-dev/releases/download/v0.1.11/orinoco-runtime-0.1.11.tar.gz
-runtime_sha256: 1e071ba1f0e2bc94240c4bc7e664992475f5966c51a7eec74091d352ec50d099
-runtime_manifest_sha256: dacb00791d5a5aedc94c24f4b33057c801a79925438cf450037d0968ec46daf9
+engine_version: 0.1.12
+engine_url: https://github.com/con/orinoco-lite-dev/releases/download/v0.1.12/orinoco_lite-0.1.12-py3-none-any.whl
+engine_sha256: 7bcba4c4124873d5a985233c4fef84aa3cd3902dfa401bbdfefb951785c36173
+runtime_version: 0.1.12
+runtime_url: https://github.com/con/orinoco-lite-dev/releases/download/v0.1.12/orinoco-runtime-0.1.12.tar.gz
+runtime_sha256: 0d43cf6b3db4c324777a373c7d2178ab8dcdaf224795f19b4ce2c16e8f114a5a
+runtime_manifest_sha256: 4751bab7bfe5fa65bdc95499aff05a77b48de2f7f194270293865d6f25ab200f
 template_source: gh:con/orinoco-lite-template
-template_version: v0.1.11
+template_version: v0.1.13
 workflow_repository: con/orinoco-lite-dev
-workflow_sha: d1f9572f1c80966571e248137425ca8c078809d5
-workflow_ref: con/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@d1f9572f1c80966571e248137425ca8c078809d5
+workflow_sha: 424301a8bd5da46207cd5fcb42ebc926400624f2
+workflow_ref: con/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@424301a8bd5da46207cd5fcb42ebc926400624f2

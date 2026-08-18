@@ -47,7 +47,12 @@ The updater:
 It stops on a moving or unavailable tag, an incomplete pin, a template-owned conflict, or an undeclared protected change.
 A newly introduced `.gitkeep` may be removed only when the protected directory already contains real data.
 
-Consumers older than template v0.1.3 require the narrow updater bootstrap documented by that target release. Consumers crossing the support-directory migration must likewise run the updater from the old path once; the update installs its successor at `.orinoco-lite/tools/update_orinoco.py`, and subsequent runs use the normal Pixi task.
+Consumers older than template v0.1.3 require the narrow updater bootstrap
+documented by that target release. Moving existing protected tests and
+provenance into `.orinoco-lite/` is a one-time semantic layout migration, not
+an ordinary framework update: review and merge that dedicated migration first.
+Afterward, the normal Pixi task invokes `.orinoco-lite/tools/update_orinoco.py`
+for subsequent updates.
 Do not bootstrap site-owned paths.
 
 ## Review and commit
@@ -66,7 +71,7 @@ git status --short
 Review at least:
 
 - the complete `orinoco.lock`, `.copier-answers.yml`, and `pixi.lock` diffs;
-- confirmation in the workflow log that protected site-owned paths did not change;
+- confirmation that protected site-owned paths did not change;
 - any `.rej` file or recorded reconciliation;
 - validation status and commands; and
 - the generated site and browser behavior appropriate to this consumer.
