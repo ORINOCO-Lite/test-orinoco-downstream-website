@@ -70,6 +70,8 @@ Do not use `assets-prepare-online` in that denied-network phase; it represents t
 - `.orinoco-lite/` contains implementation support behind the checked commands.
 - `custom/editorial/`, `custom/assets/`, and `site/` contain site-owned presentation inputs.
 - `.agents/skills/manage-orinoco-content/` guides agents through focused editorial and asset changes.
+- `.agents/skills/operate-orinoco-metadata-adapters/` guides adapter runs,
+  explicit human decisions, provenance, and review pull requests.
 - `source-adapters/` contains optional site-owned importers, enrichers, and scrapers; it is not a deployed runtime dependency.
 - `extensions/` is the stable downstream customization surface.
 - `generated/` contains ignored projection output recreated by validation and builds.
