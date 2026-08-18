@@ -4,13 +4,15 @@ given_name: Horea-Ioan
 family_name: Ioanas
 formatted_name: Horea-Ioan Ioanas
 display_label: Horea-Ioan Ioanas
-description: >-
-  Emeritus Research Scientist at the Center for Open Neuroscience. DANDI
-  contributor. Skilled in Python, neuroimaging, and psychopharmacology.
-attributes:
-  - predicate: vcard:Email
-    value: chr@chymera.eu
-    schema_type: dlthings:AttributeSpecification
+description: Emeritus Research Scientist at the Center for Open Neuroscience. DANDI contributor.
+  Skilled in Python, neuroimaging, and psychopharmacology.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: TheChymera
+  - creator: rrid:SCR_002630
+    notation: TheChymera
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: chr@chymera.eu
+    predicate: vcard:Email

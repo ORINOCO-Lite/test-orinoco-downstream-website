@@ -4,14 +4,15 @@ given_name: Isaac
 family_name: To
 formatted_name: Isaac To
 display_label: Isaac To
-description: >-
-  Software Developer at the Center for Open Neuroscience. Python and
-  open-source enthusiast. Works on DataLad-Registry and DANDI metadata-related
-  initiatives.
-attributes:
-  - predicate: vcard:Email
-    value: Isaac.C.To@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+description: Software Developer at the Center for Open Neuroscience. Python and open-source
+  enthusiast. Works on DataLad-Registry and DANDI metadata-related initiatives.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: candleindark
+  - creator: rrid:SCR_002630
+    notation: candleindark
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: Isaac.C.To@dartmouth.edu
+    predicate: vcard:Email

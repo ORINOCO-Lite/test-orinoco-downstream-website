@@ -3,13 +3,12 @@ schema_type: xyzri:XYZProject
 title: con/tinuous
 short_name: tinuous
 display_label: con/tinuous
-description: >-
-  Command for downloading build logs, artifacts, and release assets for a
-  GitHub repository. Supports GitHub Actions, Travis-CI.com, and Appveyor with
-  optional DataLad control for backup and distribution.
-part_of:
-  - xyzrins:.
+description: Command for downloading build logs, artifacts, and release assets for a GitHub
+  repository. Supports GitHub Actions, Travis-CI.com, and Appveyor with optional DataLad control
+  for backup and distribution.
+about:
+  - https://centerforopenneuroscience.org/projects
 attributes:
-  - predicate: foaf:homepage
+  - schema_type: dlthings:AttributeSpecification
     value: https://github.com/con/tinuous
-    schema_type: dlthings:AttributeSpecification
+    predicate: foaf:homepage

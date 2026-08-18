@@ -3,13 +3,12 @@ schema_type: xyzri:XYZProject
 title: SingularityHub (after-life)
 short_name: SingularityHub
 display_label: SingularityHub (after-life)
-description: >-
-  To provide archival and uninterrupted access to over 9TBs of
-  singularity-hub.org Singularity containers, CON established the ///shub
-  DataLad dataset and a service to serve the shub:// URLs.
-part_of:
-  - xyzrins:.
+description: To provide archival and uninterrupted access to over 9TBs of singularity-hub.org
+  Singularity containers, CON established the ///shub DataLad dataset and a service to serve
+  the shub:// URLs.
+about:
+  - https://centerforopenneuroscience.org/projects
 attributes:
-  - predicate: foaf:homepage
+  - schema_type: dlthings:AttributeSpecification
     value: https://datasets.datalad.org/?dir=/shub
-    schema_type: dlthings:AttributeSpecification
+    predicate: foaf:homepage

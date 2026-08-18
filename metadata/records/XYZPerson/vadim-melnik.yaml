@@ -4,14 +4,15 @@ given_name: Vadim
 family_name: Melnik
 formatted_name: Vadim Melnik
 display_label: Vadim Melnik
-description: >-
-  Software Engineer and Consultant at the Center for Open Neuroscience.
-  Working on ReproStim, ReproMon, con/noisseur, and event collection/timing
-  projects.
-attributes:
-  - predicate: vcard:Email
-    value: vmelnik@docsultant.com
-    schema_type: dlthings:AttributeSpecification
+description: Software Engineer and Consultant at the Center for Open Neuroscience. Working
+  on ReproStim, ReproMon, con/noisseur, and event collection/timing projects.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: vmdocua
+  - creator: rrid:SCR_002630
+    notation: vmdocua
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: vmelnik@docsultant.com
+    predicate: vcard:Email

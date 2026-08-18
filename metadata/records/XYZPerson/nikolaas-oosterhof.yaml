@@ -6,10 +6,12 @@ additional_names:
 family_name: Oosterhof
 formatted_name: Nikolaas N. Oosterhof
 display_label: Nikolaas N. Oosterhof
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Ph.D. in Psychology
-  with Masters in Computer Science, Cognitive Science, and Philosophy. PyMVPA
-  developer and NeuroDebian promoter.
+description: Emeritus member of the Center for Open Neuroscience. Ph.D. in Psychology with
+  Masters in Computer Science, Cognitive Science, and Philosophy. PyMVPA developer and NeuroDebian
+  promoter.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: nno
+  - creator: rrid:SCR_002630
+    notation: nno
     schema_type: dlthings:Identifier

@@ -3,23 +3,21 @@ schema_type: xyzri:XYZProject
 title: Open Brain Consent
 short_name: Open Brain Consent
 display_label: Open Brain Consent
-description: >-
-  Aims to facilitate neuroimaging data sharing by providing an out-of-the-box
-  solution including consent forms enabling anonymized data deposition and
-  anonymization tools/pipelines. An international effort with GDPR compliance
-  materials.
-part_of:
-  - xyzrins:.
+description: Aims to facilitate neuroimaging data sharing by providing an out-of-the-box solution
+  including consent forms enabling anonymized data deposition and anonymization tools/pipelines.
+  An international effort with GDPR compliance materials.
+about:
+  - https://centerforopenneuroscience.org/projects
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: https://open-brain-consent.readthedocs.io/
+    predicate: foaf:homepage
 associated_with:
-  - object: xyzrins:persons/yaroslav-halchenko
+  - schema_type: dlthings:Association
+    object: xyzrins:persons/yaroslav-halchenko
     roles:
       - marcrel:led
-    schema_type: dlthings:Association
-  - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+  - schema_type: dlthings:Association
+    object: xyzrins:persons/matteo-visconti-di-oleggio-castello
     roles:
       - marcrel:ctb
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: https://open-brain-consent.readthedocs.io/
-    schema_type: dlthings:AttributeSpecification

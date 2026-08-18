@@ -6,13 +6,15 @@ additional_names:
 family_name: Kennedy
 formatted_name: David N. Kennedy
 display_label: David N. Kennedy
-description: >-
-  Collaborator at the Center for Open Neuroscience. Affiliated with UMass Chan
+description: Collaborator at the Center for Open Neuroscience. Affiliated with UMass Chan
   Medical School. The master-mind of the ReproNim project.
-attributes:
-  - predicate: vcard:Email
-    value: dnkennedy@umassmed.edu
-    schema_type: dlthings:AttributeSpecification
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: dnkennedy
+  - creator: rrid:SCR_002630
+    notation: dnkennedy
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: dnkennedy@umassmed.edu
+    predicate: vcard:Email

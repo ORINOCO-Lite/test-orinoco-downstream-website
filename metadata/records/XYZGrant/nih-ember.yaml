@@ -1,0 +1,25 @@
+pid: xyzrins:grants/nih-ember
+schema_type: xyzri:XYZGrant
+title: 'EMBER: Ecosystem for Multi-modal Brain-behavior Experimentation and Research'
+short_name: NIH 1R24MH136632-01
+display_label: NIH EMBER Grant
+description: NIH grant supporting the EMBER BRAIN Initiative archive for multi-modal neurophysiological
+  and behavioral data.
+identifiers:
+  - schema_type: dlthings:Identifier
+    notation: 1R24MH136632-01
+about:
+  - https://centerforopenneuroscience.org/projects
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: https://reporter.nih.gov/search/x1x1x1x1x1/project-details/1R24MH136632-01
+    predicate: foaf:homepage
+attributed_to:
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/brock-wester
+    roles:
+      - obo:NCIT_C19924
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/yaroslav-halchenko
+    roles:
+      - marcrel:rtm

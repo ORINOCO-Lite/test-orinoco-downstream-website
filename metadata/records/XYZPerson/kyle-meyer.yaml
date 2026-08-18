@@ -4,13 +4,15 @@ given_name: Kyle
 family_name: Meyer
 formatted_name: Kyle Meyer
 display_label: Kyle Meyer
-description: >-
-  Emeritus member of the Center for Open Neuroscience. ReproMan and DataLad
-  contributor. Git expert and Magit authority.
-attributes:
-  - predicate: vcard:Email
-    value: kyle@kyleam.com
-    schema_type: dlthings:AttributeSpecification
+description: Emeritus member of the Center for Open Neuroscience. ReproMan and DataLad contributor.
+  Git expert and Magit authority.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: kyleam
+  - creator: rrid:SCR_002630
+    notation: kyleam
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: kyle@kyleam.com
+    predicate: vcard:Email

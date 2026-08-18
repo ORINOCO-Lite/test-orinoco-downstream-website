@@ -6,14 +6,16 @@ additional_names:
 family_name: Wager
 formatted_name: Tor D. Wager
 display_label: Tor D. Wager
-description: >-
-  Professor at Dartmouth College. Director of Dartmouth Brain Imaging Center
-  and Center for Cognitive Neuroscience. Dedicated to developing functional
-  neuroimaging analysis methods and sharing tools and data with the community.
-attributes:
-  - predicate: vcard:Email
-    value: tor.d.wager@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+description: Professor at Dartmouth College. Director of Dartmouth Brain Imaging Center and
+  Center for Cognitive Neuroscience. Dedicated to developing functional neuroimaging analysis
+  methods and sharing tools and data with the community.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: torwager
+  - creator: rrid:SCR_002630
+    notation: torwager
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: tor.d.wager@dartmouth.edu
+    predicate: vcard:Email

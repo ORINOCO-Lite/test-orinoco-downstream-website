@@ -1,0 +1,25 @@
+pid: xyzrins:grants/nih-dandi
+schema_type: xyzri:XYZGrant
+title: 'DANDI: Distributed Archives for Neurophysiology Data Integration'
+short_name: NIH 1R24MH117295-01A1
+display_label: NIH DANDI Grant
+description: NIH grant supporting the DANDI platform for publishing, sharing, and processing
+  neurophysiology data.
+identifiers:
+  - schema_type: dlthings:Identifier
+    notation: 1R24MH117295-01A1
+about:
+  - https://centerforopenneuroscience.org/projects
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: https://reporter.nih.gov/search/xLyGTK4YgUu0dn6pqlHDHQ/project-details/10260526
+    predicate: foaf:homepage
+attributed_to:
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/satrajit-ghosh
+    roles:
+      - obo:NCIT_C19924
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/yaroslav-halchenko
+    roles:
+      - obo:NCIT_C19924

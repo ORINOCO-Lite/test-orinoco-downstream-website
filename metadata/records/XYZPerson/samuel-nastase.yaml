@@ -4,14 +4,15 @@ given_name: Samuel
 family_name: Nastase
 formatted_name: Samuel Nastase
 display_label: Samuel Nastase
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth
-  Ph.D. student, now at Princeton. Cognitive Neuroscience Ph.D. PyMVPA user
-  and NeuroDebian exhibitor.
-attributes:
-  - predicate: vcard:Email
-    value: sam.nastase@gmail.com
-    schema_type: dlthings:AttributeSpecification
+description: Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth Ph.D.
+  student, now at Princeton. Cognitive Neuroscience Ph.D. PyMVPA user and NeuroDebian exhibitor.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: snastase
+  - creator: rrid:SCR_002630
+    notation: snastase
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: sam.nastase@gmail.com
+    predicate: vcard:Email

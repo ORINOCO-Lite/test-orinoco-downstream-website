@@ -4,9 +4,11 @@ given_name: Satrajit
 family_name: Ghosh
 formatted_name: Satrajit Ghosh
 display_label: Satrajit Ghosh
-description: >-
-  Collaborator at the Center for Open Neuroscience. Affiliated with MIT and
-  Harvard Medical School. Lead of DANDI, NiPype, and other projects.
+description: Collaborator at the Center for Open Neuroscience. Affiliated with MIT and Harvard
+  Medical School. Lead of DANDI, NiPype, and other projects.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: satra
+  - creator: rrid:SCR_002630
+    notation: satra
     schema_type: dlthings:Identifier

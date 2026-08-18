@@ -1,0 +1,10 @@
+pid: xyzrins:publication-venues/issn-0147-006x
+schema_type: xyzri:XYZPublicationVenue
+title: Annual Review of Neuroscience
+display_label: Annual Review of Neuroscience
+identifiers:
+  - schema_type: dlthings:Identifier
+    creator: ror:026ytr635
+    notation: 0147-006X
+  - notation: ISSN:0147-006X
+    schema_type: dlthings:Identifier

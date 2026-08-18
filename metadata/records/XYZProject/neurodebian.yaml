@@ -3,22 +3,21 @@ schema_type: xyzri:XYZProject
 title: NeuroDebian
 short_name: NeuroDebian
 display_label: NeuroDebian
-description: >-
-  Turnkey research software platform for all aspects of the neuroscientific
-  research process. Provides a comprehensive suite of readily usable and fully
-  integrated software with robust testing and deployment infrastructure.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/yaroslav-halchenko
-    roles:
-      - marcrel:led
-    schema_type: dlthings:Association
-  - object: xyzrins:persons/michael-hanke
-    roles:
-      - marcrel:led
-    schema_type: dlthings:Association
+description: Turnkey research software platform for all aspects of the neuroscientific research
+  process. Provides a comprehensive suite of readily usable and fully integrated software
+  with robust testing and deployment infrastructure.
+about:
+  - https://centerforopenneuroscience.org/projects
 attributes:
-  - predicate: foaf:homepage
+  - schema_type: dlthings:AttributeSpecification
     value: https://neuro.debian.net
-    schema_type: dlthings:AttributeSpecification
+    predicate: foaf:homepage
+associated_with:
+  - schema_type: dlthings:Association
+    object: xyzrins:persons/yaroslav-halchenko
+    roles:
+      - marcrel:led
+  - schema_type: dlthings:Association
+    object: xyzrins:persons/michael-hanke
+    roles:
+      - marcrel:led

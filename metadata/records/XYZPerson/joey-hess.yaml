@@ -4,14 +4,16 @@ given_name: Joey
 family_name: Hess
 formatted_name: Joey Hess
 display_label: Joey Hess
-description: >-
-  Independent collaborator at the Center for Open Neuroscience. Core Debian
-  distribution contributor (debhelper, debian-installer, debconf,
-  pristine-tar). Developer of git-annex used in DataLad.
-attributes:
-  - predicate: vcard:Email
-    value: id@joeyh.name
-    schema_type: dlthings:AttributeSpecification
+description: Independent collaborator at the Center for Open Neuroscience. Core Debian distribution
+  contributor (debhelper, debian-installer, debconf, pristine-tar). Developer of git-annex
+  used in DataLad.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: joeyh
+  - creator: rrid:SCR_002630
+    notation: joeyh
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: id@joeyh.name
+    predicate: vcard:Email

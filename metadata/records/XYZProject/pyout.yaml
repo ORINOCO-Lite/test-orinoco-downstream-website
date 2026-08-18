@@ -3,12 +3,11 @@ schema_type: xyzri:XYZProject
 title: pyout
 short_name: pyout
 display_label: pyout
-description: >-
-  Python package that defines an interface for writing structured records as a
+description: Python package that defines an interface for writing structured records as a
   table in a terminal.
-part_of:
-  - xyzrins:.
+about:
+  - https://centerforopenneuroscience.org/projects
 attributes:
-  - predicate: foaf:homepage
+  - schema_type: dlthings:AttributeSpecification
     value: https://github.com/pyout/pyout
-    schema_type: dlthings:AttributeSpecification
+    predicate: foaf:homepage

@@ -4,14 +4,16 @@ given_name: Matthew
 family_name: Brett
 formatted_name: Matthew Brett
 display_label: Matthew Brett
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Affiliated with
-  University of Birmingham. Neurologist and neuroimaging methods expert.
-  Neuroimaging in Python lead and NiPy/NiBabel developer.
-attributes:
-  - predicate: vcard:Email
-    value: matthew.brett@gmail.com
-    schema_type: dlthings:AttributeSpecification
+description: Emeritus member of the Center for Open Neuroscience. Affiliated with University
+  of Birmingham. Neurologist and neuroimaging methods expert. Neuroimaging in Python lead
+  and NiPy/NiBabel developer.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: matthew-brett
+  - creator: rrid:SCR_002630
+    notation: matthew-brett
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: matthew.brett@gmail.com
+    predicate: vcard:Email

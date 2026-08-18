@@ -1,0 +1,10 @@
+pid: xyzrins:publication-venues/issn-1532-4435
+schema_type: xyzri:XYZPublicationVenue
+title: Journal of Machine Learning Research
+display_label: JMLR
+identifiers:
+  - schema_type: dlthings:Identifier
+    creator: ror:026ytr635
+    notation: 1532-4435
+  - notation: ISSN:1532-4435
+    schema_type: dlthings:Identifier

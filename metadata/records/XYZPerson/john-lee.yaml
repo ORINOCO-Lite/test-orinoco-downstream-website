@@ -4,18 +4,28 @@ given_name: John
 family_name: Lee
 formatted_name: John Lee
 display_label: John Lee
-description: >-
-  John brings together research imaging, open-source infrastructure, and an
-  industry engineering perspective. His work spans NIH neuroimaging data
-  sharing, AFNI testing infrastructure, consulting and independent software
-  work, and reproducible biomedical image transformation. At CON, he works on
-  building and applying the center's tools for reproducibility and provenance
-  tracking to healthcare image data, with an interest in auditable autonomous
-  systems for scientific research and clinical translation.
-attributes:
-  - predicate: vcard:Email
-    value: leej3@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+description: John brings together research imaging, open-source infrastructure, and an industry
+  engineering perspective. His work spans NIH neuroimaging data sharing, AFNI testing infrastructure,
+  consulting and independent software work, and reproducible biomedical image transformation.
+  At CON, he works on building and applying the center's tools for reproducibility and provenance
+  tracking to healthcare image data, with an interest in auditable autonomous systems for
+  scientific research and clinical translation.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: leej3
+  - creator: rrid:SCR_002630
+    notation: leej3
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: leej3@dartmouth.edu
+    predicate: vcard:Email
+  - schema_type: dlthings:AttributeSpecification
+    value: https://www.linkedin.com/in/leej3
+    predicate: owl:sameAs
+  - schema_type: dlthings:AttributeSpecification
+    value: https://orcid.org/0000-0001-5884-4247
+    predicate: owl:sameAs
+  - schema_type: dlthings:AttributeSpecification
+    value: https://centerforopenneuroscience.org/theme/img/team/johnlee.jpg
+    predicate: foaf:depiction

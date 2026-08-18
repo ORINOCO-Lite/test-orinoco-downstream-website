@@ -3,12 +3,11 @@ schema_type: xyzri:XYZProject
 title: distribits
 short_name: distribits
 display_label: distribits
-description: >-
-  Community for enthusiasts of tools and workflows in the domain of
-  distributed data.
-part_of:
-  - xyzrins:.
+description: Community for enthusiasts of tools and workflows in the domain of distributed
+  data.
+about:
+  - https://centerforopenneuroscience.org/projects
 attributes:
-  - predicate: foaf:homepage
+  - schema_type: dlthings:AttributeSpecification
     value: https://www.distribits.live/
-    schema_type: dlthings:AttributeSpecification
+    predicate: foaf:homepage

@@ -1,0 +1,20 @@
+pid: xyzrins:publications/doi-10-12688-f1000research-7628-1
+schema_type: xyzri:XYZPublication
+title: Four aspects to make science open by design and not as an after-thought
+display_label: Halchenko & Hanke 2015
+identifiers:
+  - notation: 10.12688/f1000research.7628.1
+    schema_type: dlthings:DOI
+  - notation: https://doi.org/10.12688/f1000research.7628.1
+    schema_type: dlthings:Identifier
+about:
+  - https://centerforopenneuroscience.org/
+attributed_to:
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/yaroslav-halchenko
+    roles:
+      - obo:MS_1002034
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/michael-hanke
+    roles:
+      - obo:MS_1002035

@@ -1,0 +1,17 @@
+pid: xyzrins:persons/brock-wester
+schema_type: xyzri:XYZPerson
+given_name: Brock
+family_name: Wester
+formatted_name: Brock Wester
+display_label: Brock Wester
+description: PI of the EMBER archive. Assistant Program Manager at the Johns Hopkins University
+  Applied Physics Laboratory. Research focuses on connectomics, brain mapping, and BossDB.
+identifiers:
+  - creator: rrid:SCR_002630
+    notation: brockwester
+    schema_type: dlthings:Identifier
+  - creator: ror:04fa4r544
+    notation: 0000-0002-1500-2143
+    schema_type: xyzri:ORCID
+about:
+  - https://centerforopenneuroscience.org/projects

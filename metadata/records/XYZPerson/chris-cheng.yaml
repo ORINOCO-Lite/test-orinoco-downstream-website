@@ -4,14 +4,15 @@ given_name: Chris
 family_name: Cheng
 formatted_name: Chris Cheng
 display_label: Chris Cheng
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Dartmouth undergraduate
-  passionate about neuroimaging and open science. NiBabel contributor.
-  ReproNim training editor.
-attributes:
-  - predicate: vcard:Email
-    value: christopher.p.cheng.21@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+description: Emeritus member of the Center for Open Neuroscience. Dartmouth undergraduate
+  passionate about neuroimaging and open science. NiBabel contributor. ReproNim training editor.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: chrispycheng
+  - creator: rrid:SCR_002630
+    notation: chrispycheng
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: christopher.p.cheng.21@dartmouth.edu
+    predicate: vcard:Email

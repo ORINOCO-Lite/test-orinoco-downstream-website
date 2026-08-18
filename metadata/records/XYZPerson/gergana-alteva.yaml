@@ -4,13 +4,15 @@ given_name: Gergana
 family_name: Alteva
 formatted_name: Gergana Alteva
 display_label: Gergana Alteva
-description: >-
-  Emeritus member of the Center for Open Neuroscience. CS undergraduate at
-  Barnard College, Columbia University. 2016 DataLad developer intern.
-attributes:
-  - predicate: vcard:Email
-    value: glalteva@gmail.com
-    schema_type: dlthings:AttributeSpecification
+description: Emeritus member of the Center for Open Neuroscience. CS undergraduate at Barnard
+  College, Columbia University. 2016 DataLad developer intern.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: glalteva
+  - creator: rrid:SCR_002630
+    notation: glalteva
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: glalteva@gmail.com
+    predicate: vcard:Email

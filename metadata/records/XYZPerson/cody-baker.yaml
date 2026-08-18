@@ -4,15 +4,16 @@ given_name: Cody
 family_name: Baker
 formatted_name: Cody Baker
 display_label: Cody Baker
-description: >-
-  Research Software Engineer at the Center for Open Neuroscience. Data
-  specialist creating NWB and DANDI ecosystem software packages (NeuroConv,
-  NWB Inspector, NWB GUIDE). Experienced uploading hundreds of terabytes to
-  NIH archives.
-attributes:
-  - predicate: vcard:Email
-    value: cody.c.baker.phd@gmail.com
-    schema_type: dlthings:AttributeSpecification
+description: Research Software Engineer at the Center for Open Neuroscience. Data specialist
+  creating NWB and DANDI ecosystem software packages (NeuroConv, NWB Inspector, NWB GUIDE).
+  Experienced uploading hundreds of terabytes to NIH archives.
+about:
+  - https://centerforopenneuroscience.org/whoweare
 identifiers:
-  - notation: CodyCBakerPhD
+  - creator: rrid:SCR_002630
+    notation: CodyCBakerPhD
     schema_type: dlthings:Identifier
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: cody.c.baker.phd@gmail.com
+    predicate: vcard:Email

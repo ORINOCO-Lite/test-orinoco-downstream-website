@@ -1,0 +1,24 @@
+pid: xyzrins:grants/nih-openneuro
+schema_type: xyzri:XYZGrant
+title: OpenNeuro
+short_name: NIH 5R24MH117179-07
+display_label: NIH OpenNeuro Grant
+description: NIH grant supporting the OpenNeuro neuroimaging data archive.
+identifiers:
+  - schema_type: dlthings:Identifier
+    notation: 5R24MH117179-07
+about:
+  - https://centerforopenneuroscience.org/projects
+attributes:
+  - schema_type: dlthings:AttributeSpecification
+    value: https://reporter.nih.gov/search/x2x2x2x2x2/project-details/5R24MH117179-07
+    predicate: foaf:homepage
+attributed_to:
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/russell-poldrack
+    roles:
+      - obo:NCIT_C19924
+  - schema_type: dlthings:Attribution
+    object: xyzrins:persons/yaroslav-halchenko
+    roles:
+      - marcrel:rtm
