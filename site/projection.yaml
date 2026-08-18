@@ -80,10 +80,12 @@ pages:
       - rules
 
 unrendered_classes:
+  - xyzri:XYZGrant
   - xyzri:XYZOrganization
   - xyzri:XYZAgentRole
   - xyzri:XYZBibliographicType
   - xyzri:XYZInstrumentType
+  - xyzri:XYZPublicationVenue
 
 graph:
   producer: site/projection-tools/pool2graph.py

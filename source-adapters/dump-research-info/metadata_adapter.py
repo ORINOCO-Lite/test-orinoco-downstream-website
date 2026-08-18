@@ -5,8 +5,10 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
+from copy import deepcopy
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -22,10 +24,22 @@ PLACEHOLDER = re.compile(
     r"reporter\.nih\.gov/search/x[12]x[12]x[12]x[12]x[12]", re.IGNORECASE
 )
 RELATION_KEYS = {"associated_with", "attributed_to", "generated_by", "part_of"}
+RELATION_SCALAR_FIELDS = {"at_location", "creator"}
+RELATION_LIST_FIELDS = {"about", "part_of"}
+CLASS_NAME = re.compile(r"^XYZ[A-Za-z0-9]+$")
+SAFE_STEM = re.compile(r"[^a-z0-9]+")
+MISSING = object()
 
 
 class DumpResearchInfoAdapterError(RuntimeError):
     """Report malformed source, downstream metadata, or output state."""
+
+
+class IndentDumper(yaml.SafeDumper):
+    """Emit block sequences with the indentation used by canonical records."""
+
+    def increase_indent(self, flow: bool = False, indentless: bool = False) -> None:
+        return super().increase_indent(flow, False)
 
 
 def canonical_json(value: object) -> bytes:
@@ -222,6 +236,11 @@ def field_delta(
 
 def referenced_pids(value: object, field: str | None = None) -> set[str]:
     result: set[str] = set()
+    if field in RELATION_SCALAR_FIELDS and isinstance(value, str):
+        result.add(value)
+        return result
+    if field in RELATION_LIST_FIELDS and isinstance(value, list):
+        result.update(child for child in value if isinstance(child, str))
     if isinstance(value, dict):
         if field in RELATION_KEYS and isinstance(value.get("object"), str):
             result.add(str(value["object"]))
@@ -236,6 +255,35 @@ def referenced_pids(value: object, field: str | None = None) -> set[str]:
     return result
 
 
+def rewrite_relation_targets(
+    value: object,
+    pid_map: Mapping[str, str],
+    field: str | None = None,
+) -> object:
+    if field in RELATION_SCALAR_FIELDS and isinstance(value, str):
+        return pid_map.get(value, value)
+    if field in RELATION_LIST_FIELDS and isinstance(value, list):
+        return [
+            pid_map.get(child, child)
+            if isinstance(child, str)
+            else deepcopy(child)
+            for child in value
+        ]
+    if isinstance(value, dict):
+        result: dict[str, object] = dict(value)
+        if field in RELATION_KEYS and isinstance(value.get("object"), str):
+            target = str(value["object"])
+            result["object"] = pid_map.get(target, target)
+        for key, child in value.items():
+            if key == "object" and field in RELATION_KEYS:
+                continue
+            result[key] = rewrite_relation_targets(child, pid_map, key)
+        return result
+    if isinstance(value, list):
+        return [rewrite_relation_targets(child, pid_map, field) for child in value]
+    return deepcopy(value)
+
+
 def match_record(
     source_class: str,
     source: Mapping[str, object],
@@ -244,6 +292,12 @@ def match_record(
 ) -> tuple[str | None, str, list[str]]:
     pid = str(source["pid"])
     if pid in downstream:
+        downstream_class = downstream[pid].get("class")
+        if downstream_class != source_class:
+            raise DumpResearchInfoAdapterError(
+                f"Source record {pid} is in {source_class}, but the exact "
+                f"downstream PID is in {downstream_class}"
+            )
         return pid, "exact-pid", [pid]
     matches: set[str] = set()
     for token in identity_tokens(source):
@@ -321,6 +375,309 @@ def prepare_output(output: Path) -> None:
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
+
+
+def change_paths(before: object, after: object, path: str = "") -> list[str]:
+    if before == after:
+        return []
+    if isinstance(before, dict) and isinstance(after, dict):
+        changes: list[str] = []
+        for key in sorted(set(before) | set(after)):
+            child_path = f"{path}/{key}"
+            old = before.get(key, MISSING)
+            new = after.get(key, MISSING)
+            if old is MISSING or new is MISSING:
+                changes.append(child_path)
+            else:
+                changes.extend(change_paths(old, new, child_path))
+        return changes
+    return [path or "/"]
+
+
+def canonical_source_pid(class_name: str, source_pid: str) -> str:
+    if source_pid.startswith("xyzrins:"):
+        return source_pid
+    namespaces = {
+        "XYZPublication": "publications",
+        "XYZPublicationVenue": "publication-venues",
+    }
+    namespace = namespaces.get(class_name)
+    if namespace is None:
+        return source_pid
+    return f"xyzrins:{namespace}/{record_stem(source_pid)}"
+
+
+def native_record(class_name: str, source: Mapping[str, object]) -> dict[str, object]:
+    if not CLASS_NAME.fullmatch(class_name):
+        raise DumpResearchInfoAdapterError(
+            f"Source class cannot become a canonical record directory: {class_name}"
+        )
+    expected_type = f"xyzri:{class_name}"
+    observed_type = source.get("schema_type")
+    if observed_type not in (None, expected_type):
+        raise DumpResearchInfoAdapterError(
+            f"Source record {source.get('pid')} has unexpected schema_type "
+            f"{observed_type!r}; expected {expected_type}"
+        )
+    source_pid = str(source["pid"])
+    target_pid = canonical_source_pid(class_name, source_pid)
+    result = {
+        "pid": target_pid,
+        "schema_type": expected_type,
+        **{
+            key: deepcopy(value)
+            for key, value in source.items()
+            if key not in {"pid", "schema_type"}
+        },
+    }
+    if target_pid != source_pid:
+        identifiers = result.setdefault("identifiers", [])
+        if not isinstance(identifiers, list):
+            raise DumpResearchInfoAdapterError(
+                f"Source record {source_pid} identifiers are not a list"
+            )
+        if not any(
+            isinstance(identifier, dict)
+            and identifier.get("notation") == source_pid
+            for identifier in identifiers
+        ):
+            identifiers.append(
+                {
+                    "notation": source_pid,
+                    "schema_type": "dlthings:Identifier",
+                }
+            )
+    return result
+
+
+def transformed_source_record(
+    class_name: str,
+    source: Mapping[str, object],
+    target_pid: str,
+    pid_map: Mapping[str, str],
+) -> dict[str, object]:
+    record = native_record(class_name, source)
+    record["pid"] = target_pid
+    rewritten = rewrite_relation_targets(record, pid_map)
+    assert isinstance(rewritten, dict)
+    return rewritten
+
+
+def record_stem(pid: str) -> str:
+    if doi := normalized_doi(pid):
+        source = f"doi-{doi}"
+    elif pid.casefold().startswith("issn:"):
+        source = f"issn-{pid.split(':', 1)[1]}"
+    elif pid.startswith("xyzrins:") and "/" in pid:
+        source = pid.rsplit("/", 1)[1]
+    elif pid.casefold().startswith("ror:"):
+        source = f"ror-{pid.split(':', 1)[1]}"
+    else:
+        source = pid
+    stem = SAFE_STEM.sub("-", source.casefold()).strip("-")
+    if not stem:
+        raise DumpResearchInfoAdapterError(
+            f"Source PID cannot become a canonical filename: {pid}"
+        )
+    return stem
+
+
+def canonical_yaml(record: Mapping[str, object]) -> bytes:
+    return yaml.dump(
+        dict(record),
+        Dumper=IndentDumper,
+        allow_unicode=True,
+        sort_keys=False,
+        width=88,
+    ).encode()
+
+
+def safe_diagnostics_path(downstream_root: Path, diagnostics: Path) -> Path:
+    downstream_root = downstream_root.resolve()
+    build_root = (downstream_root / "build").resolve()
+    diagnostics = diagnostics.resolve()
+    if diagnostics == build_root or build_root not in diagnostics.parents:
+        raise DumpResearchInfoAdapterError(
+            "Materialization diagnostics must be a strict descendant of build/"
+        )
+    return diagnostics
+
+
+def apply_record_writes(writes: Mapping[Path, bytes]) -> None:
+    originals = {
+        path: path.read_bytes() if path.is_file() and not path.is_symlink() else None
+        for path in writes
+    }
+    if any(path.is_symlink() for path in writes):
+        raise DumpResearchInfoAdapterError("Canonical record target is a symlink")
+    written: list[Path] = []
+    try:
+        for path, payload in sorted(writes.items()):
+            path.parent.mkdir(parents=True, exist_ok=True)
+            if path.parent.is_symlink():
+                raise DumpResearchInfoAdapterError(
+                    f"Canonical record directory is a symlink: {path.parent}"
+                )
+            temporary = path.with_name(f".{path.name}.orinoco-materialize")
+            if temporary.exists() or temporary.is_symlink():
+                raise DumpResearchInfoAdapterError(
+                    f"Temporary materialization path already exists: {temporary}"
+                )
+            temporary.write_bytes(payload)
+            os.replace(temporary, path)
+            written.append(path)
+    except Exception:
+        for path in reversed(written):
+            original = originals[path]
+            if original is None:
+                path.unlink(missing_ok=True)
+            else:
+                path.write_bytes(original)
+        raise
+
+
+def materialize(
+    source_checkout: Path,
+    downstream_root: Path,
+    diagnostics: Path,
+    *,
+    source_directory: str = "data/con_site",
+    downstream_revision: str | None = None,
+) -> dict[str, object]:
+    source_checkout = source_checkout.resolve()
+    downstream_root = downstream_root.resolve()
+    diagnostics = safe_diagnostics_path(downstream_root, diagnostics)
+    report = extract(
+        source_checkout,
+        downstream_root,
+        diagnostics,
+        source_directory=source_directory,
+        downstream_revision=downstream_revision,
+    )
+    ambiguous = report["ambiguous"]
+    assert isinstance(ambiguous, list)
+    if ambiguous:
+        raise DumpResearchInfoAdapterError(
+            "Canonical materialization requires unambiguous source identities"
+        )
+
+    source_records = load_source(source_checkout / source_directory)
+    downstream = load_yaml_records(downstream_root)
+    matches = {
+        (str(item["source_class"]), str(item["source_pid"])): str(
+            item["downstream_pid"]
+        )
+        for item in report["matches"]
+        if isinstance(item, dict)
+    }
+    pid_map: dict[str, str] = {}
+    for class_name, records in source_records.items():
+        for source_pid in records:
+            pid_map[source_pid] = matches.get(
+                (class_name, source_pid),
+                canonical_source_pid(class_name, source_pid),
+            )
+
+    records_root = (downstream_root / "metadata/records").resolve()
+    plans: list[tuple[Path, dict[str, object], dict[str, object] | None]] = []
+    planned_pids: dict[str, str] = {}
+    planned_paths: dict[Path, str] = {}
+    for class_name, records in sorted(source_records.items()):
+        for source_pid, source_record in sorted(records.items()):
+            source_identity = f"{class_name}:{source_pid}"
+            matched_target_pid = matches.get((class_name, source_pid))
+            current: dict[str, object] | None = None
+            if matched_target_pid is None:
+                target_pid = pid_map[source_pid]
+                if target_pid in downstream:
+                    raise DumpResearchInfoAdapterError(
+                        f"Source record {source_identity} resolves to existing "
+                        f"downstream PID {target_pid} without matching it"
+                    )
+                target = (
+                    records_root / class_name / f"{record_stem(source_pid)}.yaml"
+                )
+                if target.exists() or target.is_symlink():
+                    raise DumpResearchInfoAdapterError(
+                        f"Source-only record target already exists: {target}"
+                    )
+            else:
+                target_pid = matched_target_pid
+                entry = downstream[target_pid]
+                target = downstream_root / str(entry["path"])
+                record = entry["record"]
+                assert isinstance(record, dict)
+                current = record
+
+            previous_pid_source = planned_pids.get(target_pid)
+            if previous_pid_source is not None:
+                raise DumpResearchInfoAdapterError(
+                    f"Source records {previous_pid_source} and {source_identity} "
+                    f"resolve to the same final PID {target_pid}"
+                )
+            previous_path_source = planned_paths.get(target)
+            if previous_path_source is not None:
+                raise DumpResearchInfoAdapterError(
+                    f"Source records {previous_path_source} and {source_identity} "
+                    f"resolve to the same final path {target}"
+                )
+            planned_pids[target_pid] = source_identity
+            planned_paths[target] = source_identity
+            desired = transformed_source_record(
+                class_name,
+                source_record,
+                target_pid,
+                pid_map,
+            )
+            plans.append((target, desired, current))
+
+    writes: dict[Path, bytes] = {}
+    added: list[str] = []
+    updated: list[dict[str, object]] = []
+    unchanged = 0
+    for target, desired, current in plans:
+        if current is None:
+            writes[target] = canonical_yaml(desired)
+            added.append(target.relative_to(downstream_root).as_posix())
+            continue
+        changes = change_paths(current, desired)
+        if not changes:
+            unchanged += 1
+            continue
+        writes[target] = canonical_yaml(desired)
+        updated.append(
+            {
+                "path": target.relative_to(downstream_root).as_posix(),
+                "changed_value_paths": changes,
+            }
+        )
+
+    for path in writes:
+        try:
+            path.resolve().relative_to(records_root)
+        except ValueError as error:
+            raise DumpResearchInfoAdapterError(
+                f"Canonical materialization target escapes metadata/records: {path}"
+            ) from error
+    apply_record_writes(writes)
+    result = {
+        "format": "orinoco-dump-research-info-materialization",
+        "version": 1,
+        "inputs": report["inputs"],
+        "summary": {
+            "added_records": len(added),
+            "updated_records": len(updated),
+            "unchanged_records": unchanged,
+            "written_records": len(writes),
+        },
+        "added": added,
+        "updated": updated,
+        "warnings": report["warnings"],
+    }
+    (diagnostics / "materialization.json").write_text(
+        json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    return result
 
 
 def flatten_source(
@@ -637,17 +994,35 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--downstream", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--materialize", action="store_true")
+    parser.add_argument(
+        "--diagnostics",
+        type=Path,
+        default=Path("build/metadata-review/dump-research-info/materialize"),
+    )
     parser.add_argument("--source-directory", default="data/con_site")
     parser.add_argument("--expected-source-commit")
     parser.add_argument("--downstream-revision")
     args = parser.parse_args(argv)
-    output = args.output.resolve()
     run_root = Path.cwd().resolve()
-    if output == run_root or run_root not in output.parents:
-        raise DumpResearchInfoAdapterError(
-            "Standalone output must be a strict descendant of the DataLad run dataset"
-        )
+    if args.materialize:
+        if args.expected_source_commit is None or args.downstream_revision is None:
+            raise DumpResearchInfoAdapterError(
+                "Canonical materialization requires exact source and downstream revisions"
+            )
+        if args.downstream.resolve() != run_root:
+            raise DumpResearchInfoAdapterError(
+                "Canonical materialization must run from the downstream dataset root"
+            )
+    else:
+        if args.output is None:
+            parser.error("--output is required unless --materialize is selected")
+        output = args.output.resolve()
+        if output == run_root or run_root not in output.parents:
+            raise DumpResearchInfoAdapterError(
+                "Standalone output must be a strict descendant of the DataLad run dataset"
+            )
     observed_source_commit = git_commit(args.source.resolve())
     if (
         args.expected_source_commit is not None
@@ -665,14 +1040,24 @@ def main(argv: Sequence[str] | None = None) -> int:
             "rev-parse",
             f"{args.downstream_revision}^{{commit}}",
         )
-    report = extract(
-        args.source,
-        args.downstream,
-        output,
-        source_directory=args.source_directory,
-        downstream_revision=args.downstream_revision,
-    )
-    print(json.dumps(report["summary"], indent=2, sort_keys=True))
+    if args.materialize:
+        result = materialize(
+            args.source,
+            args.downstream,
+            args.diagnostics,
+            source_directory=args.source_directory,
+            downstream_revision=args.downstream_revision,
+        )
+        print(json.dumps(result["summary"], indent=2, sort_keys=True))
+    else:
+        report = extract(
+            args.source,
+            args.downstream,
+            args.output,
+            source_directory=args.source_directory,
+            downstream_revision=args.downstream_revision,
+        )
+        print(json.dumps(report["summary"], indent=2, sort_keys=True))
     return 0
 
 
