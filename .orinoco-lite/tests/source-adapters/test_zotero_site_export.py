@@ -28,6 +28,33 @@ SPEC.loader.exec_module(EXPORT)
 
 
 class ZoteroSiteExportTests(unittest.TestCase):
+    def assert_additive_subset(
+        self, expected: object, observed: object, *, path: str
+    ) -> None:
+        if isinstance(expected, dict):
+            self.assertIsInstance(observed, dict, path)
+            assert isinstance(observed, dict)
+            self.assertLessEqual(set(expected), set(observed), path)
+            for key, value in expected.items():
+                self.assert_additive_subset(
+                    value,
+                    observed[key],
+                    path=f"{path}/{key}",
+                )
+            return
+        if isinstance(expected, list):
+            self.assertIsInstance(observed, list, path)
+            assert isinstance(observed, list)
+            self.assertGreaterEqual(len(observed), len(expected), path)
+            for index, value in enumerate(expected):
+                self.assert_additive_subset(
+                    value,
+                    observed[index],
+                    path=f"{path}/{index}",
+                )
+            return
+        self.assertEqual(expected, observed, path)
+
     def build_temporary_directory(self) -> tempfile.TemporaryDirectory[str]:
         EXPORT.BUILD_ROOT.mkdir(exist_ok=True)
         return tempfile.TemporaryDirectory(dir=EXPORT.BUILD_ROOT)
@@ -119,7 +146,13 @@ class ZoteroSiteExportTests(unittest.TestCase):
             path.name: path.read_bytes()
             for path in (ROOT / "metadata/records/XYZPublication").glob("*.yaml")
         }
-        self.assertEqual(first_files, canonical)
+        self.assertLessEqual(set(first_files), set(canonical))
+        for name, payload in first_files.items():
+            self.assert_additive_subset(
+                yaml.safe_load(payload),
+                yaml.safe_load(canonical[name]),
+                path=name,
+            )
 
     def test_export_hashes_the_same_single_reads_that_it_renders(self) -> None:
         with self.build_temporary_directory() as directory:

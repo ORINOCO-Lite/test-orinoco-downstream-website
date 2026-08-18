@@ -66,13 +66,13 @@ def write_fixture(root: Path) -> tuple[Path, Path]:
             [
                 {
                     "pid": "person:existing",
-                    "schema_type": "dlthings:Person",
+                    "schema_type": "xyzri:XYZPerson",
                     "name": "Existing Person",
                     "email": "new@example.invalid",
                 },
                 {
                     "pid": "person:source-only",
-                    "schema_type": "dlthings:Person",
+                    "schema_type": "xyzri:XYZPerson",
                     "name": "Source Only",
                     "associated_with": [{"object": "organization:missing"}],
                 },
@@ -86,7 +86,7 @@ def write_fixture(root: Path) -> tuple[Path, Path]:
             [
                 {
                     "pid": "publication:legacy",
-                    "schema_type": "dlthings:Publication",
+                    "schema_type": "xyzri:XYZPublication",
                     "title": "Publication",
                     "identifiers": [{"notation": "10.1000/example"}],
                 }
@@ -105,13 +105,13 @@ def write_fixture(root: Path) -> tuple[Path, Path]:
     (downstream / ".gitignore").write_text("build/\n", encoding="utf-8")
     (people / "existing.yaml").write_text(
         "pid: person:existing\n"
-        "schema_type: dlthings:Person\n"
+        "schema_type: xyzri:XYZPerson\n"
         "name: Existing Person\n",
         encoding="utf-8",
     )
     (publications / "publication.yaml").write_text(
         "pid: publication:current\n"
-        "schema_type: dlthings:Publication\n"
+        "schema_type: xyzri:XYZPublication\n"
         "title: Publication\n"
         "identifiers:\n"
         "  - notation: 10.1000/example\n",
@@ -121,16 +121,42 @@ def write_fixture(root: Path) -> tuple[Path, Path]:
     return source, downstream
 
 
+def metadata_snapshot(downstream: Path) -> dict[Path, bytes]:
+    root = downstream / "metadata/records"
+    return {
+        path.relative_to(root): path.read_bytes()
+        for path in root.rglob("*.yaml")
+    }
+
+
 class DumpResearchInfoAdapterTests(unittest.TestCase):
     def test_documented_provenance_boundary_is_direct_datalad_run(self) -> None:
         readme = (ROOT / "source-adapters/dump-research-info/README.md").read_text()
         manifest = (ROOT / "source-adapters/metadata/pixi.toml").read_text()
 
         self.assertIn("pixi run datalad run --explicit", readme)
-        self.assertIn('"./source-adapters/metadata/metadata-review \\\n', readme)
+        self.assertIn("(\n  set -eu", readme)
+        self.assertIn(
+            '"python source-adapters/dump-research-info/metadata_adapter.py \\\n',
+            readme,
+        )
+        self.assertIn("--materialize", readme)
+        self.assertIn("-o metadata/records", readme)
+        self.assertNotIn(
+            "-o source-adapters/dump-research-info/source/con-site-gap", readme
+        )
+        self.assertIn(
+            "SOURCE=../orinoco-lite-dev/submodules/dump-research-info", readme
+        )
+        self.assertIn("--source '$SOURCE'", readme)
+        self.assertNotIn("--source /", readme)
         self.assertNotIn("datalad-run-dump-research-info", readme)
         self.assertNotIn("datalad-run-dump-research-info", manifest)
+        self.assertNotIn("materialize-dump-research-info", manifest)
         self.assertNotIn("git-annex", manifest)
+        self.assertIn("downstream's committed root Pixi lock", readme)
+        self.assertNotIn("source-owned", readme)
+        self.assertNotIn("authoritative", readme)
 
     def test_extract_is_deterministic_and_reports_gap_without_promotion(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -180,6 +206,200 @@ class DumpResearchInfoAdapterTests(unittest.TestCase):
                     if path.is_file()
                 },
             )
+
+    def test_materialize_writes_transformed_source_yaml(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source, downstream = write_fixture(root)
+            source_path = source / "data/con_site/XYZPerson.json"
+            source_records = json.loads(source_path.read_text())
+            source_records[1]["associated_with"][0]["object"] = "person:existing"
+            source_path.write_text(
+                json.dumps(source_records) + "\n", encoding="utf-8"
+            )
+            diagnostics = downstream / "build/metadata-review/materialize"
+            existing_path = downstream / "metadata/records/XYZPerson/existing.yaml"
+            existing_path.write_text(
+                "pid: person:existing\n"
+                "schema_type: xyzri:XYZPerson\n"
+                "name: Stale Name\n"
+                "email: stale@example.invalid\n"
+                "downstream_only: remove me\n",
+                encoding="utf-8",
+            )
+
+            result = adapter.materialize(source, downstream, diagnostics)
+
+            self.assertEqual(
+                result["summary"],
+                {
+                    "added_records": 1,
+                    "updated_records": 2,
+                    "unchanged_records": 0,
+                    "written_records": 3,
+                },
+            )
+            added = downstream / "metadata/records/XYZPerson/person-source-only.yaml"
+            self.assertEqual(
+                adapter.yaml.safe_load(added.read_text()),
+                {
+                    "pid": "person:source-only",
+                    "schema_type": "xyzri:XYZPerson",
+                    "name": "Source Only",
+                    "associated_with": [{"object": "person:existing"}],
+                },
+            )
+            existing = adapter.yaml.safe_load(existing_path.read_text())
+            self.assertEqual(
+                existing,
+                {
+                    "pid": "person:existing",
+                    "schema_type": "xyzri:XYZPerson",
+                    "name": "Existing Person",
+                    "email": "new@example.invalid",
+                },
+            )
+            self.assertEqual(
+                result["updated"],
+                [
+                    {
+                        "path": "metadata/records/XYZPerson/existing.yaml",
+                        "changed_value_paths": [
+                            "/downstream_only",
+                            "/email",
+                            "/name",
+                        ],
+                    },
+                    {
+                        "path": "metadata/records/XYZPublication/publication.yaml",
+                        "changed_value_paths": ["/identifiers"],
+                    },
+                ],
+            )
+            self.assertTrue((diagnostics / "materialization.json").is_file())
+
+            repeated = adapter.materialize(source, downstream, diagnostics)
+            self.assertEqual(
+                repeated["summary"],
+                {
+                    "added_records": 0,
+                    "updated_records": 0,
+                    "unchanged_records": 3,
+                    "written_records": 0,
+                },
+            )
+
+    def test_materialize_preserves_unresolved_relations_for_review(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source, downstream = write_fixture(root)
+            diagnostics = downstream / "build/metadata-review/materialize"
+
+            result = adapter.materialize(source, downstream, diagnostics)
+
+            added = adapter.yaml.safe_load(
+                (
+                    downstream
+                    / "metadata/records/XYZPerson/person-source-only.yaml"
+                ).read_text()
+            )
+            self.assertEqual(
+                added["associated_with"],
+                [
+                    {
+                        "object": "organization:missing",
+                    }
+                ],
+            )
+            self.assertNotIn("skipped_unresolved_values", result)
+            self.assertTrue((diagnostics / "materialization.json").is_file())
+
+    def test_materialize_rejects_two_sources_for_one_final_pid(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source, downstream = write_fixture(root)
+            source_path = source / "data/con_site/XYZPerson.json"
+            source_records = json.loads(source_path.read_text())
+            source_records[1]["identifiers"] = [{"notation": "person:existing"}]
+            source_path.write_text(
+                json.dumps(source_records) + "\n", encoding="utf-8"
+            )
+            before = metadata_snapshot(downstream)
+
+            with self.assertRaisesRegex(
+                adapter.DumpResearchInfoAdapterError,
+                "same final PID person:existing",
+            ):
+                adapter.materialize(
+                    source,
+                    downstream,
+                    downstream / "build/metadata-review/materialize",
+                )
+
+            self.assertEqual(metadata_snapshot(downstream), before)
+
+    def test_materialize_rejects_two_sources_for_one_final_path(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source, downstream = write_fixture(root)
+            source_path = source / "data/con_site/XYZPerson.json"
+            source_records = json.loads(source_path.read_text())
+            source_records.append(
+                {
+                    "pid": "person/source-only",
+                    "schema_type": "xyzri:XYZPerson",
+                    "name": "Colliding Source",
+                }
+            )
+            source_path.write_text(
+                json.dumps(source_records) + "\n", encoding="utf-8"
+            )
+            before = metadata_snapshot(downstream)
+
+            with self.assertRaisesRegex(
+                adapter.DumpResearchInfoAdapterError,
+                "same final path",
+            ):
+                adapter.materialize(
+                    source,
+                    downstream,
+                    downstream / "build/metadata-review/materialize",
+                )
+
+            self.assertEqual(metadata_snapshot(downstream), before)
+
+    def test_materialize_rejects_exact_pid_in_another_class(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source, downstream = write_fixture(root)
+            source_path = source / "data/con_site/XYZPerson.json"
+            source_records = json.loads(source_path.read_text())
+            source_records[0]["pid"] = "publication:current"
+            source_path.write_text(
+                json.dumps(source_records) + "\n", encoding="utf-8"
+            )
+            before = metadata_snapshot(downstream)
+
+            with self.assertRaisesRegex(
+                adapter.DumpResearchInfoAdapterError,
+                "exact downstream PID is in XYZPublication",
+            ):
+                adapter.materialize(
+                    source,
+                    downstream,
+                    downstream / "build/metadata-review/materialize",
+                )
+
+            self.assertEqual(metadata_snapshot(downstream), before)
+
+    def test_change_paths_reports_additions_replacements_and_removals(self) -> None:
+        self.assertEqual(
+            adapter.change_paths(
+                {"keep": 1, "replace": "old", "remove": True},
+                {"keep": 1, "replace": "new", "add": True},
+            ),
+            ["/add", "/remove", "/replace"],
+        )
 
     def test_host_selection_stages_only_review_evidence(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -258,7 +478,7 @@ class DumpResearchInfoAdapterTests(unittest.TestCase):
             outside = root.parent / "outside-adapter-output"
             old_cwd = Path.cwd()
             try:
-                # The standalone contract refuses an output not owned by the
+                # The standalone contract refuses an output outside the
                 # current DataLad run dataset before touching that path.
                 os.chdir(root)
                 with self.assertRaisesRegex(
