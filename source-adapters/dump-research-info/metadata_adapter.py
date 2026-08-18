@@ -927,7 +927,12 @@ def review(context: Mapping[str, object]) -> dict[str, object]:
             "A DataLad-provided checkout is required via "
             "--source-input dump-research-info=/path/to/dump-research-info"
         )
-    source_checkout = Path(source_input).expanduser().resolve()
+    source_path = Path(source_input).expanduser()
+    source_checkout = (
+        source_path.resolve()
+        if source_path.is_absolute()
+        else (root / source_path).resolve()
+    )
     if not source_checkout.is_dir() or source_checkout.is_symlink():
         raise DumpResearchInfoAdapterError(
             f"Source input is not an ordinary checkout directory: {source_checkout}"
