@@ -407,6 +407,7 @@ jobs:
           )
           values = {
               "actor": actor["login"],
+              "actor_id": actor["id"],
               "base_sha": pull["base"]["sha"],
               "comment_created_at": event["comment"]["created_at"],
               "head_ref": pull["head"]["ref"],
@@ -608,8 +609,16 @@ jobs:
               "curation-decisions.yaml",
           )
           cache = PurePosixPath(result.get("cache_path", ""))
+          source_coordinate = result.get("source_coordinate")
           if cache != expected:
               raise SystemExit("helper returned an unexpected decision-cache path")
+          if (
+              not isinstance(source_coordinate, str)
+              or not source_coordinate
+              or "\n" in source_coordinate
+              or "\r" in source_coordinate
+          ):
+              raise SystemExit("helper returned an invalid source coordinate")
           if not Path(os.environ["GITHUB_WORKSPACE"], "review", cache).is_file():
               raise SystemExit("trusted helper did not write the decision cache")
           with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
@@ -618,6 +627,7 @@ jobs:
               stream.write(f"deferred={counts[2]}\n")
               stream.write(f"count={result['count']}\n")
               stream.write(f"cache_path={cache.as_posix()}\n")
+              stream.write(f"source_coordinate={source_coordinate}\n")
           PY
 
       - name: Validate the reconciled metadata with the locked runtime
@@ -691,7 +701,13 @@ jobs:
       - name: Commit the decisions and reconciled metadata
         if: steps.command.outputs.submit == 'true'
         env:
+          ACTOR: ${{ steps.pull.outputs.actor }}
+          ACTOR_ID: ${{ steps.pull.outputs.actor_id }}
+          ADAPTER: ${{ steps.form.outputs.adapter }}
           CACHE_PATH: ${{ steps.apply.outputs.cache_path }}
+          REVIEWED_AT: ${{ steps.pull.outputs.comment_created_at }}
+          REVIEW_URL: ${{ steps.pull.outputs.pr_url }}
+          SOURCE_COORDINATE: ${{ steps.apply.outputs.source_coordinate }}
         run: |
           git -C review config user.name github-actions[bot]
           git -C review config user.email \
@@ -701,8 +717,30 @@ jobs:
             echo "completed review produced no commit" >&2
             exit 1
           }
-          git -C review commit \
-            -m "chore(curation): record reviewed source metadata"
+          python - "$RUNNER_TEMP/curation-commit.txt" <<'PY'
+          import os
+          from pathlib import Path
+          import sys
+
+          values = {
+              "Curation-Adapter": os.environ["ADAPTER"],
+              "Curation-Source": os.environ["SOURCE_COORDINATE"],
+              "Curation-Review": os.environ["REVIEW_URL"],
+              "Curation-Reviewed-At": os.environ["REVIEWED_AT"],
+          }
+          if any(
+              not value or "\n" in value or "\r" in value
+              for value in values.values()
+          ):
+              raise SystemExit("curation commit trailer value is invalid")
+          message = "chore(curation): record reviewed source metadata\n\n"
+          message += "".join(f"{key}: {value}\n" for key, value in values.items())
+          Path(sys.argv[1]).write_text(message, encoding="utf-8")
+          PY
+          author="${ACTOR} <${ACTOR_ID}+${ACTOR}@users.noreply.github.com>"
+          GIT_AUTHOR_DATE="$REVIEWED_AT" git -C review commit \
+            --author="$author" \
+            --file="$RUNNER_TEMP/curation-commit.txt"
 
       - name: Push the review commit with an exact head lease
         if: steps.command.outputs.submit == 'true'

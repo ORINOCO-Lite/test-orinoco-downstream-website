@@ -93,8 +93,11 @@ The reviewed commit follows the German upstream's author/committer distinction
 without introducing another audit store. The authenticated reviewer is the Git
 author and `github-actions[bot]` is the committer. Standard commit trailers
 record the adapter, exact source coordinate, review URL, and review time.
-Together with one YAML path per record, ordinary path-scoped Git history is the
-append-only per-record audit. No generated audit report is tracked.
+Ordinary Git history records each YAML version, while the PID-keyed cache links
+every human disposition to its reviewed commit. Their histories together form
+the append-only per-record audit. An accepted record is not rewritten merely
+to make its path appear in the later review commit. No generated audit report
+is tracked.
 
 Accepted records carry semantic source provenance from the adapter. Every
 imported record has expanded PAV `importedFrom` and `importedBy` annotations.
