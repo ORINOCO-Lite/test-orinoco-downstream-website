@@ -2,13 +2,17 @@ from __future__ import annotations
 
 from copy import deepcopy
 from dataclasses import replace
+from datetime import date
 import importlib.metadata
+import importlib.util
 import json
 import os
 from pathlib import Path
 import shutil
+import sys
 import tempfile
 import unittest
+from unittest import mock
 
 import yaml
 
@@ -36,6 +40,25 @@ EXPECTED_PROJECTION = {
     "graph_nodes": 186,
     "graph_edges": 467,
 }
+
+
+def load_local_module(name: str, path: Path):
+    specification = importlib.util.spec_from_file_location(name, path)
+    assert specification is not None and specification.loader is not None
+    module = importlib.util.module_from_spec(specification)
+    sys.modules[name] = module
+    specification.loader.exec_module(module)
+    return module
+
+
+CURATION_CORE = load_local_module(
+    "orinoco_pav_curation_core_acceptance",
+    ROOT / "source-adapters/metadata/tools/curation_prototype_v1.py",
+)
+CURATION_CLI = load_local_module(
+    "orinoco_pav_curation_cli_acceptance",
+    ROOT / "source-adapters/metadata/tools/curation_cli_prototype_v1.py",
+)
 
 try:
     from rdflib import Graph, URIRef
@@ -348,6 +371,153 @@ class PavAcceptanceTests(unittest.TestCase):
             self.assertEqual(len(graph["edges"]), 467)
             public = b"".join(file_bytes(first / "content").values())
             public += (first / "static/graph.json").read_bytes()
+            for marker in (
+                b"pav:importedBy",
+                b"pav:importedFrom",
+                IMPORTED_BY.encode(),
+                IMPORTED_FROM.encode(),
+            ):
+                with self.subTest(marker=marker):
+                    self.assertNotIn(marker, public)
+
+    def test_guarded_reconciliation_preserves_pav_through_locked_outputs(
+        self,
+    ) -> None:
+        build = ROOT / "build"
+        build.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(
+            prefix="pav-reconciliation-",
+            dir=build,
+        ) as temporary:
+            consumer = Path(temporary)
+            shutil.copy2(ROOT / "orinoco.yaml", consumer / "orinoco.yaml")
+            shutil.copy2(ROOT / "orinoco.lock", consumer / "orinoco.lock")
+            shutil.copytree(ROOT / "site", consumer / "site")
+            records = consumer / "metadata/records"
+            shutil.copytree(ROOT / "metadata/records", records)
+
+            relative = "XYZPublication/datalad-joss-2021.yaml"
+            record_path = records / relative
+            baseline_record = yaml.safe_load(record_path.read_text(encoding="utf-8"))
+            proposed_record = deepcopy(baseline_record)
+            proposed_record["annotations"] = deepcopy(PAV)
+            candidate = CURATION_CORE.make_candidate(
+                adapter_id="zotero",
+                source_namespace="fixture:pav-guarded-reconciliation",
+                source_record_id="item:PAVGUARD",
+                claim_kind="record-import",
+                material={"source_record": proposed_record},
+                relevant_policy={"prototype_version": 1},
+                proposed_path=relative,
+                proposed_record=proposed_record,
+                baseline_record=baseline_record,
+            )
+            inventory = CURATION_CORE.build_inventory(
+                "zotero",
+                [candidate],
+                context=CURATION_CORE.EvaluationContext(
+                    as_of=date(2026, 8, 18),
+                ),
+                inputs={
+                    "source": {
+                        "kind": "synthetic-pav-acceptance",
+                        "revision": "sha256:" + "1" * 64,
+                    },
+                    "policy": {"coordinate": "synthetic-pav-policy-v1"},
+                },
+            )
+            inventory_path = (
+                consumer / "source-adapters/zotero/transactions/pav-inventory.yaml"
+            )
+            decisions_path = (
+                consumer / "source-adapters/zotero/policy/pav-decisions.yaml"
+            )
+            CURATION_CORE.write_inventory(
+                inventory_path,
+                inventory,
+                decisions_path=decisions_path,
+            )
+            event = CURATION_CLI.render_decision(
+                CURATION_CORE,
+                candidate,
+                supersedes_decision_id=None,
+                disposition="accept",
+                reviewer="synthetic-reviewer@example.invalid",
+                decided_on=date(2026, 8, 18),
+                rationale="Accept the synthetic PAV end-to-end acceptance change.",
+                evidence=("synthetic:locked-pav-reconciliation",),
+            )
+            decisions_path.parent.mkdir(parents=True, exist_ok=True)
+            decisions_path.write_text(
+                yaml.safe_dump(
+                    {
+                        "format": CURATION_CORE.DECISIONS_FORMAT,
+                        "decisions": [event],
+                        "transactions": [
+                            {
+                                "inventory_id": inventory["inventory_id"],
+                                "decision_ids": [event["decision_id"]],
+                            }
+                        ],
+                    },
+                    sort_keys=False,
+                ),
+                encoding="utf-8",
+            )
+            report_path = "source-adapters/zotero/transactions/pav-reconciliation.yaml"
+            with mock.patch.dict(
+                os.environ,
+                {"ORINOCO_RUNTIME_ROOT": str(self.runtime)},
+            ):
+                validator = CURATION_CLI.locked_staged_validator(
+                    consumer,
+                    CURATION_CORE,
+                )
+                report = CURATION_CLI.reconcile(
+                    consumer,
+                    adapter="zotero",
+                    inventory_path=inventory_path,
+                    decisions_path=decisions_path,
+                    report_path=report_path,
+                    validate_staged=validator,
+                    core=CURATION_CORE,
+                )
+
+            self.assertTrue(report["changed"])
+            self.assertEqual(report["inventory_id"], inventory["inventory_id"])
+            reconciled = yaml.safe_load(record_path.read_text(encoding="utf-8"))
+            self.assertEqual(reconciled["annotations"], PAV)
+
+            first_ttl = self.to_ttl.convert(reconciled, "XYZPublication")
+            restored = self.to_json.convert(first_ttl, "XYZPublication")
+            second_ttl = self.to_ttl.convert(restored, "XYZPublication")
+            self.assertEqual(restored["annotations"], PAV)
+            self.assertTrue(
+                isomorphic(
+                    Graph().parse(data=first_ttl, format="turtle"),
+                    Graph().parse(data=second_ttl, format="turtle"),
+                )
+            )
+
+            projection = consumer / "projection"
+            projection_report = render_projection(
+                self.workspace_for_records(records),
+                self.runtime,
+                projection,
+            )
+            self.assertEqual(projection_report, EXPECTED_PROJECTION)
+            projected = [
+                json.loads(line)
+                for line in (projection / "records.jsonl")
+                .read_text(encoding="utf-8")
+                .splitlines()
+                if json.loads(line).get("pid") == reconciled["pid"]
+            ]
+            self.assertEqual(len(projected), 1)
+            self.assertEqual(projected[0]["annotations"], PAV)
+
+            public = b"".join(file_bytes(projection / "content").values())
+            public += (projection / "static/graph.json").read_bytes()
             for marker in (
                 b"pav:importedBy",
                 b"pav:importedFrom",
