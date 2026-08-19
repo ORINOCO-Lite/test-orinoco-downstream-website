@@ -171,6 +171,20 @@ def _provider_output_path(root: Path, adapter_id: str, value: str | Path) -> Pat
     return path
 
 
+def _prepare_provider_output(root: Path, path: Path) -> None:
+    """Create the validated scratch directory before invoking a provider."""
+
+    try:
+        path.mkdir(parents=True, exist_ok=True)
+    except OSError as error:
+        raise CurationCliError(
+            f"Cannot create provider output directory: {path}"
+        ) from error
+    _reject_symlinks(root, path, label="provider output")
+    if not path.is_dir():
+        raise CurationCliError(f"provider output is not a directory: {path}")
+
+
 def _records_root(
     root: Path,
     *,
@@ -464,6 +478,7 @@ def propose(
         as_of=as_of,
         resolved_policy_questions=resolved_policy_questions,
     )
+    _prepare_provider_output(root, output)
     result = _provider_result(
         provider,
         adapter_id=adapter_id,

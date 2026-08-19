@@ -162,6 +162,39 @@ def reviewed_fixture(
 
 
 class CurationCliPrototypeTests(unittest.TestCase):
+    def test_propose_prepares_a_fresh_provider_output_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            (root / "metadata/records").mkdir(parents=True)
+            value = candidate("zotero")
+            output = root / "build/curation/zotero/fresh-run"
+
+            def build_candidates(_root, output_arg, **_kwargs):
+                self.assertEqual(output_arg, output)
+                self.assertTrue(output_arg.is_dir())
+                return {
+                    "adapter_id": "zotero",
+                    "source": {"kind": "frozen-fixture", "revision": "exact"},
+                    "policy": {"version": 1},
+                    "implementation": {"provider_sha256": "a" * 64},
+                    "candidates": [value],
+                }
+
+            self.assertFalse(output.exists())
+            CLI.propose(
+                root,
+                adapter="zotero",
+                inventory_path=(
+                    "source-adapters/zotero/transactions/fresh-output.yaml"
+                ),
+                provider_output="build/curation/zotero/fresh-run",
+                as_of=date(2026, 8, 18),
+                expected_library_version=739,
+                core=CORE,
+                provider=SimpleNamespace(build_candidates=build_candidates),
+            )
+            self.assertTrue(output.is_dir())
+
     def test_propose_for_each_provider_preserves_decisions_and_records_inputs(
         self,
     ) -> None:
