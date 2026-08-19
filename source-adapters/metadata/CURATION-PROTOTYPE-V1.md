@@ -51,7 +51,6 @@ pixi run python \
   --adapter zotero \
   --inventory \
     source-adapters/zotero/transactions/zotero-v451-2026-08-18.yaml \
-  --decisions source-adapters/zotero/policy/curation-decisions.yaml \
   --provider-output build/curation/zotero/v451-2026-08-18 \
   --as-of 2026-08-18 \
   --expected-library-version 451
@@ -65,8 +64,6 @@ pixi run python \
   --adapter dump-research-info \
   --inventory \
     source-adapters/dump-research-info/transactions/dump-062da59.yaml \
-  --decisions \
-    source-adapters/dump-research-info/policy/curation-decisions.yaml \
   --provider-output build/curation/dump-research-info/062da59 \
   --as-of 2026-08-18 \
   --source-path ../dump-research-info \
@@ -110,7 +107,6 @@ pixi run datalad run --explicit --sidecar yes \
     --adapter zotero \
     --inventory \
       source-adapters/zotero/transactions/zotero-v451-2026-08-18.yaml \
-    --decisions source-adapters/zotero/policy/curation-decisions.yaml \
     --provider-output build/curation/zotero/v451-2026-08-18 \
     --as-of 2026-08-18 \
     --expected-library-version 451"
@@ -129,17 +125,18 @@ pixi run python \
   --adapter zotero \
   --inventory \
     source-adapters/zotero/transactions/zotero-v451-2026-08-18.yaml \
-  --candidate-id curation-candidate-v1:<64-hex-digest> \
+  --candidate-id \
+    "curation-candidate-v1:REPLACE_WITH_64_HEX_DIGEST" \
   --disposition reject \
-  --reviewer <reviewed-identity> \
+  --reviewer "REPLACE_WITH_REVIEWED_IDENTITY" \
   --decided-on 2026-08-18 \
-  --rationale "<reviewed rationale>" \
-  --evidence "<reviewed evidence reference>"
+  --rationale "REPLACE_WITH_REVIEWED_RATIONALE" \
+  --evidence "REPLACE_WITH_REVIEWED_EVIDENCE_REFERENCE"
 ```
 
 For a later event on the same claim, pass the current event with
 `--supersedes-decision-id`.
-Conditional dispositions require exactly one YAML detail:
+Conditional dispositions require one `--details-yaml '<mapping>'` argument:
 
 - link: `{target_record_id: <canonical-pid>}`;
 - defer: `{return_when: {kind: material-change}}`,
@@ -236,7 +233,7 @@ pixi run python \
   recover-report-reservation \
   --adapter zotero \
   --report source-adapters/zotero/transactions/zotero-v451-reconciled.yaml \
-  --token <32-lower-case-hex-token>
+  --token REPLACE_WITH_32_LOWERCASE_HEX_TOKEN
 ```
 
 Recovery holds the same canonical lock and compares exact before/after digests
