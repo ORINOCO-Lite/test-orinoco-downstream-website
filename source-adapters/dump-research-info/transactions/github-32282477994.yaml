@@ -1,0 +1,4214 @@
+format: orinoco-lite-candidate-inventory-prototype-v1
+adapter_id: dump-research-info
+inputs:
+  evaluation_context:
+    as_of: '2026-08-19'
+    resolved_policy_questions: []
+  implementation:
+    agent: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    provider_sha256: c2050b329a5d80e20e3d34561b705b1e53606b746599725248435edf14cf9634
+    transformer_sha256: 3a2058057e0793e90d555a8789e179a4f7db7b67dcca334afa829c3260ba8370
+  policy:
+    canonical_path_policy: metadata-adapter-record-stem-v1
+    identity_policy: exact-pid-or-reviewed-identifier-v1
+    prototype_version: 1
+    source_directory: data/con_site
+    unresolved_relation_policy: preserve-and-block-v1
+  source:
+    commit: 397b56080d14aeb94592f308b2f0bf325a298c13
+    kind: exact-clean-git-checkout
+    path: build/curation/sources/dump-research-info
+    source_directory: data/con_site
+    tree: ce2435465c246a7b7da620f8fc5511cba11dd531
+inventory_id: curation-inventory-v1:bdc1b9e85183940249be318d24fd6be7dbc350f96a59e308bc4f1027ea9030ad
+candidates:
+- candidate_id: curation-candidate-v1:01f6e746eacc4b24ab5fb1ff80e1bcb0ed0c67997c7e9e673f57e5d7d1d716d2
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZGrant:xyzrins:grants/nih-openneuro
+  claim_kind: record-import
+  material_fingerprint: sha256:cf9655d1d58816bb3380ba128805e3c7b18372a63f45027a79fe8e3f0a5208fc
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZGrant/nih-openneuro.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-openneuro
+    attributed_to:
+    - object: xyzrins:persons/russell-poldrack
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:rtm
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://reporter.nih.gov/search/x2x2x2x2x2/project-details/5R24MH117179-07
+    description: NIH grant supporting the OpenNeuro neuroimaging data archive.
+    display_label: NIH OpenNeuro Grant
+    identifiers:
+    - notation: 5R24MH117179-07
+      schema_type: dlthings:Identifier
+    pid: xyzrins:grants/nih-openneuro
+    schema_type: xyzri:XYZGrant
+    short_name: NIH 5R24MH117179-07
+    title: OpenNeuro
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:0220e92336449ec66a1e98cca8103f880b3ae5b763323b83a2f08521f0196298
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.1002/hbm.25351
+  claim_kind: record-import
+  material_fingerprint: sha256:c7faa17a1aa131c2bcf3ecbef9c2cc1be51f0c7b62b14ad7f81858b619012879
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-1002-hbm-25351.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.1002%2Fhbm.25351
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    display_label: Open Brain Consent 2021
+    identifiers:
+    - notation: 10.1002/hbm.25351
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.1002/hbm.25351
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-1002-hbm-25351
+    schema_type: xyzri:XYZPublication
+    title: 'The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data'
+  baseline_record:
+    attributed_to:
+    - object: xyzrins:persons/satrajit-ghosh
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: dcterms:issued
+      schema_type: dlthings:AttributeSpecification
+      value: 2021-02
+    display_label: 'The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data'
+    identifiers:
+    - notation: 10.1002/hbm.25351
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.1002/hbm.25351
+      schema_type: dlthings:Identifier
+    - notation: zotero:group:6197458:item:245NKVXU
+      schema_type: dlthings:Identifier
+    kind: bibo:AcademicArticle
+    pid: xyzrins:publications/doi-10-1002-hbm-25351
+    schema_type: xyzri:XYZPublication
+    title: 'The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data'
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:06db057703716ee9d8ee5a34f37d61473f3cd2e3465326bb306d6d437df0fb4c
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/jeremy-manning
+  claim_kind: record-import
+  material_fingerprint: sha256:a4c3b5617fc0a628f2d76aa72726d9dc45fe16d3793a8596a09f395131f2a422
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/jeremy-manning.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    additional_names:
+    - Rothman
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjeremy-manning
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jeremy.r.manning@dartmouth.edu
+    description: Associate Professor of Psychological and Brain Sciences at Dartmouth College. Director of the Contextual Dynamics Lab.
+    display_label: Jeremy R. Manning
+    family_name: Manning
+    formatted_name: Jeremy Rothman Manning
+    given_name: Jeremy
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: jeremymanning
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/jeremy-manning
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    additional_names:
+    - Rothman
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jeremy.r.manning@dartmouth.edu
+    description: Associate Professor of Psychological and Brain Sciences at Dartmouth College. Director of the Contextual Dynamics Lab.
+    display_label: Jeremy R. Manning
+    family_name: Manning
+    formatted_name: Jeremy Rothman Manning
+    given_name: Jeremy
+    identifiers:
+    - notation: jeremymanning
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/jeremy-manning
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:06f21768071bba8a8a0128c21d237f7a4f2491df61c452f58b5f7e73e9b68c6d
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/horea-ioanas
+  claim_kind: record-import
+  material_fingerprint: sha256:e2c7ad3f008c4f97c394b5b9bb88a8c0530f0d55ec2188d50ca6b28e4fa23bd8
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/horea-ioanas.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fhorea-ioanas
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: chr@chymera.eu
+    description: Emeritus Research Scientist at the Center for Open Neuroscience. DANDI contributor. Skilled in Python, neuroimaging, and psychopharmacology.
+    display_label: Horea-Ioan Ioanas
+    family_name: Ioanas
+    formatted_name: Horea-Ioan Ioanas
+    given_name: Horea-Ioan
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: TheChymera
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/horea-ioanas
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: chr@chymera.eu
+    description: Emeritus Research Scientist at the Center for Open Neuroscience. DANDI contributor. Skilled in Python, neuroimaging, and psychopharmacology.
+    display_label: Horea-Ioan Ioanas
+    family_name: Ioanas
+    formatted_name: Horea-Ioan Ioanas
+    given_name: Horea-Ioan
+    identifiers:
+    - notation: TheChymera
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/horea-ioanas
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:0a55f1755f6b09c8221ae6048b571dfd5fa7b3fff3f44bbaf64a70e4db0a1219
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/john-wodder
+  claim_kind: record-import
+  material_fingerprint: sha256:ec6be757d3cb9b312398ef854f640ef9e285ed3280595ea443aa8a0dd647e154
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/john-wodder.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjohn-wodder
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jwodder@gmail.com
+    description: Emeritus Software Developer at the Center for Open Neuroscience. DANDI client developer. Skilled in Python, Rust, DevOps, testing, packaging, type-hinting, and CI.
+    display_label: John Wodder
+    family_name: Wodder
+    formatted_name: John Wodder
+    given_name: John
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: jwodder
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/john-wodder
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jwodder@gmail.com
+    description: Emeritus Software Developer at the Center for Open Neuroscience. DANDI client developer. Skilled in Python, Rust, DevOps, testing, packaging, type-hinting, and CI.
+    display_label: John Wodder
+    family_name: Wodder
+    formatted_name: John Wodder
+    given_name: John
+    identifiers:
+    - notation: jwodder
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/john-wodder
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:0b3e3c34768145c359f3ca075ce218c06940eb85e2cc8360eaf828bf2d45e433
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:ror:01pxwe438
+  claim_kind: record-import
+  material_fingerprint: sha256:3a5c395dc9613195a80cf16ab79ffbae301e931a4361d64d7bdce16c40f6f610
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/ror-01pxwe438.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A01pxwe438
+    display_label: McGill University
+    name: McGill University
+    pid: ror:01pxwe438
+    schema_type: xyzri:XYZOrganization
+  baseline_record: null
+  blockers: []
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:0e0b7fec2338fbaff306d1c9460d01ccc8c244964320467b7d8fd3160198f626
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/luke-chang
+  claim_kind: record-import
+  material_fingerprint: sha256:6482dfba4711a5ecec0570340500272f4676d97478f282a224c6fb1c5b2d0c01
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/luke-chang.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fluke-chang
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: luke.j.chang@dartmouth.edu
+    description: Associate Professor of Psychological and Brain Sciences at Dartmouth College. Director of the Computational Social and Affective Neuroscience Lab. Develops tools studying computational processes underlying emotions, social interactions, and neurobiological substrates.
+    display_label: Luke Chang
+    family_name: Chang
+    formatted_name: Luke Chang
+    given_name: Luke
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: ljchang
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/luke-chang
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: luke.j.chang@dartmouth.edu
+    description: Associate Professor of Psychological and Brain Sciences at Dartmouth College. Director of the Computational Social and Affective Neuroscience Lab. Develops tools studying computational processes underlying emotions, social interactions, and neurobiological substrates.
+    display_label: Luke Chang
+    family_name: Chang
+    formatted_name: Luke Chang
+    given_name: Luke
+    identifiers:
+    - notation: ljchang
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/luke-chang
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:103fb23094258542c84a62da6b0e13841dbcefd20e8901d11ed2eb1e329272f0
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/david-kennedy
+  claim_kind: record-import
+  material_fingerprint: sha256:909a352b0297792cd76d7013ad87c5499f4abb797e4bbc184ed9e931e190d4df
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/david-kennedy.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    additional_names:
+    - N.
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fdavid-kennedy
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: dnkennedy@umassmed.edu
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with UMass Chan Medical School. The master-mind of the ReproNim project.
+    display_label: David N. Kennedy
+    family_name: Kennedy
+    formatted_name: David N. Kennedy
+    given_name: David
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: dnkennedy
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/david-kennedy
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    additional_names:
+    - N.
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: dnkennedy@umassmed.edu
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with UMass Chan Medical School. The master-mind of the ReproNim project.
+    display_label: David N. Kennedy
+    family_name: Kennedy
+    formatted_name: David N. Kennedy
+    given_name: David
+    identifiers:
+    - notation: dnkennedy
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/david-kennedy
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:1358057923f64d2091b2a529b710aa5764bc48e6ed977e8f32b406b9d6f58f61
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/jean-baptiste-poline
+  claim_kind: record-import
+  material_fingerprint: sha256:6eab4ca6ed62d5f8f30e733b903f88d49e66e8ca221514a3d9350cd26eae52b4
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/jean-baptiste-poline.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjean-baptiste-poline
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jbpoline@mcgill.ca
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with McGill University, Canada.
+    display_label: Jean-Baptiste Poline
+    family_name: Poline
+    formatted_name: Jean-Baptiste Poline
+    given_name: Jean-Baptiste
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: jbpoline
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/jean-baptiste-poline
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jbpoline@mcgill.ca
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with McGill University, Canada.
+    display_label: Jean-Baptiste Poline
+    family_name: Poline
+    formatted_name: Jean-Baptiste Poline
+    given_name: Jean-Baptiste
+    identifiers:
+    - notation: jbpoline
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/jean-baptiste-poline
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:146a178dcca2dc4127c244bc9cbeaf4f4733748774ee6185063bcc235e852795
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/vadim-melnik
+  claim_kind: record-import
+  material_fingerprint: sha256:bb9d33e7081bd41e7423251647342d26a76d5718f49b8b675f0559387cd89861
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/vadim-melnik.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fvadim-melnik
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: vmelnik@docsultant.com
+    description: Software Engineer and Consultant at the Center for Open Neuroscience. Working on ReproStim, ReproMon, con/noisseur, and event collection/timing projects.
+    display_label: Vadim Melnik
+    family_name: Melnik
+    formatted_name: Vadim Melnik
+    given_name: Vadim
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: vmdocua
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/vadim-melnik
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: vmelnik@docsultant.com
+    description: Software Engineer and Consultant at the Center for Open Neuroscience. Working on ReproStim, ReproMon, con/noisseur, and event collection/timing projects.
+    display_label: Vadim Melnik
+    family_name: Melnik
+    formatted_name: Vadim Melnik
+    given_name: Vadim
+    identifiers:
+    - notation: vmdocua
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/vadim-melnik
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:25bc5c4fd7476bf08a8191b2e648068be13111e96fd8833825243dae0b129195
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/supereeg
+  claim_kind: record-import
+  material_fingerprint: sha256:89ae155ffcd124b1f1676b8e4675523dcc5d91ce320028aa931efac81f875dc8
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/supereeg.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fsupereeg
+    associated_with:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://supereeg.readthedocs.io/en/latest/
+    description: Python toolbox for inferring whole-brain activity from sparse ECoG recordings. Leverages multi-patient brain data to learn correlation models and uses Gaussian process regression for activity inference.
+    display_label: SuperEEG
+    pid: xyzrins:projects/supereeg
+    schema_type: xyzri:XYZProject
+    short_name: SuperEEG
+    title: SuperEEG
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://supereeg.readthedocs.io/en/latest/
+    description: Python toolbox for inferring whole-brain activity from sparse ECoG recordings. Leverages multi-patient brain data to learn correlation models and uses Gaussian process regression for activity inference.
+    display_label: SuperEEG
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/supereeg
+    schema_type: xyzri:XYZProject
+    short_name: SuperEEG
+    title: SuperEEG
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:2682fb3a3a075be701f162447931171233ce13b48cbc16c17492de84c55d9132
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/isaac-to
+  claim_kind: record-import
+  material_fingerprint: sha256:fa65ec092ff3e6c0e1e57e9fab17a9023bea51b187f10ad2971cad5d228217ed
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/isaac-to.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fisaac-to
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: Isaac.C.To@dartmouth.edu
+    description: Software Developer at the Center for Open Neuroscience. Python and open-source enthusiast. Works on DataLad-Registry and DANDI metadata-related initiatives.
+    display_label: Isaac To
+    family_name: To
+    formatted_name: Isaac To
+    given_name: Isaac
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: candleindark
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/isaac-to
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: Isaac.C.To@dartmouth.edu
+    description: Software Developer at the Center for Open Neuroscience. Python and open-source enthusiast. Works on DataLad-Registry and DANDI metadata-related initiatives.
+    display_label: Isaac To
+    family_name: To
+    formatted_name: Isaac To
+    given_name: Isaac
+    identifiers:
+    - notation: candleindark
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/isaac-to
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:2759ff284c5f3a571fb8c869ed529a9fc99317b23b16706f03b60aa897639cb8
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/yaroslav-halchenko
+  claim_kind: record-import
+  material_fingerprint: sha256:a9ef568cfae58cbbe54487c915609d30fff770f587a4e9506e659b8d552f6504
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/yaroslav-halchenko.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    additional_names:
+    - O.
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fyaroslav-halchenko
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: yaroslav.o.halchenko@oneukrainian.com
+    description: Founding Director of the Center for Open Neuroscience. Research Professor of Psychological and Brain Sciences and Adjunct Professor of Computer Science at Dartmouth College. Official Debian Developer and open source contributor leading DANDI, DataLad, PyMVPA, and NeuroDebian projects. Serves on BIDS and NWB technical advisory committees.
+    display_label: Yaroslav O. Halchenko
+    family_name: Halchenko
+    formatted_name: Yaroslav O. Halchenko
+    given_name: Yaroslav
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: yarikoptic
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/yaroslav-halchenko
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    additional_names:
+    - O.
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: yaroslav.o.halchenko@oneukrainian.com
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://centerforopenneuroscience.org/whoweare
+    description: Founding Director of the Center for Open Neuroscience. Research Professor of Psychological and Brain Sciences and Adjunct Professor of Computer Science at Dartmouth College. Official Debian Developer and open source contributor leading DANDI, DataLad, PyMVPA, and NeuroDebian projects. Serves on BIDS and NWB technical advisory committees.
+    display_label: Yaroslav O. Halchenko
+    family_name: Halchenko
+    formatted_name: Yaroslav O. Halchenko
+    given_name: Yaroslav
+    identifiers:
+    - notation: yarikoptic
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/yaroslav-halchenko
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:311d395f2cda7c3b7ba991bc7265c351197279679483e9d104433ee2a10a214b
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.1038/sdata.2016.44
+  claim_kind: record-import
+  material_fingerprint: sha256:efc607cbb7490cfbc00650e5184a0710ca52635bf53d2cec7c4d924e7c77c219
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-1038-sdata-2016-44.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.1038%2Fsdata.2016.44
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    display_label: Gorgolewski et al. 2016
+    identifiers:
+    - notation: 10.1038/sdata.2016.44
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.1038/sdata.2016.44
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-1038-sdata-2016-44
+    schema_type: xyzri:XYZPublication
+    title: The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments
+  baseline_record:
+    attributed_to:
+    - object: xyzrins:persons/satrajit-ghosh
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/jean-baptiste-poline
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/vanessa-sochat
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: bibo:locator
+      schema_type: dlthings:AttributeSpecification
+      value: 3, 1, 160044
+    - predicate: dcterms:issued
+      schema_type: dlthings:AttributeSpecification
+      value: '2016-06-21'
+    - predicate: dcterms:language
+      schema_type: dlthings:AttributeSpecification
+      value: en
+    description: "Abstract\n            The development of magnetic resonance imaging (MRI) techniques has defined modern neuroimaging. Since its inception, tens of thousands of studies using techniques such as functional MRI and diffusion weighted imaging have allowed for the non-invasive study of the brain. Despite the fact that MRI is routinely used to obtain data for neuroscience research, there has been no widely adopted standard for organizing and describing the data collected in an imaging experiment. This renders sharing and reusing data (within or between labs) difficult if not impossible and unnecessarily complicates the application of automatic pipelines and quality assurance protocols. To solve this problem, we have developed the Brain Imaging Data Structure (BIDS), a standard for organizing and describing MRI datasets. The BIDS standard uses file formats compatible with existing software, unifies the majority of practices already common in the field, and captures the metadata\
+      \ necessary for most common data processing operations."
+    display_label: The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments
+    identifiers:
+    - notation: 10.1038/sdata.2016.44
+      schema_type: dlthings:DOI
+    - notation: 2052-4463
+      schema_type: dlthings:ISSN
+    - notation: http://www.nature.com/articles/sdata201644
+      schema_type: dlthings:Identifier
+    - notation: https://www.nature.com/articles/sdata201644
+      schema_type: dlthings:Identifier
+    - notation: zotero:group:6197458:item:4IBTF6HG
+      schema_type: dlthings:Identifier
+    - notation: zotero:group:6197458:item:9KS9CGNB
+      schema_type: dlthings:Identifier
+    kind: bibo:AcademicArticle
+    pid: xyzrins:publications/doi-10-1038-sdata-2016-44
+    schema_type: xyzri:XYZPublication
+    title: The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:328001299f0ec1cabe470c34f7588b0fe573801c8b7da289bcc24ff7c68ed937
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.21105/joss.05839
+  claim_kind: record-import
+  material_fingerprint: sha256:6784d8af36bdb5cf32a30db281ec476cac45be278b4b8921de50b2188030f234
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-21105-joss-05839.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.21105%2Fjoss.05839
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002034
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/james-haxby
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    display_label: Halchenko et al. 2024 JOSS
+    identifiers:
+    - notation: 10.21105/joss.05839
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.21105/joss.05839
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-21105-joss-05839
+    schema_type: xyzri:XYZPublication
+    title: HeuDiConv - flexible DICOM conversion into structured directory layouts
+  baseline_record:
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/satrajit-ghosh
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/john-wodder
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/horea-ioanas
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/john-lee
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/isaac-to
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/chris-markiewicz
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/austin-macdonald
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/david-kennedy
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: bibo:locator
+      schema_type: dlthings:AttributeSpecification
+      value: 9, 99, 5839
+    - predicate: dcterms:issued
+      schema_type: dlthings:AttributeSpecification
+      value: '2024-07-03'
+    - predicate: dcterms:rights
+      schema_type: dlthings:AttributeSpecification
+      value: http://creativecommons.org/licenses/by/4.0/
+    display_label: HeuDiConv — flexible DICOM conversion into structureddirectory layouts
+    identifiers:
+    - notation: 10.21105/joss.05839
+      schema_type: dlthings:DOI
+    - notation: 2475-9066
+      schema_type: dlthings:ISSN
+    - notation: https://joss.theoj.org/papers/10.21105/joss.05839
+      schema_type: dlthings:Identifier
+    - notation: zotero:group:6197458:item:W9MC83Q7
+      schema_type: dlthings:Identifier
+    - notation: zotero:group:6197458:item:XHF43I5N
+      schema_type: dlthings:Identifier
+    kind: bibo:AcademicArticle
+    pid: xyzrins:publications/doi-10-21105-joss-05839
+    schema_type: xyzri:XYZPublication
+    title: HeuDiConv — flexible DICOM conversion into structureddirectory layouts
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:34da202e2a6d64720cb2ba79cda86157cce6a1bdcd4060f834beaa2e9bc3a72b
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/bids
+  claim_kind: record-import
+  material_fingerprint: sha256:dda8404f85ef51a8ff47fe35ef25100cec69860d12cc3126cdf33ca1c348cf95
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/bids.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fbids
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://bids.neuroimaging.io
+    description: A standard providing a simple and intuitive way to organize and describe neuroimaging and behavioral data. Governed by a community-elected steering group.
+    display_label: BIDS
+    pid: xyzrins:projects/bids
+    schema_type: xyzri:XYZProject
+    short_name: BIDS
+    title: Brain Imaging Data Structure
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://bids.neuroimaging.io
+    description: A standard providing a simple and intuitive way to organize and describe neuroimaging and behavioral data. Governed by a community-elected steering group.
+    display_label: BIDS
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/bids
+    schema_type: xyzri:XYZProject
+    short_name: BIDS
+    title: Brain Imaging Data Structure
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:39ab1eddf1620fdfe3b2ab36fb4c5a26ac79b7e1a4bcf0862254280519a09ef0
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/repronim-reproducible-basics
+  claim_kind: record-import
+  material_fingerprint: sha256:d3fa172a06828cd99803ea56104a96180c93abdcd32c4a9a6b2e4d8d46abfd38
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/repronim-reproducible-basics.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Frepronim-reproducible-basics
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://www.reproducibleimaging.org/module-reproducible-basics
+    description: Training module presenting daily core tools (shell, version control, etc) and demonstrating research reproducibility improvement. Part of the ReproNim training curriculum.
+    display_label: 'ReproNim: Reproducible Basics'
+    pid: xyzrins:projects/repronim-reproducible-basics
+    schema_type: xyzri:XYZProject
+    title: 'ReproNim: Reproducible Basics'
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://www.reproducibleimaging.org/module-reproducible-basics
+    description: Training module presenting daily core tools (shell, version control, etc) and demonstrating research reproducibility improvement. Part of the ReproNim training curriculum.
+    display_label: 'ReproNim: Reproducible Basics'
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/repronim-reproducible-basics
+    schema_type: xyzri:XYZProject
+    title: 'ReproNim: Reproducible Basics'
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:3adf30c0c9e1fd92a5ea70de5095a802423a04828148e374f2d1381475c34162
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/satrajit-ghosh
+  claim_kind: record-import
+  material_fingerprint: sha256:2a19b6590f410aeef0f84f0ae8a4fba518b3cd048c1130008dc885342503d686
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/satrajit-ghosh.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsatrajit-ghosh
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with MIT and Harvard Medical School. Lead of DANDI, NiPype, and other projects.
+    display_label: Satrajit Ghosh
+    family_name: Ghosh
+    formatted_name: Satrajit Ghosh
+    given_name: Satrajit
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: satra
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/satrajit-ghosh
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with MIT and Harvard Medical School. Lead of DANDI, NiPype, and other projects.
+    display_label: Satrajit Ghosh
+    family_name: Ghosh
+    formatted_name: Satrajit Ghosh
+    given_name: Satrajit
+    identifiers:
+    - notation: satra
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/satrajit-ghosh
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:3d2390b14e25a357946f59ff9990df03d63368e33fd22117654ef824ecc8e536
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/con-duct
+  claim_kind: record-import
+  material_fingerprint: sha256:dbd701457fec9824d9ea0b11459e4795bbd1afb9430159c87b1207aaec810c7a
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/con-duct.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fcon-duct
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/con/duct
+    description: Lightweight wrapper that collects execution data for an arbitrary command including execution time, system information, and resource usage statistics. Particularly suited for HPC environments.
+    display_label: con/duct
+    pid: xyzrins:projects/con-duct
+    schema_type: xyzri:XYZProject
+    short_name: duct
+    title: con/duct
+  baseline_record:
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/con/duct
+    description: Lightweight wrapper that collects execution data for an arbitrary command including execution time, system information, and resource usage statistics. Particularly suited for HPC environments.
+    display_label: con/duct
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/con-duct
+    schema_type: xyzri:XYZProject
+    short_name: duct
+    title: con/duct
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:425089ee15e1c79736987a6c56de023393b31918f9c37f35094963db89502695
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/hypertools
+  claim_kind: record-import
+  material_fingerprint: sha256:38c0376142d546c43b6a28085aaa1286f20c1fa2bc4929887a1f23eabfd6a11d
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/hypertools.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fhypertools
+    associated_with:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://hypertools.readthedocs.io/en/latest/
+    description: Python toolbox for gaining geometric insights into high dimensional data. Supports 2D/3D static and animated visualizations, data manipulation including hyperalignment and k-means clustering.
+    display_label: HyperTools
+    pid: xyzrins:projects/hypertools
+    schema_type: xyzri:XYZProject
+    short_name: HyperTools
+    title: HyperTools
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://hypertools.readthedocs.io/en/latest/
+    description: Python toolbox for gaining geometric insights into high dimensional data. Supports 2D/3D static and animated visualizations, data manipulation including hyperalignment and k-means clustering.
+    display_label: HyperTools
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/hypertools
+    schema_type: xyzri:XYZProject
+    short_name: HyperTools
+    title: HyperTools
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:487b2f5bc6ae5603f96bb001f0cc595d8eb53442f6e7114ed5db82df75a3d2a3
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/neurodebian
+  claim_kind: record-import
+  material_fingerprint: sha256:015be10ac1a5eae9ca03a6cb2dc680ec35b475cccde284a800243e36c01b5563
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/neurodebian.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fneurodebian
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://neuro.debian.net
+    description: Turnkey research software platform for all aspects of the neuroscientific research process. Provides a comprehensive suite of readily usable and fully integrated software with robust testing and deployment infrastructure.
+    display_label: NeuroDebian
+    pid: xyzrins:projects/neurodebian
+    schema_type: xyzri:XYZProject
+    short_name: NeuroDebian
+    title: NeuroDebian
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://neuro.debian.net
+    description: Turnkey research software platform for all aspects of the neuroscientific research process. Provides a comprehensive suite of readily usable and fully integrated software with robust testing and deployment infrastructure.
+    display_label: NeuroDebian
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/neurodebian
+    schema_type: xyzri:XYZProject
+    short_name: NeuroDebian
+    title: NeuroDebian
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:49f2c139db5a363512d422bc099c2200fa4d835446f35d521c46c899d41efeb7
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:ror:04tfhh831
+  claim_kind: record-import
+  material_fingerprint: sha256:2ba3b8de778719bd4713b3bf4067f07b41cc92579679280a431f9a24fe835e84
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/con.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A04tfhh831
+    at_location: https://www.wikidata.org/entity/Q131908
+    description: Provides open software frameworks, platforms, data and methodologies for neuroscience and beyond.
+    display_label: Center for Open Neuroscience (CON)
+    name: Center for Open Neuroscience
+    part_of:
+    - ror:049s0rh22
+    pid: ror:04tfhh831
+    schema_type: xyzri:XYZOrganization
+    short_name: CON
+  baseline_record:
+    at_location: https://www.wikidata.org/entity/Q131908
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://centerforopenneuroscience.org/
+    description: Provides open software frameworks, platforms, data and methodologies for neuroscience and beyond.
+    display_label: Center for Open Neuroscience (CON)
+    name: Center for Open Neuroscience
+    pid: ror:04tfhh831
+    schema_type: xyzri:XYZOrganization
+    short_name: CON
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/
+  - unresolved-relation:https://www.wikidata.org/entity/Q131908
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:4a4c483204d4b82368ac3a6cc207411c66a5a468b8416df3d5fb493705c25699
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/kyle-meyer
+  claim_kind: record-import
+  material_fingerprint: sha256:c19b4877827e08fd45456e7670f1f2fb55f8cca55f99398c4ba8049c4dcc7ecc
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/kyle-meyer.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fkyle-meyer
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: kyle@kyleam.com
+    description: Emeritus member of the Center for Open Neuroscience. ReproMan and DataLad contributor. Git expert and Magit authority.
+    display_label: Kyle Meyer
+    family_name: Meyer
+    formatted_name: Kyle Meyer
+    given_name: Kyle
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: kyleam
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/kyle-meyer
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: kyle@kyleam.com
+    description: Emeritus member of the Center for Open Neuroscience. ReproMan and DataLad contributor. Git expert and Magit authority.
+    display_label: Kyle Meyer
+    family_name: Meyer
+    formatted_name: Kyle Meyer
+    given_name: Kyle
+    identifiers:
+    - notation: kyleam
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/kyle-meyer
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:4ac7b71293dc46fdccb78712e7a364dc9c490a797371162e5a95ce3c0b2bebd4
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/reproman
+  claim_kind: record-import
+  material_fingerprint: sha256:e4a7d0723db86b896a2bd8b26917347f296116e1373afd3aac4987c9a2d6c86e
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/reproman.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Freproman
+    associated_with:
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://reproman.repronim.org
+    description: Aims to facilitate reproducible computation via collection of detailed information about origin of used components including Debian/Conda packages and VCS repositories. Part of the NIH-supported ReproNim effort.
+    display_label: ReproMan
+    pid: xyzrins:projects/reproman
+    schema_type: xyzri:XYZProject
+    short_name: ReproMan
+    title: ReproMan - Reproducible Computational Environments Manager
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://reproman.repronim.org
+    description: Aims to facilitate reproducible computation via collection of detailed information about origin of used components including Debian/Conda packages and VCS repositories. Part of the NIH-supported ReproNim effort.
+    display_label: ReproMan
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/reproman
+    schema_type: xyzri:XYZProject
+    short_name: ReproMan
+    title: ReproMan - Reproducible Computational Environments Manager
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:4d353249dbdae7164855bec511456b51680c468cc4b1a68807c7f3dc479181cb
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublicationVenue:ISSN:1532-4435
+  claim_kind: record-import
+  material_fingerprint: sha256:d308c4e667e5008bb4e04ebbd0c91499b968fff9b4e239c0abef470e9227df60
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublicationVenue/issn-1532-4435.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A1532-4435
+    display_label: JMLR
+    identifiers:
+    - creator: ror:026ytr635
+      notation: 1532-4435
+      schema_type: dlthings:Identifier
+    - notation: ISSN:1532-4435
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publication-venues/issn-1532-4435
+    schema_type: xyzri:XYZPublicationVenue
+    title: Journal of Machine Learning Research
+  baseline_record: null
+  blockers:
+  - unresolved-relation:ror:026ytr635
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:4e7bcd850640a8393fe117fe3cd7705ac0dbd628b21cf2e4ae0678915a6277d9
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:ror:0464eyp60
+  claim_kind: record-import
+  material_fingerprint: sha256:264458eb93ee25b341cd850db121635657a110bcb5588b627478e4742c5131e4
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/ror-0464eyp60.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A0464eyp60
+    display_label: UMass Chan Medical School
+    name: University of Massachusetts Chan Medical School
+    pid: ror:0464eyp60
+    schema_type: xyzri:XYZOrganization
+    short_name: UMass Chan
+  baseline_record: null
+  blockers: []
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:4efbb5dcd3a4332d8cb985311c1bdcaa7b6ed159094233a8d2fb5291504ef507
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/gergana-alteva
+  claim_kind: record-import
+  material_fingerprint: sha256:1405a5dd952487d9fea5ea793fa2c0eacd43e631d684a1e11d2dc97a8af98933
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/gergana-alteva.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fgergana-alteva
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: glalteva@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. CS undergraduate at Barnard College, Columbia University. 2016 DataLad developer intern.
+    display_label: Gergana Alteva
+    family_name: Alteva
+    formatted_name: Gergana Alteva
+    given_name: Gergana
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: glalteva
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/gergana-alteva
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: glalteva@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. CS undergraduate at Barnard College, Columbia University. 2016 DataLad developer intern.
+    display_label: Gergana Alteva
+    family_name: Alteva
+    formatted_name: Gergana Alteva
+    given_name: Gergana
+    identifiers:
+    - notation: glalteva
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/gergana-alteva
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:4f5ed1d0e9089c25caa24d37fd745577c095453eb9dd541673d64a063a92976f
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:ror:02nv7yv05
+  claim_kind: record-import
+  material_fingerprint: sha256:f47978b21f4f73cedc5d8eb8438d664a26ffb2136d0be7c35133d156d1df8db7
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/ror-02nv7yv05.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A02nv7yv05
+    display_label: Research Centre Jülich
+    name: Forschungszentrum Jülich
+    pid: ror:02nv7yv05
+    schema_type: xyzri:XYZOrganization
+    short_name: FZJ
+  baseline_record: null
+  blockers: []
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:51177aaa230ee30727e1f243bbc08acf0aa0eebd8332ffdba2b52006a897a1dc
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/datalad
+  claim_kind: record-import
+  material_fingerprint: sha256:ef5d434e688e897779c0c95ec96860c60d32b842c54972d0ca83daf5a1c24762
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/datalad.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fdatalad
+    associated_with:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/benjamin-poldrack
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://datalad.org
+    description: A data management platform that adapts open-source software distribution models to address data-sharing limitations. Provides a versatile data management platform using git-annex for large data tracking built on Git.
+    display_label: DataLad
+    pid: xyzrins:projects/datalad
+    schema_type: xyzri:XYZProject
+    short_name: DataLad
+    title: DataLad
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/benjamin-poldrack
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://datalad.org
+    description: A data management platform that adapts open-source software distribution models to address data-sharing limitations. Provides a versatile data management platform using git-annex for large data tracking built on Git.
+    display_label: DataLad
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/datalad
+    schema_type: xyzri:XYZProject
+    short_name: DataLad
+    title: DataLad
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:5436d343da24b369ed1781c6ef4f70bc7e1517bf5347684806d302426925f135
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.21105/joss.00424
+  claim_kind: record-import
+  material_fingerprint: sha256:6e27c8daad112591aff1fc730d4ed9568b7e5a8776f167853cc43205883614c2
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-21105-joss-00424.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.21105%2Fjoss.00424
+    attributed_to:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - obo:MS_1002034
+      schema_type: dlthings:Attribution
+    display_label: Manning et al. 2017 JOSS
+    identifiers:
+    - notation: 10.21105/joss.00424
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.21105/joss.00424
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-21105-joss-00424
+    schema_type: xyzri:XYZPublication
+    title: 'Quail: A Python toolbox for analyzing and plotting free recall data'
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:589a021b51611ff96151f136f21c29743046daae536d1bef3b36366b5f0d5d76
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/matteo-visconti-di-oleggio-castello
+  claim_kind: record-import
+  material_fingerprint: sha256:22003fa315dca908c4b1df83d4762dbd15779c5453ab85213f7e943908747a1e
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/matteo-visconti-di-oleggio-castello.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fmatteo-visconti-di-oleggio-castello
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: matteo.visconti.gr@dartmouth.edu
+    description: Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth Ph.D. student, now at UC Berkeley. Cognitive Neuroscience Ph.D. DueCredit co-developer.
+    display_label: Matteo Visconti di Oleggio Castello
+    family_name: Visconti di Oleggio Castello
+    formatted_name: Matteo Visconti di Oleggio Castello
+    given_name: Matteo
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: mvdoc
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/matteo-visconti-di-oleggio-castello
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: matteo.visconti.gr@dartmouth.edu
+    description: Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth Ph.D. student, now at UC Berkeley. Cognitive Neuroscience Ph.D. DueCredit co-developer.
+    display_label: Matteo Visconti di Oleggio Castello
+    family_name: Visconti di Oleggio Castello
+    formatted_name: Matteo Visconti di Oleggio Castello
+    given_name: Matteo
+    identifiers:
+    - notation: mvdoc
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/matteo-visconti-di-oleggio-castello
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:5a78c246016922d75e4708e5357abced188b3a8d151e093fbdeb933e1882af69
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/quail
+  claim_kind: record-import
+  material_fingerprint: sha256:34eaf2c7cd7d6f1d066c93b763ece7c1b735063fced92d8fc8b690227366117d
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/quail.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fquail
+    associated_with:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://cdl-quail.readthedocs.io/en/latest/
+    description: Python toolbox for analyzing data from free recall memory experiments. Provides data structures for encoding/recall data, memory performance metric functions, customizable plots, and support for naturalistic stimuli.
+    display_label: Quail
+    pid: xyzrins:projects/quail
+    schema_type: xyzri:XYZProject
+    short_name: Quail
+    title: Quail
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://cdl-quail.readthedocs.io/en/latest/
+    description: Python toolbox for analyzing data from free recall memory experiments. Provides data structures for encoding/recall data, memory performance metric functions, customizable plots, and support for naturalistic stimuli.
+    display_label: Quail
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/quail
+    schema_type: xyzri:XYZProject
+    short_name: Quail
+    title: Quail
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:5ea45422cefebd6371c6fe436032e3dd8b94f4a73efb46cfc77b93cd87e635f7
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/matthijs-van-der-meer
+  claim_kind: record-import
+  material_fingerprint: sha256:f054366e6dd21bb39d8db515b22aa4b23ad6db8d35485b4340f4583da266f682
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/matthijs-van-der-meer.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fmatthijs-van-der-meer
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: mvdm@dartmouth.edu
+    description: Associate Professor of Psychological and Brain Sciences at Dartmouth College. Studies how neural ensembles across brain areas organize experience for adaptive behavior.
+    display_label: Matt van der Meer
+    family_name: van der Meer
+    formatted_name: Matthijs van der Meer
+    given_name: Matthijs
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: vandermeerlab
+      schema_type: dlthings:Identifier
+    nickname: Matt
+    pid: xyzrins:persons/matthijs-van-der-meer
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: mvdm@dartmouth.edu
+    description: Associate Professor of Psychological and Brain Sciences at Dartmouth College. Studies how neural ensembles across brain areas organize experience for adaptive behavior.
+    display_label: Matt van der Meer
+    family_name: van der Meer
+    formatted_name: Matthijs van der Meer
+    given_name: Matthijs
+    identifiers:
+    - notation: vandermeerlab
+      schema_type: dlthings:Identifier
+    nickname: Matt
+    pid: xyzrins:persons/matthijs-van-der-meer
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:61e6c634309fac6ceedd674332ab697cf6a9378bca7a685dd07615f513af83e1
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/adina-wagner
+  claim_kind: record-import
+  material_fingerprint: sha256:ea7e3ba6d8ebd4c687ca5529e68e1d141e9a13ac7862b8be64fdcfa79e80e641
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/adina-wagner.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fadina-wagner
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: adina.wagner@t-online.de
+    description: Ph.D. Student at INM-7, Research Centre Jülich, Germany. Lead of the DataLad Handbook. Clinical Psychology background pursuing open science and open software.
+    display_label: Adina Wagner
+    family_name: Wagner
+    formatted_name: Adina Wagner
+    given_name: Adina
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: adswa
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/adina-wagner
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: adina.wagner@t-online.de
+    description: Ph.D. Student at INM-7, Research Centre Jülich, Germany. Lead of the DataLad Handbook. Clinical Psychology background pursuing open science and open software.
+    display_label: Adina Wagner
+    family_name: Wagner
+    formatted_name: Adina Wagner
+    given_name: Adina
+    identifiers:
+    - notation: adswa
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/adina-wagner
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:67c9488dec39218cc241bc7cc4306c8f7e5009bf8a8be25a76cc8ef58c504285
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.1007/s12021-008-9041-y
+  claim_kind: record-import
+  material_fingerprint: sha256:6534ad8b4e1b12c209ee1916e4e30f1b90cdca721d451c0c5d17957d3b997adf
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-1007-s12021-008-9041-y.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.1007%2Fs12021-008-9041-y
+    attributed_to:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - obo:MS_1002034
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    display_label: Hanke et al. 2009 Neuroinformatics
+    identifiers:
+    - notation: 10.1007/s12021-008-9041-y
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.1007/s12021-008-9041-y
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-1007-s12021-008-9041-y
+    schema_type: xyzri:XYZPublication
+    title: 'PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data'
+  baseline_record:
+    attributed_to:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/james-haxby
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: bibo:locator
+      schema_type: dlthings:AttributeSpecification
+      value: 7, 37-53
+    - predicate: dcterms:issued
+      schema_type: dlthings:AttributeSpecification
+      value: '2009'
+    display_label: 'PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data'
+    identifiers:
+    - notation: 10.1007/s12021-008-9041-y
+      schema_type: dlthings:DOI
+    - notation: zotero:group:6197458:item:TH5UEY9U
+      schema_type: dlthings:Identifier
+    kind: bibo:AcademicArticle
+    pid: xyzrins:publications/doi-10-1007-s12021-008-9041-y
+    schema_type: xyzri:XYZPublication
+    title: 'PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data'
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:6809d20a5f2eefc241547d0f921b0ad361f630ea845f66302eba6109fb7f16db
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/matthew-brett
+  claim_kind: record-import
+  material_fingerprint: sha256:90d6c979382df93740e29da642d8dc57cfb2d018df3c5489c7fcf9652d557f8c
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/matthew-brett.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fmatthew-brett
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: matthew.brett@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Affiliated with University of Birmingham. Neurologist and neuroimaging methods expert. Neuroimaging in Python lead and NiPy/NiBabel developer.
+    display_label: Matthew Brett
+    family_name: Brett
+    formatted_name: Matthew Brett
+    given_name: Matthew
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: matthew-brett
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/matthew-brett
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: matthew.brett@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Affiliated with University of Birmingham. Neurologist and neuroimaging methods expert. Neuroimaging in Python lead and NiPy/NiBabel developer.
+    display_label: Matthew Brett
+    family_name: Brett
+    formatted_name: Matthew Brett
+    given_name: Matthew
+    identifiers:
+    - notation: matthew-brett
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/matthew-brett
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:6a18787f587a3dcaf26ad10bedefc400c9b2158a1162fbb6138a196648767b57
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/yoda
+  claim_kind: record-import
+  material_fingerprint: sha256:60b11626e37f97c34e5e1184cc52a541383e7908f63a4b976d7a76954ec218d0
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/yoda.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fyoda
+    associated_with:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/benjamin-poldrack
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/myyoda/myyoda
+    description: Collection of best practices for organizing and managing digital objects of science.
+    display_label: YODA
+    pid: xyzrins:projects/yoda
+    schema_type: xyzri:XYZProject
+    short_name: YODA
+    title: YODA's Organigram on Data Analysis
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/benjamin-poldrack
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/myyoda/myyoda
+    description: Collection of best practices for organizing and managing digital objects of science.
+    display_label: YODA
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/yoda
+    schema_type: xyzri:XYZProject
+    short_name: YODA
+    title: YODA's Organigram on Data Analysis
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:73509f305f9003f1b2cebe0df1da35ff7172ebb0ece4d74aeef645e49ededf74
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/austin-macdonald
+  claim_kind: record-import
+  material_fingerprint: sha256:4056583526e485d2c8a4371391d392be3129840687643a85db04d3d5fa07e836
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/austin-macdonald.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Faustin-macdonald
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: austin@dartmouth.edu
+    description: Software Engineer at the Center for Open Neuroscience, Dartmouth College. Passionate about open source values and developing inclusive, transparent open science tools.
+    display_label: Austin Macdonald
+    family_name: Macdonald
+    formatted_name: Austin Macdonald
+    given_name: Austin
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: asmacdo
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/austin-macdonald
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: austin@dartmouth.edu
+    description: Software Engineer at the Center for Open Neuroscience, Dartmouth College. Passionate about open source values and developing inclusive, transparent open science tools.
+    display_label: Austin Macdonald
+    family_name: Macdonald
+    formatted_name: Austin Macdonald
+    given_name: Austin
+    identifiers:
+    - notation: asmacdo
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/austin-macdonald
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:76eee4aab5b60f74bbf34706cc4b038fe3efe8b81a96ffa969e0125585bec6fb
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZGrant:xyzrins:grants/nih-dandi
+  claim_kind: record-import
+  material_fingerprint: sha256:73984cc4d004739d9ba67b3a918c33f3610314040a775d8232e8a99d31e08d6c
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZGrant/nih-dandi.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-dandi
+    attributed_to:
+    - object: xyzrins:persons/satrajit-ghosh
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://reporter.nih.gov/search/xLyGTK4YgUu0dn6pqlHDHQ/project-details/10260526
+    description: NIH grant supporting the DANDI platform for publishing, sharing, and processing neurophysiology data.
+    display_label: NIH DANDI Grant
+    identifiers:
+    - notation: 1R24MH117295-01A1
+      schema_type: dlthings:Identifier
+    pid: xyzrins:grants/nih-dandi
+    schema_type: xyzri:XYZGrant
+    short_name: NIH 1R24MH117295-01A1
+    title: 'DANDI: Distributed Archives for Neurophysiology Data Integration'
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:7700d05808427f1db3519f41880ecf39a172069c73e8e1180cb64b547c60d9ae
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/openneuro
+  claim_kind: record-import
+  material_fingerprint: sha256:61db0ddbdf3dc0afed35fa3f5ffc43cbb26e0650db6679da04676f73a588bc72
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/openneuro.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fopenneuro
+    associated_with:
+    - object: xyzrins:persons/russell-poldrack
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:rtm
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://openneuro.org
+    description: One of the oldest and most well-known BRAIN Initiative archives for neuroimaging data. Uses git-annex as core technology, inspired by early DataLad crawling efforts. Successor to OpenfMRI.org.
+    display_label: OpenNeuro
+    pid: xyzrins:projects/openneuro
+    schema_type: xyzri:XYZProject
+    short_name: OpenNeuro
+    title: OpenNeuro
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:rtm
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://openneuro.org
+    description: One of the oldest and most well-known BRAIN Initiative archives for neuroimaging data. Uses git-annex as core technology, inspired by early DataLad crawling efforts. Successor to OpenfMRI.org.
+    display_label: OpenNeuro
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/openneuro
+    schema_type: xyzri:XYZProject
+    short_name: OpenNeuro
+    title: OpenNeuro
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:7766dd4597a5c7f9eec4d390d6390214e13fdf2e0ec57146b0118aecba7fbb73
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/pymvpa
+  claim_kind: record-import
+  material_fingerprint: sha256:3de13074635fad250a00e2152085d003354157568b4c648554b4ac7181d445e0
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/pymvpa.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fpymvpa
+    associated_with:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://pymvpa.org
+    description: Python-based framework for neural decoding using multivariate pattern analysis. Supports volume and surface-based analyses, supervised/unsupervised learning, representational similarity analyses, searchlight analyses, hyperalignment, and model-based decoding/encoding.
+    display_label: PyMVPA
+    pid: xyzrins:projects/pymvpa
+    schema_type: xyzri:XYZProject
+    short_name: PyMVPA
+    title: PyMVPA
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: http://pymvpa.org
+    description: Python-based framework for neural decoding using multivariate pattern analysis. Supports volume and surface-based analyses, supervised/unsupervised learning, representational similarity analyses, searchlight analyses, hyperalignment, and model-based decoding/encoding.
+    display_label: PyMVPA
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/pymvpa
+    schema_type: xyzri:XYZProject
+    short_name: PyMVPA
+    title: PyMVPA
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:779b091b957dc101225e4282166888b5ce2b04ff9d8d21fa5b71844f3cff93ca
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/duecredit
+  claim_kind: record-import
+  material_fingerprint: sha256:055b940b7625607215a11d8cd1dbe37c49b8c4a88ba9214593bd111aef1e99ef
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/duecredit.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fduecredit
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:cre
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:cre
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/duecredit/duecredit
+    description: Provides a solution for the problem of inadequate citation and referencing of scientific software and methods. A Python-focused framework embedding publication references in code with automatic citation collection and reporting.
+    display_label: DueCredit
+    pid: xyzrins:projects/duecredit
+    schema_type: xyzri:XYZProject
+    short_name: DueCredit
+    title: DueCredit
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:cre
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:cre
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/duecredit/duecredit
+    description: Provides a solution for the problem of inadequate citation and referencing of scientific software and methods. A Python-focused framework embedding publication references in code with automatic citation collection and reporting.
+    display_label: DueCredit
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/duecredit
+    schema_type: xyzri:XYZProject
+    short_name: DueCredit
+    title: DueCredit
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:7d8ef1a05229da912c35c95b1ef6a3d65c29c06a60ebb10d5fba59ec7602aa21
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/james-haxby
+  claim_kind: record-import
+  material_fingerprint: sha256:4c748cb2fa6c191e0592961db2c36eae2527bc9897e5e0c00e741ab97d569861
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/james-haxby.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    additional_names:
+    - V.
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjames-haxby
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: james.v.haxby@dartmouth.edu
+    description: Co-Director of the Center for Open Neuroscience at Dartmouth College. Formerly directed Dartmouth Brain Imaging Center and Center for Cognitive Neuroscience. Recognized for developing and disseminating open research methodologies and influential datasets.
+    display_label: James V. Haxby
+    family_name: Haxby
+    formatted_name: James V. Haxby
+    given_name: James
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: JamesVHaxby
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/james-haxby
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    additional_names:
+    - V.
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: james.v.haxby@dartmouth.edu
+    description: Co-Director of the Center for Open Neuroscience at Dartmouth College. Formerly directed Dartmouth Brain Imaging Center and Center for Cognitive Neuroscience. Recognized for developing and disseminating open research methodologies and influential datasets.
+    display_label: James V. Haxby
+    family_name: Haxby
+    formatted_name: James V. Haxby
+    given_name: James
+    identifiers:
+    - notation: JamesVHaxby
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/james-haxby
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:7e9e97ee7a5138ecfb57d115e01900dd08e9192c424a4be06bc3494b7ef0e6ba
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/nikolaas-oosterhof
+  claim_kind: record-import
+  material_fingerprint: sha256:ba4b5ab75dab523c8664e7b816d06ef133e6b7432517a782d64d0bcc7d1cec4d
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/nikolaas-oosterhof.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    additional_names:
+    - N.
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fnikolaas-oosterhof
+    description: Emeritus member of the Center for Open Neuroscience. Ph.D. in Psychology with Masters in Computer Science, Cognitive Science, and Philosophy. PyMVPA developer and NeuroDebian promoter.
+    display_label: Nikolaas N. Oosterhof
+    family_name: Oosterhof
+    formatted_name: Nikolaas N. Oosterhof
+    given_name: Nikolaas
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: nno
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/nikolaas-oosterhof
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    additional_names:
+    - N.
+    description: Emeritus member of the Center for Open Neuroscience. Ph.D. in Psychology with Masters in Computer Science, Cognitive Science, and Philosophy. PyMVPA developer and NeuroDebian promoter.
+    display_label: Nikolaas N. Oosterhof
+    family_name: Oosterhof
+    formatted_name: Nikolaas N. Oosterhof
+    given_name: Nikolaas
+    identifiers:
+    - notation: nno
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/nikolaas-oosterhof
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:8284333d6afde9fffd18c2b1eabf3cbe1efcbf4e85caa94c68c78b639a692bf9
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/vanessa-sochat
+  claim_kind: record-import
+  material_fingerprint: sha256:5d7ab70d0e05168f5e811dc645d662939557f0c951674c2756c83e80b4ec203a
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/vanessa-sochat.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fvanessa-sochat
+    description: Emeritus member of the Center for Open Neuroscience. Research Software Engineer at Stanford University. Singularity Hub developer.
+    display_label: Vanessa Sochat
+    family_name: Sochat
+    formatted_name: Vanessa Sochat
+    given_name: Vanessa
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: vsoch
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/vanessa-sochat
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    description: Emeritus member of the Center for Open Neuroscience. Research Software Engineer at Stanford University. Singularity Hub developer.
+    display_label: Vanessa Sochat
+    family_name: Sochat
+    formatted_name: Vanessa Sochat
+    given_name: Vanessa
+    identifiers:
+    - notation: vsoch
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/vanessa-sochat
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:87e0eee8b6b5c47823dba670a247943f6ca95f07dcfdb8035217320e45be267e
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/heudiconv
+  claim_kind: record-import
+  material_fingerprint: sha256:66fb2b2ea39fb19dbb1ff5edfbd76c8cd4841caa84b9bd5e385c837619fb614f
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/heudiconv.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fheudiconv
+    associated_with:
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/james-haxby
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/nipy/heudiconv
+    description: Flexible DICOM converter for organizing brain imaging data into structured directory layouts. Includes the ReproIn component for turnkey automatic conversion of MR data to BIDS DataLad datasets.
+    display_label: HeuDiConv / ReproIn
+    pid: xyzrins:projects/heudiconv
+    schema_type: xyzri:XYZProject
+    short_name: HeuDiConv
+    title: HeuDiConv
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/james-haxby
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/nipy/heudiconv
+    description: Flexible DICOM converter for organizing brain imaging data into structured directory layouts. Includes the ReproIn component for turnkey automatic conversion of MR data to BIDS DataLad datasets.
+    display_label: HeuDiConv / ReproIn
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/heudiconv
+    schema_type: xyzri:XYZProject
+    short_name: HeuDiConv
+    title: HeuDiConv
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:888655d71dc584cbb6bb35d6c8845419134e9c3f3bd628b4f44432250044338d
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/russell-poldrack
+  claim_kind: record-import
+  material_fingerprint: sha256:2090a3c0bcc154cba652bc9bcdcbcb61b5f4302bf3052e7f2af0b3cbf7fcc44d
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/russell-poldrack.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    additional_names:
+    - A.
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Frussell-poldrack
+    description: PI of the OpenNeuro archive. Affiliated with Stanford University.
+    display_label: Russell A. Poldrack
+    family_name: Poldrack
+    formatted_name: Russell A. Poldrack
+    given_name: Russell
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: poldrack
+      schema_type: dlthings:Identifier
+    - creator: ror:04fa4r544
+      notation: 0000-0001-6755-0259
+      schema_type: xyzri:ORCID
+    pid: xyzrins:persons/russell-poldrack
+    schema_type: xyzri:XYZPerson
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  - unresolved-relation:ror:04fa4r544
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:8dfe7d39f2e1275ec4799590ccd29f125e155294d150497311d9044318687177
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.1093/cercor/bhaa115
+  claim_kind: record-import
+  material_fingerprint: sha256:c82862d7c6291967dba76986cd02af49be0bcd7ac0092ea08b4655d891c077c2
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-1093-cercor-bhaa115.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.1093%2Fcercor%2Fbhaa115
+    attributed_to:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - obo:MS_1002035
+      schema_type: dlthings:Attribution
+    display_label: Owen et al. 2020 Cerebral Cortex
+    identifiers:
+    - notation: 10.1093/cercor/bhaa115
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.1093/cercor/bhaa115
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-1093-cercor-bhaa115
+    schema_type: xyzri:XYZPublication
+    title: A Gaussian Process Model of Human Electrocorticographic Data
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:8f1f5020265cecdf21087c11851ecb908a890720a3b59ff7ffabe04b54e9c10c
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/datalad-registry
+  claim_kind: record-import
+  material_fingerprint: sha256:b70615df604d6a3515b54ff73851bb8f9ac3bfeda8937eab51183fbdecbb2d87
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/datalad-registry.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fdatalad-registry
+    associated_with:
+    - object: xyzrins:persons/isaac-to
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://registry.datalad.org
+    description: Service maintaining up-to-date information on an expanding collection of datasets, currently numbering over ten thousand. Provides automatic dataset registration, metadata extraction, and search functionality via web interface and RESTful API.
+    display_label: DataLad Registry
+    pid: xyzrins:projects/datalad-registry
+    schema_type: xyzri:XYZProject
+    short_name: DataLad-Registry
+    title: DataLad Registry
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/isaac-to
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://registry.datalad.org
+    description: Service maintaining up-to-date information on an expanding collection of datasets, currently numbering over ten thousand. Provides automatic dataset registration, metadata extraction, and search functionality via web interface and RESTful API.
+    display_label: DataLad Registry
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/datalad-registry
+    schema_type: xyzri:XYZProject
+    short_name: DataLad-Registry
+    title: DataLad Registry
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:91ad26db5ff9ded5d21692df07004e87c0a5da476c8efb079c02539c8cac42f0
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/cody-baker
+  claim_kind: record-import
+  material_fingerprint: sha256:6ef5f4ebeb67adc482613d15afd1c4e132e92188d97bff6168a941c6cb2260b1
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/cody-baker.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fcody-baker
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: cody.c.baker.phd@gmail.com
+    description: Research Software Engineer at the Center for Open Neuroscience. Data specialist creating NWB and DANDI ecosystem software packages (NeuroConv, NWB Inspector, NWB GUIDE). Experienced uploading hundreds of terabytes to NIH archives.
+    display_label: Cody Baker
+    family_name: Baker
+    formatted_name: Cody Baker
+    given_name: Cody
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: CodyCBakerPhD
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/cody-baker
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: cody.c.baker.phd@gmail.com
+    description: Research Software Engineer at the Center for Open Neuroscience. Data specialist creating NWB and DANDI ecosystem software packages (NeuroConv, NWB Inspector, NWB GUIDE). Experienced uploading hundreds of terabytes to NIH archives.
+    display_label: Cody Baker
+    family_name: Baker
+    formatted_name: Cody Baker
+    given_name: Cody
+    identifiers:
+    - notation: CodyCBakerPhD
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/cody-baker
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:9449faf0253c450e5a7c14e2494c70c62ce03dbc607575397dabbb1cf29e6c79
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/brock-wester
+  claim_kind: record-import
+  material_fingerprint: sha256:c08fe90e9dc21a4dc41ae0ef81f373e04c7357f7f11b01f6c3c82a7a87725c77
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/brock-wester.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fbrock-wester
+    description: PI of the EMBER archive. Assistant Program Manager at the Johns Hopkins University Applied Physics Laboratory. Research focuses on connectomics, brain mapping, and BossDB.
+    display_label: Brock Wester
+    family_name: Wester
+    formatted_name: Brock Wester
+    given_name: Brock
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: brockwester
+      schema_type: dlthings:Identifier
+    - creator: ror:04fa4r544
+      notation: 0000-0002-1500-2143
+      schema_type: xyzri:ORCID
+    pid: xyzrins:persons/brock-wester
+    schema_type: xyzri:XYZPerson
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  - unresolved-relation:ror:04fa4r544
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:a239ed6f8e0e305455b08a019c30ecf3fd95ab853c1ab0043a986b437f2dc304
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.12688/f1000research.7628.1
+  claim_kind: record-import
+  material_fingerprint: sha256:895d21dc3152f32b50e43d75169497351be448b4a012f2940e6d1c80875b60f6
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-12688-f1000research-7628-1.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.12688%2Ff1000research.7628.1
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002034
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - obo:MS_1002035
+      schema_type: dlthings:Attribution
+    display_label: Halchenko & Hanke 2015
+    identifiers:
+    - notation: 10.12688/f1000research.7628.1
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.12688/f1000research.7628.1
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-12688-f1000research-7628-1
+    schema_type: xyzri:XYZPublication
+    title: Four aspects to make science open by design and not as an after-thought
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:a35bd1d7e77b67c918d5cee1ac99c0ea1ae5c0cc025658dcc60aa8d786c08c20
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/oliver-contier
+  claim_kind: record-import
+  material_fingerprint: sha256:f8555c7963fb1f4796a7c8af0202cc7dfc8a51e9cf2a6650a84acde8db2ba433
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/oliver-contier.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Foliver-contier
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: o.contier@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Masters student in Psychology/Cognitive Neuroscience at University of Magdeburg.
+    display_label: Oliver Contier
+    family_name: Contier
+    formatted_name: Oliver Contier
+    given_name: Oliver
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: oliver-contier
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/oliver-contier
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: o.contier@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Masters student in Psychology/Cognitive Neuroscience at University of Magdeburg.
+    display_label: Oliver Contier
+    family_name: Contier
+    formatted_name: Oliver Contier
+    given_name: Oliver
+    identifiers:
+    - notation: oliver-contier
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/oliver-contier
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:a69df8ad471bd58543715ae85bfc7e0883b96fc37e2efc00296dec4f0fc88b07
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/ember
+  claim_kind: record-import
+  material_fingerprint: sha256:155f120bc1a8d12d47e68d6b42461ed0773be1f106806dbda117e32868efb9b1
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/ember.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fember
+    associated_with:
+    - object: xyzrins:persons/brock-wester
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:rtm
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://emberarchive.org
+    description: BRAIN Initiative archive for multi-modal neurophysiological and behavioral data, supporting the Brain Behavior Quantification and Synchronization Program. Being developed based on DANDI.
+    display_label: EMBER
+    pid: xyzrins:projects/ember
+    schema_type: xyzri:XYZProject
+    short_name: EMBER
+    title: Ecosystem for Multi-modal Brain-behavior Experimentation and Research
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:rtm
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://emberarchive.org
+    description: BRAIN Initiative archive for multi-modal neurophysiological and behavioral data, supporting the Brain Behavior Quantification and Synchronization Program. Being developed based on DANDI.
+    display_label: EMBER
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/ember
+    schema_type: xyzri:XYZProject
+    short_name: EMBER
+    title: Ecosystem for Multi-modal Brain-behavior Experimentation and Research
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:a88db8666aa215558f56731968bc6fb312b18e89f0f5278ccd98f33dbc78d23f
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/distribits
+  claim_kind: record-import
+  material_fingerprint: sha256:5cf8bcf93af4f590dc954aa1d90e6da5cc9b3670aecab563ea6f84b21101862e
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/distribits.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fdistribits
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://www.distribits.live/
+    description: Community for enthusiasts of tools and workflows in the domain of distributed data.
+    display_label: distribits
+    pid: xyzrins:projects/distribits
+    schema_type: xyzri:XYZProject
+    short_name: distribits
+    title: distribits
+  baseline_record:
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://www.distribits.live/
+    description: Community for enthusiasts of tools and workflows in the domain of distributed data.
+    display_label: distribits
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/distribits
+    schema_type: xyzri:XYZProject
+    short_name: distribits
+    title: distribits
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:aa4b5656e793f664555cefc6aefc95fe9324c3651255ef0b11ef86804137caa5
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/pyout
+  claim_kind: record-import
+  material_fingerprint: sha256:a36d493c6d58f1701b552c6da0b41d747be9485936ce078642a9b83492de68ef
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/pyout.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fpyout
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/pyout/pyout
+    description: Python package that defines an interface for writing structured records as a table in a terminal.
+    display_label: pyout
+    pid: xyzrins:projects/pyout
+    schema_type: xyzri:XYZProject
+    short_name: pyout
+    title: pyout
+  baseline_record:
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/pyout/pyout
+    description: Python package that defines an interface for writing structured records as a table in a terminal.
+    display_label: pyout
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/pyout
+    schema_type: xyzri:XYZProject
+    short_name: pyout
+    title: pyout
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:b49645279487e4338421839acf2bf6dc653b55cc043f7c59a9e90f931407c7b9
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/dandi
+  claim_kind: record-import
+  material_fingerprint: sha256:cccbac65fd3e593f8a4ede33983f6510ad204a275f0037119e87631549e97663
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/dandi.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fdandi
+    associated_with:
+    - object: xyzrins:persons/satrajit-ghosh
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://dandiarchive.org
+    description: Platform for publishing, sharing, and processing neurophysiology data supported by the BRAIN Initiative. Provides data upload and distribution with supplementary client tools for data introspection and organization. Compliant with NWB standards.
+    display_label: DANDI
+    pid: xyzrins:projects/dandi
+    schema_type: xyzri:XYZProject
+    short_name: DANDI
+    title: Distributed Archives for Neurophysiology Data Integration
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/satrajit-ghosh
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://dandiarchive.org
+    description: Platform for publishing, sharing, and processing neurophysiology data supported by the BRAIN Initiative. Provides data upload and distribution with supplementary client tools for data introspection and organization. Compliant with NWB standards.
+    display_label: DANDI
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/dandi
+    schema_type: xyzri:XYZProject
+    short_name: DANDI
+    title: Distributed Archives for Neurophysiology Data Integration
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:b695e7a5c52b4679a5e430f8da07be0b0c83c818910cd303e0a46ec487e9c65f
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/soichi-hayashi
+  claim_kind: record-import
+  material_fingerprint: sha256:ed77d44d75b89edc7e3119471d711bce859927d20437b3b9ecf3e30f03715faa
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/soichi-hayashi.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsoichi-hayashi
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: soichih@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Software engineer at Indiana University, Bloomington, working on brainlife.io.
+    display_label: Soichi Hayashi
+    family_name: Hayashi
+    formatted_name: Soichi Hayashi
+    given_name: Soichi
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: soichih
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/soichi-hayashi
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: soichih@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Software engineer at Indiana University, Bloomington, working on brainlife.io.
+    display_label: Soichi Hayashi
+    family_name: Hayashi
+    formatted_name: Soichi Hayashi
+    given_name: Soichi
+    identifiers:
+    - notation: soichih
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/soichi-hayashi
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:b9716240679ef1323d69dc566bb60e87ff22459b89bb6e51be39487db5e8ba0b
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:ror:00hj54h04
+  claim_kind: record-import
+  material_fingerprint: sha256:b8940a2489474c77e1dae64c29dac8e237233d4e5deff2d15508f8aaaf63af9c
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/ror-00hj54h04.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A00hj54h04
+    display_label: University of Texas at Austin
+    name: University of Texas at Austin
+    pid: ror:00hj54h04
+    schema_type: xyzri:XYZOrganization
+  baseline_record: null
+  blockers: []
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:b9ae0a78899fc7549a8489664105741980c1a1301caebc806be0c301e8e62761
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/jason-gors
+  claim_kind: record-import
+  material_fingerprint: sha256:473e600757a1dae04c9ea2e19c442e0ff28eb7af21c08dd5750eb3941a2da8bd
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/jason-gors.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjason-gors
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jason.gors@dartmouth.edu
+    description: Emeritus member of the Center for Open Neuroscience. Pythonista. DataLad project contributor.
+    display_label: Jason Gors
+    family_name: Gors
+    formatted_name: Jason Gors
+    given_name: Jason
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: jgors
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/jason-gors
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: jason.gors@dartmouth.edu
+    description: Emeritus member of the Center for Open Neuroscience. Pythonista. DataLad project contributor.
+    display_label: Jason Gors
+    family_name: Gors
+    formatted_name: Jason Gors
+    given_name: Jason
+    identifiers:
+    - notation: jgors
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/jason-gors
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:ba11f9251b8209a37bbc7a0e1500f01b0fe4ba229244983e1e48ec85ec2c4019
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.1146/annurev-neuro-100119-110036
+  claim_kind: record-import
+  material_fingerprint: sha256:66522cd70de73bcaaef9523ece26ab71254d5abd0d809cd44b8c5f8baf0fb9f1
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-1146-annurev-neuro-100119-110036.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.1146%2Fannurev-neuro-100119-110036
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002034
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - obo:MS_1002035
+      schema_type: dlthings:Attribution
+    display_label: Halchenko, Poldrack, Hanke 2022
+    identifiers:
+    - notation: 10.1146/annurev-neuro-100119-110036
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.1146/annurev-neuro-100119-110036
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-1146-annurev-neuro-100119-110036
+    schema_type: xyzri:XYZPublication
+    title: Open Neuroscience
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:ba2caa93d26aa115c6b64bfded744605311c6770586ced483943df98e2bdcae6
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/tor-wager
+  claim_kind: record-import
+  material_fingerprint: sha256:0ae4ba46303849b941e89f22431d0836b2ad0cf002a9600c32be00cbbf060eff
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/tor-wager.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    additional_names:
+    - D.
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Ftor-wager
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: tor.d.wager@dartmouth.edu
+    description: Professor at Dartmouth College. Director of Dartmouth Brain Imaging Center and Center for Cognitive Neuroscience. Dedicated to developing functional neuroimaging analysis methods and sharing tools and data with the community.
+    display_label: Tor D. Wager
+    family_name: Wager
+    formatted_name: Tor D. Wager
+    given_name: Tor
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: torwager
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/tor-wager
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    additional_names:
+    - D.
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: tor.d.wager@dartmouth.edu
+    description: Professor at Dartmouth College. Director of Dartmouth Brain Imaging Center and Center for Cognitive Neuroscience. Dedicated to developing functional neuroimaging analysis methods and sharing tools and data with the community.
+    display_label: Tor D. Wager
+    family_name: Wager
+    formatted_name: Tor D. Wager
+    given_name: Tor
+    identifiers:
+    - notation: torwager
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/tor-wager
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:beb3ff67bc39e7bde3a1b507d5295f57fc300895f8a273f611dc1a36d068c6c9
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/benjamin-poldrack
+  claim_kind: record-import
+  material_fingerprint: sha256:31bfacb073086dd2e5239f02c32f3dab0fd3ede71238bbb389ebf3623a80bbf5
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/benjamin-poldrack.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fbenjamin-poldrack
+    description: Emeritus member of the Center for Open Neuroscience. Affiliated with INM-7, Research Centre Jülich. DataLad project contributor.
+    display_label: Benjamin Poldrack
+    family_name: Poldrack
+    formatted_name: Benjamin Poldrack
+    given_name: Benjamin
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: bpoldrack
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/benjamin-poldrack
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    description: Emeritus member of the Center for Open Neuroscience. Affiliated with INM-7, Research Centre Jülich. DataLad project contributor.
+    display_label: Benjamin Poldrack
+    family_name: Poldrack
+    formatted_name: Benjamin Poldrack
+    given_name: Benjamin
+    identifiers:
+    - notation: bpoldrack
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/benjamin-poldrack
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:bedb8142e05074c4f8131d235bc5fcbb13bffdc4fbfffaee7e49a31d2657292b
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/franco-pestilli
+  claim_kind: record-import
+  material_fingerprint: sha256:782e35315a4f1242792befac3eac851d7a121dc361e39fbf0c9e977edf21ee17
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/franco-pestilli.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Ffranco-pestilli
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with University of Texas, Austin. Director and founder of brainlife.io cloud computing platform.
+    display_label: Franco Pestilli
+    family_name: Pestilli
+    formatted_name: Franco Pestilli
+    given_name: Franco
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: francopestilli
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/franco-pestilli
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    description: Collaborator at the Center for Open Neuroscience. Affiliated with University of Texas, Austin. Director and founder of brainlife.io cloud computing platform.
+    display_label: Franco Pestilli
+    family_name: Pestilli
+    formatted_name: Franco Pestilli
+    given_name: Franco
+    identifiers:
+    - notation: francopestilli
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/franco-pestilli
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:c4f084f9deeb0e0c6e56c19b9c8af6012012111efbbd40b2144febad7ad8fbca
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublicationVenue:ISSN:0147-006X
+  claim_kind: record-import
+  material_fingerprint: sha256:2312000b98b0e14238aebae4c70e1f868375e27d921ead5a75097571441094b3
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublicationVenue/issn-0147-006x.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A0147-006X
+    display_label: Annual Review of Neuroscience
+    identifiers:
+    - creator: ror:026ytr635
+      notation: 0147-006X
+      schema_type: dlthings:Identifier
+    - notation: ISSN:0147-006X
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publication-venues/issn-0147-006x
+    schema_type: xyzri:XYZPublicationVenue
+    title: Annual Review of Neuroscience
+  baseline_record: null
+  blockers:
+  - unresolved-relation:ror:026ytr635
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:c9c08bd07208bc979fe3e00a3b554160fe52d9ed5df7edb286efeaea27d027a5
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:ror:049s0rh22
+  claim_kind: record-import
+  material_fingerprint: sha256:052e3a1302adf140e54bc54fcfd5d172082c4e9b0e515bdf3b80b6491b6cdc0c
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/ror-049s0rh22.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A049s0rh22
+    at_location: https://www.wikidata.org/entity/Q131908
+    display_label: Dartmouth College
+    name: Dartmouth College
+    pid: ror:049s0rh22
+    schema_type: xyzri:XYZOrganization
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://www.wikidata.org/entity/Q131908
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:cc4f3e4c1e0d15becb98f70bb29a1a68e17ba7d1d8b94666828afb1e644e21a0
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:http://jmlr.org/papers/v18/17-434.html
+  claim_kind: record-import
+  material_fingerprint: sha256:33f900d57df62f145ab11c8e5df42fc09ae545858a2762cb7a9f676faf06fd9d
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/http-jmlr-org-papers-v18-17-434-html.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=http%3A%2F%2Fjmlr.org%2Fpapers%2Fv18%2F17-434.html
+    attributed_to:
+    - object: xyzrins:persons/jeremy-manning
+      roles:
+      - obo:MS_1002035
+      schema_type: dlthings:Attribution
+    display_label: Heusser et al. 2018 JMLR
+    identifiers:
+    - creator: https://www.jmlr.org/
+      notation: 17-434
+      schema_type: dlthings:Identifier
+    - notation: http://jmlr.org/papers/v18/17-434.html
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/http-jmlr-org-papers-v18-17-434-html
+    schema_type: xyzri:XYZPublication
+    title: 'HyperTools: a Python Toolbox for Gaining Geometric Insights into High-Dimensional Data'
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  - unresolved-relation:https://www.jmlr.org/
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:cd86c82c6b0ed2fbbe2eb98f5cf5100ec7608cb3a3a13151f54d802b5a9762fc
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/samuel-nastase
+  claim_kind: record-import
+  material_fingerprint: sha256:477c7e96dd42b5faab88785548c807d7613b6c57dadc8af69eeb404bbc40d555
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/samuel-nastase.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsamuel-nastase
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: sam.nastase@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth Ph.D. student, now at Princeton. Cognitive Neuroscience Ph.D. PyMVPA user and NeuroDebian exhibitor.
+    display_label: Samuel Nastase
+    family_name: Nastase
+    formatted_name: Samuel Nastase
+    given_name: Samuel
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: snastase
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/samuel-nastase
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: sam.nastase@gmail.com
+    description: Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth Ph.D. student, now at Princeton. Cognitive Neuroscience Ph.D. PyMVPA user and NeuroDebian exhibitor.
+    display_label: Samuel Nastase
+    family_name: Nastase
+    formatted_name: Samuel Nastase
+    given_name: Samuel
+    identifiers:
+    - notation: snastase
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/samuel-nastase
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:d644fb0c53d1735022a34a0f9c729083dd239e4c79a1632c358cc535521dfdb6
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.7490/f1000research.1116363.1
+  claim_kind: record-import
+  material_fingerprint: sha256:7e491b7dd3ccc72ac36702427584aa8c2a22d19a6e8803343ea630b127b0842d
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-7490-f1000research-1116363-1.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.7490%2Ff1000research.1116363.1
+    attributed_to:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - obo:MS_1002034
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/benjamin-poldrack
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002036
+      schema_type: dlthings:Attribution
+    display_label: YODA 2018 F1000Research
+    identifiers:
+    - notation: 10.7490/f1000research.1116363.1
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.7490/f1000research.1116363.1
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-7490-f1000research-1116363-1
+    schema_type: xyzri:XYZPublication
+    title: 'YODA: YODA''s Organigram on Data Analysis'
+  baseline_record:
+    attributed_to:
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/kyle-meyer
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/benjamin-poldrack
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: dcterms:issued
+      schema_type: dlthings:AttributeSpecification
+      value: '2018'
+    display_label: 'YODA: YODA’s organigram on data analysis'
+    identifiers:
+    - notation: 10.7490/f1000research.1116363.1
+      schema_type: dlthings:DOI
+    - notation: https://github.com/myyoda/poster/blob/master/ohbm2018.pdf
+      schema_type: dlthings:Identifier
+    - notation: zotero:group:6197458:item:S7T734SL
+      schema_type: dlthings:Identifier
+    kind: bibo:Document
+    pid: xyzrins:publications/doi-10-7490-f1000research-1116363-1
+    schema_type: xyzri:XYZPublication
+    title: 'YODA: YODA’s organigram on data analysis'
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:d88e6292f78516bb6437233145b45d9982a9cd207f884002cc91df00ca8ef74d
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/joey-hess
+  claim_kind: record-import
+  material_fingerprint: sha256:3b460212ba25057a4b89ef2dc58eee8722048a4e5c4c7dd50e7872dab1176821
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/joey-hess.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjoey-hess
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: id@joeyh.name
+    description: Independent collaborator at the Center for Open Neuroscience. Core Debian distribution contributor (debhelper, debian-installer, debconf, pristine-tar). Developer of git-annex used in DataLad.
+    display_label: Joey Hess
+    family_name: Hess
+    formatted_name: Joey Hess
+    given_name: Joey
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: joeyh
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/joey-hess
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: id@joeyh.name
+    description: Independent collaborator at the Center for Open Neuroscience. Core Debian distribution contributor (debhelper, debian-installer, debconf, pristine-tar). Developer of git-annex used in DataLad.
+    display_label: Joey Hess
+    family_name: Hess
+    formatted_name: Joey Hess
+    given_name: Joey
+    identifiers:
+    - notation: joeyh
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/joey-hess
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:e01cf5a7e0085c5556a6d4381682c114d3fd561bcf15ca93ad3eed6a247298f8
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/chris-cheng
+  claim_kind: record-import
+  material_fingerprint: sha256:c998eed54dc5a5782e94547f82918bd1673da8d63c142ecaddd81da7f235414b
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/chris-cheng.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fchris-cheng
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: christopher.p.cheng.21@dartmouth.edu
+    description: Emeritus member of the Center for Open Neuroscience. Dartmouth undergraduate passionate about neuroimaging and open science. NiBabel contributor. ReproNim training editor.
+    display_label: Chris Cheng
+    family_name: Cheng
+    formatted_name: Chris Cheng
+    given_name: Chris
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: chrispycheng
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/chris-cheng
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    attributes:
+    - predicate: vcard:Email
+      schema_type: dlthings:AttributeSpecification
+      value: christopher.p.cheng.21@dartmouth.edu
+    description: Emeritus member of the Center for Open Neuroscience. Dartmouth undergraduate passionate about neuroimaging and open science. NiBabel contributor. ReproNim training editor.
+    display_label: Chris Cheng
+    family_name: Cheng
+    formatted_name: Chris Cheng
+    given_name: Chris
+    identifiers:
+    - notation: chrispycheng
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/chris-cheng
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:e359134b1d424395b015c74ed13ff09a5267a0ef1ac6e3ec441d9819e9cb9065
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPublication:https://doi.org/10.3389/fninf.2012.00022
+  claim_kind: record-import
+  material_fingerprint: sha256:7478ef4c2890e42c8280272915d1d424df0ce498b4ad57d776db2fa7b4bfd598
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPublication/doi-10-3389-fninf-2012-00022.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.3389%2Ffninf.2012.00022
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - obo:MS_1002034
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - obo:MS_1002035
+      schema_type: dlthings:Attribution
+    display_label: Halchenko & Hanke 2012
+    identifiers:
+    - notation: 10.3389/fninf.2012.00022
+      schema_type: dlthings:DOI
+    - notation: https://doi.org/10.3389/fninf.2012.00022
+      schema_type: dlthings:Identifier
+    pid: xyzrins:publications/doi-10-3389-fninf-2012-00022
+    schema_type: xyzri:XYZPublication
+    title: 'Open is not enough. Let''s take the next step: an integrated, community-driven computing platform for neuroscience'
+  baseline_record:
+    attributed_to:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/michael-hanke
+      roles:
+      - marcrel:aut
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: bibo:locator
+      schema_type: dlthings:AttributeSpecification
+      value: 6, 00022
+    - predicate: dcterms:issued
+      schema_type: dlthings:AttributeSpecification
+      value: '2012'
+    display_label: 'Open is not enough. Let''s take the next step: An integrated, community-driven computing platform for neuroscience'
+    identifiers:
+    - notation: 10.3389/fninf.2012.00022
+      schema_type: dlthings:DOI
+    - notation: 1662-5196
+      schema_type: dlthings:ISSN
+    - notation: zotero:group:6197458:item:R9YLFWR2
+      schema_type: dlthings:Identifier
+    kind: bibo:AcademicArticle
+    pid: xyzrins:publications/doi-10-3389-fninf-2012-00022
+    schema_type: xyzri:XYZPublication
+    title: 'Open is not enough. Let''s take the next step: An integrated, community-driven computing platform for neuroscience'
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:e4f64fdacc0698785699f32a10a850d43eeb4ff09c9d6d05752ab712452327cd
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/con-tinuous
+  claim_kind: record-import
+  material_fingerprint: sha256:27d9ed77145827b8962113f1d804499b2bca92e7bfe981eb77358d7fdefffb52
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/con-tinuous.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fcon-tinuous
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/con/tinuous
+    description: Command for downloading build logs, artifacts, and release assets for a GitHub repository. Supports GitHub Actions, Travis-CI.com, and Appveyor with optional DataLad control for backup and distribution.
+    display_label: con/tinuous
+    pid: xyzrins:projects/con-tinuous
+    schema_type: xyzri:XYZProject
+    short_name: tinuous
+    title: con/tinuous
+  baseline_record:
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://github.com/con/tinuous
+    description: Command for downloading build logs, artifacts, and release assets for a GitHub repository. Supports GitHub Actions, Travis-CI.com, and Appveyor with optional DataLad control for backup and distribution.
+    display_label: con/tinuous
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/con-tinuous
+    schema_type: xyzri:XYZProject
+    short_name: tinuous
+    title: con/tinuous
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:ef51e633990cb361f8bfca3789fef54e41b4c47f6d30120a0b777ddaf74b87e8
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZGrant:xyzrins:grants/nih-ember
+  claim_kind: record-import
+  material_fingerprint: sha256:2b46ac5181e77eb3ceff4921537f7b3374eb849a9d3aac89994fddb34cbfafe3
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZGrant/nih-ember.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-ember
+    attributed_to:
+    - object: xyzrins:persons/brock-wester
+      roles:
+      - obo:NCIT_C19924
+      schema_type: dlthings:Attribution
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:rtm
+      schema_type: dlthings:Attribution
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://reporter.nih.gov/search/x1x1x1x1x1/project-details/1R24MH136632-01
+    description: NIH grant supporting the EMBER BRAIN Initiative archive for multi-modal neurophysiological and behavioral data.
+    display_label: NIH EMBER Grant
+    identifiers:
+    - notation: 1R24MH136632-01
+      schema_type: dlthings:Identifier
+    pid: xyzrins:grants/nih-ember
+    schema_type: xyzri:XYZGrant
+    short_name: NIH 1R24MH136632-01
+    title: 'EMBER: Ecosystem for Multi-modal Brain-behavior Experimentation and Research'
+  baseline_record: null
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:f054a168098bcdfb53b7dfcb2dceef7f22fe524a0affa15ebbbf57c4e4a7cfb7
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:ror:042nb2s44
+  claim_kind: record-import
+  material_fingerprint: sha256:dc7abdad4cd48d8d861218af7d5610845a2d00c7c81eeeee83ed06de28a12b72
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/ror-042nb2s44.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A042nb2s44
+    display_label: MIT
+    name: Massachusetts Institute of Technology
+    pid: ror:042nb2s44
+    schema_type: xyzri:XYZOrganization
+    short_name: MIT
+  baseline_record: null
+  blockers: []
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:f10f152d80909e36d38a3d660d079823ac80bed8254f765abe6e761aa11235d1
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/open-brain-consent
+  claim_kind: record-import
+  material_fingerprint: sha256:cc7bfdc7c423a80c4bfcd8f42f6acb67fd351b487fc8b041865cc791c3035e96
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/open-brain-consent.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fopen-brain-consent
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://open-brain-consent.readthedocs.io/
+    description: Aims to facilitate neuroimaging data sharing by providing an out-of-the-box solution including consent forms enabling anonymized data deposition and anonymization tools/pipelines. An international effort with GDPR compliance materials.
+    display_label: Open Brain Consent
+    pid: xyzrins:projects/open-brain-consent
+    schema_type: xyzri:XYZProject
+    short_name: Open Brain Consent
+    title: Open Brain Consent
+  baseline_record:
+    associated_with:
+    - object: xyzrins:persons/yaroslav-halchenko
+      roles:
+      - marcrel:led
+      schema_type: dlthings:Association
+    - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+      roles:
+      - marcrel:ctb
+      schema_type: dlthings:Association
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://open-brain-consent.readthedocs.io/
+    description: Aims to facilitate neuroimaging data sharing by providing an out-of-the-box solution including consent forms enabling anonymized data deposition and anonymization tools/pipelines. An international effort with GDPR compliance materials.
+    display_label: Open Brain Consent
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/open-brain-consent
+    schema_type: xyzri:XYZProject
+    short_name: Open Brain Consent
+    title: Open Brain Consent
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:f69ed13514604716d266ba651309902c060fbb6f65f4d24a8a513e9510afd566
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZPerson:xyzrins:persons/michael-hanke
+  claim_kind: record-import
+  material_fingerprint: sha256:e5108a344126960dd910654b19beb906a4fdb22bb58309a7001cfdf172dedb23
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZPerson/michael-hanke.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/whoweare
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fmichael-hanke
+    description: Collaborator at the Center for Open Neuroscience. J.-Prof. at INM-7, Research Centre Jülich, Germany and University of Magdeburg. Official Debian developer. Lead of PyMVPA, NeuroDebian, DataLad projects.
+    display_label: Michael Hanke
+    family_name: Hanke
+    formatted_name: Michael Hanke
+    given_name: Michael
+    identifiers:
+    - creator: rrid:SCR_002630
+      notation: hanke
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/michael-hanke
+    schema_type: xyzri:XYZPerson
+  baseline_record:
+    description: Collaborator at the Center for Open Neuroscience. J.-Prof. at INM-7, Research Centre Jülich, Germany and University of Magdeburg. Official Debian developer. Lead of PyMVPA, NeuroDebian, DataLad projects.
+    display_label: Michael Hanke
+    family_name: Hanke
+    formatted_name: Michael Hanke
+    given_name: Michael
+    identifiers:
+    - notation: hanke
+      schema_type: dlthings:Identifier
+    pid: xyzrins:persons/michael-hanke
+    schema_type: xyzri:XYZPerson
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/whoweare
+  - unresolved-relation:rrid:SCR_002630
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:f71c0de5b9fe860a706d330de58e94e4518c56c27c10b235a8b7e64f451e8e45
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZOrganization:xyzrins:organizations/hms
+  claim_kind: record-import
+  material_fingerprint: sha256:ef92d68297b52c3ecb7ee723e3b985fef66f92fd20b8578048afbd9d551ba8b5
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZOrganization/hms.yaml
+  proposed_record:
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=xyzrins%3Aorganizations%2Fhms
+    display_label: Harvard Medical School
+    name: Harvard Medical School
+    pid: xyzrins:organizations/hms
+    schema_type: xyzri:XYZOrganization
+  baseline_record: null
+  blockers: []
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
+- candidate_id: curation-candidate-v1:ffcac15ff7da42bc6166ec4065d3cc31a861ba6991280da45ddc05f72bf77f5f
+  adapter_id: dump-research-info
+  source_namespace: https://github.com/con/dump-research-info
+  source_record_id: XYZProject:xyzrins:projects/nwb
+  claim_kind: record-import
+  material_fingerprint: sha256:8359c1a61a839281a2bf2b457fa821988f9cecaa66fac5d53fdb66e3e18e49ea
+  relevant_policy_fingerprint: sha256:bd2882a96fe733be78bc340907a58b51a2dd2f9cf1fbf73d8c7e8b2807dce154
+  proposed_path: XYZProject/nwb.yaml
+  proposed_record:
+    about:
+    - https://centerforopenneuroscience.org/projects
+    annotations:
+      pav:importedBy:
+        annotation_tag: pav:importedBy
+        annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+      pav:importedFrom:
+        annotation_tag: pav:importedFrom
+        annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fnwb
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://www.nwb.org/
+    description: A data standard providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data.
+    display_label: NWB
+    pid: xyzrins:projects/nwb
+    schema_type: xyzri:XYZProject
+    short_name: NWB
+    title: 'Neurodata Without Borders: Neurophysiology'
+  baseline_record:
+    attributes:
+    - predicate: foaf:homepage
+      schema_type: dlthings:AttributeSpecification
+      value: https://www.nwb.org/
+    description: A data standard providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data.
+    display_label: NWB
+    part_of:
+    - xyzrins:.
+    pid: xyzrins:projects/nwb
+    schema_type: xyzri:XYZProject
+    short_name: NWB
+    title: 'Neurodata Without Borders: Neurophysiology'
+  blockers:
+  - unresolved-relation:https://centerforopenneuroscience.org/projects
+  review:
+    reason: no-prior-decision
+    prior_disposition: null
