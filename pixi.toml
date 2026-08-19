@@ -15,19 +15,19 @@ orinoco-lite = { url = "https://github.com/con/orinoco-lite-dev/releases/downloa
 datalad = ">=1.6.2,<2"
 
 [tasks]
-projection-update = "mkdir -p generated && orinoco projection update"
-validate = { depends-on = ["projection-update"], cmd = "orinoco validate" }
-projection-verify = { depends-on = ["projection-update"], cmd = "orinoco projection verify" }
+hugo-projection-update = "mkdir -p generated && orinoco projection update"
+validate = { depends-on = ["hugo-projection-update"], cmd = "orinoco validate" }
+projection-verify = { depends-on = ["hugo-projection-update"], cmd = "orinoco projection verify" }
 assets-hydrate = "orinoco assets hydrate"
 assets-verify = "orinoco assets verify"
 assets-prepare-online = { depends-on = ["assets-hydrate"], cmd = "orinoco assets verify" }
-build = { depends-on = ["projection-update"], cmd = "orinoco build --destination build/site --base-url /" }
-build-repeat = { depends-on = ["projection-update"], cmd = "orinoco build --destination build/site-repeat --base-url /" }
+build = { depends-on = ["hugo-projection-update"], cmd = "orinoco build --destination build/site --base-url /" }
+build-repeat = { depends-on = ["hugo-projection-update"], cmd = "orinoco build --destination build/site-repeat --base-url /" }
 verify-deterministic = { depends-on = ["build", "build-repeat"], cmd = "python .orinoco-lite/tools/verify_deterministic_build.py build/site build/site-repeat --manifest build/deterministic-build.json" }
 verify-local-preview = { depends-on = ["build"], cmd = "python .orinoco-lite/tools/verify_local_preview.py build/site" }
 verify-build = { depends-on = ["verify-deterministic", "verify-local-preview"] }
-build-pages = { depends-on = ["projection-update"], cmd = "python .orinoco-lite/tools/build_pages.py build/pages" }
-build-browser-pages = { depends-on = ["projection-update"], cmd = "orinoco build --destination build/pages --base-url http://127.0.0.1:8766/test-orinoco-downstream-website/" }
+build-pages = { depends-on = ["hugo-projection-update"], cmd = "python .orinoco-lite/tools/build_pages.py build/pages" }
+build-browser-pages = { depends-on = ["hugo-projection-update"], cmd = "orinoco build --destination build/pages --base-url http://127.0.0.1:8766/test-orinoco-downstream-website/" }
 serve = "orinoco serve --directory build/site --port 8765"
 apply-editor-bundle = "orinoco editor apply"
 verify-runtime = "orinoco runtime verify"
