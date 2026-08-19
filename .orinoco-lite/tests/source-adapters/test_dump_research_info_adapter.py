@@ -448,7 +448,7 @@ class DumpResearchInfoAdapterTests(unittest.TestCase):
                 config=config,
                 build=root / "build/metadata-review",
                 selected_sources=["dump-research-info"],
-                source_inputs={"dump-research-info": str(source)},
+                source_inputs={"dump-research-info": "../dump-research-info"},
             )
             self.assertFalse(evidence.exists())
             self.assertEqual(
@@ -464,7 +464,7 @@ class DumpResearchInfoAdapterTests(unittest.TestCase):
                     config=config,
                     build=root / "build/metadata-review",
                     selected_sources=["dump-research-info"],
-                    source_inputs={"dump-research-info": str(source)},
+                    source_inputs={"dump-research-info": "../dump-research-info"},
                 )
             self.assertFalse(evidence.exists())
             self.assertFalse(

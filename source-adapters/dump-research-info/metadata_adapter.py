@@ -536,14 +536,27 @@ def apply_record_writes(writes: Mapping[Path, bytes]) -> None:
         raise
 
 
-def materialize(
+def plan_materialization(
     source_checkout: Path,
     downstream_root: Path,
     diagnostics: Path,
     *,
     source_directory: str = "data/con_site",
     downstream_revision: str | None = None,
-) -> dict[str, object]:
+) -> tuple[
+    dict[str, object],
+    list[
+        tuple[
+            str,
+            str,
+            Path,
+            dict[str, object],
+            dict[str, object] | None,
+        ]
+    ],
+]:
+    """Build an unambiguous materialization plan without changing records."""
+
     source_checkout = source_checkout.resolve()
     downstream_root = downstream_root.resolve()
     diagnostics = safe_diagnostics_path(downstream_root, diagnostics)
@@ -579,7 +592,15 @@ def materialize(
             )
 
     records_root = (downstream_root / "metadata/records").resolve()
-    plans: list[tuple[Path, dict[str, object], dict[str, object] | None]] = []
+    plans: list[
+        tuple[
+            str,
+            str,
+            Path,
+            dict[str, object],
+            dict[str, object] | None,
+        ]
+    ] = []
     planned_pids: dict[str, str] = {}
     planned_paths: dict[Path, str] = {}
     for class_name, records in sorted(source_records.items()):
@@ -629,13 +650,35 @@ def materialize(
                 target_pid,
                 pid_map,
             )
-            plans.append((target, desired, current))
+            plans.append((class_name, source_pid, target, desired, current))
+
+    return report, plans
+
+
+def materialize(
+    source_checkout: Path,
+    downstream_root: Path,
+    diagnostics: Path,
+    *,
+    source_directory: str = "data/con_site",
+    downstream_revision: str | None = None,
+) -> dict[str, object]:
+    downstream_root = downstream_root.resolve()
+    report, plans = plan_materialization(
+        source_checkout,
+        downstream_root,
+        diagnostics,
+        source_directory=source_directory,
+        downstream_revision=downstream_revision,
+    )
+    diagnostics = safe_diagnostics_path(downstream_root, diagnostics)
+    records_root = (downstream_root / "metadata/records").resolve()
 
     writes: dict[Path, bytes] = {}
     added: list[str] = []
     updated: list[dict[str, object]] = []
     unchanged = 0
-    for target, desired, current in plans:
+    for _class_name, _source_pid, target, desired, current in plans:
         if current is None:
             writes[target] = canonical_yaml(desired)
             added.append(target.relative_to(downstream_root).as_posix())
@@ -927,7 +970,12 @@ def review(context: Mapping[str, object]) -> dict[str, object]:
             "A DataLad-provided checkout is required via "
             "--source-input dump-research-info=/path/to/dump-research-info"
         )
-    source_checkout = Path(source_input).expanduser().resolve()
+    source_path = Path(source_input).expanduser()
+    source_checkout = (
+        source_path.resolve()
+        if source_path.is_absolute()
+        else (root / source_path).resolve()
+    )
     if not source_checkout.is_dir() or source_checkout.is_symlink():
         raise DumpResearchInfoAdapterError(
             f"Source input is not an ordinary checkout directory: {source_checkout}"

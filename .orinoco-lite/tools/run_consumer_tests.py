@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 import unittest
 from pathlib import Path
@@ -22,6 +23,8 @@ def parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    sys.dont_write_bytecode = True
+    os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
     args = parser().parse_args(argv)
     directory = Path(args.directory)
     if not directory.is_dir():
