@@ -118,7 +118,8 @@ class CurationReviewWorkflowTests(unittest.TestCase):
             self.propose["steps"][-1]["name"],
         )
         label = self.propose_steps["Provision the stable curation review label"]["run"]
-        self.assertIn("gh label view curation-review", label)
+        self.assertIn('gh api "repos/${REPOSITORY}/labels/curation-review"', label)
+        self.assertNotIn("gh label view", label)
         self.assertIn("gh label create curation-review", label)
         self.assertNotIn("--force", label)
         self.assertEqual(2, self.text.count("gh workflow run validate.yml"))

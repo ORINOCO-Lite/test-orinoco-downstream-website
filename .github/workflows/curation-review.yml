@@ -167,13 +167,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
         run: |
-          if ! gh label view curation-review --repo "$REPOSITORY" \
+          if ! gh api "repos/${REPOSITORY}/labels/curation-review" \
             > /dev/null 2>&1; then
             gh label create curation-review \
               --color 5319E7 \
               --description "One-PR human metadata curation" \
               --repo "$REPOSITORY" || \
-              gh label view curation-review --repo "$REPOSITORY" \
+              gh api "repos/${REPOSITORY}/labels/curation-review" \
                 > /dev/null
           fi
 
