@@ -2,141 +2,113 @@
 
 Status: site-owned hosted-review prototype; no compatibility promise
 
-This workflow puts source proposal, human review, reconciliation, and ordinary
-pull-request approval in one draft GitHub pull request. A reviewer does not
-need a local checkout. The existing command-line workflow remains available
-for people who prefer it.
+The hosted workflow keeps proposal, human review, and reconciliation in one
+draft GitHub pull request. A reviewer does not need a local checkout. People
+who prefer local tools may still use them, but local work is not required by
+the hosted path.
 
-The automation records only explicit reviewer choices. It never chooses a
-disposition, approves or merges its pull request, deploys a preview, writes to
-an upstream source, or bypasses normal branch protection.
+The automation records explicit reviewer choices. It never chooses a
+disposition, marks the pull request ready, approves or merges it, deploys it,
+or writes to an upstream source.
 
-## Public review boundary
+## Start one review pull request
 
-A proposal inventory contains complete baseline and proposed records. Review
-comments and the durable decision ledger contain GitHub reviewer identity,
-rationale, and evidence links. In a public repository these values remain
-public in the pull request and Git history.
+On the repository's **Actions** tab, run **Curate source metadata** from the
+default branch and supply the source adapter inputs. The workflow resolves the
+selected source revision and opens one draft pull request. If there is nothing
+new to review, the run ends without opening an empty pull request.
 
-The Actions form therefore requires a transaction-specific acknowledgment
-before it will create a pull request. The manifest records the initiating
-GitHub actor, workflow-run URL, and timestamp. Comment processing re-reads that
-immutable workflow run instead of trusting editable pull-request files.
+The metadata diff, reviewer identity, and resulting decision cache are public
+in this public repository. The Actions form requires an acknowledgment of that
+boundary before starting the proposal.
 
-## Open one review pull request
+The initial pull-request commit contains the proposed canonical metadata. Its
+**Files changed** tab is the primary review surface: it shows the ordinary Git
+diff that would be accepted for each record.
 
-1. On the repository's **Actions** tab, choose **Curate source metadata** and
-   select **Run workflow** on the default branch.
-2. Choose `dump-research-info` or `zotero`. For
-   `dump-research-info`, the source refspec defaults to `main`; a branch,
-   tag, or commit may be supplied when reviewing a different snapshot. The
-   refspec field does not apply to Zotero and should retain its default there.
-3. Read and select the public-review-data acknowledgment, then start the run.
+DataLad is used only to create this initial metadata-producing commit. Its run
+record is kept inline in the commit rather than written as a sidecar file.
+Submission and reconciliation use ordinary Git commits.
 
-The workflow captures the UTC evaluation date automatically. For
-`dump-research-info`, it resolves the selected refspec to a full commit and
-retains that immutable commit with the date in proposal evidence. Zotero still
-requires its exact snapshot library version. The workflow then opens one draft
-branch named `automation/curation/<adapter>-<run-id>`. A zero-candidate proposal
-completes with an Actions summary and does not open an empty pull request.
+The pull-request body supplies the corresponding decision controls. Each
+record is headed by a friendly existing label and canonical PID, with the
+source-native identifier when useful. Internal digests are not presented as
+record names.
 
-The pull request links a generated review document. Candidate aliases such as
-`DRI-001` are only short review handles; the manifest binds every alias to the
-full candidate and claim-revision identities. Each candidate card includes:
+This is a native GitHub pull-request interface built from Markdown task lists;
+it is not a GitHub Issue Form.
 
-- source identity and proposed canonical path;
-- blockers that prevent acceptance;
-- the complete baseline and proposed values and their semantic diff.
+## Review and submit
 
-Separate copyable YAML forms group the candidate decision items into batches
-of at most 20.
+For every record, review its metadata diff and use the task-list controls in
+the pull-request body to check exactly one of:
 
-Proposal, manifest, review form, source pins, and initial DataLad evidence are
-immutable review inputs. The workflow rejects unexpected paths, modes,
-symlinks, executable changes, forged coordinates, or a proposal that cannot be
-reproduced byte-for-byte from trusted default-branch code and the recorded
-source.
+- **Accept** -- retain the proposed metadata;
+- **Reject** -- do not add or replace the metadata; or
+- **Defer** -- make no metadata change in this review and return the record in
+  the next proposal.
 
-## Submit explicit decisions
+A record with an acceptance blocker cannot be accepted. Rejecting or deferring
+it removes the proposed metadata change during reconciliation.
 
-Copy one of the generated batches into a new pull-request comment. Each comment
-must have exactly this shape:
-
-````text
-/curation submit
-```yaml
-inventory_id: curation-inventory-v1:REPLACE_WITH_EXACT_ID
-decisions:
-  - candidate: DRI-001
-    expected_decision: null
-    disposition: reject
-    rationale: Explain the reviewed choice.
-    evidence:
-      - https://example.org/reviewed-source
-    details: {}
-```
-````
-
-The reviewer replaces `REPLACE_ME` in generated forms with one of the supported
-dispositions and supplies the required rationale, evidence, and conditional
-details. Generated forms contain at most 20 decisions. GitHub derives the
-reviewer identity, decision date, and comment permalink; values in the comment
-cannot spoof them.
-
-Only a collaborator whose GitHub permission check reports `write` or `admin`
-can submit a batch. The batch is atomic: any malformed, unknown, stale,
-duplicate, blocked, or incomplete item rejects the whole comment. Successful
-comments add immutable decision events on the same pull-request branch and post
-an attributed progress reply with current decision IDs.
-
-Before finalization, correct a choice by posting a new decision item with
-`expected_decision` set to the current event ID from the bot's progress reply.
-The new event supersedes the old event without deleting review history. Comment
-edits and deletions never rewrite an accepted event.
-
-## Finalize once
-
-When every candidate has one current explicit outcome, post a comment whose
+After every record has exactly one choice, create a pull-request comment whose
 entire body is:
 
 ```text
-/curation finalize
+/curation submit
 ```
 
-Finalization is terminal in prototype v1. The workflow rechecks collaborator
-authority, pull-request provenance, the immutable proposal run, the complete
-decision transaction, and a trusted byte-for-byte proposal reproduction. It
-then reconciles the exact reviewed transaction once, validates the staged
-metadata with the locked runtime, retains the report and second DataLad
-sidecar, replays the result from the trusted base, and pushes the canonical
-change to the same draft pull request with an exact head-SHA lease.
+The comment is only the submit action. Decisions come from the task-list state
+in the pull-request body; reviewers do not copy YAML or opaque identifiers into
+comments. A submission fails without changing the branch if choices are
+missing, conflicting, stale, or otherwise invalid.
 
-The bot explicitly dispatches read-only validation for the final head. Any bot
-push dismisses stale approval under the repository's branch rules, so a human
-must review and approve the reconciled head. The bot never marks the pull
-request ready, approves it, merges it, or deploys it.
+Only a collaborator with suitable repository permission can submit. The bot
+uses trusted default-branch workflow code, regenerates the proposal from the
+pinned source revision, and verifies that the proposed metadata matches before
+applying the choices.
 
-To change a decision after finalization, close the unmerged pull request and
-start a new transaction. Prototype v1 intentionally forbids correction after
-canonical reconciliation because a non-accepting decision does not itself undo
-an earlier accepted record.
+## Result of submission
 
-## Trust and failure behavior
+The bot adds one ordinary Git commit to the same draft pull request. That
+commit:
 
-The privileged comment workflow is loaded from the default branch. It treats
-the pull-request checkout as strict data and does not run changed pull-request
-code with a write token. Proposal regeneration and reconciliation use trusted
-default-branch implementation files and the pinned runtime. Branch updates are
-serialized per pull request and use compare-and-swap pushes, so a force push or
-concurrent edit fails without overwriting either version.
+- keeps accepted metadata;
+- restores or removes rejected and deferred metadata;
+- updates the compact current decision cache; and
+- starts normal metadata validation for the reconciled head.
 
-Only `issue_comment.created` events cause processing. Later edits or deletion
-of a reviewer's submission do not trigger or rewrite an accepted decision; the
-bot's separately attested ledger remains authoritative. Editing or removing a
-bot receipt makes later commands fail closed. Current GitHub queueing
-serializes the per-pull-request command runs without discarding pending review
-submissions. Failed commands leave an attributed Actions result and do not
-infer or partially apply a decision.
+The cache is needed in particular for rejected and deferred records, whose
+human decisions leave no canonical metadata diff. It stores the current
+disposition under a stable, human-meaningful record identity and one internal
+claim digest for cache invalidation. An unchanged rejection stays cached;
+deferral deliberately returns for the next review. The source revision,
+reviewer, decision time, and pull-request URL are stored once for the review
+rather than repeated for every record. Git history preserves earlier cache
+states and is the decision history.
 
-For the lower-level formats, dispositions, recovery rules, and optional local
-commands, see `CURATION-PROTOTYPE-V1.md` in this directory.
+Accepted records already carry their source provenance from the adapter. The
+providers write expanded PAV `importedFrom` and `importedBy` properties into
+the canonical metadata; the hosted workflow does not duplicate those claims
+in a separate manifest.
+
+This use of PAV, and related PROV ontology patterns where needed, is the point
+of alignment with upstream provenance work. It does not imply copying an
+upstream Git or DataLad management strategy.
+
+There is no tracked proposal inventory, generated review document, exhaustive
+manifest, reconciliation report, custom attestation chain, DataLad sidecar, or
+separate finalize command. The pull request, its metadata diff, its compact
+decision cache, the adapter's semantic provenance, and ordinary Git history
+carry the review evidence.
+
+## Checks and review state
+
+The initial proposal intentionally contains the metadata under review. Normal
+checks can therefore be red before the reviewer rejects or defers blocked
+proposals. The meaningful validation result is the one run against the
+reconciled head after `/curation submit`.
+
+The pull request remains a draft after the bot's commit. Normal branch
+protection and human pull-request review still apply. The bot never approves,
+merges, or deploys the result.
