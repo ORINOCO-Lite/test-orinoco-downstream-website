@@ -205,6 +205,13 @@ def aggregate_digest(repo: Path, paths: list[str]) -> str:
     return digest.hexdigest()
 
 
+def remove_if_empty(path: Path) -> None:
+    try:
+        path.rmdir()
+    except OSError:
+        pass
+
+
 class DataLadExecutionAndSquashAcceptance(unittest.TestCase):
     def test_sidecar_and_curation_artifacts_survive_squash_without_run_commit(
         self,
@@ -213,7 +220,27 @@ class DataLadExecutionAndSquashAcceptance(unittest.TestCase):
         self.assertIsNotNone(pixi, "Pixi is required for DataLad acceptance")
         assert pixi is not None
 
-        with tempfile.TemporaryDirectory(prefix=".m5-datalad-", dir=ROOT) as tmp:
+        scratch_root = ROOT / "build/test-tmp"
+        remove_scratch_root = not scratch_root.exists()
+        scratch_parent = scratch_root / "curation-datalad"
+        scratch_parent.mkdir(parents=True, exist_ok=True)
+        if remove_scratch_root:
+            self.addCleanup(remove_if_empty, scratch_root)
+        self.addCleanup(remove_if_empty, scratch_parent)
+        ignored = run_checked(
+            [
+                "git",
+                "check-ignore",
+                "--quiet",
+                "--",
+                scratch_parent.relative_to(ROOT).as_posix(),
+            ],
+            cwd=ROOT,
+            check=False,
+        )
+        self.assertEqual(ignored.returncode, 0, "DataLad scratch must stay ignored")
+
+        with tempfile.TemporaryDirectory(prefix="m5-", dir=scratch_parent) as tmp:
             repo = Path(tmp)
             git(repo, "init", "-b", "main")
             git(repo, "config", "user.name", "Synthetic Acceptance")
