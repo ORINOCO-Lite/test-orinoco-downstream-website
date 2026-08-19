@@ -1,31 +1,27 @@
-pid: xyzrins:publications/doi-10-1002-hbm-25351
-schema_type: xyzri:XYZPublication
-title: 'The Open Brain Consent: Informing research participants and obtaining consent to share
-  brain imaging data'
-display_label: 'The Open Brain Consent: Informing research participants and obtaining consent
-  to share brain imaging data'
-kind: bibo:AcademicArticle
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.1002%2Fhbm.25351
+attributed_to:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - obo:MS_1002036
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+  roles:
+  - obo:MS_1002036
+  schema_type: dlthings:Attribution
+display_label: Open Brain Consent 2021
 identifiers:
 - notation: 10.1002/hbm.25351
   schema_type: dlthings:DOI
 - notation: https://doi.org/10.1002/hbm.25351
   schema_type: dlthings:Identifier
-- notation: zotero:group:6197458:item:245NKVXU
-  schema_type: dlthings:Identifier
-attributed_to:
-- object: xyzrins:persons/satrajit-ghosh
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/yaroslav-halchenko
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/matteo-visconti-di-oleggio-castello
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-attributes:
-- predicate: dcterms:issued
-  value: 2021-02
-  schema_type: dlthings:AttributeSpecification
+pid: xyzrins:publications/doi-10-1002-hbm-25351
+schema_type: xyzri:XYZPublication
+title: 'The Open Brain Consent: Informing research participants and obtaining consent to share brain imaging data'

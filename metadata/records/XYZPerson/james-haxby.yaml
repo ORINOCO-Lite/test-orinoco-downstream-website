@@ -1,20 +1,26 @@
-pid: xyzrins:persons/james-haxby
-schema_type: xyzri:XYZPerson
-given_name: James
+about:
+- https://centerforopenneuroscience.org/whoweare
 additional_names:
-  - V.
+- V.
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjames-haxby
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: james.v.haxby@dartmouth.edu
+description: Co-Director of the Center for Open Neuroscience at Dartmouth College. Formerly directed Dartmouth Brain Imaging Center and Center for Cognitive Neuroscience. Recognized for developing and disseminating open research methodologies and influential datasets.
+display_label: James V. Haxby
 family_name: Haxby
 formatted_name: James V. Haxby
-display_label: James V. Haxby
-description: >-
-  Co-Director of the Center for Open Neuroscience at Dartmouth College.
-  Formerly directed Dartmouth Brain Imaging Center and Center for Cognitive
-  Neuroscience. Recognized for developing and disseminating open research
-  methodologies and influential datasets.
-attributes:
-  - predicate: vcard:Email
-    value: james.v.haxby@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+given_name: James
 identifiers:
-  - notation: JamesVHaxby
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: JamesVHaxby
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/james-haxby
+schema_type: xyzri:XYZPerson

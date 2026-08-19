@@ -1,37 +1,39 @@
-pid: xyzrins:publications/doi-10-7490-f1000research-1116363-1
-schema_type: xyzri:XYZPublication
-title: 'YODA: YODA’s organigram on data analysis'
-display_label: 'YODA: YODA’s organigram on data analysis'
-kind: bibo:Document
-identifiers:
-- notation: 10.7490/f1000research.1116363.1
-  schema_type: dlthings:DOI
-- notation: https://github.com/myyoda/poster/blob/master/ohbm2018.pdf
-  schema_type: dlthings:Identifier
-- notation: zotero:group:6197458:item:S7T734SL
-  schema_type: dlthings:Identifier
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.7490%2Ff1000research.1116363.1
 attributed_to:
 - object: xyzrins:persons/michael-hanke
   roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/matteo-visconti-di-oleggio-castello
-  roles:
-  - marcrel:aut
+  - obo:MS_1002034
   schema_type: dlthings:Attribution
 - object: xyzrins:persons/kyle-meyer
   roles:
-  - marcrel:aut
+  - obo:MS_1002036
+  schema_type: dlthings:Attribution
+- object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+  roles:
+  - obo:MS_1002036
   schema_type: dlthings:Attribution
 - object: xyzrins:persons/benjamin-poldrack
   roles:
-  - marcrel:aut
+  - obo:MS_1002036
   schema_type: dlthings:Attribution
 - object: xyzrins:persons/yaroslav-halchenko
   roles:
-  - marcrel:aut
+  - obo:MS_1002036
   schema_type: dlthings:Attribution
-attributes:
-- predicate: dcterms:issued
-  value: '2018'
-  schema_type: dlthings:AttributeSpecification
+display_label: YODA 2018 F1000Research
+identifiers:
+- notation: 10.7490/f1000research.1116363.1
+  schema_type: dlthings:DOI
+- notation: https://doi.org/10.7490/f1000research.1116363.1
+  schema_type: dlthings:Identifier
+pid: xyzrins:publications/doi-10-7490-f1000research-1116363-1
+schema_type: xyzri:XYZPublication
+title: 'YODA: YODA''s Organigram on Data Analysis'

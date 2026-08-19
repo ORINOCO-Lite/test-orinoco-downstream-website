@@ -1,0 +1,24 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=http%3A%2F%2Fjmlr.org%2Fpapers%2Fv18%2F17-434.html
+attributed_to:
+- object: xyzrins:persons/jeremy-manning
+  roles:
+  - obo:MS_1002035
+  schema_type: dlthings:Attribution
+display_label: Heusser et al. 2018 JMLR
+identifiers:
+- creator: https://www.jmlr.org/
+  notation: 17-434
+  schema_type: dlthings:Identifier
+- notation: http://jmlr.org/papers/v18/17-434.html
+  schema_type: dlthings:Identifier
+pid: xyzrins:publications/http-jmlr-org-papers-v18-17-434-html
+schema_type: xyzri:XYZPublication
+title: 'HyperTools: a Python Toolbox for Gaining Geometric Insights into High-Dimensional Data'

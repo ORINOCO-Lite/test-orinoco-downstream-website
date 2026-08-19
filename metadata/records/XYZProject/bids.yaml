@@ -1,20 +1,24 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fbids
+associated_with:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:ctb
+  schema_type: dlthings:Association
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: http://bids.neuroimaging.io
+description: A standard providing a simple and intuitive way to organize and describe neuroimaging and behavioral data. Governed by a community-elected steering group.
+display_label: BIDS
 pid: xyzrins:projects/bids
 schema_type: xyzri:XYZProject
-title: Brain Imaging Data Structure
 short_name: BIDS
-display_label: BIDS
-description: >-
-  A standard providing a simple and intuitive way to organize and describe
-  neuroimaging and behavioral data. Governed by a community-elected steering
-  group.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/yaroslav-halchenko
-    roles:
-      - marcrel:ctb
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: http://bids.neuroimaging.io
-    schema_type: dlthings:AttributeSpecification
+title: Brain Imaging Data Structure

@@ -1,24 +1,26 @@
-pid: xyzrins:persons/yaroslav-halchenko
-schema_type: xyzri:XYZPerson
-given_name: Yaroslav
+about:
+- https://centerforopenneuroscience.org/whoweare
 additional_names:
-  - O.
+- O.
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fyaroslav-halchenko
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: yaroslav.o.halchenko@oneukrainian.com
+description: Founding Director of the Center for Open Neuroscience. Research Professor of Psychological and Brain Sciences and Adjunct Professor of Computer Science at Dartmouth College. Official Debian Developer and open source contributor leading DANDI, DataLad, PyMVPA, and NeuroDebian projects. Serves on BIDS and NWB technical advisory committees.
+display_label: Yaroslav O. Halchenko
 family_name: Halchenko
 formatted_name: Yaroslav O. Halchenko
-display_label: Yaroslav O. Halchenko
-description: >-
-  Founding Director of the Center for Open Neuroscience. Research Professor of
-  Psychological and Brain Sciences and Adjunct Professor of Computer Science
-  at Dartmouth College. Official Debian Developer and open source contributor
-  leading DANDI, DataLad, PyMVPA, and NeuroDebian projects. Serves on BIDS and
-  NWB technical advisory committees.
-attributes:
-  - predicate: vcard:Email
-    value: yaroslav.o.halchenko@oneukrainian.com
-    schema_type: dlthings:AttributeSpecification
-  - predicate: foaf:homepage
-    value: https://centerforopenneuroscience.org/whoweare
-    schema_type: dlthings:AttributeSpecification
+given_name: Yaroslav
 identifiers:
-  - notation: yarikoptic
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: yarikoptic
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/yaroslav-halchenko
+schema_type: xyzri:XYZPerson

@@ -1,17 +1,24 @@
-pid: xyzrins:persons/samuel-nastase
-schema_type: xyzri:XYZPerson
-given_name: Samuel
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsamuel-nastase
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: sam.nastase@gmail.com
+description: Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth Ph.D. student, now at Princeton. Cognitive Neuroscience Ph.D. PyMVPA user and NeuroDebian exhibitor.
+display_label: Samuel Nastase
 family_name: Nastase
 formatted_name: Samuel Nastase
-display_label: Samuel Nastase
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Formerly Dartmouth
-  Ph.D. student, now at Princeton. Cognitive Neuroscience Ph.D. PyMVPA user
-  and NeuroDebian exhibitor.
-attributes:
-  - predicate: vcard:Email
-    value: sam.nastase@gmail.com
-    schema_type: dlthings:AttributeSpecification
+given_name: Samuel
 identifiers:
-  - notation: snastase
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: snastase
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/samuel-nastase
+schema_type: xyzri:XYZPerson

@@ -1,19 +1,23 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Frepronim-reproducible-basics
+associated_with:
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:ctb
+  schema_type: dlthings:Association
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: http://www.reproducibleimaging.org/module-reproducible-basics
+description: Training module presenting daily core tools (shell, version control, etc) and demonstrating research reproducibility improvement. Part of the ReproNim training curriculum.
+display_label: 'ReproNim: Reproducible Basics'
 pid: xyzrins:projects/repronim-reproducible-basics
 schema_type: xyzri:XYZProject
 title: 'ReproNim: Reproducible Basics'
-display_label: 'ReproNim: Reproducible Basics'
-description: >-
-  Training module presenting daily core tools (shell, version control, etc)
-  and demonstrating research reproducibility improvement. Part of the ReproNim
-  training curriculum.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/yaroslav-halchenko
-    roles:
-      - marcrel:ctb
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: http://www.reproducibleimaging.org/module-reproducible-basics
-    schema_type: dlthings:AttributeSpecification

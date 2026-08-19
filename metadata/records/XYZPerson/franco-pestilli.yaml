@@ -1,13 +1,20 @@
-pid: xyzrins:persons/franco-pestilli
-schema_type: xyzri:XYZPerson
-given_name: Franco
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Ffranco-pestilli
+description: Collaborator at the Center for Open Neuroscience. Affiliated with University of Texas, Austin. Director and founder of brainlife.io cloud computing platform.
+display_label: Franco Pestilli
 family_name: Pestilli
 formatted_name: Franco Pestilli
-display_label: Franco Pestilli
-description: >-
-  Collaborator at the Center for Open Neuroscience. Affiliated with University
-  of Texas, Austin. Director and founder of brainlife.io cloud computing
-  platform.
+given_name: Franco
 identifiers:
-  - notation: francopestilli
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: francopestilli
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/franco-pestilli
+schema_type: xyzri:XYZPerson

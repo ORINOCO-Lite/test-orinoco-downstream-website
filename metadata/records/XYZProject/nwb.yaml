@@ -1,14 +1,19 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fnwb
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://www.nwb.org/
+description: A data standard providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data.
+display_label: NWB
 pid: xyzrins:projects/nwb
 schema_type: xyzri:XYZProject
-title: 'Neurodata Without Borders: Neurophysiology'
 short_name: NWB
-display_label: NWB
-description: >-
-  A data standard providing neuroscientists with a common standard to share,
-  archive, use, and build analysis tools for neurophysiology data.
-part_of:
-  - xyzrins:.
-attributes:
-  - predicate: foaf:homepage
-    value: https://www.nwb.org/
-    schema_type: dlthings:AttributeSpecification
+title: 'Neurodata Without Borders: Neurophysiology'

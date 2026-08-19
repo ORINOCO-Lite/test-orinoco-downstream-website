@@ -1,0 +1,23 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.21105%2Fjoss.00424
+attributed_to:
+- object: xyzrins:persons/jeremy-manning
+  roles:
+  - obo:MS_1002034
+  schema_type: dlthings:Attribution
+display_label: Manning et al. 2017 JOSS
+identifiers:
+- notation: 10.21105/joss.00424
+  schema_type: dlthings:DOI
+- notation: https://doi.org/10.21105/joss.00424
+  schema_type: dlthings:Identifier
+pid: xyzrins:publications/doi-10-21105-joss-00424
+schema_type: xyzri:XYZPublication
+title: 'Quail: A Python toolbox for analyzing and plotting free recall data'

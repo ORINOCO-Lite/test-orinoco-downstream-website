@@ -1,18 +1,24 @@
-pid: xyzrins:persons/luke-chang
-schema_type: xyzri:XYZPerson
-given_name: Luke
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fluke-chang
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: luke.j.chang@dartmouth.edu
+description: Associate Professor of Psychological and Brain Sciences at Dartmouth College. Director of the Computational Social and Affective Neuroscience Lab. Develops tools studying computational processes underlying emotions, social interactions, and neurobiological substrates.
+display_label: Luke Chang
 family_name: Chang
 formatted_name: Luke Chang
-display_label: Luke Chang
-description: >-
-  Associate Professor of Psychological and Brain Sciences at Dartmouth
-  College. Director of the Computational Social and Affective Neuroscience
-  Lab. Develops tools studying computational processes underlying emotions,
-  social interactions, and neurobiological substrates.
-attributes:
-  - predicate: vcard:Email
-    value: luke.j.chang@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+given_name: Luke
 identifiers:
-  - notation: ljchang
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: ljchang
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/luke-chang
+schema_type: xyzri:XYZPerson

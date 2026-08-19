@@ -1,17 +1,24 @@
-pid: xyzrins:persons/vadim-melnik
-schema_type: xyzri:XYZPerson
-given_name: Vadim
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fvadim-melnik
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: vmelnik@docsultant.com
+description: Software Engineer and Consultant at the Center for Open Neuroscience. Working on ReproStim, ReproMon, con/noisseur, and event collection/timing projects.
+display_label: Vadim Melnik
 family_name: Melnik
 formatted_name: Vadim Melnik
-display_label: Vadim Melnik
-description: >-
-  Software Engineer and Consultant at the Center for Open Neuroscience.
-  Working on ReproStim, ReproMon, con/noisseur, and event collection/timing
-  projects.
-attributes:
-  - predicate: vcard:Email
-    value: vmelnik@docsultant.com
-    schema_type: dlthings:AttributeSpecification
+given_name: Vadim
 identifiers:
-  - notation: vmdocua
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: vmdocua
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/vadim-melnik
+schema_type: xyzri:XYZPerson

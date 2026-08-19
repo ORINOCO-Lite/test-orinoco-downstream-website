@@ -1,16 +1,24 @@
-pid: xyzrins:persons/oliver-contier
-schema_type: xyzri:XYZPerson
-given_name: Oliver
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Foliver-contier
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: o.contier@gmail.com
+description: Emeritus member of the Center for Open Neuroscience. Masters student in Psychology/Cognitive Neuroscience at University of Magdeburg.
+display_label: Oliver Contier
 family_name: Contier
 formatted_name: Oliver Contier
-display_label: Oliver Contier
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Masters student in
-  Psychology/Cognitive Neuroscience at University of Magdeburg.
-attributes:
-  - predicate: vcard:Email
-    value: o.contier@gmail.com
-    schema_type: dlthings:AttributeSpecification
+given_name: Oliver
 identifiers:
-  - notation: oliver-contier
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: oliver-contier
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/oliver-contier
+schema_type: xyzri:XYZPerson

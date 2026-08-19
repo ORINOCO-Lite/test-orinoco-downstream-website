@@ -1,12 +1,20 @@
-pid: xyzrins:persons/benjamin-poldrack
-schema_type: xyzri:XYZPerson
-given_name: Benjamin
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fbenjamin-poldrack
+description: Emeritus member of the Center for Open Neuroscience. Affiliated with INM-7, Research Centre Jülich. DataLad project contributor.
+display_label: Benjamin Poldrack
 family_name: Poldrack
 formatted_name: Benjamin Poldrack
-display_label: Benjamin Poldrack
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Affiliated with INM-7,
-  Research Centre Jülich. DataLad project contributor.
+given_name: Benjamin
 identifiers:
-  - notation: bpoldrack
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: bpoldrack
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/benjamin-poldrack
+schema_type: xyzri:XYZPerson

@@ -1,18 +1,24 @@
-pid: xyzrins:persons/cody-baker
-schema_type: xyzri:XYZPerson
-given_name: Cody
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fcody-baker
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: cody.c.baker.phd@gmail.com
+description: Research Software Engineer at the Center for Open Neuroscience. Data specialist creating NWB and DANDI ecosystem software packages (NeuroConv, NWB Inspector, NWB GUIDE). Experienced uploading hundreds of terabytes to NIH archives.
+display_label: Cody Baker
 family_name: Baker
 formatted_name: Cody Baker
-display_label: Cody Baker
-description: >-
-  Research Software Engineer at the Center for Open Neuroscience. Data
-  specialist creating NWB and DANDI ecosystem software packages (NeuroConv,
-  NWB Inspector, NWB GUIDE). Experienced uploading hundreds of terabytes to
-  NIH archives.
-attributes:
-  - predicate: vcard:Email
-    value: cody.c.baker.phd@gmail.com
-    schema_type: dlthings:AttributeSpecification
+given_name: Cody
 identifiers:
-  - notation: CodyCBakerPhD
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: CodyCBakerPhD
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/cody-baker
+schema_type: xyzri:XYZPerson

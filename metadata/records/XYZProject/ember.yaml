@@ -1,20 +1,28 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fember
+associated_with:
+- object: xyzrins:persons/brock-wester
+  roles:
+  - obo:NCIT_C19924
+  schema_type: dlthings:Association
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:rtm
+  schema_type: dlthings:Association
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://emberarchive.org
+description: BRAIN Initiative archive for multi-modal neurophysiological and behavioral data, supporting the Brain Behavior Quantification and Synchronization Program. Being developed based on DANDI.
+display_label: EMBER
 pid: xyzrins:projects/ember
 schema_type: xyzri:XYZProject
-title: Ecosystem for Multi-modal Brain-behavior Experimentation and Research
 short_name: EMBER
-display_label: EMBER
-description: >-
-  BRAIN Initiative archive for multi-modal neurophysiological and behavioral
-  data, supporting the Brain Behavior Quantification and Synchronization
-  Program. Being developed based on DANDI.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/yaroslav-halchenko
-    roles:
-      - marcrel:rtm
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: https://emberarchive.org
-    schema_type: dlthings:AttributeSpecification
+title: Ecosystem for Multi-modal Brain-behavior Experimentation and Research

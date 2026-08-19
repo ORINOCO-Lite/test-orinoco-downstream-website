@@ -1,17 +1,24 @@
-pid: xyzrins:persons/joey-hess
-schema_type: xyzri:XYZPerson
-given_name: Joey
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjoey-hess
+attributes:
+- predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: id@joeyh.name
+description: Independent collaborator at the Center for Open Neuroscience. Core Debian distribution contributor (debhelper, debian-installer, debconf, pristine-tar). Developer of git-annex used in DataLad.
+display_label: Joey Hess
 family_name: Hess
 formatted_name: Joey Hess
-display_label: Joey Hess
-description: >-
-  Independent collaborator at the Center for Open Neuroscience. Core Debian
-  distribution contributor (debhelper, debian-installer, debconf,
-  pristine-tar). Developer of git-annex used in DataLad.
-attributes:
-  - predicate: vcard:Email
-    value: id@joeyh.name
-    schema_type: dlthings:AttributeSpecification
+given_name: Joey
 identifiers:
-  - notation: joeyh
-    schema_type: dlthings:Identifier
+- creator: rrid:SCR_002630
+  notation: joeyh
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/joey-hess
+schema_type: xyzri:XYZPerson

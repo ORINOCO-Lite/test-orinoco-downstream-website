@@ -1,14 +1,19 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fdistribits
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://www.distribits.live/
+description: Community for enthusiasts of tools and workflows in the domain of distributed data.
+display_label: distribits
 pid: xyzrins:projects/distribits
 schema_type: xyzri:XYZProject
-title: distribits
 short_name: distribits
-display_label: distribits
-description: >-
-  Community for enthusiasts of tools and workflows in the domain of
-  distributed data.
-part_of:
-  - xyzrins:.
-attributes:
-  - predicate: foaf:homepage
-    value: https://www.distribits.live/
-    schema_type: dlthings:AttributeSpecification
+title: distribits

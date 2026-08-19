@@ -1,13 +1,18 @@
+about:
+- https://centerforopenneuroscience.org/
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A04tfhh831
+at_location: https://www.wikidata.org/entity/Q131908
+description: Provides open software frameworks, platforms, data and methodologies for neuroscience and beyond.
+display_label: Center for Open Neuroscience (CON)
+name: Center for Open Neuroscience
+part_of:
+- ror:049s0rh22
 pid: ror:04tfhh831
 schema_type: xyzri:XYZOrganization
-name: Center for Open Neuroscience
 short_name: CON
-display_label: Center for Open Neuroscience (CON)
-description: >-
-  Provides open software frameworks, platforms, data and methodologies for
-  neuroscience and beyond.
-at_location: https://www.wikidata.org/entity/Q131908
-attributes:
-  - predicate: foaf:homepage
-    value: https://centerforopenneuroscience.org/
-    schema_type: dlthings:AttributeSpecification

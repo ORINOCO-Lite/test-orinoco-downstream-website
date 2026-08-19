@@ -1,71 +1,31 @@
-pid: xyzrins:publications/doi-10-21105-joss-05839
-schema_type: xyzri:XYZPublication
-title: HeuDiConv — flexible DICOM conversion into structureddirectory layouts
-display_label: HeuDiConv — flexible DICOM conversion into structureddirectory layouts
-kind: bibo:AcademicArticle
-identifiers:
-- notation: 10.21105/joss.05839
-  schema_type: dlthings:DOI
-- notation: 2475-9066
-  schema_type: dlthings:ISSN
-- notation: https://joss.theoj.org/papers/10.21105/joss.05839
-  schema_type: dlthings:Identifier
-- notation: zotero:group:6197458:item:W9MC83Q7
-  schema_type: dlthings:Identifier
-- notation: zotero:group:6197458:item:XHF43I5N
-  schema_type: dlthings:Identifier
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublication.json#record=https%3A%2F%2Fdoi.org%2F10.21105%2Fjoss.05839
 attributed_to:
 - object: xyzrins:persons/yaroslav-halchenko
   roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/satrajit-ghosh
-  roles:
-  - marcrel:aut
+  - obo:MS_1002034
   schema_type: dlthings:Attribution
 - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
   roles:
-  - marcrel:aut
+  - obo:MS_1002036
   schema_type: dlthings:Attribution
-- object: xyzrins:persons/john-wodder
+- object: xyzrins:persons/james-haxby
   roles:
-  - marcrel:aut
+  - obo:MS_1002036
   schema_type: dlthings:Attribution
-- object: xyzrins:persons/michael-hanke
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/horea-ioanas
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/john-lee
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/isaac-to
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/chris-markiewicz
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/austin-macdonald
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-- object: xyzrins:persons/david-kennedy
-  roles:
-  - marcrel:aut
-  schema_type: dlthings:Attribution
-attributes:
-- predicate: bibo:locator
-  value: 9, 99, 5839
-  schema_type: dlthings:AttributeSpecification
-- predicate: dcterms:issued
-  value: '2024-07-03'
-  schema_type: dlthings:AttributeSpecification
-- predicate: dcterms:rights
-  value: http://creativecommons.org/licenses/by/4.0/
-  schema_type: dlthings:AttributeSpecification
+display_label: Halchenko et al. 2024 JOSS
+identifiers:
+- notation: 10.21105/joss.05839
+  schema_type: dlthings:DOI
+- notation: https://doi.org/10.21105/joss.05839
+  schema_type: dlthings:Identifier
+pid: xyzrins:publications/doi-10-21105-joss-05839
+schema_type: xyzri:XYZPublication
+title: HeuDiConv - flexible DICOM conversion into structured directory layouts

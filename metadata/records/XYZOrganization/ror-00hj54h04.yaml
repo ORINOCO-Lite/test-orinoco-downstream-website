@@ -1,0 +1,11 @@
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A00hj54h04
+display_label: University of Texas at Austin
+name: University of Texas at Austin
+pid: ror:00hj54h04
+schema_type: xyzri:XYZOrganization

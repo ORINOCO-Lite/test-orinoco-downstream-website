@@ -1,20 +1,28 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fopenneuro
+associated_with:
+- object: xyzrins:persons/russell-poldrack
+  roles:
+  - obo:NCIT_C19924
+  schema_type: dlthings:Association
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:rtm
+  schema_type: dlthings:Association
+attributes:
+- predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://openneuro.org
+description: One of the oldest and most well-known BRAIN Initiative archives for neuroimaging data. Uses git-annex as core technology, inspired by early DataLad crawling efforts. Successor to OpenfMRI.org.
+display_label: OpenNeuro
 pid: xyzrins:projects/openneuro
 schema_type: xyzri:XYZProject
-title: OpenNeuro
 short_name: OpenNeuro
-display_label: OpenNeuro
-description: >-
-  One of the oldest and most well-known BRAIN Initiative archives for
-  neuroimaging data. Uses git-annex as core technology, inspired by early
-  DataLad crawling efforts. Successor to OpenfMRI.org.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/yaroslav-halchenko
-    roles:
-      - marcrel:rtm
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: https://openneuro.org
-    schema_type: dlthings:AttributeSpecification
+title: OpenNeuro
