@@ -4,20 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       adapter:
-        description: Site-owned adapter to propose from
+        description: Source adapter to review
         required: true
         type: choice
         options: [dump-research-info, zotero]
-      as_of:
-        description: Exact ISO evaluation date (YYYY-MM-DD)
-        required: true
-        type: string
-      source_commit:
-        description: Exact 40-character dump source commit
+      source_refspec:
+        description: Dump source refspec (branch, tag, or commit)
         required: false
+        default: main
         type: string
       expected_library_version:
-        description: Exact Zotero library version (Zotero only)
+        description: Zotero snapshot library version (Zotero only)
         required: false
         type: string
       acknowledge_public_review_data:
@@ -55,13 +52,43 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.repository.default_branch }}
 
-      - name: Validate exact proposal inputs before mutation
+      - name: Read the immutable workflow-run coordinates
+        id: run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          gh api \
+            "repos/${REPOSITORY}/actions/runs/${RUN_ID}/attempts/${RUN_ATTEMPT}" \
+            > "$RUNNER_TEMP/workflow-run.json"
+          python - "$RUNNER_TEMP/workflow-run.json" <<'PY'
+          from datetime import datetime
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          run = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          actor = run["actor"]
+          started = datetime.fromisoformat(
+              run["run_started_at"].replace("Z", "+00:00")
+          )
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              stream.write(f"actor=github-user:{actor['id']}@{actor['login']}\n")
+              stream.write(f"as_of={started.date().isoformat()}\n")
+              stream.write(f"created_at={run['created_at']}\n")
+              stream.write(f"url={run['html_url']}\n")
+          PY
+
+      - name: Validate proposal inputs before source resolution
         env:
           ACKNOWLEDGED: ${{ inputs.acknowledge_public_review_data }}
           ADAPTER: ${{ inputs.adapter }}
-          AS_OF: ${{ inputs.as_of }}
+          AS_OF: ${{ steps.run.outputs.as_of }}
           EXPECTED_LIBRARY_VERSION: ${{ inputs.expected_library_version }}
-          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          SOURCE_REFSPEC: ${{ inputs.source_refspec }}
         run: |
           python - <<'PY'
           from datetime import date
@@ -77,18 +104,20 @@ jobs:
           except ValueError:
               raise SystemExit("as_of must be an exact ISO date") from None
           adapter = os.environ["ADAPTER"]
-          source_commit = os.environ["SOURCE_COMMIT"]
+          source_refspec = os.environ["SOURCE_REFSPEC"]
           library_version = os.environ["EXPECTED_LIBRARY_VERSION"]
           if adapter == "dump-research-info":
-              if not re.fullmatch(r"[0-9a-f]{40}", source_commit):
-                  raise SystemExit("dump source_commit must be a full lower-case SHA")
+              if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._/-]*", source_refspec):
+                  raise SystemExit("dump source_refspec is not a valid refspec")
+              if ".." in source_refspec or source_refspec.endswith("/"):
+                  raise SystemExit("dump source_refspec contains an invalid ref")
               if library_version:
                   raise SystemExit("dump proposals do not use a Zotero version")
           elif adapter == "zotero":
               if not re.fullmatch(r"[1-9][0-9]*", library_version):
                   raise SystemExit("Zotero proposals require an exact library version")
-              if source_commit:
-                  raise SystemExit("Zotero proposals do not use a dump commit")
+              if source_refspec != "main":
+                  raise SystemExit("Zotero proposals do not use a dump source refspec")
           else:
               raise SystemExit("unsupported adapter")
           PY
@@ -101,31 +130,6 @@ jobs:
           frozen: true
           pixi-version: v0.73.0
 
-      - name: Read the immutable workflow-run acknowledgment
-        id: run
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPOSITORY: ${{ github.repository }}
-          RUN_ATTEMPT: ${{ github.run_attempt }}
-          RUN_ID: ${{ github.run_id }}
-        run: |
-          gh api \
-            "repos/${REPOSITORY}/actions/runs/${RUN_ID}/attempts/${RUN_ATTEMPT}" \
-            > "$RUNNER_TEMP/workflow-run.json"
-          python - "$RUNNER_TEMP/workflow-run.json" <<'PY'
-          import json
-          import os
-          from pathlib import Path
-          import sys
-
-          run = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
-          actor = run["actor"]
-          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
-              stream.write(f"actor=github-user:{actor['id']}@{actor['login']}\n")
-              stream.write(f"created_at={run['created_at']}\n")
-              stream.write(f"url={run['html_url']}\n")
-          PY
-
       - name: Check out the exact dump source below ignored build state
         if: inputs.adapter == 'dump-research-info'
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -133,8 +137,30 @@ jobs:
           fetch-depth: 0
           path: build/curation/sources/dump-research-info
           persist-credentials: false
-          ref: ${{ inputs.source_commit }}
+          ref: ${{ inputs.source_refspec }}
           repository: con/dump-research-info
+
+      - name: Resolve the selected source refspec to an immutable commit
+        if: inputs.adapter == 'dump-research-info'
+        id: source
+        run: |
+          source_commit="$(git -C build/curation/sources/dump-research-info rev-parse HEAD)"
+          printf 'source_commit=%s\n' "$source_commit" >> "$GITHUB_OUTPUT"
+
+      - name: Validate resolved proposal coordinates
+        env:
+          ADAPTER: ${{ inputs.adapter }}
+          SOURCE_COMMIT: ${{ steps.source.outputs.source_commit }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+
+          if os.environ["ADAPTER"] == "dump-research-info" and not re.fullmatch(
+              r"[0-9a-f]{40}", os.environ["SOURCE_COMMIT"]
+          ):
+              raise SystemExit("resolved dump source is not a full lower-case SHA")
+          PY
 
       - name: Provision the stable curation review label
         env:
@@ -155,12 +181,12 @@ jobs:
         id: proposal
         env:
           ADAPTER: ${{ inputs.adapter }}
-          AS_OF: ${{ inputs.as_of }}
+          AS_OF: ${{ steps.run.outputs.as_of }}
           EXPECTED_LIBRARY_VERSION: ${{ inputs.expected_library_version }}
           PUBLIC_DATA_ACTOR: ${{ steps.run.outputs.actor }}
           PUBLIC_DATA_AT: ${{ steps.run.outputs.created_at }}
           RUN_URL: ${{ steps.run.outputs.url }}
-          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          SOURCE_COMMIT: ${{ steps.source.outputs.source_commit }}
         run: |
           set -euo pipefail
           transaction="github-${GITHUB_RUN_ID}"
@@ -300,7 +326,6 @@ jobs:
         with:
           add-paths: |
             .datalad/runinfo/**
-            source-adapters/${{ inputs.adapter }}/policy/**
             source-adapters/${{ inputs.adapter }}/transactions/**
           branch: automation/curation/${{ inputs.adapter }}-${{ github.run_id }}
           commit-message: |

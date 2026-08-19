@@ -34,6 +34,30 @@ class CurationReviewWorkflowTests(unittest.TestCase):
         self.assertEqual("true", acknowledgment["required"])
         self.assertEqual("false", acknowledgment["default"])
         self.assertEqual("boolean", acknowledgment["type"])
+        source_refspec = self.contract["on"]["workflow_dispatch"]["inputs"][
+            "source_refspec"
+        ]
+        self.assertEqual("main", source_refspec["default"])
+        self.assertEqual("false", source_refspec["required"])
+        self.assertEqual("string", source_refspec["type"])
+        self.assertNotIn("as_of", self.contract["on"]["workflow_dispatch"]["inputs"])
+        self.assertNotIn(
+            "source_commit", self.contract["on"]["workflow_dispatch"]["inputs"]
+        )
+        self.assertIn("Read the immutable workflow-run coordinates", self.text)
+        self.assertIn('run["run_started_at"]', self.text)
+        self.assertIn("${{ steps.run.outputs.as_of }}", self.text)
+        self.assertNotIn("github.run_started_at", self.text)
+        self.assertIn(
+            "Resolve the selected source refspec to an immutable commit", self.text
+        )
+        self.assertNotIn("${{ inputs.as_of }}", self.text)
+        self.assertNotIn("${{ inputs.source_commit }}", self.text)
+        self.assertIn(
+            "source-adapters/${{ inputs.adapter }}/transactions/**", self.text
+        )
+        self.assertNotIn("source-adapters/${{ inputs.adapter }}/policy/**", self.text)
+        self.assertIn('--public-data-actor "$PUBLIC_DATA_ACTOR"', self.text)
         self.assertEqual({}, self.contract["permissions"])
         self.assertEqual(
             {

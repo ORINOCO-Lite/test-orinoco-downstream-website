@@ -27,15 +27,18 @@ immutable workflow run instead of trusting editable pull-request files.
 
 1. On the repository's **Actions** tab, choose **Curate source metadata** and
    select **Run workflow** on the default branch.
-2. Choose `dump-research-info` or `zotero`, enter the exact evaluation date,
-   and provide the adapter's immutable source coordinate. For
-   `dump-research-info`, this is a full 40-character commit ID.
+2. Choose `dump-research-info` or `zotero`. For
+   `dump-research-info`, the source refspec defaults to `main`; a branch,
+   tag, or commit may be supplied when reviewing a different snapshot. The
+   refspec field does not apply to Zotero and should retain its default there.
 3. Read and select the public-review-data acknowledgment, then start the run.
 
-The workflow reproduces the proposal from the selected source, retains a
-DataLad sidecar, and opens one draft branch named
-`automation/curation/<adapter>-<run-id>`. A zero-candidate proposal completes
-with an Actions summary and does not open an empty pull request.
+The workflow captures the UTC evaluation date automatically. For
+`dump-research-info`, it resolves the selected refspec to a full commit and
+retains that immutable commit with the date in proposal evidence. Zotero still
+requires its exact snapshot library version. The workflow then opens one draft
+branch named `automation/curation/<adapter>-<run-id>`. A zero-candidate proposal
+completes with an Actions summary and does not open an empty pull request.
 
 The pull request links a generated review document. Candidate aliases such as
 `DRI-001` are only short review handles; the manifest binds every alias to the
