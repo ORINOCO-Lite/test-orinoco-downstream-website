@@ -45,7 +45,7 @@ DENIED_TASKS = (
     "assets-verify",
     "validate",
     "projection-verify",
-    "projection-update",
+    "hugo-projection-update",
     "projection-verify",
     "build",
     "build-repeat",

@@ -35,13 +35,13 @@ For a record-metadata change:
 
 ```console
 pixi run validate
-pixi run projection-update
+pixi run hugo-projection-update
 pixi run projection-verify
 pixi run build
 pixi run serve
 ```
 
-`validate` and `build` depend on `projection-update`, which recreates ignored pages, the record stream, and graph under `generated/projection/`.
+`validate` and `build` depend on `hugo-projection-update`, which recreates ignored pages, the record stream, and graph under `generated/projection/`.
 Review the source metadata diff and the rendered build; do not commit or hand-edit projection output.
 
 Editorial, presentation, and committed asset changes do not alter record metadata, but still require validation and a complete build review.

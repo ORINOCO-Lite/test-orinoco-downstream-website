@@ -29,7 +29,7 @@ See engine human-review decision [HR-003](https://github.com/con/orinoco-lite-de
 
 ```console
 pixi run validate
-pixi run projection-update
+pixi run hugo-projection-update
 pixi run projection-verify
 pixi run assets-hydrate
 pixi run assets-verify
