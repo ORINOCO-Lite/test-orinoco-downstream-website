@@ -950,16 +950,38 @@ def parse_decisions(text: str) -> DecisionBook:
             )
         transactions[inventory_id] = normalized
 
-    anchored = {
+    selected = {
         decision_id
         for transaction in transactions.values()
         for decision_id in transaction
     }
-    unknown = sorted(anchored - set(decisions))
+    unknown = sorted(selected - set(decisions))
     if unknown:
         raise CurationPrototypeError(
             "Decision transactions reference unknown revisions: " + ", ".join(unknown)
         )
+
+    anchored: set[str] = set()
+    for inventory_id, transaction in transactions.items():
+        selected_by_candidate: dict[str, str] = {}
+        for decision_id in transaction:
+            decision = decisions[decision_id]
+            previous_selection = selected_by_candidate.get(decision.candidate_id)
+            if previous_selection is not None:
+                raise CurationPrototypeError(
+                    f"Decision transaction {inventory_id} selects multiple tips "
+                    f"for candidate {decision.candidate_id}: "
+                    f"{previous_selection}, {decision_id}"
+                )
+            selected_by_candidate[decision.candidate_id] = decision_id
+
+            current = decision
+            while True:
+                anchored.add(current.decision_id)
+                if current.supersedes_decision_id is None:
+                    break
+                current = decisions[current.supersedes_decision_id]
+
     unbound = sorted(set(decisions) - anchored)
     if unbound:
         raise CurationPrototypeError(

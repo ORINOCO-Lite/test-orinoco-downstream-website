@@ -641,6 +641,86 @@ class DecisionValidationVectors(unittest.TestCase):
             reverted["candidates"][0]["review"]["reason"], "stale-material"
         )
 
+    def test_same_inventory_correction_selects_only_the_active_tip(self) -> None:
+        value = candidate("dump-research-info")
+        inventory = CORE.build_inventory("dump-research-info", [value])
+        first = decision(value, "reject", rationale="Initial review was mistaken.")
+        corrected = decision(
+            value,
+            "accept",
+            supersedes_decision_id=str(first["decision_id"]),
+            rationale="Corrected after reviewing the full source evidence.",
+        )
+
+        book = decision_book(
+            inventory,
+            [first, corrected],
+            current_ids=[str(corrected["decision_id"])],
+        )
+
+        self.assertEqual(
+            book.transactions[inventory["inventory_id"]],
+            (corrected["decision_id"],),
+        )
+        self.assertEqual(
+            [item.decision_id for item in book.revisions(value.candidate_id)],
+            [first["decision_id"], corrected["decision_id"]],
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            records = Path(tmp) / "records"
+            records.mkdir()
+            CORE.reconcile_inventory(inventory, book, records)
+            self.assertTrue((records / value.proposed_path).exists())
+
+    def test_selected_tip_requires_complete_and_exclusive_ancestry(self) -> None:
+        value = candidate("zotero")
+        inventory = CORE.build_inventory("zotero", [value])
+        first = decision(value, "reject")
+        corrected = decision(
+            value,
+            "accept",
+            supersedes_decision_id=str(first["decision_id"]),
+        )
+
+        missing_history = {
+            "format": CORE.DECISIONS_FORMAT,
+            "decisions": [corrected],
+            "transactions": [
+                {
+                    "inventory_id": inventory["inventory_id"],
+                    "decision_ids": [corrected["decision_id"]],
+                }
+            ],
+        }
+        with self.assertRaisesRegex(CORE.CurationPrototypeError, "missing revision"):
+            CORE.parse_decisions(yaml.safe_dump(missing_history, sort_keys=False))
+
+        unanchored_value = candidate("zotero", record_id="UNANCHORED")
+        unanchored = decision(unanchored_value, "reject")
+        unanchored_history = {
+            "format": CORE.DECISIONS_FORMAT,
+            "decisions": [first, corrected, unanchored],
+            "transactions": [
+                {
+                    "inventory_id": inventory["inventory_id"],
+                    "decision_ids": [corrected["decision_id"]],
+                }
+            ],
+        }
+        with self.assertRaisesRegex(CORE.CurationPrototypeError, "Unbound"):
+            CORE.parse_decisions(yaml.safe_dump(unanchored_history, sort_keys=False))
+
+        multiple_tips = deepcopy(unanchored_history)
+        multiple_tips["decisions"] = [first, corrected]
+        multiple_tips["transactions"][0]["decision_ids"] = [
+            first["decision_id"],
+            corrected["decision_id"],
+        ]
+        with self.assertRaisesRegex(
+            CORE.CurationPrototypeError, "selects multiple tips"
+        ):
+            CORE.parse_decisions(yaml.safe_dump(multiple_tips, sort_keys=False))
+
     def test_reverted_claim_revision_gets_a_new_review_event_and_reconciles(
         self,
     ) -> None:
