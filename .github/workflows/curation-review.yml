@@ -1,0 +1,1431 @@
+name: Curate source metadata
+
+on:
+  workflow_dispatch:
+    inputs:
+      adapter:
+        description: Site-owned adapter to propose from
+        required: true
+        type: choice
+        options: [dump-research-info, zotero]
+      as_of:
+        description: Exact ISO evaluation date (YYYY-MM-DD)
+        required: true
+        type: string
+      source_commit:
+        description: Exact 40-character dump source commit
+        required: false
+        type: string
+      expected_library_version:
+        description: Exact Zotero library version (Zotero only)
+        required: false
+        type: string
+      acknowledge_public_review_data:
+        description: I understand the inventory and decisions will be public in the PR
+        required: true
+        default: false
+        type: boolean
+  issue_comment:
+    types: [created]
+
+permissions: {}
+
+jobs:
+  propose:
+    name: Open one curation review PR
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.repository != 'con/orinoco-lite-template' &&
+      github.run_attempt == 1 &&
+      github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: write
+      contents: write
+      issues: write
+      pull-requests: write
+    concurrency:
+      group: curation-proposal-${{ inputs.adapter }}
+      cancel-in-progress: false
+    steps:
+      - name: Check out trusted default-branch code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Validate exact proposal inputs before mutation
+        env:
+          ACKNOWLEDGED: ${{ inputs.acknowledge_public_review_data }}
+          ADAPTER: ${{ inputs.adapter }}
+          AS_OF: ${{ inputs.as_of }}
+          EXPECTED_LIBRARY_VERSION: ${{ inputs.expected_library_version }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+        run: |
+          python - <<'PY'
+          from datetime import date
+          import os
+          import re
+
+          if os.environ["ACKNOWLEDGED"] != "true":
+              raise SystemExit("public review-data acknowledgment is required")
+          value = os.environ["AS_OF"]
+          try:
+              if date.fromisoformat(value).isoformat() != value:
+                  raise ValueError
+          except ValueError:
+              raise SystemExit("as_of must be an exact ISO date") from None
+          adapter = os.environ["ADAPTER"]
+          source_commit = os.environ["SOURCE_COMMIT"]
+          library_version = os.environ["EXPECTED_LIBRARY_VERSION"]
+          if adapter == "dump-research-info":
+              if not re.fullmatch(r"[0-9a-f]{40}", source_commit):
+                  raise SystemExit("dump source_commit must be a full lower-case SHA")
+              if library_version:
+                  raise SystemExit("dump proposals do not use a Zotero version")
+          elif adapter == "zotero":
+              if not re.fullmatch(r"[1-9][0-9]*", library_version):
+                  raise SystemExit("Zotero proposals require an exact library version")
+              if source_commit:
+                  raise SystemExit("Zotero proposals do not use a dump commit")
+          else:
+              raise SystemExit("unsupported adapter")
+          PY
+          git diff --exit-code
+
+      - name: Install the trusted locked Pixi environment
+        uses: prefix-dev/setup-pixi@f00437f565399d418b0acc85936d12c1fb668347 # v0.10.1
+        with:
+          cache: true
+          frozen: true
+          pixi-version: v0.73.0
+
+      - name: Read the immutable workflow-run acknowledgment
+        id: run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          gh api \
+            "repos/${REPOSITORY}/actions/runs/${RUN_ID}/attempts/${RUN_ATTEMPT}" \
+            > "$RUNNER_TEMP/workflow-run.json"
+          python - "$RUNNER_TEMP/workflow-run.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          run = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          actor = run["actor"]
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              stream.write(f"actor=github-user:{actor['id']}@{actor['login']}\n")
+              stream.write(f"created_at={run['created_at']}\n")
+              stream.write(f"url={run['html_url']}\n")
+          PY
+
+      - name: Check out the exact dump source below ignored build state
+        if: inputs.adapter == 'dump-research-info'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          path: build/curation/sources/dump-research-info
+          persist-credentials: false
+          ref: ${{ inputs.source_commit }}
+          repository: con/dump-research-info
+
+      - name: Provision the stable curation review label
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          if ! gh label view curation-review --repo "$REPOSITORY" \
+            > /dev/null 2>&1; then
+            gh label create curation-review \
+              --color 5319E7 \
+              --description "One-PR human metadata curation" \
+              --repo "$REPOSITORY" || \
+              gh label view curation-review --repo "$REPOSITORY" \
+                > /dev/null
+          fi
+
+      - name: Generate the proposal and human review form
+        id: proposal
+        env:
+          ADAPTER: ${{ inputs.adapter }}
+          AS_OF: ${{ inputs.as_of }}
+          EXPECTED_LIBRARY_VERSION: ${{ inputs.expected_library_version }}
+          PUBLIC_DATA_ACTOR: ${{ steps.run.outputs.actor }}
+          PUBLIC_DATA_AT: ${{ steps.run.outputs.created_at }}
+          RUN_URL: ${{ steps.run.outputs.url }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+        run: |
+          set -euo pipefail
+          transaction="github-${GITHUB_RUN_ID}"
+          inventory="source-adapters/${ADAPTER}/transactions/${transaction}.yaml"
+          manifest="source-adapters/${ADAPTER}/transactions/${transaction}.review-manifest.yaml"
+          review="source-adapters/${ADAPTER}/transactions/${transaction}.review.md"
+          decisions="source-adapters/${ADAPTER}/policy/curation-decisions.yaml"
+          provider_output="build/curation/${ADAPTER}/${transaction}"
+          base_sha="$(git rev-parse HEAD)"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          proposal=(
+            pixi run python
+            source-adapters/metadata/tools/curation_cli_prototype_v1.py propose
+            --root .
+            --adapter "$ADAPTER"
+            --inventory "$inventory"
+            --provider-output "$provider_output"
+            --as-of "$AS_OF"
+          )
+          if [[ -f "$decisions" ]]; then
+            proposal+=(--decisions "$decisions")
+          fi
+          if [[ "$ADAPTER" == dump-research-info ]]; then
+            proposal+=(
+              --source-path build/curation/sources/dump-research-info
+              --expected-source-commit "$SOURCE_COMMIT"
+            )
+          else
+            proposal+=(--expected-library-version "$EXPECTED_LIBRARY_VERSION")
+          fi
+          printf -v proposal_command '%q ' "${proposal[@]}"
+          run=(
+            pixi run datalad run --explicit --sidecar yes
+            -m "propose exact ${ADAPTER} curation inventory"
+            -i pixi.toml
+            -i pixi.lock
+            -i orinoco.yaml
+            -i orinoco.lock
+            -i metadata/records
+            -i source-adapters/metadata/tools/curation_prototype_v1.py
+            -i source-adapters/metadata/tools/curation_cli_prototype_v1.py
+            -i "source-adapters/${ADAPTER}/curation_prototype_v1.py"
+            -i "source-adapters/${ADAPTER}/metadata_adapter.py"
+            -o "$inventory"
+          )
+          if [[ -f "$decisions" ]]; then
+            run+=(-i "$decisions")
+          fi
+          if [[ "$ADAPTER" == zotero ]]; then
+            run+=(
+              -i source-adapters/zotero/source
+              -i source-adapters/zotero/policy
+              -i source-adapters/zotero/tools
+            )
+          fi
+          run+=("$proposal_command")
+          "${run[@]}"
+          mapfile -t runinfo < <(
+            git diff-tree --no-commit-id --name-only -r HEAD -- .datalad/runinfo
+          )
+          if [[ "${#runinfo[@]}" -ne 1 || ! -f "${runinfo[0]}" ]]; then
+            echo "proposal did not produce exactly one DataLad sidecar" >&2
+            exit 1
+          fi
+          pixi run python - "${runinfo[0]}" "$inventory" <<'PY'
+          from datalad.support.json_py import load_stream
+          from pathlib import Path
+          import sys
+
+          records = list(load_stream(sys.argv[1], compressed=True))
+          if len(records) != 1 or not isinstance(records[0], dict):
+              raise SystemExit("proposal DataLad sidecar is invalid")
+          record = records[0]
+          command = record.get("cmd")
+          if (
+              not isinstance(command, str)
+              or "curation_cli_prototype_v1.py" not in command
+              or record.get("outputs") != [sys.argv[2]]
+              or str(Path.cwd()) in command
+          ):
+              raise SystemExit("proposal DataLad sidecar lacks a replayable command")
+          PY
+          git reset --mixed "$base_sha"
+
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            render-review \
+            --root "$GITHUB_WORKSPACE" \
+            --adapter "$ADAPTER" \
+            --inventory "$inventory" \
+            --decisions "$decisions" \
+            --manifest "$manifest" \
+            --review "$review" \
+            --base-sha "$base_sha" \
+            --head-sha "$base_sha" \
+            --public-data-actor "$PUBLIC_DATA_ACTOR" \
+            --public-data-at "$PUBLIC_DATA_AT" \
+            --public-data-run-url "$RUN_URL" \
+            > "$RUNNER_TEMP/curation-render.json"
+
+          python - "$RUNNER_TEMP/curation-render.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          result = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          marker = result["pr_body_marker"]
+          if "\n" in marker or not marker.startswith("<!-- orinoco-lite-curation-review "):
+              raise SystemExit("helper returned an unsafe PR marker")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              stream.write(f"candidate_count={result['candidate_count']}\n")
+              stream.write(
+                  f"has_candidates={str(result['candidate_count'] > 0).lower()}\n"
+              )
+              stream.write(f"pr_body_marker={marker}\n")
+          if result["candidate_count"] == 0:
+              with Path(os.environ["GITHUB_STEP_SUMMARY"]).open(
+                  "a", encoding="utf-8"
+              ) as stream:
+                  stream.write(
+                      "## No curation PR opened\n\n"
+                      "The exact source proposal contained zero candidates.\n"
+                  )
+          PY
+          echo "base_sha=$base_sha" >> "$GITHUB_OUTPUT"
+          echo "inventory=$inventory" >> "$GITHUB_OUTPUT"
+          echo "manifest=$manifest" >> "$GITHUB_OUTPUT"
+          echo "review=$review" >> "$GITHUB_OUTPUT"
+          echo "runinfo=${runinfo[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Open a draft review PR without approving or merging it
+        if: steps.proposal.outputs.has_candidates == 'true'
+        id: pull
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
+        with:
+          add-paths: |
+            .datalad/runinfo/**
+            source-adapters/${{ inputs.adapter }}/policy/**
+            source-adapters/${{ inputs.adapter }}/transactions/**
+          branch: automation/curation/${{ inputs.adapter }}-${{ github.run_id }}
+          commit-message: |
+            chore(curation): open source review transaction
+
+            DataLad-Run-Record: ${{ steps.proposal.outputs.runinfo }}
+          delete-branch: false
+          draft: true
+          labels: curation-review
+          title: "chore(curation): review ${{ inputs.adapter }} proposal"
+          body: |
+            **AI-generated draft — not reviewed by John**
+
+            ${{ steps.proposal.outputs.pr_body_marker }}
+
+            This is a single-PR curation transaction. Review the generated form
+            in the transaction directory and submit only its exact `/curation`
+            commands as PR comments. The automation records explicit choices;
+            it never infers a disposition, approves, merges, or deploys.
+
+      - name: Explicitly dispatch validation for the initial bot head
+        if: >-
+          steps.proposal.outputs.has_candidates == 'true' &&
+          steps.pull.outputs.pull-request-number != ''
+        env:
+          ADAPTER: ${{ inputs.adapter }}
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          gh workflow run validate.yml \
+            --ref "automation/curation/${ADAPTER}-${RUN_ID}"
+
+      - name: Read the exact newly opened proposal PR
+        if: >-
+          steps.proposal.outputs.has_candidates == 'true' &&
+          steps.pull.outputs.pull-request-number != ''
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          EXPECTED_BASE_SHA: ${{ steps.proposal.outputs.base_sha }}
+          EXPECTED_HEAD_SHA: ${{ steps.pull.outputs.pull-request-head-sha }}
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ steps.pull.outputs.pull-request-number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api "repos/${REPOSITORY}/pulls/${NUMBER}" \
+            > "$RUNNER_TEMP/proposal-pr.json"
+          python - "$RUNNER_TEMP/proposal-pr.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          pull = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          if (
+              pull.get("state") != "open"
+              or not pull.get("draft")
+              or pull.get("base", {}).get("ref") != os.environ["DEFAULT_BRANCH"]
+              or pull.get("base", {}).get("sha") != os.environ["EXPECTED_BASE_SHA"]
+              or pull.get("head", {}).get("sha") != os.environ["EXPECTED_HEAD_SHA"]
+              or pull.get("head", {}).get("repo", {}).get("full_name")
+              != os.environ["GITHUB_REPOSITORY"]
+              or pull.get("user", {}).get("id") != 41898282
+              or pull.get("user", {}).get("login") != "github-actions[bot]"
+          ):
+              raise SystemExit("new proposal PR does not match the bot receipt target")
+          PY
+
+      - name: Check out the exact proposal head as receipt data
+        if: >-
+          steps.proposal.outputs.has_candidates == 'true' &&
+          steps.pull.outputs.pull-request-number != ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          path: proposal-review
+          persist-credentials: false
+          ref: ${{ steps.pull.outputs.pull-request-head-sha }}
+
+      - name: Check out the exact proposal parent as receipt code
+        if: >-
+          steps.proposal.outputs.has_candidates == 'true' &&
+          steps.pull.outputs.pull-request-number != ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          path: proposal-trusted
+          persist-credentials: false
+          ref: ${{ steps.proposal.outputs.base_sha }}
+
+      - name: Build exact initial proposal changed-path evidence
+        if: >-
+          steps.proposal.outputs.has_candidates == 'true' &&
+          steps.pull.outputs.pull-request-number != ''
+        env:
+          BASE_SHA: ${{ steps.proposal.outputs.base_sha }}
+          HEAD_SHA: ${{ steps.pull.outputs.pull-request-head-sha }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+
+          result = subprocess.run(
+              [
+                  "git", "diff", "--raw", "--no-renames",
+                  f"{os.environ['BASE_SHA']}...{os.environ['HEAD_SHA']}",
+              ],
+              cwd="proposal-review",
+              check=True,
+              text=True,
+              stdout=subprocess.PIPE,
+          )
+          files = []
+          for line in result.stdout.splitlines():
+              metadata, relative = line.split("\t", 1)
+              fields = metadata.split()
+              status = {"A": "added", "M": "modified"}.get(fields[4])
+              if status is None:
+                  raise SystemExit(f"forbidden proposal status: {fields[4]}")
+              files.append(
+                  {"path": relative, "status": status, "mode": fields[1]}
+              )
+          Path(os.environ["RUNNER_TEMP"], "proposal-changed-paths.json").write_text(
+              json.dumps({"files": files}, sort_keys=True, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Render the externally verifiable proposal receipt
+        if: >-
+          steps.proposal.outputs.has_candidates == 'true' &&
+          steps.pull.outputs.pull-request-number != ''
+        env:
+          ADAPTER: ${{ inputs.adapter }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          MANIFEST: ${{ steps.proposal.outputs.manifest }}
+          REVIEW: ${{ steps.proposal.outputs.review }}
+          TRUSTED_DEFAULT_SHA: ${{ steps.proposal.outputs.base_sha }}
+        run: |
+          test "$(git -C proposal-trusted rev-parse HEAD)" = "$TRUSTED_DEFAULT_SHA"
+          pixi run --manifest-path proposal-trusted/pixi.toml python \
+            proposal-trusted/source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            render-proposal-receipt \
+            --root "$GITHUB_WORKSPACE/proposal-review" \
+            --adapter "$ADAPTER" \
+            --manifest "$MANIFEST" \
+            --review "$REVIEW" \
+            --pr-json "$RUNNER_TEMP/proposal-pr.json" \
+            --changed-paths-json "$RUNNER_TEMP/proposal-changed-paths.json" \
+            --proposal-run-json "$RUNNER_TEMP/workflow-run.json" \
+            --default-branch "$DEFAULT_BRANCH" \
+            --trusted-default-sha "$TRUSTED_DEFAULT_SHA" \
+            > "$RUNNER_TEMP/proposal-receipt.json"
+          python - "$RUNNER_TEMP/proposal-receipt.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          result = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          body = result["body"]
+          notice = "**AI-generated draft — not reviewed by John**"
+          if not isinstance(body, str) or body.splitlines()[0] != notice:
+              raise SystemExit("proposal receipt lacks the required AI notice")
+          Path(os.environ["RUNNER_TEMP"], "proposal-receipt-request.json").write_text(
+              json.dumps({"body": body}, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Post the proposal receipt as the final proposal mutation
+        if: >-
+          steps.proposal.outputs.has_candidates == 'true' &&
+          steps.pull.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ steps.pull.outputs.pull-request-number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api "repos/${REPOSITORY}/issues/${NUMBER}/comments" \
+            --method POST \
+            --input "$RUNNER_TEMP/proposal-receipt-request.json"
+
+  comment:
+    name: Record or finalize review on the same PR
+    if: >-
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request &&
+      github.repository != 'con/orinoco-lite-template'
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: write
+      contents: write
+      issues: write
+      pull-requests: read
+    concurrency:
+      group: curation-review-${{ github.event.issue.number }}
+      queue: max
+      cancel-in-progress: false
+    steps:
+      - name: Recognize a curation command only from the event file
+        id: command
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          event = json.loads(
+              Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8")
+          )
+          body = event["comment"]["body"]
+          first = next((line.strip() for line in body.splitlines() if line.strip()), "")
+          if body.strip() == "/curation finalize":
+              command = "finalize"
+          elif first == "/curation submit":
+              command = "submit"
+          else:
+              command = ""
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              stream.write(f"name={command}\n")
+          PY
+
+      - name: Preflight immutable PR and reviewer authority before setup
+        if: steps.command.outputs.name != ''
+        id: pull
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh api "repos/${REPOSITORY}/pulls/${NUMBER}" > "$RUNNER_TEMP/pr.json"
+          actor="$(python - "$GITHUB_EVENT_PATH" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          print(json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))["comment"]["user"]["login"])
+          PY
+          )"
+          gh api "repos/${REPOSITORY}/collaborators/${actor}/permission" \
+            > "$RUNNER_TEMP/permission.json"
+          python - "$RUNNER_TEMP/pr.json" "$RUNNER_TEMP/permission.json" \
+            "$GITHUB_EVENT_PATH" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          pull = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          permission = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+          event = json.loads(Path(sys.argv[3]).read_text(encoding="utf-8"))
+          actor = event["comment"]["user"]
+          authority = permission.get("user", {})
+          if permission.get("permission") not in {"write", "admin"}:
+              raise SystemExit("curation review requires write or admin permission")
+          if (
+              authority.get("id") != actor.get("id")
+              or authority.get("login") != actor.get("login")
+          ):
+              raise SystemExit("reviewer permission response does not match the commenter")
+          if pull["head"]["repo"]["full_name"] != os.environ["GITHUB_REPOSITORY"]:
+              raise SystemExit("curation review PR must use a same-repository branch")
+          if not pull.get("draft"):
+              raise SystemExit("curation review PR must remain a draft")
+          if not pull["head"]["ref"].startswith("automation/curation/"):
+              raise SystemExit("curation review PR has an invalid branch")
+          if pull.get("user", {}).get("login") != "github-actions[bot]":
+              raise SystemExit("curation review PR was not opened by the workflow bot")
+          values = {
+              "base_sha": pull["base"]["sha"],
+              "head_ref": pull["head"]["ref"],
+              "head_sha": pull["head"]["sha"],
+          }
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              for key, value in values.items():
+                  stream.write(f"{key}={value}\n")
+          PY
+
+      - name: Fetch public comments and current run evidence before setup
+        if: steps.command.outputs.name != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          gh api \
+            "repos/${REPOSITORY}/actions/runs/${RUN_ID}/attempts/${RUN_ATTEMPT}" \
+            > "$RUNNER_TEMP/workflow-run.json"
+          gh api --paginate --slurp \
+            "repos/${REPOSITORY}/issues/${NUMBER}/comments?per_page=100" \
+            > "$RUNNER_TEMP/comment-pages.json"
+          python - "$RUNNER_TEMP/comment-pages.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          pages = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          if not isinstance(pages, list) or any(
+              not isinstance(page, list) for page in pages
+          ):
+              raise SystemExit("paginated comment response has an invalid shape")
+          comments = [comment for page in pages for comment in page]
+          Path(os.environ["RUNNER_TEMP"], "comments.json").write_text(
+              json.dumps(comments, sort_keys=True, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Check out trusted default-branch code
+        if: steps.command.outputs.name != ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          path: trusted
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Install the trusted locked Pixi environment
+        if: steps.command.outputs.name != ''
+        uses: prefix-dev/setup-pixi@f00437f565399d418b0acc85936d12c1fb668347 # v0.10.1
+        with:
+          cache: true
+          frozen: true
+          manifest-path: trusted/pixi.toml
+          pixi-version: v0.73.0
+
+      - name: Fetch immutable runs selected by the trusted attestation parser
+        if: steps.command.outputs.name != ''
+        working-directory: trusted
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            list-attestation-run-ids \
+            --comments-json "$RUNNER_TEMP/comments.json" \
+            --repository "$REPOSITORY" \
+            --pull-request-number "$NUMBER" \
+            > "$RUNNER_TEMP/attestation-run-ids.json"
+          python - "$RUNNER_TEMP/attestation-run-ids.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import sys
+
+          result = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          runs = result["runs"]
+          if (
+              not isinstance(runs, list)
+              or any(
+                  not isinstance(run, dict)
+                  or set(run) != {"run_id", "run_attempt"}
+                  or not isinstance(run["run_id"], str)
+                  or re.fullmatch(r"[1-9][0-9]*", run["run_id"]) is None
+                  or isinstance(run["run_attempt"], bool)
+                  or not isinstance(run["run_attempt"], int)
+                  or run["run_attempt"] < 1
+                  for run in runs
+              )
+              or runs != sorted(
+                  runs,
+                  key=lambda run: (int(run["run_id"]), run["run_attempt"]),
+              )
+              or len({(run["run_id"], run["run_attempt"]) for run in runs})
+              != len(runs)
+              or result.get("attestation_count") != len(runs)
+          ):
+              raise SystemExit("trusted attestation run-coordinate output is invalid")
+          Path(os.environ["RUNNER_TEMP"], "attestation-runs.txt").write_text(
+              "".join(
+                  f"{run['run_id']} {run['run_attempt']}\n" for run in runs
+              ),
+              encoding="utf-8",
+          )
+          PY
+          mkdir "$RUNNER_TEMP/attestation-runs"
+          while read -r run_id run_attempt; do
+            [[ "$run_id" =~ ^[1-9][0-9]*$ ]]
+            [[ "$run_attempt" =~ ^[1-9][0-9]*$ ]]
+            gh api \
+              "repos/${REPOSITORY}/actions/runs/${run_id}/attempts/${run_attempt}" \
+              > "$RUNNER_TEMP/attestation-runs/${run_id}-${run_attempt}.json"
+          done < "$RUNNER_TEMP/attestation-runs.txt"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path(os.environ["RUNNER_TEMP"], "attestation-runs")
+          runs = [
+              json.loads(path.read_text(encoding="utf-8"))
+              for path in sorted(
+                  root.glob("*.json"),
+                  key=lambda path: tuple(int(part) for part in path.stem.split("-")),
+              )
+          ]
+          Path(os.environ["RUNNER_TEMP"], "attestation-runs.json").write_text(
+              json.dumps(runs, sort_keys=True, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Check out the PR head as untrusted review data
+        if: steps.command.outputs.name != ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          path: review
+          persist-credentials: false
+          ref: ${{ steps.pull.outputs.head_sha }}
+
+      - name: Build normalized changed-path evidence without executing PR code
+        if: steps.command.outputs.name != ''
+        id: changes
+        env:
+          BASE_SHA: ${{ steps.pull.outputs.base_sha }}
+          HEAD_SHA: ${{ steps.pull.outputs.head_sha }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+
+          result = subprocess.run(
+              [
+                  "git", "diff", "--raw", "--no-renames",
+                  f"{os.environ['BASE_SHA']}...{os.environ['HEAD_SHA']}",
+              ],
+              cwd="review",
+              check=True,
+              text=True,
+              stdout=subprocess.PIPE,
+          )
+          files = []
+          for line in result.stdout.splitlines():
+              metadata, relative = line.split("\t", 1)
+              fields = metadata.split()
+              status = {"A": "added", "M": "modified"}.get(fields[4])
+              if status is None:
+                  raise SystemExit(f"forbidden changed-path status: {fields[4]}")
+              files.append(
+                  {"path": relative, "status": status, "mode": fields[1]}
+              )
+          paths = [entry["path"] for entry in files]
+          reports = [
+              path for path in paths
+              if re.fullmatch(
+                  r"source-adapters/[^/]+/transactions/[^/]+\.reconciliation-[0-9]{3}\.yaml",
+                  path,
+              )
+          ]
+          runinfo = [path for path in paths if path.startswith(".datalad/runinfo/")]
+          if reports or any(path.startswith("metadata/records/") for path in paths) or len(runinfo) > 1:
+              phase = "reconciled"
+          elif any(path.endswith("/policy/curation-decisions.yaml") for path in paths):
+              phase = "reviewed"
+          else:
+              phase = "initial"
+          Path(os.environ["RUNNER_TEMP"], "changed-paths.json").write_text(
+              json.dumps({"files": files}, sort_keys=True, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              stream.write(f"phase={phase}\n")
+          PY
+
+      - name: Enforce the terminal-finalize transaction phase
+        if: steps.command.outputs.name != ''
+        env:
+          COMMAND: ${{ steps.command.outputs.name }}
+          PHASE: ${{ steps.changes.outputs.phase }}
+        run: |
+          if [[ "$PHASE" == reconciled ]]; then
+            echo "This curation transaction is already finalized." >&2
+            exit 1
+          fi
+          if [[ "$COMMAND" == finalize && "$PHASE" != reviewed ]]; then
+            echo "Finalize requires at least one reviewed decision submission." >&2
+            exit 1
+          fi
+
+      - name: Select the manifest bound by the PR marker and current diff
+        if: steps.command.outputs.name != ''
+        id: transaction
+        working-directory: trusted
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            select-manifest \
+            --root "$GITHUB_WORKSPACE/review" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --changed-paths-json "$RUNNER_TEMP/changed-paths.json" \
+            --phase "${{ steps.changes.outputs.phase }}" \
+            > "$RUNNER_TEMP/curation-transaction.json"
+          python - "$RUNNER_TEMP/curation-transaction.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import sys
+
+          selected = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          manifest = selected["manifest"]
+          suffix = ".review-manifest.yaml"
+          if not manifest.endswith(suffix):
+              raise SystemExit("selected manifest name is invalid")
+          stem = Path(manifest).name.removesuffix(suffix)
+          transactions = Path(os.environ["GITHUB_WORKSPACE"]) / "review" / Path(manifest).parent
+          reports = sorted(transactions.glob(f"{stem}.reconciliation-*.yaml"))
+          numbers = []
+          for report in reports:
+              match = re.fullmatch(
+                  re.escape(stem) + r"\.reconciliation-([0-9]{3})\.yaml",
+                  report.name,
+              )
+              if match is None:
+                  raise SystemExit("reconciliation report name is invalid")
+              numbers.append(int(match.group(1)))
+          if numbers != list(range(1, len(numbers) + 1)) or len(numbers) >= 999:
+              raise SystemExit("reconciliation report sequence is not contiguous")
+          values = {
+              "adapter": selected["adapter_id"],
+              "decisions": selected["decisions"],
+              "inventory": selected["inventory"],
+              "manifest": selected["manifest"],
+              "report": f"{Path(manifest).parent.as_posix()}/{stem}.reconciliation-{len(numbers) + 1:03d}.yaml",
+              "review": selected["review"],
+          }
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              for key, value in values.items():
+                  stream.write(f"{key}={value}\n")
+          PY
+
+      - name: Fetch the immutable proposal workflow-run evidence
+        if: steps.command.outputs.name != ''
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          GH_TOKEN: ${{ github.token }}
+          HEAD_REF: ${{ steps.pull.outputs.head_ref }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          run_id="$(python - <<'PY'
+          import os
+
+          prefix = f"automation/curation/{os.environ['ADAPTER']}-"
+          head = os.environ["HEAD_REF"]
+          if not head.startswith(prefix) or not head.removeprefix(prefix).isdigit():
+              raise SystemExit("curation branch does not contain an exact run id")
+          print(head.removeprefix(prefix))
+          PY
+          )"
+          gh api "repos/${REPOSITORY}/actions/runs/${run_id}/attempts/1" \
+            > "$RUNNER_TEMP/proposal-run.json"
+
+      - name: Validate the complete PR tree from trusted default code
+        if: steps.command.outputs.name != ''
+        working-directory: trusted
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            validate-pr-tree \
+            --root "$GITHUB_WORKSPACE/review" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --proposal-run-json "$RUNNER_TEMP/proposal-run.json" \
+            --changed-paths-json "$RUNNER_TEMP/changed-paths.json" \
+            --phase "${{ steps.changes.outputs.phase }}" \
+            --default-branch "${{ github.event.repository.default_branch }}" \
+            --trusted-default-sha "$(git rev-parse HEAD)"
+
+      - name: Enforce the read-only trust and authorization guard
+        if: steps.command.outputs.name != ''
+        working-directory: trusted
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          HOSTED_COMMAND: ${{ steps.command.outputs.name }}
+          MANIFEST: ${{ steps.transaction.outputs.manifest }}
+          PHASE: ${{ steps.changes.outputs.phase }}
+          REVIEW: ${{ steps.transaction.outputs.review }}
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            validate-guard \
+            --root "$GITHUB_WORKSPACE/review" \
+            --adapter "$ADAPTER" \
+            --manifest "$MANIFEST" \
+            --review "$REVIEW" \
+            --event-json "$GITHUB_EVENT_PATH" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --proposal-run-json "$RUNNER_TEMP/proposal-run.json" \
+            --permission-json "$RUNNER_TEMP/permission.json" \
+            --comments-json "$RUNNER_TEMP/comments.json" \
+            --attestation-runs-json "$RUNNER_TEMP/attestation-runs.json" \
+            --changed-paths-json "$RUNNER_TEMP/changed-paths.json" \
+            --phase "$PHASE" \
+            --hosted-command "$HOSTED_COMMAND" \
+            --default-branch "$DEFAULT_BRANCH" \
+            --trusted-default-sha "$(git rev-parse HEAD)"
+
+      - name: Read exact proposal coordinates for trusted reproduction
+        if: steps.command.outputs.name != ''
+        id: source
+        working-directory: trusted
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          BASE_SHA: ${{ steps.pull.outputs.base_sha }}
+          HEAD_REF: ${{ steps.pull.outputs.head_ref }}
+          INVENTORY: ${{ steps.transaction.outputs.inventory }}
+          MANIFEST: ${{ steps.transaction.outputs.manifest }}
+        run: |
+          pixi run python - <<'PY'
+          from datetime import date
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          from urllib.parse import urlsplit
+          import yaml
+
+          workspace = Path(os.environ["GITHUB_WORKSPACE"])
+          inventory = yaml.safe_load(
+              (workspace / "review" / os.environ["INVENTORY"]).read_text(encoding="utf-8")
+          )
+          manifest = yaml.safe_load(
+              (workspace / "review" / os.environ["MANIFEST"]).read_text(encoding="utf-8")
+          )
+          trusted_head = subprocess.run(
+              ["git", "rev-parse", "HEAD"],
+              check=True,
+              text=True,
+              stdout=subprocess.PIPE,
+          ).stdout.strip()
+          coordinates = manifest.get("proposal_coordinates", {})
+          if (
+              trusted_head != os.environ["BASE_SHA"]
+              or coordinates.get("base_sha") != os.environ["BASE_SHA"]
+              or coordinates.get("head_sha") != os.environ["BASE_SHA"]
+          ):
+              raise SystemExit("trusted default, PR base, and proposal parent differ")
+          acknowledgment = manifest.get("public_data_acknowledgment", {})
+          run_url = acknowledgment.get("run_url")
+          if not isinstance(run_url, str):
+              raise SystemExit("public-data workflow run is missing")
+          path = urlsplit(run_url).path.rstrip("/")
+          run_id = path.rsplit("/", 1)[-1]
+          if (
+              not run_id.isdigit()
+              or os.environ["HEAD_REF"]
+              != f"automation/curation/{os.environ['ADAPTER']}-{run_id}"
+          ):
+              raise SystemExit("workflow run does not bind the curation branch")
+          inputs = inventory.get("inputs")
+          if not isinstance(inputs, dict):
+              raise SystemExit("inventory inputs are missing")
+          context = inputs.get("evaluation_context")
+          source = inputs.get("source")
+          if not isinstance(context, dict) or not isinstance(source, dict):
+              raise SystemExit("inventory source coordinates are missing")
+          if context.get("resolved_policy_questions") != []:
+              raise SystemExit("hosted workflow does not accept implicit policy resolutions")
+          as_of = context.get("as_of")
+          try:
+              if date.fromisoformat(as_of).isoformat() != as_of:
+                  raise ValueError
+          except (TypeError, ValueError):
+              raise SystemExit("inventory as-of date is invalid") from None
+          values = {"as_of": as_of, "source_commit": "", "library_version": ""}
+          if os.environ["ADAPTER"] == "dump-research-info":
+              commit = source.get("commit")
+              if (
+                  source.get("kind") != "exact-clean-git-checkout"
+                  or source.get("path") != "build/curation/sources/dump-research-info"
+                  or not isinstance(commit, str)
+                  or not re.fullmatch(r"[0-9a-f]{40}", commit)
+              ):
+                  raise SystemExit("dump inventory source coordinates are invalid")
+              values["source_commit"] = commit
+          else:
+              version = source.get("library_version")
+              if source.get("kind") != "frozen-zotero-snapshot" or not isinstance(version, int) or version < 1:
+                  raise SystemExit("Zotero inventory source coordinates are invalid")
+              values["library_version"] = str(version)
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              for key, value in values.items():
+                  stream.write(f"{key}={value}\n")
+          PY
+
+      - name: Check out the trusted exact dump source for reproduction
+        if: >-
+          steps.command.outputs.name != '' &&
+          steps.transaction.outputs.adapter == 'dump-research-info'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          path: trusted/build/curation/sources/dump-research-info
+          persist-credentials: false
+          ref: ${{ steps.source.outputs.source_commit }}
+          repository: con/dump-research-info
+
+      - name: Reproduce and byte-compare the proposal from trusted state
+        if: steps.command.outputs.name != ''
+        working-directory: trusted
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          MANIFEST: ${{ steps.transaction.outputs.manifest }}
+          PHASE: ${{ steps.changes.outputs.phase }}
+          REVIEW: ${{ steps.transaction.outputs.review }}
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            validate-reproposal \
+            --root "$GITHUB_WORKSPACE/review" \
+            --adapter "$ADAPTER" \
+            --manifest "$MANIFEST" \
+            --review "$REVIEW" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --proposal-run-json "$RUNNER_TEMP/proposal-run.json" \
+            --changed-paths-json "$RUNNER_TEMP/changed-paths.json" \
+            --phase "$PHASE" \
+            --default-branch "${{ github.event.repository.default_branch }}" \
+            --trusted-default-sha "$(git rev-parse HEAD)"
+
+      - name: Record the explicit submitted decisions
+        if: steps.command.outputs.name == 'submit'
+        id: submit
+        working-directory: trusted
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          DECISIONS: ${{ steps.transaction.outputs.decisions }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          INVENTORY: ${{ steps.transaction.outputs.inventory }}
+          MANIFEST: ${{ steps.transaction.outputs.manifest }}
+          PHASE: ${{ steps.changes.outputs.phase }}
+          REVIEW: ${{ steps.transaction.outputs.review }}
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            apply-comment \
+            --root "$GITHUB_WORKSPACE/review" \
+            --adapter "$ADAPTER" \
+            --inventory "$INVENTORY" \
+            --decisions "$DECISIONS" \
+            --manifest "$MANIFEST" \
+            --review "$REVIEW" \
+            --event-json "$GITHUB_EVENT_PATH" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --proposal-run-json "$RUNNER_TEMP/proposal-run.json" \
+            --permission-json "$RUNNER_TEMP/permission.json" \
+            --comments-json "$RUNNER_TEMP/comments.json" \
+            --attestation-runs-json "$RUNNER_TEMP/attestation-runs.json" \
+            --changed-paths-json "$RUNNER_TEMP/changed-paths.json" \
+            --phase "$PHASE" \
+            --default-branch "$DEFAULT_BRANCH" \
+            --trusted-default-sha "$(git rev-parse HEAD)" \
+            > "$RUNNER_TEMP/curation-submit.json"
+          python - "$RUNNER_TEMP/curation-submit.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          result = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          decision_ids = result["applied_decision_ids"]
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              stream.write(f"candidate_count={result['candidate_count']}\n")
+              stream.write(f"changed={str(result['changed']).lower()}\n")
+              stream.write(f"complete={str(result['complete']).lower()}\n")
+              stream.write(
+                  "correction_items="
+                  + json.dumps(result["correction_items"], separators=(",", ":"))
+                  + "\n"
+              )
+              stream.write(f"decision_count={len(decision_ids)}\n")
+              stream.write(f"decision_ids={','.join(decision_ids)}\n")
+              stream.write(f"inventory_id={result['inventory_id']}\n")
+              stream.write(f"remaining_aliases={','.join(result['remaining_aliases'])}\n")
+              stream.write(f"reviewed_count={result['reviewed_count']}\n")
+          PY
+
+      - name: Commit changed decisions locally for pre-push attestation
+        if: >-
+          steps.command.outputs.name == 'submit' &&
+          steps.submit.outputs.changed == 'true'
+        id: ledger
+        working-directory: review
+        env:
+          DECISIONS: ${{ steps.transaction.outputs.decisions }}
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -- "$DECISIONS"
+          if git diff --cached --quiet; then
+            echo "helper reported a change without a changed decision ledger" >&2
+            exit 1
+          fi
+          git commit -m "chore(curation): record explicit review decisions"
+          echo "target_head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Render the decision-ledger edge from trusted code
+        if: >-
+          steps.command.outputs.name == 'submit' &&
+          steps.submit.outputs.changed == 'true'
+        working-directory: trusted
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          MANIFEST: ${{ steps.transaction.outputs.manifest }}
+          PARENT_HEAD_SHA: ${{ steps.pull.outputs.head_sha }}
+          REVIEW: ${{ steps.transaction.outputs.review }}
+          SUBMIT_CORRECTIONS: ${{ steps.submit.outputs.correction_items }}
+          SUBMIT_COUNT: ${{ steps.submit.outputs.decision_count }}
+          SUBMIT_INVENTORY: ${{ steps.submit.outputs.inventory_id }}
+          SUBMIT_REMAINING: ${{ steps.submit.outputs.remaining_aliases }}
+          SUBMIT_REVIEWED: ${{ steps.submit.outputs.reviewed_count }}
+          SUBMIT_TOTAL: ${{ steps.submit.outputs.candidate_count }}
+          TARGET_HEAD_SHA: ${{ steps.ledger.outputs.target_head_sha }}
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            render-ledger-attestation \
+            --root "$GITHUB_WORKSPACE/review" \
+            --adapter "$ADAPTER" \
+            --manifest "$MANIFEST" \
+            --review "$REVIEW" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --workflow-run-json "$RUNNER_TEMP/workflow-run.json" \
+            --parent-head-sha "$PARENT_HEAD_SHA" \
+            --target-head-sha "$TARGET_HEAD_SHA" \
+            --default-branch "$DEFAULT_BRANCH" \
+            --trusted-default-sha "$(git rev-parse HEAD)" \
+            > "$RUNNER_TEMP/ledger-attestation.json"
+          python - "$RUNNER_TEMP/ledger-attestation.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          result = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          body = result["body"]
+          notice = "**AI-generated draft — not reviewed by John**"
+          if not isinstance(body, str) or body.splitlines()[0] != notice:
+              raise SystemExit("ledger attestation lacks the required AI notice")
+          detail = (
+              f"\n\nPrepared {os.environ['SUBMIT_COUNT']} explicit decision event(s) "
+              f"for {os.environ['SUBMIT_INVENTORY']}.\n\n"
+              f"Progress: {os.environ['SUBMIT_REVIEWED']}/"
+              f"{os.environ['SUBMIT_TOTAL']} reviewed. Remaining aliases: "
+              f"`{os.environ['SUBMIT_REMAINING']}`.\n\n"
+              "Copyable alias-to-current-ID correction hints:\n\n"
+              "```json\n"
+              f"{os.environ['SUBMIT_CORRECTIONS']}\n"
+              "```\n\n"
+              "This marker authenticates the new ledger only if its exact target "
+              "becomes the PR head via the guarded lease push. Successful edges "
+              "additionally prevent rollback."
+          )
+          Path(os.environ["RUNNER_TEMP"], "ledger-attestation-request.json").write_text(
+              json.dumps({"body": body.rstrip() + detail}, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Post the decision attestation before changing the PR ref
+        if: >-
+          steps.command.outputs.name == 'submit' &&
+          steps.submit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api "repos/${REPOSITORY}/issues/${NUMBER}/comments" \
+            --method POST \
+            --input "$RUNNER_TEMP/ledger-attestation-request.json"
+
+      - name: Push the pre-attested decision edge to the same PR
+        if: >-
+          steps.command.outputs.name == 'submit' &&
+          steps.submit.outputs.changed == 'true'
+        working-directory: review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_REF: ${{ steps.pull.outputs.head_ref }}
+          HEAD_SHA: ${{ steps.pull.outputs.head_sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor "$HEAD_SHA" HEAD
+          git push \
+            --force-with-lease="refs/heads/${HEAD_REF}:${HEAD_SHA}" \
+            "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" \
+            "HEAD:refs/heads/${HEAD_REF}"
+
+      - name: Require a complete exact decision transaction
+        if: steps.command.outputs.name == 'finalize'
+        id: complete
+        working-directory: trusted
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          DECISIONS: ${{ steps.transaction.outputs.decisions }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          INVENTORY: ${{ steps.transaction.outputs.inventory }}
+          MANIFEST: ${{ steps.transaction.outputs.manifest }}
+          PHASE: ${{ steps.changes.outputs.phase }}
+          REVIEW: ${{ steps.transaction.outputs.review }}
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            validate-complete \
+            --root "$GITHUB_WORKSPACE/review" \
+            --adapter "$ADAPTER" \
+            --inventory "$INVENTORY" \
+            --decisions "$DECISIONS" \
+            --manifest "$MANIFEST" \
+            --review "$REVIEW" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --proposal-run-json "$RUNNER_TEMP/proposal-run.json" \
+            --comments-json "$RUNNER_TEMP/comments.json" \
+            --attestation-runs-json "$RUNNER_TEMP/attestation-runs.json" \
+            --changed-paths-json "$RUNNER_TEMP/changed-paths.json" \
+            --phase "$PHASE" \
+            --default-branch "$DEFAULT_BRANCH" \
+            --trusted-default-sha "$(git rev-parse HEAD)" \
+            > "$RUNNER_TEMP/curation-complete.json"
+          python - "$RUNNER_TEMP/curation-complete.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          result = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as stream:
+              stream.write(f"candidate_count={result['candidate_count']}\n")
+              stream.write(f"decision_count={len(result['decision_ids'])}\n")
+              stream.write(f"inventory_id={result['inventory_id']}\n")
+          PY
+
+      - name: Verify the immutable runtime before reconciliation
+        if: steps.command.outputs.name == 'finalize'
+        working-directory: trusted
+        run: pixi run verify-runtime
+
+      - name: Reconcile under retained DataLad execution evidence
+        if: steps.command.outputs.name == 'finalize'
+        working-directory: review
+        env:
+          ADAPTER: ${{ steps.transaction.outputs.adapter }}
+          DECISIONS: ${{ steps.transaction.outputs.decisions }}
+          INVENTORY: ${{ steps.transaction.outputs.inventory }}
+          REPORT: ${{ steps.transaction.outputs.report }}
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          pixi run --manifest-path "$GITHUB_WORKSPACE/trusted/pixi.toml" \
+            datalad run --explicit --sidecar yes \
+            -m "reconcile explicit GitHub curation review" \
+            -i pixi.toml \
+            -i pixi.lock \
+            -i orinoco.yaml \
+            -i orinoco.lock \
+            -i metadata/records \
+            -i "$INVENTORY" \
+            -i "$DECISIONS" \
+            -i source-adapters/metadata/tools/curation_prototype_v1.py \
+            -i source-adapters/metadata/tools/curation_cli_prototype_v1.py \
+            -o metadata/records \
+            -o "$REPORT" \
+            "pixi run python source-adapters/metadata/tools/curation_cli_prototype_v1.py reconcile --root . --adapter '$ADAPTER' --inventory '$INVENTORY' --decisions '$DECISIONS' --report '$REPORT'"
+          mapfile -t runinfo < <(
+            git diff-tree --no-commit-id --name-only -r HEAD -- .datalad/runinfo
+          )
+          if [[ "${#runinfo[@]}" -ne 1 || ! -f "${runinfo[0]}" ]]; then
+            echo "reconciliation did not produce exactly one DataLad sidecar" >&2
+            exit 1
+          fi
+          pixi run --manifest-path "$GITHUB_WORKSPACE/trusted/pixi.toml" \
+            python - "${runinfo[0]}" "$REPORT" <<'PY'
+          from datalad.support.json_py import load_stream
+          from pathlib import Path
+          import sys
+
+          records = list(load_stream(sys.argv[1], compressed=True))
+          if len(records) != 1 or not isinstance(records[0], dict):
+              raise SystemExit("reconciliation DataLad sidecar is invalid")
+          record = records[0]
+          command = record.get("cmd")
+          if (
+              not isinstance(command, str)
+              or "curation_cli_prototype_v1.py reconcile" not in command
+              or record.get("outputs") != ["metadata/records", sys.argv[2]]
+              or str(Path.cwd()) in command
+          ):
+              raise SystemExit("reconciliation sidecar lacks a replayable command")
+          PY
+          git commit --amend \
+            -m "chore(curation): reconcile reviewed source proposal" \
+            -m "DataLad-Run-Record: ${runinfo[0]}"
+          git status --short
+          test -z "$(git status --porcelain)"
+
+      - name: Build changed-path evidence for the reconciled local head
+        if: steps.command.outputs.name == 'finalize'
+        env:
+          BASE_SHA: ${{ steps.pull.outputs.base_sha }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+
+          result = subprocess.run(
+              ["git", "diff", "--raw", "--no-renames", f"{os.environ['BASE_SHA']}...HEAD"],
+              cwd="review",
+              check=True,
+              text=True,
+              stdout=subprocess.PIPE,
+          )
+          files = []
+          for line in result.stdout.splitlines():
+              metadata, relative = line.split("\t", 1)
+              fields = metadata.split()
+              status = {"A": "added", "M": "modified"}.get(fields[4])
+              if status is None:
+                  raise SystemExit(f"forbidden reconciled status: {fields[4]}")
+              files.append(
+                  {"path": relative, "status": status, "mode": fields[1]}
+              )
+          Path(os.environ["RUNNER_TEMP"], "reconciled-paths.json").write_text(
+              json.dumps({"files": files}, sort_keys=True, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Validate the reconciled tree before the terminal push
+        if: steps.command.outputs.name == 'finalize'
+        working-directory: trusted
+        run: |
+          pixi run python \
+            source-adapters/metadata/tools/curation_github_prototype_v1.py \
+            validate-pr-tree \
+            --root "$GITHUB_WORKSPACE/review" \
+            --pr-json "$RUNNER_TEMP/pr.json" \
+            --proposal-run-json "$RUNNER_TEMP/proposal-run.json" \
+            --changed-paths-json "$RUNNER_TEMP/reconciled-paths.json" \
+            --phase reconciled \
+            --default-branch "${{ github.event.repository.default_branch }}" \
+            --trusted-default-sha "$(git rev-parse HEAD)"
+
+      - name: Push the reconciled result to the same PR
+        if: steps.command.outputs.name == 'finalize'
+        working-directory: review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_REF: ${{ steps.pull.outputs.head_ref }}
+          HEAD_SHA: ${{ steps.pull.outputs.head_sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor "$HEAD_SHA" HEAD
+          git push \
+            --force-with-lease="refs/heads/${HEAD_REF}:${HEAD_SHA}" \
+            "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git" \
+            "HEAD:refs/heads/${HEAD_REF}"
+
+      - name: Explicitly dispatch validation for the final bot head
+        if: steps.command.outputs.name == 'finalize'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_REF: ${{ steps.pull.outputs.head_ref }}
+        run: gh workflow run validate.yml --ref "$HEAD_REF"
+
+      - name: Post an attributed success status
+        if: >-
+          (steps.command.outputs.name == 'submit' &&
+          steps.submit.outputs.changed != 'true') ||
+          steps.command.outputs.name == 'finalize'
+        env:
+          COMMAND: ${{ steps.command.outputs.name }}
+          GH_TOKEN: ${{ github.token }}
+          COMPLETE_COUNT: ${{ steps.complete.outputs.decision_count }}
+          COMPLETE_INVENTORY: ${{ steps.complete.outputs.inventory_id }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.repository }}
+          SUBMIT_COUNT: ${{ steps.submit.outputs.decision_count }}
+          SUBMIT_CORRECTIONS: ${{ steps.submit.outputs.correction_items }}
+          SUBMIT_INVENTORY: ${{ steps.submit.outputs.inventory_id }}
+          SUBMIT_REMAINING: ${{ steps.submit.outputs.remaining_aliases }}
+          SUBMIT_REVIEWED: ${{ steps.submit.outputs.reviewed_count }}
+          SUBMIT_TOTAL: ${{ steps.submit.outputs.candidate_count }}
+        run: |
+          if [[ "$COMMAND" == submit ]]; then
+            detail="Recorded ${SUBMIT_COUNT} explicit decision event(s) for ${SUBMIT_INVENTORY}.
+
+          Progress: ${SUBMIT_REVIEWED}/${SUBMIT_TOTAL} reviewed. Remaining aliases:
+          \`${SUBMIT_REMAINING}\`.
+
+          Copyable alias-to-current-ID correction hints:
+
+          \`\`\`json
+          ${SUBMIT_CORRECTIONS}
+          \`\`\`"
+          else
+            detail="Validated and reconciled ${COMPLETE_COUNT} explicit decisions for
+          ${COMPLETE_INVENTORY}. A read-only validation run was dispatched for the
+          final bot head."
+          fi
+          body="**AI-generated draft — not reviewed by John**
+
+          The \`/curation ${COMMAND}\` command completed on the same pull request.
+
+          ${detail}"
+          gh api "repos/${REPOSITORY}/issues/${NUMBER}/comments" \
+            --method POST \
+            --field body="$body"
