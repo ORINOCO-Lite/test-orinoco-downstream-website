@@ -87,10 +87,31 @@ reviewer, decision time, and pull-request URL are stored once for the review
 rather than repeated for every record. Git history preserves earlier cache
 states and is the decision history.
 
-Accepted records already carry their source provenance from the adapter. The
-providers write expanded PAV `importedFrom` and `importedBy` properties into
-the canonical metadata; the hosted workflow does not duplicate those claims
-in a separate manifest.
+## Bounded upstream provenance alignment
+
+The reviewed commit follows the German upstream's author/committer distinction
+without introducing another audit store. The authenticated reviewer is the Git
+author and `github-actions[bot]` is the committer. Standard commit trailers
+record the adapter, exact source coordinate, review URL, and review time.
+Ordinary Git history records each YAML version, while the PID-keyed cache links
+every human disposition to its reviewed commit. Their histories together form
+the append-only per-record audit. An accepted record is not rewritten merely
+to make its path appear in the later review commit. No generated audit report
+is tracked.
+
+Accepted records carry semantic source provenance from the adapter. Every
+imported record has expanded PAV `importedFrom` and `importedBy` annotations.
+The dump adapter also places the same annotations on imported structured
+assertions such as identifiers, attributions, attribute specifications, and
+generations. Direct scalar properties remain covered by the record-level
+annotation. The adapter must never label a pre-existing human-maintained or
+site-policy assertion as an upstream import.
+
+Assertion-level PAV is added to one adapter first. Zotero remains at
+record-level provenance until its source assertions can be distinguished from
+site-policy additions and pass the same locked schema round-trip tests. A
+shared abstraction is considered only after both adapters demonstrate the same
+semantics.
 
 This use of PAV, and related PROV ontology patterns where needed, is the point
 of alignment with upstream provenance work. It does not imply copying an
@@ -101,6 +122,10 @@ manifest, reconciliation report, custom attestation chain, DataLad sidecar, or
 separate finalize command. The pull request, its metadata diff, its compact
 decision cache, the adapter's semantic provenance, and ordinary Git history
 carry the review evidence.
+
+The bounded audit and assertion changes do not alter that storage boundary.
+DataLad remains limited to the initial metadata-producing commit, and
+submission remains one ordinary Git commit.
 
 ## Checks and review state
 

@@ -342,14 +342,14 @@ class PavAcceptanceTests(unittest.TestCase):
                 (first / "static/graph.json").read_bytes(),
             )
 
-            lines = (first / "records.jsonl").read_text(
-                encoding="utf-8"
-            ).splitlines(keepends=True)
+            lines = (
+                (first / "records.jsonl")
+                .read_text(encoding="utf-8")
+                .splitlines(keepends=True)
+            )
             self.assertEqual(len(lines), 199)
             matching = [
-                line
-                for line in lines
-                if json.loads(line).get("pid") == record["pid"]
+                line for line in lines if json.loads(line).get("pid") == record["pid"]
             ]
             self.assertEqual(
                 matching,
@@ -401,6 +401,14 @@ class PavAcceptanceTests(unittest.TestCase):
             baseline_record = yaml.safe_load(record_path.read_text(encoding="utf-8"))
             proposed_record = deepcopy(baseline_record)
             proposed_record["annotations"] = deepcopy(PAV)
+            for field in (
+                "attributed_to",
+                "attributes",
+                "identifiers",
+                "generated_by",
+            ):
+                for assertion in proposed_record[field]:
+                    assertion["annotations"] = deepcopy(PAV)
             candidate = CURATION_CORE.make_candidate(
                 adapter_id="zotero",
                 source_namespace="fixture:pav-guarded-reconciliation",
@@ -487,11 +495,32 @@ class PavAcceptanceTests(unittest.TestCase):
             self.assertEqual(report["inventory_id"], inventory["inventory_id"])
             reconciled = yaml.safe_load(record_path.read_text(encoding="utf-8"))
             self.assertEqual(reconciled["annotations"], PAV)
+            for field in (
+                "attributed_to",
+                "attributes",
+                "identifiers",
+                "generated_by",
+            ):
+                with self.subTest(reconciled_field=field):
+                    self.assertTrue(reconciled[field])
+                    self.assertTrue(
+                        all(item["annotations"] == PAV for item in reconciled[field])
+                    )
 
             first_ttl = self.to_ttl.convert(reconciled, "XYZPublication")
             restored = self.to_json.convert(first_ttl, "XYZPublication")
             second_ttl = self.to_ttl.convert(restored, "XYZPublication")
             self.assertEqual(restored["annotations"], PAV)
+            for field in (
+                "attributed_to",
+                "attributes",
+                "identifiers",
+                "generated_by",
+            ):
+                with self.subTest(restored_field=field):
+                    self.assertTrue(
+                        all(item["annotations"] == PAV for item in restored[field])
+                    )
             self.assertTrue(
                 isomorphic(
                     Graph().parse(data=first_ttl, format="turtle"),
@@ -515,6 +544,16 @@ class PavAcceptanceTests(unittest.TestCase):
             ]
             self.assertEqual(len(projected), 1)
             self.assertEqual(projected[0]["annotations"], PAV)
+            for field in (
+                "attributed_to",
+                "attributes",
+                "identifiers",
+                "generated_by",
+            ):
+                with self.subTest(projected_field=field):
+                    self.assertTrue(
+                        all(item["annotations"] == PAV for item in projected[0][field])
+                    )
 
             public = b"".join(file_bytes(projection / "content").values())
             public += (projection / "static/graph.json").read_bytes()

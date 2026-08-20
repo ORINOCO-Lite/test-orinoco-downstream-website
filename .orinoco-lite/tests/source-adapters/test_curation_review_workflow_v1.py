@@ -205,8 +205,45 @@ class CurationReviewWorkflowTests(unittest.TestCase):
             "run"
         ]
         self.assertIn('git -C review add -- metadata/records "$CACHE_PATH"', commit)
-        self.assertIn('-m "chore(curation): record reviewed source metadata"', commit)
+        self.assertIn(
+            'message = "chore(curation): record reviewed source metadata\\n\\n"',
+            commit,
+        )
         self.assertEqual(1, self.text.count("datalad run --explicit"))
+
+    def test_review_commit_records_human_author_and_bot_committer(self) -> None:
+        preflight = self.comment_steps["Preflight the draft PR and reviewer authority"][
+            "run"
+        ]
+        self.assertIn('"actor_id": actor["id"]', preflight)
+
+        apply = self.comment_steps["Apply all form decisions with trusted code"]["run"]
+        self.assertIn('source_coordinate = result.get("source_coordinate")', apply)
+        self.assertIn("helper returned an invalid source coordinate", apply)
+
+        commit = self.comment_steps["Commit the decisions and reconciled metadata"][
+            "run"
+        ]
+        self.assertIn("git -C review config user.name github-actions[bot]", commit)
+        self.assertIn(
+            "41898282+github-actions[bot]@users.noreply.github.com",
+            commit,
+        )
+        self.assertIn(
+            'author="${ACTOR} <${ACTOR_ID}+${ACTOR}@users.noreply.github.com>"',
+            commit,
+        )
+        self.assertIn('GIT_AUTHOR_DATE="$REVIEWED_AT"', commit)
+        self.assertIn('--author="$author"', commit)
+        self.assertIn('--file="$RUNNER_TEMP/curation-commit.txt"', commit)
+        for trailer in (
+            "Curation-Adapter",
+            "Curation-Source",
+            "Curation-Review",
+            "Curation-Reviewed-At",
+        ):
+            with self.subTest(trailer=trailer):
+                self.assertIn(f'"{trailer}"', commit)
 
     def test_form_and_head_use_compare_and_swap_before_one_push(self) -> None:
         names = [step["name"] for step in self.comment["steps"]]

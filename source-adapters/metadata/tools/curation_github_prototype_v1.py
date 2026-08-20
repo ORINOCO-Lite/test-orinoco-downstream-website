@@ -756,6 +756,15 @@ def _source_provenance(build: CandidateBuild) -> dict[str, object]:
     }
 
 
+def source_coordinate(build: CandidateBuild) -> str:
+    """Render one compact, immutable source coordinate for Git audit trailers."""
+
+    source = _source_provenance(build)
+    if build.adapter == "dump-research-info":
+        return f"{source['uri']}@{source['revision']}"
+    return f"{source['uri']}@library-version:{source['library_version']}"
+
+
 def updated_cache(
     cache: Mapping[str, object],
     build: CandidateBuild,
@@ -872,6 +881,7 @@ def apply_review(
     }
     return {
         "adapter": build.adapter,
+        "source_coordinate": source_coordinate(build),
         "count": len(candidates),
         "accepted": counts["accept"],
         "rejected": counts["reject"],

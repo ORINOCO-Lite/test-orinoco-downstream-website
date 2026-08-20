@@ -48,7 +48,7 @@ def record(pid: str, value: str, *, pav: bool = False) -> dict[str, object]:
         "name": value,
     }
     if pav:
-        result["annotations"] = {
+        annotations = {
             "pav:importedBy": {
                 "annotation_tag": "pav:importedBy",
                 "annotation_value": "urn:orinoco-lite:source-adapter:test",
@@ -58,6 +58,14 @@ def record(pid: str, value: str, *, pav: bool = False) -> dict[str, object]:
                 "annotation_value": "https://source.invalid/record",
             },
         }
+        result["annotations"] = annotations
+        result["identifiers"] = [
+            {
+                "notation": pid,
+                "schema_type": "dlthings:Identifier",
+                "annotations": deepcopy(annotations),
+            }
+        ]
     return result
 
 
@@ -245,6 +253,21 @@ class CacheTests(unittest.TestCase):
         self.assertNotIn(b"material_fingerprint", rendered)
         self.assertNotIn(b"candidate_id", rendered)
 
+    def test_source_coordinates_are_compact_and_immutable(self):
+        self.assertEqual(
+            GITHUB.source_coordinate(build()),
+            "https://github.com/con/dump-research-info@" + REVISION,
+        )
+        zotero = GITHUB.CandidateBuild(
+            "zotero",
+            {"group_id": 6197458, "library_version": 451},
+            (),
+        )
+        self.assertEqual(
+            GITHUB.source_coordinate(zotero),
+            "https://api.zotero.org/groups/6197458@library-version:451",
+        )
+
     def test_current_decision_replaces_prior_pid_for_same_source(self):
         old = candidate("SOURCE", pid="xyzrins:records/old")
         cache = self._cache((old,), {"SOURCE": "reject"})
@@ -349,6 +372,10 @@ class ApplyTests(unittest.TestCase):
             self.assertIn("pav:importedBy", accepted_record["annotations"])
             self.assertIn("pav:importedFrom", accepted_record["annotations"])
             self.assertEqual(
+                accepted_record["identifiers"][0]["annotations"],
+                accepted_record["annotations"],
+            )
+            self.assertEqual(
                 (review / "metadata/records" / rejected.proposed_path).read_bytes(),
                 (trusted / "metadata/records" / rejected.proposed_path).read_bytes(),
             )
@@ -368,6 +395,10 @@ class ApplyTests(unittest.TestCase):
                 },
             )
             self.assertEqual(result["count"], 3)
+            self.assertEqual(
+                result["source_coordinate"],
+                "https://github.com/con/dump-research-info@" + REVISION,
+            )
             self.assertEqual(
                 result["cache_path"],
                 "source-adapters/dump-research-info/policy/curation-decisions.yaml",

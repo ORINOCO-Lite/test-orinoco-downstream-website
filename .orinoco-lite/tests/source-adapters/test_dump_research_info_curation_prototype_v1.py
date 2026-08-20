@@ -66,6 +66,12 @@ def write_source_records(path: Path, *, existing_email: str) -> None:
             "pid": "person:source-only",
             "schema_type": "xyzri:XYZPerson",
             "name": "Source Only",
+            "identifiers": [
+                {
+                    "notation": "source-only",
+                    "schema_type": "dlthings:Identifier",
+                }
+            ],
             "associated_with": [
                 {"object": "organization:planned"},
                 {"object": "organization:missing"},
@@ -227,6 +233,10 @@ class DumpResearchInfoCurationPrototypeTests(unittest.TestCase):
                 },
                 annotations["pav:importedFrom"],
             )
+            self.assertEqual(
+                annotations,
+                source_only.proposed_record["identifiers"][0]["annotations"],
+            )
 
             relocated = source.parent / "relocated-dump-research-info"
             subprocess.run(
@@ -312,6 +322,83 @@ class DumpResearchInfoCurationPrototypeTests(unittest.TestCase):
                 existing.relevant_policy_fingerprint,
                 changed_existing.relevant_policy_fingerprint,
             )
+
+    def test_imported_structured_assertions_receive_expanded_pav(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            _source, _downstream, provider, _source_commit = write_fixture(
+                Path(temporary)
+            )
+            record = {
+                "pid": "publication:assertions",
+                "schema_type": "xyzri:XYZPublication",
+                "title": "Imported assertions",
+                "attributed_to": [
+                    {
+                        "object": "person:author",
+                        "schema_type": "dlthings:Attribution",
+                    }
+                ],
+                "attributes": [
+                    {
+                        "predicate": "dcterms:issued",
+                        "value": "2026",
+                        "schema_type": "dlthings:AttributeSpecification",
+                    }
+                ],
+                "identifiers": [
+                    {
+                        "notation": "assertions",
+                        "schema_type": "dlthings:Identifier",
+                    }
+                ],
+                "generated_by": [
+                    {
+                        "object": "project:source",
+                        "schema_type": "dlthings:Generation",
+                    }
+                ],
+                "associated_with": [{"object": "organization:source"}],
+            }
+            annotated = provider.annotate_record(
+                record,
+                imported_by=provider.ADAPTER_AGENT,
+                imported_from="https://example.invalid/source/assertions",
+            )
+
+            self.assertNotIn("annotations", record)
+            expected = annotated["annotations"]
+            for field in provider.PAV_ASSERTION_FIELDS:
+                with self.subTest(field=field):
+                    self.assertEqual(
+                        annotated[field][0]["annotations"],
+                        expected,
+                    )
+            self.assertNotIn("annotations", annotated["associated_with"][0])
+
+            conflicting = {
+                **record,
+                "identifiers": [
+                    {
+                        "notation": "assertions",
+                        "schema_type": "dlthings:Identifier",
+                        "annotations": {
+                            "pav:importedFrom": {
+                                "annotation_tag": "pav:importedFrom",
+                                "annotation_value": "https://example.invalid/other",
+                            }
+                        },
+                    }
+                ],
+            }
+            with self.assertRaisesRegex(
+                provider.DumpResearchInfoCurationError,
+                "proposal would overwrite pav:importedFrom",
+            ):
+                provider.annotate_record(
+                    conflicting,
+                    imported_by=provider.ADAPTER_AGENT,
+                    imported_from="https://example.invalid/source/assertions",
+                )
 
     def test_source_coordinate_must_be_relative_exact_and_clean(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

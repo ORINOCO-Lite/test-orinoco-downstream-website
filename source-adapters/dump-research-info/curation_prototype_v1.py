@@ -22,6 +22,12 @@ SOURCE_NAMESPACE = "https://github.com/con/dump-research-info"
 FULL_COMMIT = re.compile(r"^[0-9a-f]{40}$")
 PAV_IMPORTED_BY = "pav:importedBy"
 PAV_IMPORTED_FROM = "pav:importedFrom"
+PAV_ASSERTION_FIELDS = (
+    "attributed_to",
+    "attributes",
+    "identifiers",
+    "generated_by",
+)
 
 
 class DumpResearchInfoCurationError(RuntimeError):
@@ -121,21 +127,54 @@ def expanded_pav(imported_by: str, imported_from: str) -> dict[str, dict[str, st
     }
 
 
-def annotate_record(
-    record: Mapping[str, Any], *, imported_by: str, imported_from: str
-) -> dict[str, Any]:
-    proposed = deepcopy(dict(record))
-    annotations = proposed.setdefault("annotations", {})
+def annotate_object(
+    value: dict[str, Any],
+    *,
+    imported_by: str,
+    imported_from: str,
+    record_pid: object,
+) -> None:
+    annotations = value.setdefault("annotations", {})
     if not isinstance(annotations, dict):
         raise DumpResearchInfoCurationError(
-            f"{record.get('pid')}: annotations must be a mapping"
+            f"{record_pid}: annotations must be a mapping"
         )
     for tag, annotation in expanded_pav(imported_by, imported_from).items():
         if tag in annotations and annotations[tag] != annotation:
             raise DumpResearchInfoCurationError(
-                f"{record.get('pid')}: proposal would overwrite {tag}"
+                f"{record_pid}: proposal would overwrite {tag}"
             )
         annotations[tag] = annotation
+
+
+def annotate_record(
+    record: Mapping[str, Any], *, imported_by: str, imported_from: str
+) -> dict[str, Any]:
+    proposed = deepcopy(dict(record))
+    record_pid = record.get("pid")
+    annotate_object(
+        proposed,
+        imported_by=imported_by,
+        imported_from=imported_from,
+        record_pid=record_pid,
+    )
+    for field in PAV_ASSERTION_FIELDS:
+        assertions = proposed.get(field)
+        if assertions is None:
+            continue
+        if not isinstance(assertions, list) or not all(
+            isinstance(assertion, dict) for assertion in assertions
+        ):
+            raise DumpResearchInfoCurationError(
+                f"{record_pid}: {field} must be a list of assertion mappings"
+            )
+        for assertion in assertions:
+            annotate_object(
+                assertion,
+                imported_by=imported_by,
+                imported_from=imported_from,
+                record_pid=record_pid,
+            )
     return proposed
 
 
