@@ -1,20 +1,31 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fhypertools
+associated_with:
+- object: xyzrins:persons/jeremy-manning
+  roles:
+  - marcrel:led
+  schema_type: dlthings:Association
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fhypertools
+  predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://hypertools.readthedocs.io/en/latest/
+description: Python toolbox for gaining geometric insights into high dimensional data. Supports 2D/3D static and animated visualizations, data manipulation including hyperalignment and k-means clustering.
+display_label: HyperTools
 pid: xyzrins:projects/hypertools
 schema_type: xyzri:XYZProject
-title: HyperTools
 short_name: HyperTools
-display_label: HyperTools
-description: >-
-  Python toolbox for gaining geometric insights into high dimensional data.
-  Supports 2D/3D static and animated visualizations, data manipulation
-  including hyperalignment and k-means clustering.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/jeremy-manning
-    roles:
-      - marcrel:led
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: https://hypertools.readthedocs.io/en/latest/
-    schema_type: dlthings:AttributeSpecification
+title: HyperTools

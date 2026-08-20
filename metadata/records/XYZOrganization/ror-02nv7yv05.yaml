@@ -1,0 +1,12 @@
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A02nv7yv05
+display_label: Research Centre Jülich
+name: Forschungszentrum Jülich
+pid: ror:02nv7yv05
+schema_type: xyzri:XYZOrganization
+short_name: FZJ

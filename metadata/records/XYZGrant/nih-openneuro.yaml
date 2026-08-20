@@ -1,0 +1,59 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-openneuro
+attributed_to:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-openneuro
+  object: xyzrins:persons/russell-poldrack
+  roles:
+  - obo:NCIT_C19924
+  schema_type: dlthings:Attribution
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-openneuro
+  object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:rtm
+  schema_type: dlthings:Attribution
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-openneuro
+  predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://reporter.nih.gov/search/x2x2x2x2x2/project-details/5R24MH117179-07
+description: NIH grant supporting the OpenNeuro neuroimaging data archive.
+display_label: NIH OpenNeuro Grant
+identifiers:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-openneuro
+  notation: 5R24MH117179-07
+  schema_type: dlthings:Identifier
+pid: xyzrins:grants/nih-openneuro
+schema_type: xyzri:XYZGrant
+short_name: NIH 5R24MH117179-07
+title: OpenNeuro

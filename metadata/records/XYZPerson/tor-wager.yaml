@@ -1,19 +1,40 @@
-pid: xyzrins:persons/tor-wager
-schema_type: xyzri:XYZPerson
-given_name: Tor
+about:
+- https://centerforopenneuroscience.org/whoweare
 additional_names:
-  - D.
+- D.
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Ftor-wager
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Ftor-wager
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: tor.d.wager@dartmouth.edu
+description: Professor at Dartmouth College. Director of Dartmouth Brain Imaging Center and Center for Cognitive Neuroscience. Dedicated to developing functional neuroimaging analysis methods and sharing tools and data with the community.
+display_label: Tor D. Wager
 family_name: Wager
 formatted_name: Tor D. Wager
-display_label: Tor D. Wager
-description: >-
-  Professor at Dartmouth College. Director of Dartmouth Brain Imaging Center
-  and Center for Cognitive Neuroscience. Dedicated to developing functional
-  neuroimaging analysis methods and sharing tools and data with the community.
-attributes:
-  - predicate: vcard:Email
-    value: tor.d.wager@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+given_name: Tor
 identifiers:
-  - notation: torwager
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Ftor-wager
+  creator: rrid:SCR_002630
+  notation: torwager
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/tor-wager
+schema_type: xyzri:XYZPerson

@@ -1,16 +1,38 @@
-pid: xyzrins:persons/soichi-hayashi
-schema_type: xyzri:XYZPerson
-given_name: Soichi
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsoichi-hayashi
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsoichi-hayashi
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: soichih@gmail.com
+description: Emeritus member of the Center for Open Neuroscience. Software engineer at Indiana University, Bloomington, working on brainlife.io.
+display_label: Soichi Hayashi
 family_name: Hayashi
 formatted_name: Soichi Hayashi
-display_label: Soichi Hayashi
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Software engineer at
-  Indiana University, Bloomington, working on brainlife.io.
-attributes:
-  - predicate: vcard:Email
-    value: soichih@gmail.com
-    schema_type: dlthings:AttributeSpecification
+given_name: Soichi
 identifiers:
-  - notation: soichih
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsoichi-hayashi
+  creator: rrid:SCR_002630
+  notation: soichih
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/soichi-hayashi
+schema_type: xyzri:XYZPerson

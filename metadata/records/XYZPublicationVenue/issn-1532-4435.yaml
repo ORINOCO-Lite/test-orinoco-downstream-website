@@ -1,0 +1,31 @@
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A1532-4435
+display_label: JMLR
+identifiers:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A1532-4435
+  creator: ror:026ytr635
+  notation: 1532-4435
+  schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A1532-4435
+  notation: ISSN:1532-4435
+  schema_type: dlthings:Identifier
+pid: xyzrins:publication-venues/issn-1532-4435
+schema_type: xyzri:XYZPublicationVenue
+title: Journal of Machine Learning Research

@@ -1,17 +1,38 @@
-pid: xyzrins:persons/john-wodder
-schema_type: xyzri:XYZPerson
-given_name: John
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjohn-wodder
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjohn-wodder
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: jwodder@gmail.com
+description: Emeritus Software Developer at the Center for Open Neuroscience. DANDI client developer. Skilled in Python, Rust, DevOps, testing, packaging, type-hinting, and CI.
+display_label: John Wodder
 family_name: Wodder
 formatted_name: John Wodder
-display_label: John Wodder
-description: >-
-  Emeritus Software Developer at the Center for Open Neuroscience. DANDI
-  client developer. Skilled in Python, Rust, DevOps, testing, packaging,
-  type-hinting, and CI.
-attributes:
-  - predicate: vcard:Email
-    value: jwodder@gmail.com
-    schema_type: dlthings:AttributeSpecification
+given_name: John
 identifiers:
-  - notation: jwodder
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjohn-wodder
+  creator: rrid:SCR_002630
+  notation: jwodder
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/john-wodder
+schema_type: xyzri:XYZPerson

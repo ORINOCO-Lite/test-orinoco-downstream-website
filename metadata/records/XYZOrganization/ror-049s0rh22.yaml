@@ -1,0 +1,12 @@
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZOrganization.json#record=ror%3A049s0rh22
+at_location: https://www.wikidata.org/entity/Q131908
+display_label: Dartmouth College
+name: Dartmouth College
+pid: ror:049s0rh22
+schema_type: xyzri:XYZOrganization

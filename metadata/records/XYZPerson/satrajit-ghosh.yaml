@@ -1,12 +1,27 @@
-pid: xyzrins:persons/satrajit-ghosh
-schema_type: xyzri:XYZPerson
-given_name: Satrajit
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsatrajit-ghosh
+description: Collaborator at the Center for Open Neuroscience. Affiliated with MIT and Harvard Medical School. Lead of DANDI, NiPype, and other projects.
+display_label: Satrajit Ghosh
 family_name: Ghosh
 formatted_name: Satrajit Ghosh
-display_label: Satrajit Ghosh
-description: >-
-  Collaborator at the Center for Open Neuroscience. Affiliated with MIT and
-  Harvard Medical School. Lead of DANDI, NiPype, and other projects.
+given_name: Satrajit
 identifiers:
-  - notation: satra
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fsatrajit-ghosh
+  creator: rrid:SCR_002630
+  notation: satra
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/satrajit-ghosh
+schema_type: xyzri:XYZPerson

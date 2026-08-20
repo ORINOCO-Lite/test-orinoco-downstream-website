@@ -1,0 +1,31 @@
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A0147-006X
+display_label: Annual Review of Neuroscience
+identifiers:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A0147-006X
+  creator: ror:026ytr635
+  notation: 0147-006X
+  schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPublicationVenue.json#record=ISSN%3A0147-006X
+  notation: ISSN:0147-006X
+  schema_type: dlthings:Identifier
+pid: xyzrins:publication-venues/issn-0147-006x
+schema_type: xyzri:XYZPublicationVenue
+title: Annual Review of Neuroscience

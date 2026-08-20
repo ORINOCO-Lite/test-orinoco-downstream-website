@@ -1,0 +1,39 @@
+about:
+- https://centerforopenneuroscience.org/projects
+additional_names:
+- A.
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Frussell-poldrack
+description: PI of the OpenNeuro archive. Affiliated with Stanford University.
+display_label: Russell A. Poldrack
+family_name: Poldrack
+formatted_name: Russell A. Poldrack
+given_name: Russell
+identifiers:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Frussell-poldrack
+  creator: rrid:SCR_002630
+  notation: poldrack
+  schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Frussell-poldrack
+  creator: ror:04fa4r544
+  notation: 0000-0001-6755-0259
+  schema_type: xyzri:ORCID
+pid: xyzrins:persons/russell-poldrack
+schema_type: xyzri:XYZPerson

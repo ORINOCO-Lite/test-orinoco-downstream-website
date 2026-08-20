@@ -1,16 +1,38 @@
-pid: xyzrins:persons/jason-gors
-schema_type: xyzri:XYZPerson
-given_name: Jason
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjason-gors
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjason-gors
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: jason.gors@dartmouth.edu
+description: Emeritus member of the Center for Open Neuroscience. Pythonista. DataLad project contributor.
+display_label: Jason Gors
 family_name: Gors
 formatted_name: Jason Gors
-display_label: Jason Gors
-description: >-
-  Emeritus member of the Center for Open Neuroscience. Pythonista. DataLad
-  project contributor.
-attributes:
-  - predicate: vcard:Email
-    value: jason.gors@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+given_name: Jason
 identifiers:
-  - notation: jgors
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fjason-gors
+  creator: rrid:SCR_002630
+  notation: jgors
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/jason-gors
+schema_type: xyzri:XYZPerson

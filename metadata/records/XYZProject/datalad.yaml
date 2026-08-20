@@ -1,36 +1,47 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fdatalad
+associated_with:
+- object: xyzrins:persons/michael-hanke
+  roles:
+  - marcrel:led
+  schema_type: dlthings:Association
+- object: xyzrins:persons/matteo-visconti-di-oleggio-castello
+  roles:
+  - marcrel:ctb
+  schema_type: dlthings:Association
+- object: xyzrins:persons/kyle-meyer
+  roles:
+  - marcrel:ctb
+  schema_type: dlthings:Association
+- object: xyzrins:persons/benjamin-poldrack
+  roles:
+  - marcrel:ctb
+  schema_type: dlthings:Association
+- object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - marcrel:led
+  schema_type: dlthings:Association
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fdatalad
+  predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://datalad.org
+description: A data management platform that adapts open-source software distribution models to address data-sharing limitations. Provides a versatile data management platform using git-annex for large data tracking built on Git.
+display_label: DataLad
 pid: xyzrins:projects/datalad
 schema_type: xyzri:XYZProject
-title: DataLad
 short_name: DataLad
-display_label: DataLad
-description: >-
-  A data management platform that adapts open-source software distribution
-  models to address data-sharing limitations. Provides a versatile data
-  management platform using git-annex for large data tracking built on Git.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/michael-hanke
-    roles:
-      - marcrel:led
-    schema_type: dlthings:Association
-  - object: xyzrins:persons/matteo-visconti-di-oleggio-castello
-    roles:
-      - marcrel:ctb
-    schema_type: dlthings:Association
-  - object: xyzrins:persons/kyle-meyer
-    roles:
-      - marcrel:ctb
-    schema_type: dlthings:Association
-  - object: xyzrins:persons/benjamin-poldrack
-    roles:
-      - marcrel:ctb
-    schema_type: dlthings:Association
-  - object: xyzrins:persons/yaroslav-halchenko
-    roles:
-      - marcrel:led
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: https://datalad.org
-    schema_type: dlthings:AttributeSpecification
+title: DataLad

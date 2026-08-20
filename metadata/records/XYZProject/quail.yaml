@@ -1,20 +1,31 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fquail
+associated_with:
+- object: xyzrins:persons/jeremy-manning
+  roles:
+  - marcrel:led
+  schema_type: dlthings:Association
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZProject.json#record=xyzrins%3Aprojects%2Fquail
+  predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://cdl-quail.readthedocs.io/en/latest/
+description: Python toolbox for analyzing data from free recall memory experiments. Provides data structures for encoding/recall data, memory performance metric functions, customizable plots, and support for naturalistic stimuli.
+display_label: Quail
 pid: xyzrins:projects/quail
 schema_type: xyzri:XYZProject
-title: Quail
 short_name: Quail
-display_label: Quail
-description: >-
-  Python toolbox for analyzing data from free recall memory experiments.
-  Provides data structures for encoding/recall data, memory performance metric
-  functions, customizable plots, and support for naturalistic stimuli.
-part_of:
-  - xyzrins:.
-associated_with:
-  - object: xyzrins:persons/jeremy-manning
-    roles:
-      - marcrel:led
-    schema_type: dlthings:Association
-attributes:
-  - predicate: foaf:homepage
-    value: https://cdl-quail.readthedocs.io/en/latest/
-    schema_type: dlthings:AttributeSpecification
+title: Quail

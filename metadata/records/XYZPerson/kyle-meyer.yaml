@@ -1,16 +1,38 @@
-pid: xyzrins:persons/kyle-meyer
-schema_type: xyzri:XYZPerson
-given_name: Kyle
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fkyle-meyer
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fkyle-meyer
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: kyle@kyleam.com
+description: Emeritus member of the Center for Open Neuroscience. ReproMan and DataLad contributor. Git expert and Magit authority.
+display_label: Kyle Meyer
 family_name: Meyer
 formatted_name: Kyle Meyer
-display_label: Kyle Meyer
-description: >-
-  Emeritus member of the Center for Open Neuroscience. ReproMan and DataLad
-  contributor. Git expert and Magit authority.
-attributes:
-  - predicate: vcard:Email
-    value: kyle@kyleam.com
-    schema_type: dlthings:AttributeSpecification
+given_name: Kyle
 identifiers:
-  - notation: kyleam
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fkyle-meyer
+  creator: rrid:SCR_002630
+  notation: kyleam
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/kyle-meyer
+schema_type: xyzri:XYZPerson

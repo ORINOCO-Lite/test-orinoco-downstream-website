@@ -1,17 +1,38 @@
-pid: xyzrins:persons/austin-macdonald
-schema_type: xyzri:XYZPerson
-given_name: Austin
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Faustin-macdonald
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Faustin-macdonald
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: austin@dartmouth.edu
+description: Software Engineer at the Center for Open Neuroscience, Dartmouth College. Passionate about open source values and developing inclusive, transparent open science tools.
+display_label: Austin Macdonald
 family_name: Macdonald
 formatted_name: Austin Macdonald
-display_label: Austin Macdonald
-description: >-
-  Software Engineer at the Center for Open Neuroscience, Dartmouth College.
-  Passionate about open source values and developing inclusive, transparent
-  open science tools.
-attributes:
-  - predicate: vcard:Email
-    value: austin@dartmouth.edu
-    schema_type: dlthings:AttributeSpecification
+given_name: Austin
 identifiers:
-  - notation: asmacdo
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Faustin-macdonald
+  creator: rrid:SCR_002630
+  notation: asmacdo
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/austin-macdonald
+schema_type: xyzri:XYZPerson

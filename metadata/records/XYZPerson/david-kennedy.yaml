@@ -1,18 +1,40 @@
-pid: xyzrins:persons/david-kennedy
-schema_type: xyzri:XYZPerson
-given_name: David
+about:
+- https://centerforopenneuroscience.org/whoweare
 additional_names:
-  - N.
+- N.
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fdavid-kennedy
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fdavid-kennedy
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: dnkennedy@umassmed.edu
+description: Collaborator at the Center for Open Neuroscience. Affiliated with UMass Chan Medical School. The master-mind of the ReproNim project.
+display_label: David N. Kennedy
 family_name: Kennedy
 formatted_name: David N. Kennedy
-display_label: David N. Kennedy
-description: >-
-  Collaborator at the Center for Open Neuroscience. Affiliated with UMass Chan
-  Medical School. The master-mind of the ReproNim project.
-attributes:
-  - predicate: vcard:Email
-    value: dnkennedy@umassmed.edu
-    schema_type: dlthings:AttributeSpecification
+given_name: David
 identifiers:
-  - notation: dnkennedy
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fdavid-kennedy
+  creator: rrid:SCR_002630
+  notation: dnkennedy
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/david-kennedy
+schema_type: xyzri:XYZPerson

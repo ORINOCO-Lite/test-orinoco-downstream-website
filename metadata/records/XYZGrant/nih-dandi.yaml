@@ -1,0 +1,59 @@
+about:
+- https://centerforopenneuroscience.org/projects
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-dandi
+attributed_to:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-dandi
+  object: xyzrins:persons/satrajit-ghosh
+  roles:
+  - obo:NCIT_C19924
+  schema_type: dlthings:Attribution
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-dandi
+  object: xyzrins:persons/yaroslav-halchenko
+  roles:
+  - obo:NCIT_C19924
+  schema_type: dlthings:Attribution
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-dandi
+  predicate: foaf:homepage
+  schema_type: dlthings:AttributeSpecification
+  value: https://reporter.nih.gov/search/xLyGTK4YgUu0dn6pqlHDHQ/project-details/10260526
+description: NIH grant supporting the DANDI platform for publishing, sharing, and processing neurophysiology data.
+display_label: NIH DANDI Grant
+identifiers:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZGrant.json#record=xyzrins%3Agrants%2Fnih-dandi
+  notation: 1R24MH117295-01A1
+  schema_type: dlthings:Identifier
+pid: xyzrins:grants/nih-dandi
+schema_type: xyzri:XYZGrant
+short_name: NIH 1R24MH117295-01A1
+title: 'DANDI: Distributed Archives for Neurophysiology Data Integration'

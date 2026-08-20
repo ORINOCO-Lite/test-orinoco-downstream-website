@@ -1,17 +1,38 @@
-pid: xyzrins:persons/adina-wagner
-schema_type: xyzri:XYZPerson
-given_name: Adina
+about:
+- https://centerforopenneuroscience.org/whoweare
+annotations:
+  pav:importedBy:
+    annotation_tag: pav:importedBy
+    annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+  pav:importedFrom:
+    annotation_tag: pav:importedFrom
+    annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fadina-wagner
+attributes:
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fadina-wagner
+  predicate: vcard:Email
+  schema_type: dlthings:AttributeSpecification
+  value: adina.wagner@t-online.de
+description: Ph.D. Student at INM-7, Research Centre Jülich, Germany. Lead of the DataLad Handbook. Clinical Psychology background pursuing open science and open software.
+display_label: Adina Wagner
 family_name: Wagner
 formatted_name: Adina Wagner
-display_label: Adina Wagner
-description: >-
-  Ph.D. Student at INM-7, Research Centre Jülich, Germany. Lead of the DataLad
-  Handbook. Clinical Psychology background pursuing open science and open
-  software.
-attributes:
-  - predicate: vcard:Email
-    value: adina.wagner@t-online.de
-    schema_type: dlthings:AttributeSpecification
+given_name: Adina
 identifiers:
-  - notation: adswa
-    schema_type: dlthings:Identifier
+- annotations:
+    pav:importedBy:
+      annotation_tag: pav:importedBy
+      annotation_value: urn:orinoco-lite:source-adapter:dump-research-info:prototype-v1
+    pav:importedFrom:
+      annotation_tag: pav:importedFrom
+      annotation_value: https://github.com/con/dump-research-info/blob/main/data/con_site/XYZPerson.json#record=xyzrins%3Apersons%2Fadina-wagner
+  creator: rrid:SCR_002630
+  notation: adswa
+  schema_type: dlthings:Identifier
+pid: xyzrins:persons/adina-wagner
+schema_type: xyzri:XYZPerson
