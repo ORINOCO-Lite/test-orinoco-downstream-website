@@ -42,9 +42,7 @@ _SHA40 = re.compile(r"[0-9a-f]{40}\Z")
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _FORM_RE = re.compile(rf"<!--\s*{_FORM_MARKER}\s+(?P<payload>[A-Za-z0-9_-]+)\s*-->")
 _RECORD_RE = re.compile(rf"<!--\s*{_RECORD_MARKER}\s+(?P<payload>[A-Za-z0-9_-]+)\s*-->")
-_CHOICE_RE = re.compile(
-    r"(?m)^- \[(?P<checked>[ xX])\] (?P<choice>Accept|Reject|Defer)[ \t]*$"
-)
+_CHOICE_RE = re.compile(r"\[(?P<checked>[ xX])\]\s*(?P<choice>Accept|Reject|Defer)\b")
 
 
 class CurationGitHubError(RuntimeError):
@@ -451,6 +449,56 @@ def _candidate_sort_key(candidate: object) -> tuple[str, str, str]:
     )
 
 
+def _compact_cell(value: object, *, missing: bool = False) -> str:
+    """Render one short, pipe-safe value for the review table."""
+
+    if missing:
+        rendered = "—"
+    elif isinstance(value, str):
+        rendered = value
+    else:
+        rendered = json.dumps(
+            value,
+            allow_nan=False,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        )
+    rendered = " ".join(str(rendered).split())
+    rendered = rendered.replace("|", "\\|").replace("`", "'")
+    if len(rendered) > 110:
+        rendered = rendered[:107].rstrip() + "…"
+    return f"`{html.escape(rendered, quote=False)}`"
+
+
+def _change_summary(candidate: object) -> str:
+    """Summarize top-level record changes; Files changed remains exhaustive."""
+
+    proposed = _candidate_record(candidate)
+    baseline = getattr(candidate, "baseline_record", None)
+    if baseline is None:
+        return "`new record`"
+    if not isinstance(baseline, Mapping):
+        raise CurationGitHubError("Candidate baseline_record must be a mapping")
+    changes: list[str] = []
+    for key in sorted(set(baseline) | set(proposed)):
+        if key == "pid" or baseline.get(key) == proposed.get(key):
+            continue
+        if key == "annotations":
+            changes.append("`annotations`: PAV source provenance")
+            continue
+        changes.append(
+            f"`{html.escape(str(key), quote=False)}`: "
+            f"{_compact_cell(baseline.get(key), missing=key not in baseline)} "
+            f"→ {_compact_cell(proposed.get(key), missing=key not in proposed)}"
+        )
+    if not changes:
+        return "`no field change`"
+    if len(changes) > 4:
+        changes = changes[:4] + [f"*… {len(changes) - 4} more fields*"]
+    return "<br>".join(changes)
+
+
 def _marker_payload(
     build: CandidateBuild, *, base_sha: str, as_of: str
 ) -> dict[str, object]:
@@ -497,46 +545,62 @@ def render_form(
         "",
         "# Metadata curation review",
         "",
-        "Review the actual YAML changes in **Files changed**. Use the task-list",
-        "controls in this PR description to check exactly one option for every",
-        f"record. Then comment `{SUBMIT_COMMAND}` on the PR.",
+        "Review the actual YAML changes in **Files changed** and the compact",
+        "record/change table below. Use the interactive task-list controls under",
+        f"the table to choose exactly one option per record, then comment `{SUBMIT_COMMAND}`.",
         "",
         "The workflow will add one commit containing the submitted decisions and",
         "the resulting accepted metadata. It will not merge the PR.",
         "",
+        "| Record | Proposed change | Decision | Source ID | Path | Blockers |",
+        "|:--|:--|:--|:--|:--|:--|",
     ]
     if not candidates:
-        lines.extend(("No records currently require review.", ""))
+        lines.extend(
+            ("| No records currently require review. | — | — | — | — | — |", "")
+        )
     for candidate in sorted(candidates, key=_candidate_sort_key):
         source_id = str(getattr(candidate, "source_record_id"))
         record = _candidate_record(candidate)
         label = html.escape(_candidate_label(candidate), quote=False)
         pid = html.escape(str(record["pid"]), quote=False)
-        lines.extend(
-            (
-                f"<!-- {_RECORD_MARKER} {_b64_encode(source_id)} -->",
-                f"## {label}",
-                "",
-                f"Canonical ID: <code>{pid}</code>",
-                "",
-            )
-        )
-        if source_id != str(record["pid"]):
-            lines.extend(
-                (
-                    f"Source ID: <code>{html.escape(source_id, quote=False)}</code>",
-                    "",
-                )
-            )
         blockers = tuple(getattr(candidate, "blockers", ()))
+        blocker_cell = (
+            "<br>".join(html.escape(str(item), quote=False) for item in blockers)
+            if blockers
+            else "—"
+        )
+        lines.append(
+            "| "
+            f"**{label}**<br><code>{pid}</code> | {_change_summary(candidate)} | "
+            f"{'Accept unavailable' if blockers else 'Choose below'} | "
+            f"<code>{html.escape(source_id, quote=False)}</code> | "
+            f"<code>{html.escape(_candidate_path(candidate), quote=False)}</code> | "
+            f"{blocker_cell} |"
+        )
+    if candidates:
+        lines.extend(("", "## Decision controls", ""))
+    for candidate in sorted(candidates, key=_candidate_sort_key):
+        source_id = str(getattr(candidate, "source_record_id"))
+        record = _candidate_record(candidate)
+        label = html.escape(_candidate_label(candidate), quote=False)
+        pid = html.escape(str(record["pid"]), quote=False)
+        blockers = tuple(getattr(candidate, "blockers", ()))
+        lines.extend((f"<!-- {_RECORD_MARKER} {_b64_encode(source_id)} -->",))
         if blockers:
             rendered = "; ".join(
                 html.escape(str(item), quote=False) for item in blockers
             )
-            lines.extend((f"Accept is unavailable: {rendered}.", ""))
+            lines.append(f"Accept unavailable: {rendered}.")
         else:
-            lines.append("- [ ] Accept")
-        lines.extend(("- [ ] Reject", "- [ ] Defer", ""))
+            lines.append(f"- [ ] Accept — **{label}** (<code>{pid}</code>)")
+        lines.extend(
+            (
+                f"- [ ] Reject — **{label}** (<code>{pid}</code>)",
+                f"- [ ] Defer — **{label}** (<code>{pid}</code>)",
+                "",
+            )
+        )
     return "\n".join(lines)
 
 

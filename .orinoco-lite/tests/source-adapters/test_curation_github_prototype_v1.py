@@ -158,21 +158,26 @@ class FormTests(unittest.TestCase):
         body = form(normal, blocked)
 
         self.assertEqual(body.splitlines()[0], GITHUB.ATTRIBUTION)
-        self.assertIn("Use the task-list", body)
+        self.assertIn("| Record | Proposed change | Decision |", body)
+        self.assertIn("Decision controls", body)
         self.assertNotIn("edit this PR description", body)
         self.assertIn("Files changed", body)
-        self.assertIn("check exactly one", body)
+        self.assertIn("choose exactly one", body)
         self.assertIn("`/curation submit`", body)
         self.assertIn("Friendly Con", body)
-        self.assertIn("Canonical ID: <code>xyzrins:records/con</code>", body)
-        self.assertIn("Source ID: <code>XYZOrganization:CON</code>", body)
+        self.assertIn("<code>xyzrins:records/con</code>", body)
+        self.assertIn("<code>XYZOrganization:CON</code>", body)
+        self.assertIn("<code>XYZOrganization/xyzorganization:con.yaml</code>", body)
+        table, controls = body.split("## Decision controls", 1)
+        self.assertNotIn("[ ]", table)
+        self.assertIn("- [ ] Accept", controls)
         self.assertNotIn(normal.candidate_id, body)
         self.assertNotIn(normal.material_fingerprint, body)
         self.assertNotIn(normal.relevant_policy_fingerprint, body)
         blocked_start = body.index(GITHUB._b64_encode(blocked.source_record_id))
         blocked_card = body[blocked_start:]
-        self.assertIn("Accept is unavailable", blocked_card)
-        self.assertNotIn("- [ ] Accept", blocked_card)
+        self.assertIn("unresolved relation", blocked_card)
+        self.assertNotIn("[ ] Accept", blocked_card)
         self.assertEqual(
             GITHUB.inspect_form(body),
             {
@@ -197,7 +202,7 @@ class FormTests(unittest.TestCase):
         with self.assertRaisesRegex(GITHUB.CurationGitHubError, "exactly one"):
             GITHUB.parse_choices(body, (first, second))
 
-        multiple = submitted.replace("- [ ] Defer", "- [x] Defer", 1)
+        multiple = submitted.replace("[ ] Defer", "[x] Defer", 1)
         with self.assertRaisesRegex(GITHUB.CurationGitHubError, "exactly one"):
             GITHUB.parse_choices(multiple, (first, second))
 

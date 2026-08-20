@@ -30,10 +30,14 @@ DataLad is used only to create this initial metadata-producing commit. Its run
 record is kept inline in the commit rather than written as a sidecar file.
 Submission and reconciliation use ordinary Git commits.
 
-The pull-request body supplies the corresponding decision controls. Each
-record is headed by a friendly existing label and canonical PID, with the
-source-native identifier when useful. Internal digests are not presented as
-record names.
+The pull-request body supplies the record proposal as one compact Markdown
+table. The review-focused columns come first: a friendly record label and
+canonical PID, followed by a short before/after change summary. Technical
+context follows to the right: source-native ID, canonical path, and blockers.
+The interactive task-list controls appear immediately below the table because
+GitHub does not make task-list syntax clickable inside table cells. Internal
+digests are not presented as record names. The editable layout is also kept in
+`source-adapters/metadata/curation-review-demo.md` as a visual sandbox.
 
 This is a native GitHub pull-request interface built from Markdown task lists;
 it is not a GitHub Issue Form.
