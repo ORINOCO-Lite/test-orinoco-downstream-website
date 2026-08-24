@@ -1,73 +1,50 @@
-# dump-research-info source adapter
+# `dump-research-info` source adapter
 
-This site-specific source adapter compares the legacy `data/con_site` JSON records in a caller-provided `dump-research-info` Git checkout with the Things in this site's `metadata/records/` tree.
-It reports exact PID and identifier matches, source-only candidates, possible field enrichments, unresolved relationship targets, and known placeholder values.
+This site-owned adapter imports the legacy `data/con_site` class arrays from one exact, clean [`con/dump-research-info`](https://github.com/con/dump-research-info) Git checkout.
+It is deliberately CON-specific.
 
-The adapter never clones, fetches, checks out, or modifies its source.
-DataLad is expected to provide the exact checkout and record its revision.
-Read-only review never changes canonical metadata. The explicit materialization
-command synchronizes transformed source values into `metadata/records/**` for human
-review.
+`metadata_adapter.py` owns only the reviewed source behavior:
 
-## Read-only review
+- read `XYZ*.json` class arrays from `data/con_site`;
+- match an exact PID first, then one unique same-class PID or DOI identifier;
+- retain the accepted canonical PID and path for matched records;
+- mint only the existing class-specific PID and filename forms for unmatched source records; and
+- retarget the reviewed relationship shapes through those matches.
 
-From this repository, inspect a checkout supplied by the caller:
+`candidates.py` maps those source facts into the shared `CandidatePlan` contract.
+It runs the pinned ownership-aware enrichment helpers through the engine's companion-aware wrappers.
+Populated topical fields remain curated; source values are represented by stored qualified assertions.
+If a topical field is missing and an equivalent unowned assertion already exists, the upstream convenience copy is proposed without new PAV.
+Imported assertion objects retain no inline machine PAV; the mirrored annotation companion stores only `pav:importedBy` and `pav:importedFrom` selectors.
 
-```console
-./source-adapters/metadata/metadata-review review -- \
-  --only dump-research-info \
-  --source-input dump-research-info=/path/to/dump-research-info
-```
+The claim digest covers the baseline-independent semantic mapping: its selected class, topical values, qualified assertions, imported objects, and any policy-created fields.
+It excludes PAV, human baseline content, formatting, and unused input, so a material mapping change reopens review without tying a compatible result to an implementation version.
 
-Ignored artifacts are written below `build/metadata-review/dump-research-info/review/`.
+The caller must supply:
 
-## Generate the metadata change
+- the exact canonical-metadata base commit;
+- the exact source commit;
+- the source checkout; and
+- a `SchemaView` constructed by the trusted host from the pinned schema in the released runtime; and
+- a reviewed versioned Thing/PID for this adapter that already exists in the canonical record tree.
 
-After this adapter code has merged, create a clean downstream branch and keep the `dump-research-info` checkout at the revision to be reviewed.
-Resolve both input revisions into the literal generator command recorded by DataLad:
+There is intentionally no built-in production adapter PID.
+The source revision belongs in the proposal's Git/DataLad provenance, while `pav:importedFrom` uses the stable logical source-record URL.
 
-```console
-(
-  set -eu
+The plan is ephemeral.
+Proposal generation writes only the candidate record and annotation-companion paths through the shared canonical writer.
+The adapter's optional compact cache is `policy/curation-decisions.yaml`; a missing file is the valid empty state.
 
-  SOURCE=../orinoco-lite-dev/submodules/dump-research-info
-  test -z "$(git status --porcelain=v1 --untracked-files=all)"
-  test -z "$(git -C "$SOURCE" status --porcelain=v1 --untracked-files=all)"
-  SOURCE_COMMIT=$(git -C "$SOURCE" rev-parse HEAD^{commit})
-  DOWNSTREAM_COMMIT=$(git rev-parse HEAD^{commit})
+Source absence never proposes deletion.
+A deletion must be an explicit future source-policy change or a separate human curation action.
+The adapter does not write to `dump-research-info`, retain inventories or transaction records, or choose a review disposition.
 
-  pixi run datalad run --explicit \
-    -m "review dump-research-info con_site at ${SOURCE_COMMIT:0:12}" \
-    -i source-adapters/dump-research-info/metadata_adapter.py \
-    -i metadata/records \
-    -o metadata/records \
-    "python source-adapters/dump-research-info/metadata_adapter.py \
-      --materialize \
-      --source '$SOURCE' \
-      --downstream . \
-      --expected-source-commit '$SOURCE_COMMIT' \
-      --downstream-revision '$DOWNSTREAM_COMMIT'"
-)
-```
+If a field or explicit attribute predicate disappears from a later source record, the adapter gives the pinned helper an empty update.
+That removes only the obsolete qualified assertions and imported objects owned by this adapter; curated topical values and human- or differently owned assertions remain.
 
-The command uses DataLad from this downstream's committed root Pixi lock in an ordinary Git repository; no large-file backend is installed or required.
-The fail-fast preflight requires clean source and downstream checkouts.
-The adapter independently verifies the exact source revision and source cleanliness, while the recorded downstream revision and DataLad commit parent identify the metadata input.
-`datalad run` executes in this ordinary downstream Git repository and writes native YAML additions and replacements, including field removals, directly below `metadata/records/**`; DataLad creates the provenance-bearing data commit on the current branch.
-For every source record it can identify unambiguously, the adapter treats the transformed source representation as the proposed state.
-It may add, remove, or change values in matched site records; the resulting Git diff is the review surface.
-Site records absent from this source are unchanged by this adapter run.
-Conflicts and unresolved relationships remain visible in the diff or normal validation results rather than being filtered out.
-Its detailed comparison report remains ignored below `build/metadata-review/dump-research-info/materialize/`.
-No custom committed review schema, `.datalad` metadata, submodule, copy step, or second provenance repository is introduced.
+For local reproduction, the trusted host loads `candidates.py` and calls `build_candidate_plan(root, source_checkout, *, metadata_base, expected_source_commit, adapter_agent_pid, schema)`.
+The host constructs `schema` from `runtime/schema/demo-research-information/unreleased.yaml` in the verified released runtime.
+Source data is always read from the reviewed `data/con_site` directory; changing that mapping is adapter policy, not a per-run option.
 
-Inspect that generated commit, then reproduce it through the same locked Pixi environment:
-
-```console
-pixi run datalad rerun HEAD
-```
-
-The source checkout path recorded by DataLad is project-relative, and the checkout must still be at the commit embedded in the recorded command.
-After the rerun produces no changes, submit the DataLad commit as the metadata pull request.
-Its diff is the proposed canonical data modification itself; provenance lives in the DataLad commit rather than in a second committed evidence format.
-Human review and the normal validation/projection gates still determine whether any generated value is accepted.
+Normal reviewers do not need a local checkout.
+The trusted GitHub workflow performs source acquisition and candidate generation, opens the metadata PR, and binds review submission to the exact source, proposal, and head.
