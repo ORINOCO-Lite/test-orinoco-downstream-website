@@ -25,7 +25,8 @@ The caller must supply:
 - the exact canonical-metadata base commit;
 - the exact source commit;
 - the source checkout; and
-- a `SchemaView` constructed by the trusted host from the pinned schema in the released runtime; and
+- a `SchemaView` constructed by the trusted host from the pinned schema in the released runtime;
+- the trusted default checkout containing `metadata_adapter.py`; and
 - a reviewed versioned Thing/PID for this adapter that already exists in the canonical record tree.
 
 There is intentionally no built-in production adapter PID.
@@ -42,7 +43,9 @@ The adapter does not write to `dump-research-info`, retain inventories or transa
 If a field or explicit attribute predicate disappears from a later source record, the adapter gives the pinned helper an empty update.
 That removes only the obsolete qualified assertions and imported objects owned by this adapter; curated topical values and human- or differently owned assertions remain.
 
-For local reproduction, the trusted host loads `candidates.py` and calls `build_candidate_plan(root, source_checkout, *, metadata_base, expected_source_commit, adapter_agent_pid, schema)`.
+For local reproduction, the trusted host loads `candidates.py` and calls `build_candidate_plan(root, source_checkout, *, metadata_base, expected_source_commit, adapter_agent_pid, schema, trusted_root=trusted_default)`.
+Only canonical metadata, annotation companions, and the compact cache are read from `root`; executable adapter policy is loaded from `trusted_root`.
+Omitting `trusted_root` retains the same-root local development behavior.
 The host constructs `schema` from `runtime/schema/demo-research-information/unreleased.yaml` in the verified released runtime.
 Source data is always read from the reviewed `data/con_site` directory; changing that mapping is adapter policy, not a per-run option.
 

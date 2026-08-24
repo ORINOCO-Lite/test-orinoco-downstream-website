@@ -7,6 +7,9 @@ This directory retains the complete reviewed Milestone 3 Zotero evidence from `d
 - `tools/` contains the read-only acquisition and transformation tools adapted to this ordinary downstream repository; and
 - `candidates.py` derives an ephemeral shared `CandidatePlan` from the exact source revision, canonical metadata base, and an explicitly supplied versioned adapter-agent PID.
 The trusted host also supplies a `SchemaView` constructed from the pinned Things Schema in the verified released runtime.
+For proposal and finalization, it passes the trusted default checkout separately as `trusted_root`.
+Executable helpers, the frozen snapshot and transformed candidates, and site policy are read only from that trusted checkout.
+The proposal-parent `root` supplies only canonical records, annotation companions, and the compact decision cache; omitting `trusted_root` retains same-root local development behavior.
 
 Candidate construction uses the pinned upstream ownership helpers through the shared Orinoco Lite enrichment bridge.
 Canonical records retain topical fields and actual qualified `AttributeSpecification` or `Statement` objects.

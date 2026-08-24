@@ -98,7 +98,12 @@ def metadata_snapshot(root: Path) -> dict[Path, bytes]:
     }
 
 
-def build(root: Path, name: str = "proposal") -> CandidatePlan:
+def build(
+    root: Path,
+    name: str = "proposal",
+    *,
+    trusted_root: Path | None = None,
+) -> CandidatePlan:
     return provider.build_candidate_plan(
         root,
         root / f"build/{name}",
@@ -106,6 +111,7 @@ def build(root: Path, name: str = "proposal") -> CandidatePlan:
         expected_library_version=451,
         adapter_agent_pid=AGENT_PID,
         schema=SCHEMA,
+        trusted_root=trusted_root,
     )
 
 
@@ -200,6 +206,46 @@ class FrozenZoteroCandidateTests(unittest.TestCase):
             assert baseline is not None
             for field in ("title", "display_label", "description", "kind", "about"):
                 self.assertEqual(proposed.get(field), baseline.get(field))
+
+    def test_trusted_code_and_source_are_separate_from_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            temporary = Path(directory)
+            root = prepared_root(temporary / "metadata-base")
+            trusted = temporary / "trusted"
+            shutil.copytree(
+                ROOT / "source-adapters/zotero",
+                trusted / "source-adapters/zotero",
+            )
+            adapter_root = root / "source-adapters/zotero"
+            (adapter_root / "metadata_adapter.py").write_text(
+                "raise RuntimeError('untrusted adapter executed')\n",
+                encoding="utf-8",
+            )
+            (adapter_root / "source/snapshot.json").write_text(
+                "{}\n",
+                encoding="utf-8",
+            )
+            (adapter_root / "source/candidates/XYZPublication.json").write_text(
+                "[]\n",
+                encoding="utf-8",
+            )
+            (adapter_root / "policy/site-policy.yaml").write_text(
+                "invalid: untrusted policy\n",
+                encoding="utf-8",
+            )
+            shutil.rmtree(adapter_root / "tools")
+
+            plan = build(root, "trusted-boundary", trusted_root=trusted)
+
+            self.assertEqual(plan, self.plan)
+            self.assertEqual(
+                dict(plan.source_coordinate), dict(self.plan.source_coordinate)
+            )
+            self.assertEqual(126, len(plan.candidates))
+            self.assertTrue(
+                (root / "build/trusted-boundary/zotero-site-publications").is_dir()
+            )
+            self.assertFalse((trusted / "build").exists())
 
     def test_compact_decisions_suppress_and_reopen(self) -> None:
         dispositions = {

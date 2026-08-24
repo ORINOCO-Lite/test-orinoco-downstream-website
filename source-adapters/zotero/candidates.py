@@ -482,13 +482,15 @@ def build_candidate_plan(
     expected_library_version: int,
     adapter_agent_pid: str,
     schema: SchemaView,
+    trusted_root: Path | None = None,
 ) -> CandidatePlan:
     """Build candidates without writing canonical metadata or decision state."""
 
-    root = root.resolve()
+    metadata_root = root.resolve()
+    trusted = (root if trusted_root is None else trusted_root).resolve()
     if not isinstance(schema, SchemaView):
         raise ZoteroCandidateError("Zotero requires the pinned Things SchemaView")
-    build_root = root / "build"
+    build_root = metadata_root / "build"
     if build_root.exists() and build_root.is_symlink():
         raise ZoteroCandidateError("Zotero candidate build root cannot be a symlink")
     output = output.resolve()
@@ -505,16 +507,16 @@ def build_candidate_plan(
             )
     else:
         output.mkdir(parents=True)
-    metadata_adapter = load_metadata_adapter(root)
-    snapshot_path = root / "source-adapters/zotero/source/snapshot.json"
+    metadata_adapter = load_metadata_adapter(trusted)
+    snapshot_path = trusted / "source-adapters/zotero/source/snapshot.json"
     publications_path = (
-        root / "source-adapters/zotero/source/candidates/XYZPublication.json"
+        trusted / "source-adapters/zotero/source/candidates/XYZPublication.json"
     )
-    policy_path = root / "source-adapters/zotero/policy/site-policy.yaml"
+    policy_path = trusted / "source-adapters/zotero/policy/site-policy.yaml"
     snapshot = metadata_adapter.load_json(snapshot_path)
     if not isinstance(snapshot, dict):
         raise ZoteroCandidateError("The committed Zotero snapshot must be an object")
-    ingest, site_export = metadata_adapter.load_tools(root)
+    ingest, site_export = metadata_adapter.load_tools(trusted)
     ingest.validate_snapshot(snapshot)
     source = snapshot.get("source")
     if not isinstance(source, dict):
@@ -529,7 +531,7 @@ def build_candidate_plan(
         )
     group_id = int(coordinate["group_id"])
 
-    canonical = canonical_state(root)
+    canonical = canonical_state(metadata_root)
     if adapter_agent_pid not in canonical:
         raise ZoteroCandidateError(
             "Zotero adapter agent PID must identify a canonical versioned Thing: "
@@ -639,7 +641,7 @@ def build_candidate_plan(
         metadata_base=metadata_base,
         candidates=candidates,
     )
-    cache = load_decision_cache(root / DECISION_CACHE, adapter=ADAPTER_ID)
+    cache = load_decision_cache(metadata_root / DECISION_CACHE, adapter=ADAPTER_ID)
     required = cache.candidates_requiring_review(full_plan)
     return CandidatePlan(
         adapter=full_plan.adapter,

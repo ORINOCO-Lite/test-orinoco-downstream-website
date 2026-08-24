@@ -350,16 +350,18 @@ def build_candidate_plan(
     expected_source_commit: str,
     adapter_agent_pid: str,
     schema: SchemaView,
+    trusted_root: Path | None = None,
 ) -> CandidatePlan:
     """Build the active-decision-filtered plan for one exact source/base pair."""
 
     downstream = root.resolve()
+    trusted = (root if trusted_root is None else trusted_root).resolve()
     if not isinstance(schema, SchemaView):
         raise DumpResearchInfoCandidateError(
             "dump-research-info requires the pinned Things SchemaView"
         )
     metadata_adapter = _load_metadata_adapter(
-        downstream / "source-adapters/dump-research-info/metadata_adapter.py"
+        trusted / "source-adapters/dump-research-info/metadata_adapter.py"
     )
     canonical = metadata_adapter.load_yaml_records(downstream)
     if adapter_agent_pid not in canonical:

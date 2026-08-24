@@ -151,6 +151,7 @@ def build(
     metadata_base: str,
     source_commit: str,
     schema: SchemaView = SCHEMA,
+    trusted_root: Path | None = None,
 ):
     return CANDIDATES.build_candidate_plan(
         downstream,
@@ -159,6 +160,7 @@ def build(
         expected_source_commit=source_commit,
         adapter_agent_pid=AGENT_PID,
         schema=schema,
+        trusted_root=trusted_root,
     )
 
 
@@ -331,6 +333,48 @@ class SourceMappingTests(unittest.TestCase):
 
 
 class CandidatePlanTests(unittest.TestCase):
+    def test_trusted_adapter_is_separate_from_the_metadata_root(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            downstream = root / "downstream"
+            base = create_downstream(downstream, [])
+            source, source_commit = make_source(
+                root,
+                {"XYZProject": [{"pid": "xyzrins:projects/new", "title": "New"}]},
+            )
+            trusted = root / "trusted"
+            trusted_adapter = (
+                trusted / "source-adapters/dump-research-info/metadata_adapter.py"
+            )
+            trusted_adapter.parent.mkdir(parents=True)
+            shutil.copyfile(ADAPTER_PATH, trusted_adapter)
+            untrusted_adapter = (
+                downstream / "source-adapters/dump-research-info/metadata_adapter.py"
+            )
+            untrusted_adapter.write_text(
+                "raise RuntimeError('untrusted adapter executed')\n",
+                encoding="utf-8",
+            )
+
+            plan = build(
+                downstream,
+                source,
+                base,
+                source_commit,
+                trusted_root=trusted,
+            )
+
+            self.assertEqual(1, len(plan.candidates))
+            self.assertEqual(
+                {
+                    "commit": source_commit,
+                    "repository": "https://github.com/con/dump-research-info",
+                    "source_directory": "data/con_site",
+                    "tree": git(source, "rev-parse", "HEAD:data/con_site"),
+                },
+                dict(plan.source_coordinate),
+            )
+
     def test_adapter_agent_pid_must_identify_a_canonical_versioned_thing(
         self,
     ) -> None:
