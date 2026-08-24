@@ -30,6 +30,7 @@ REQUIRED_TEMPLATE_FILES = {
     ".orinoco-lite/template-ownership.yml",
     ".github/workflows/validate.yml",
     ".github/workflows/pages.yml",
+    ".github/workflows/shacl-vue-proposal.yml",
     ".github/workflows/update-orinoco.yml",
     ".orinoco-lite/README.md",
     ".orinoco-lite/tools/template_contract.py",
@@ -40,6 +41,7 @@ REQUIRED_TEMPLATE_FILES = {
     ".orinoco-lite/tools/verify_local_preview.py",
     ".orinoco-lite/tools/verify_hugo.py",
     ".orinoco-lite/tools/install_browser_tests.py",
+    ".orinoco-lite/tools/shacl_vue_handoff.py",
 }
 ACTION_REFERENCE = re.compile(r"^\s*-?\s*uses:\s*([^\s#]+)", re.MULTILINE)
 FULL_SHA_ACTION = re.compile(

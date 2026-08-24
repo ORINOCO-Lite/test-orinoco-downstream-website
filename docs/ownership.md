@@ -4,8 +4,8 @@
 
 | Class | Who changes it | Examples |
 | --- | --- | --- |
-| `template_owned` | Copier, with three-way conflict handling | workflows, command facade, updater, verifier, generic adapters, and generic docs |
-| `initialized_site_owned` | The site after one-time creation | `orinoco.yaml`, metadata, `custom/`, `site/`, and source adapters |
+| `template_owned` | Copier, with three-way conflict handling | generic workflows, command facade, updater, verifier, generic adapters, and generic docs |
+| `initialized_site_owned` | The site after one-time creation | `orinoco.yaml`, metadata, the concrete curation workflow, `custom/`, `site/`, and source adapters |
 | `engine_lock` | The pinned updater, as a reviewed structured diff | `orinoco.lock` and `pixi.lock` |
 | `extensions` | The site | stable custom behavior under `extensions/` |
 | `consumer_tests` | The site after one-time creation | browser, source-adapter, and offline behavior tests |
@@ -21,6 +21,15 @@ Generated projection and detailed updater state are ignored; Git records the rev
 
 Source adapters use `source-adapters/`; their site-owned tests use
 `.orinoco-lite/tests/source-adapters/`.
+The concrete `.github/workflows/curation-review.yml` follows that site-owned
+adapter policy. The generic `.github/workflows/shacl-vue-proposal.yml` and its
+handoff helper are template-owned because they operate only on the shared
+canonical metadata and exact Git coordinates.
+
+Both `metadata/records/` and mirrored
+`metadata/overlays/annotations/` companions are protected site-owned semantic
+metadata. A framework update may change support for joining them, but never
+their bytes.
 
 `orinoco.lock` is the readable release authority.
 Its diff carries exact engine, runtime, template, and workflow changes.

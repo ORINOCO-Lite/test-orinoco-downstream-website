@@ -464,14 +464,20 @@ def equivalent_bootstrap_targets(
                 continue
             base_path = base / relative
             ours_path = root / relative
-            if not all(
-                path.is_file() and not path.is_symlink()
-                for path in (base_path, ours_path)
-            ):
+            if not ours_path.is_file() or ours_path.is_symlink():
                 continue
-            base_bytes = base_path.read_bytes()
             ours_bytes = ours_path.read_bytes()
             target_bytes = target_path.read_bytes()
+            target_mode = executable_bits(target_path)
+            if executable_bits(ours_path) != target_mode:
+                continue
+            if not base_path.exists():
+                if ours_bytes == target_bytes:
+                    approved[relative] = (target_bytes, target_mode)
+                continue
+            if not base_path.is_file() or base_path.is_symlink():
+                continue
+            base_bytes = base_path.read_bytes()
             if ours_bytes == base_bytes or any(
                 b"\0" in value for value in (base_bytes, ours_bytes, target_bytes)
             ):
@@ -480,9 +486,6 @@ def equivalent_bootstrap_targets(
                 for value in (base_bytes, ours_bytes, target_bytes):
                     value.decode("utf-8")
             except UnicodeDecodeError:
-                continue
-            target_mode = executable_bits(target_path)
-            if executable_bits(ours_path) != target_mode:
                 continue
             released_equivalent = False
             for release, release_classes in intervening:

@@ -94,6 +94,20 @@ pixi run build
 pixi run serve
 ```
 
+## Configure hosted human editing
+
+The template ships the generic trusted workflow that validates SHACL Vue
+handoffs and publishes an expiring editor-input artifact for an exact metadata
+commit. It uses the central review service by default. To use a compatible
+self-hosted deployment, set the repository Actions variable
+`CURATION_REVIEW_APP_ORIGIN` to its credential-free HTTPS origin, with no path,
+query, or fragment.
+
+Concrete source-adapter acquisition, candidate policy, and
+`.github/workflows/curation-review.yml` remain site-owned. Adding those pieces
+does not transfer `source-adapters/`, decision caches, records, or annotation
+companions to template ownership.
+
 The GitHub-template route starts with neutral placeholder identity.
 Do not deploy it unchanged.
 Later framework changes use the updater described in [Framework updates](updating.md).
