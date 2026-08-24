@@ -13,7 +13,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[3]
 SPEC = importlib.util.spec_from_file_location(
     "orinoco_shacl_vue_handoff_test",
-    ROOT / "source-adapters/metadata/tools/shacl_vue_handoff.py",
+    ROOT / ".orinoco-lite/tools/shacl_vue_handoff.py",
 )
 assert SPEC is not None and SPEC.loader is not None
 HANDOFF = importlib.util.module_from_spec(SPEC)

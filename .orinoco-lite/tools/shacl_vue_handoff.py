@@ -20,12 +20,6 @@ MAX_BUNDLE_BYTES = 10 * 1024 * 1024
 MAX_BUNDLE_RECORDS = 50
 RECORD_ROOT = PurePosixPath("metadata/records")
 ANNOTATION_ROOT = PurePosixPath("metadata/overlays/annotations")
-CURATION_CACHE_PATHS = frozenset(
-    {
-        "source-adapters/dump-research-info/policy/curation-decisions.yaml",
-        "source-adapters/zotero/policy/curation-decisions.yaml",
-    }
-)
 SHA40 = re.compile(r"[0-9a-f]{40}")
 REPOSITORY = re.compile(r"[A-Za-z0-9](?:[A-Za-z0-9_.-]{0,38})/[A-Za-z0-9_.-]{1,100}")
 
@@ -130,6 +124,22 @@ def _metadata_path(value: str) -> str | None:
     return None
 
 
+def _decision_cache_path(value: str) -> str | None:
+    path = PurePosixPath(value)
+    if (
+        any(character in value for character in "\\\r\n\0")
+        or path.is_absolute()
+        or path.as_posix() != value
+        or len(path.parts) != 4
+        or path.parts[0] != "source-adapters"
+        or path.parts[2:] != ("policy", "curation-decisions.yaml")
+        or path.parts[1] in {"", ".", ".."}
+        or path.parts[1].startswith(".")
+    ):
+        return None
+    return value
+
+
 def _tree_entry(root: Path, commit: str, path: str) -> tuple[str, str, str] | None:
     listing = bytes(
         _git(
@@ -200,7 +210,7 @@ def _validate_change(
     if path == HANDOFF_PATH:
         if not allow_handoff or status != "A":
             raise HandoffError("The fixed handoff may only be added by the exact head")
-    elif _metadata_path(path) is None and path not in CURATION_CACHE_PATHS:
+    elif _metadata_path(path) is None and _decision_cache_path(path) is None:
         raise HandoffError(f"History changes an unapproved path: {path}")
     if status in {"A", "M"}:
         _assert_regular_blob(root, commit, path)
@@ -301,7 +311,9 @@ def inspect_proposal(
     head_entries = _diff_entries(root, parent_sha, head_sha)
     changed = {path for _status_name, path in head_entries}
     metadata = sorted(path for path in changed if _metadata_path(path) is not None)
-    curation_state = sorted(path for path in changed if path in CURATION_CACHE_PATHS)
+    curation_state = sorted(
+        path for path in changed if _decision_cache_path(path) is not None
+    )
     if HANDOFF_PATH not in changed and not metadata and not curation_state:
         return {
             "base_sha": base_sha,

@@ -9,6 +9,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[3]
 WORKFLOW = ROOT / ".github/workflows/shacl-vue-proposal.yml"
+HELPER = ROOT / ".orinoco-lite/tools/shacl_vue_handoff.py"
 
 
 class ShaclVueWorkflowTests(unittest.TestCase):
@@ -29,7 +30,7 @@ class ShaclVueWorkflowTests(unittest.TestCase):
             ["opened", "reopened", "synchronize"],
             self.contract["on"]["pull_request_target"]["types"],
         )
-        self.assertEqual(["main"], self.contract["on"]["push"]["branches"])
+        self.assertEqual("", self.contract["on"]["push"])
         self.assertEqual({}, self.contract["permissions"])
         self.assertEqual(
             {
@@ -74,9 +75,7 @@ class ShaclVueWorkflowTests(unittest.TestCase):
         self.assertIn('--base-sha "$BASE_SHA"', classify)
         self.assertIn(
             ".orinoco-lite/shacl-vue-review-bundle.json",
-            (ROOT / "source-adapters/metadata/tools/shacl_vue_handoff.py").read_text(
-                encoding="utf-8"
-            ),
+            HELPER.read_text(encoding="utf-8"),
         )
         authority = self.steps["Verify the attributed curator remains authorized"]
         boundary = self.steps["Enforce the authenticated exact-head handoff boundary"]
@@ -141,9 +140,7 @@ class ShaclVueWorkflowTests(unittest.TestCase):
         run = link["run"]
         self.assertIn('pull.get("head", {}).get("sha")', run)
         self.assertIn('--expected-head-sha "$HEAD_SHA"', run)
-        helper = (
-            ROOT / "source-adapters/metadata/tools/shacl_vue_handoff.py"
-        ).read_text(encoding="utf-8")
+        helper = HELPER.read_text(encoding="utf-8")
         self.assertIn("/edit?{query}", helper)
         self.assertIn("--paginate --slurp", run)
         self.assertIn("orinoco-shacl-vue-proposal", run)

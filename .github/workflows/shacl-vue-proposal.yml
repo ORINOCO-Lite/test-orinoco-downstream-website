@@ -2,7 +2,6 @@ name: Materialize SHACL Vue proposal
 
 on:
   push:
-    branches: [main]
   pull_request_target:
     types: [opened, reopened, synchronize]
   workflow_dispatch:
@@ -176,7 +175,7 @@ jobs:
           set -euo pipefail
           test "$(git -C trusted rev-parse HEAD)" = "$BASE_SHA"
           test "$(git -C proposal rev-parse HEAD)" = "$HEAD_SHA"
-          python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
+          python trusted/.orinoco-lite/tools/shacl_vue_handoff.py \
             inspect \
             --root "$GITHUB_WORKSPACE/proposal" \
             --base-sha "$BASE_SHA" \
@@ -276,7 +275,7 @@ jobs:
           SOURCE_COMMIT: ${{ steps.inspect.outputs.parent_sha }}
         run: |
           set -euo pipefail
-          python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
+          python trusted/.orinoco-lite/tools/shacl_vue_handoff.py \
             extract \
             --root "$GITHUB_WORKSPACE/proposal" \
             --head-sha "$HEAD_SHA" \
@@ -304,7 +303,7 @@ jobs:
           ):
               raise SystemExit("trusted editor did not materialize a metadata change")
           PY
-          python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
+          python trusted/.orinoco-lite/tools/shacl_vue_handoff.py \
             inspect-materialized \
             --root "$GITHUB_WORKSPACE/source" \
             --source-commit "$SOURCE_COMMIT" \
@@ -322,7 +321,7 @@ jobs:
             --root "$GITHUB_WORKSPACE/source" projection update
           pixi run --manifest-path trusted/pixi.toml orinoco \
             --root "$GITHUB_WORKSPACE/source" validate
-          python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
+          python trusted/.orinoco-lite/tools/shacl_vue_handoff.py \
             inspect-materialized \
             --root "$GITHUB_WORKSPACE/source" \
             --source-commit "$SOURCE_COMMIT" \
@@ -340,7 +339,7 @@ jobs:
           set -euo pipefail
           unset GH_TOKEN GITHUB_TOKEN
           git -C source add -A -- metadata
-          python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
+          python trusted/.orinoco-lite/tools/shacl_vue_handoff.py \
             inspect-materialized \
             --root "$GITHUB_WORKSPACE/source" \
             --source-commit "$SOURCE_COMMIT" \
@@ -355,7 +354,7 @@ jobs:
             git -C source commit -m "feat(metadata): apply SHACL Vue edit"
           replacement="$(git -C source rev-parse HEAD)"
           [[ "$replacement" =~ ^[0-9a-f]{40}$ ]]
-          python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
+          python trusted/.orinoco-lite/tools/shacl_vue_handoff.py \
             verify-commit \
             --root "$GITHUB_WORKSPACE/source" \
             --source-commit "$SOURCE_COMMIT" \
@@ -534,7 +533,7 @@ jobs:
         run: |
           set -euo pipefail
           review_url="$(
-            python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
+            python trusted/.orinoco-lite/tools/shacl_vue_handoff.py \
               review-url \
               --origin "$REVIEW_APP_ORIGIN" \
               --repository "$REPOSITORY" \
