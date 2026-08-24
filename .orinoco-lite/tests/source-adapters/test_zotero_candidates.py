@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 import importlib.util
+import json
 import os
 from pathlib import Path
 import shutil
@@ -347,6 +348,69 @@ class FrozenZoteroCandidateTests(unittest.TestCase):
             self.assertEqual(filtered.candidates, ())
             self.assertEqual(filtered.file_changes(), ())
 
+    def test_fetched_at_only_change_keeps_cached_claims_suppressed(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            temporary = Path(directory)
+            root = prepared_root(temporary / "metadata-base")
+            trusted = temporary / "trusted"
+            shutil.copytree(
+                ROOT / "source-adapters/zotero",
+                trusted / "source-adapters/zotero",
+            )
+            initial = build(root, "transport-initial", trusted_root=trusted)
+            dispositions = {
+                candidate.pid: (
+                    Disposition.ACCEPT if index % 2 == 0 else Disposition.REJECT
+                )
+                for index, candidate in enumerate(initial.candidates)
+            }
+            self.assertEqual(
+                {Disposition.ACCEPT, Disposition.REJECT}, set(dispositions.values())
+            )
+            cache = DecisionCache.empty("zotero").updated(
+                initial,
+                dispositions,
+                review_ref="github-comment:125",
+                source_coordinate=initial.source_coordinate,
+                reviewer="https://github.com/reviewer",
+                reviewed_at="2026-08-24T12:02:00Z",
+                review_url=(
+                    "https://github.com/con/test-orinoco-downstream-website/"
+                    "pull/1#issuecomment-125"
+                ),
+            )
+
+            snapshot_path = trusted / "source-adapters/zotero/source/snapshot.json"
+            snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+            source = snapshot.get("source")
+            self.assertIsInstance(source, dict)
+            source["fetched_at"] = "2026-08-24T12:02:30+00:00"
+            snapshot_path.write_text(
+                json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            transported = build(root, "transport-changed", trusted_root=trusted)
+
+            self.assertEqual(
+                dict(initial.source_coordinate), dict(transported.source_coordinate)
+            )
+            self.assertEqual(len(initial.candidates), len(transported.candidates))
+            for candidate, updated in zip(
+                initial.candidates, transported.candidates, strict=True
+            ):
+                self.assertEqual(candidate.source_namespace, updated.source_namespace)
+                self.assertEqual(candidate.source_record_id, updated.source_record_id)
+                self.assertEqual(candidate.pid, updated.pid)
+                self.assertEqual(candidate.record_path, updated.record_path)
+                self.assertEqual(candidate.source_claim, updated.source_claim)
+                self.assertEqual(candidate.claim_sha256, updated.claim_sha256)
+
+            cache_path = root / "source-adapters/zotero/policy/curation-decisions.yaml"
+            cache_path.write_bytes(serialize_decision_cache(cache))
+            filtered = build(root, "transport-filtered", trusted_root=trusted)
+            self.assertEqual(filtered.candidates, ())
+            self.assertEqual(filtered.file_changes(), ())
+
     def test_source_presence_adds_but_source_absence_does_not_delete(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = prepared_root(Path(directory))
@@ -618,9 +682,9 @@ class ZoteroQualifiedUpdateTests(unittest.TestCase):
         predicate_change = deepcopy(base)
         predicate_change["attributes"][0]["predicate"] = "dcterms:language"
         policy_change = deepcopy(base)
-        policy_change["generated_by"][0][
-            "object"
-        ] = "https://example.invalid/activities/revised-policy"
+        policy_change["generated_by"][0]["object"] = (
+            "https://example.invalid/activities/revised-policy"
+        )
         schema_change = deepcopy(base)
         schema_change["schema_type"] = "xyzri:XYZDocument"
         self.assertNotEqual(

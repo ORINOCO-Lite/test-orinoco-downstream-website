@@ -986,6 +986,85 @@ class CandidatePlanTests(unittest.TestCase):
                 candidate.claim_sha256, reopened.candidates[0].claim_sha256
             )
 
+    def test_commit_outside_source_tree_keeps_cached_claims_suppressed(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            downstream = root / "downstream"
+            base = create_downstream(downstream, [])
+            source, source_commit = make_source(
+                root,
+                {
+                    "XYZProject": [
+                        {
+                            "pid": "xyzrins:projects/accepted",
+                            "title": "Accepted",
+                        },
+                        {
+                            "pid": "xyzrins:projects/rejected",
+                            "title": "Rejected",
+                        },
+                    ]
+                },
+            )
+            initial = build(downstream, source, base, source_commit)
+            dispositions = {
+                "xyzrins:projects/accepted": Disposition.ACCEPT,
+                "xyzrins:projects/rejected": Disposition.REJECT,
+            }
+            cache = update_decision_cache(
+                load_decision_cache(
+                    downstream / CANDIDATES.DECISION_CACHE,
+                    adapter=CANDIDATES.ADAPTER,
+                ),
+                initial,
+                dispositions,
+                review_ref="github-comment:43",
+                source_coordinate=initial.source_coordinate,
+                reviewer="https://github.com/fixture-curator",
+                reviewed_at="2026-08-24T12:01:00Z",
+                review_url="https://github.com/con/example/pull/1#issuecomment-43",
+            )
+
+            (source / "README.md").write_text(
+                "Transport-only source revision.\n", encoding="utf-8"
+            )
+            transport_commit = commit_all(source, "transport-only change")
+            transported = build(downstream, source, base, transport_commit)
+
+            self.assertNotEqual(
+                initial.source_coordinate["commit"],
+                transported.source_coordinate["commit"],
+            )
+            self.assertEqual(
+                initial.source_coordinate["tree"],
+                transported.source_coordinate["tree"],
+            )
+            initial_by_pid = {
+                candidate.pid: candidate for candidate in initial.candidates
+            }
+            transported_by_pid = {
+                candidate.pid: candidate for candidate in transported.candidates
+            }
+            self.assertEqual(set(dispositions), set(initial_by_pid))
+            self.assertEqual(set(initial_by_pid), set(transported_by_pid))
+            for pid, candidate in initial_by_pid.items():
+                updated = transported_by_pid[pid]
+                self.assertEqual(candidate.source_namespace, updated.source_namespace)
+                self.assertEqual(candidate.source_record_id, updated.source_record_id)
+                self.assertEqual(candidate.pid, updated.pid)
+                self.assertEqual(candidate.record_path, updated.record_path)
+                self.assertEqual(candidate.source_claim, updated.source_claim)
+                self.assertEqual(candidate.claim_sha256, updated.claim_sha256)
+
+            cache_path = downstream / CANDIDATES.DECISION_CACHE
+            cache_path.parent.mkdir(parents=True)
+            cache_path.write_bytes(serialize_decision_cache(cache))
+            filtered = build(downstream, source, base, transport_commit)
+            self.assertEqual(filtered.candidates, ())
+            self.assertEqual(filtered.file_changes(), ())
+
     def test_mapping_predicate_change_reopens_the_semantic_claim(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -1070,6 +1149,28 @@ class CandidatePlanTests(unittest.TestCase):
             self.assertEqual(
                 {"xyzrins:projects/new"}, {item.pid for item in first.candidates}
             )
+
+    def test_applied_plan_is_idempotent(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            downstream = root / "downstream"
+            base = create_downstream(downstream, [])
+            source, source_commit = make_source(
+                root,
+                {"XYZProject": [{"pid": "xyzrins:projects/new", "title": "New"}]},
+            )
+            first = build(downstream, source, base, source_commit)
+            self.assertEqual(1, len(first.candidates))
+            for change in first.file_changes():
+                path = downstream / change.path
+                self.assertIsNotNone(change.proposed)
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(change.proposed)
+
+            second = build(downstream, source, "2" * 40, source_commit)
+
+            self.assertEqual(second.candidates, ())
+            self.assertEqual(second.file_changes(), ())
 
     def test_unknown_source_field_is_not_silently_generalized(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
