@@ -66,13 +66,17 @@ Do not use `assets-prepare-online` in that denied-network phase; it represents t
 
 ## Repository content
 
-- `metadata/records/` contains every YAML Thing used as projection input.
+- `metadata/records/` contains every human-facing YAML Thing used as projection
+  input; `metadata/overlays/annotations/` contains its mirrored machine PAV
+  companions when present.
 - `.orinoco-lite/` contains implementation support behind the checked commands.
 - `custom/editorial/`, `custom/assets/`, and `site/` contain site-owned presentation inputs.
 - `.agents/skills/manage-orinoco-content/` guides agents through focused editorial and asset changes.
 - `.agents/skills/operate-orinoco-metadata-adapters/` guides adapter runs,
   explicit human decisions, provenance, and review pull requests.
 - `source-adapters/` contains optional site-owned importers, enrichers, and scrapers; it is not a deployed runtime dependency.
+- `.github/workflows/shacl-vue-proposal.yml` is the generic trusted human-edit
+  boundary; a concrete source-adapter curation workflow remains site-owned.
 - `extensions/` is the stable downstream customization surface.
 - `generated/` contains ignored projection output recreated by validation and builds.
 

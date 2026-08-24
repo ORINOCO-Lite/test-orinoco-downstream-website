@@ -10,7 +10,10 @@ classes:
       - pixi.toml
       - .orinoco-lite/template-ownership.yml
       - .agents/skills/**
-      - .github/workflows/**
+      - .github/workflows/pages.yml
+      - .github/workflows/shacl-vue-proposal.yml
+      - .github/workflows/update-orinoco.yml
+      - .github/workflows/validate.yml
       - docs/ownership.md
       - docs/updating.md
       - docs/getting-started.md
@@ -22,7 +25,9 @@ classes:
     paths:
       - orinoco.yaml
       - .orinoco-lite/provenance/**
+      - .github/workflows/curation-review.yml
       - metadata/records/**
+      - metadata/overlays/annotations/**
       - custom/editorial/**
       - custom/assets/**
       - site/**
