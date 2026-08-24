@@ -466,6 +466,21 @@ jobs:
         run: |
           gh workflow run validate.yml --repo "$REPOSITORY" --ref "$BRANCH"
 
+      - name: Dispatch exact-head SHACL Vue input for the proposal
+        if: steps.plan.outputs.has_candidates == 'true'
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ steps.proposal.outputs.sha }}
+          NUMBER: ${{ steps.pull.outputs.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh workflow run shacl-vue-proposal.yml \
+            --repo "$REPOSITORY" \
+            --ref "$DEFAULT_BRANCH" \
+            -f "pull_request=${NUMBER}" \
+            -f "expected_head=${HEAD_SHA}"
+
   submit:
     name: Verify and apply one complete review
     if: >-
@@ -1063,6 +1078,21 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           gh workflow run validate.yml --repo "$REPOSITORY" --ref "$HEAD_REF"
+
+      - name: Dispatch exact-head SHACL Vue input for the reviewed proposal
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          head_sha="$(git -C review rev-parse HEAD)"
+          [[ "$head_sha" =~ ^[0-9a-f]{40}$ ]]
+          gh workflow run shacl-vue-proposal.yml \
+            --repo "$REPOSITORY" \
+            --ref "$DEFAULT_BRANCH" \
+            -f "pull_request=${NUMBER}" \
+            -f "expected_head=${head_sha}"
 
       - name: Post an attributed finalization result
         env:

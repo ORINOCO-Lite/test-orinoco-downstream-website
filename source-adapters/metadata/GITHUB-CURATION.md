@@ -63,7 +63,25 @@ It then proves there is exactly one direct-child finalization commit and pushes 
 The workflow never chooses a disposition, marks the pull request ready, approves, merges, deploys, or writes to a source.
 Curation pull requests must be merged with merge commits so proposal and human-review commits survive.
 
-SHACL Vue GitHub proposal editing is intentionally a distinct human-edit profile, not a bundle input to this decision workflow.
-The current application therefore retains contents read access; any future contents-write wrapper is a separately reviewed, explicit human proposal operation.
+## Distinct SHACL Vue human edits
+
+SHACL Vue GitHub proposal editing follows the separate normative [human-edit profile][human-edit-profile], not the source-adapter decision workflow.
+SHACL Vue still downloads its normal `orinoco-shacl-review-bundle` version 2 object.
+After an explicit authenticated **Propose via GitHub**, the thin application wrapper appends those exact bytes as one temporary commit that adds only `.orinoco-lite/shacl-vue-review-bundle.json`.
+The commit must be the exact head of a same-repository draft pull request, its one parent and the bundle `source_commit` must match, and GitHub must attribute it to a collaborator with `write` or `admin` access.
+
+`Materialize SHACL Vue proposal` runs with `pull_request_target` code from the reviewed default branch and never executes proposal bytes.
+It applies the bundle with the pinned Orinoco Python editor behavior against an isolated checkout of the exact parent, permits output only in `metadata/records/` and `metadata/overlays/annotations/`, and validates the complete joined graph.
+It then creates one ordinary commit with that same parent, the authenticated curator as author, and automation as committer.
+An exact `force-with-lease` replaces only the temporary head, so every earlier proposal or human commit survives and the branch retains canonical YAML rather than the RDF transport.
+
+The workflow retriggers itself at the exact replacement SHA, revalidates canonical metadata, and adds a configurable `/edit` curation-service link bound to the repository, pull request, and exact canonical head idempotently.
+For each validated canonical pull-request head it also publishes one expiring `orinoco-shacl-vue-input-<sha>` Actions artifact containing only `edit/config.json`, `edit/records.ttl`, and `edit/data/record-sources.json`.
+A trusted default-branch `push` publishes the same three-file artifact for standalone editing at that exact default SHA.
+These reproducible files are presentation input, not canonical metadata or a retained editor bundle.
+Failure leaves the draft visibly blocked at the temporary handoff.
+The service and workflow do not retain a second bundle, choose a disposition, add provenance or cache entries, approve, mark ready, merge, deploy, or write to a source.
+The wrapper warns that a public Git host may retain the otherwise unreachable temporary object, so this path is only for data approved for public repository history.
 
 [profile]: https://github.com/con/orinoco-lite-dev/blob/main/docs/github-curation-review.md
+[human-edit-profile]: https://github.com/con/orinoco-lite-dev/blob/main/docs/github-shacl-vue-edit.md
