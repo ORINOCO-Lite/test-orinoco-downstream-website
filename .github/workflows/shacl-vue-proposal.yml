@@ -133,11 +133,6 @@ jobs:
                   os.environ["EVENT_SENDER"] == author["login"]
                   and os.environ["EVENT_SENDER_ID"] == str(author["id"])
               )
-          labels = {
-              item.get("name")
-              for item in pull.get("labels", [])
-              if isinstance(item, dict)
-          }
           values = {
               "author_date": author_date if eligible else "",
               "base_sha": base["sha"],
@@ -148,7 +143,6 @@ jobs:
               "event_author_match": str(sender_match).lower(),
               "head_ref": head["ref"],
               "head_sha": expected_head,
-              "is_curation": str("curation-review" in labels).lower(),
               "number": os.environ["NUMBER"],
               "parent_sha": parent,
           }
@@ -244,12 +238,9 @@ jobs:
         if: steps.inspect.outputs.phase == 'handoff'
         env:
           AUTHORIZED: ${{ steps.authority.outputs.authorized }}
-          BASE_SHA: ${{ steps.coordinates.outputs.base_sha }}
           ELIGIBLE: ${{ steps.coordinates.outputs.eligible }}
           EVENT_AUTHOR_MATCH: ${{ steps.coordinates.outputs.event_author_match }}
           EVENT_NAME: ${{ github.event_name }}
-          IS_CURATION: ${{ steps.coordinates.outputs.is_curation }}
-          PARENT_SHA: ${{ steps.inspect.outputs.parent_sha }}
           PHASE: ${{ steps.inspect.outputs.phase }}
         run: |
           set -euo pipefail
@@ -257,9 +248,6 @@ jobs:
           [[ "$PHASE" == "handoff" ]]
           [[ "$EVENT_NAME" == "pull_request_target" ]]
           [[ "$EVENT_AUTHOR_MATCH" == "true" ]]
-          if [[ "$IS_CURATION" != "true" ]]; then
-            [[ "$PARENT_SHA" == "$BASE_SHA" ]]
-          fi
 
       - name: Install the trusted locked Pixi environment
         if: steps.inspect.outputs.phase != 'irrelevant'
@@ -351,8 +339,7 @@ jobs:
         run: |
           set -euo pipefail
           unset GH_TOKEN GITHUB_TOKEN
-          git -C source add -A -- \
-            metadata/records metadata/overlays/annotations
+          git -C source add -A -- metadata
           python trusted/source-adapters/metadata/tools/shacl_vue_handoff.py \
             inspect-materialized \
             --root "$GITHUB_WORKSPACE/source" \

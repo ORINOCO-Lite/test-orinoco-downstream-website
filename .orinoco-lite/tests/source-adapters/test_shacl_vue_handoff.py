@@ -150,6 +150,24 @@ class HandoffHistoryTests(unittest.TestCase):
             self.repository.git("merge-base", "--is-ancestor", proposal, head)
         )
 
+    def test_repeated_standalone_edit_uses_the_previous_exact_head(self) -> None:
+        self.repository.write(
+            "metadata/records/XYZProject/example.yaml",
+            "pid: https://example.test/projects/example\n"
+            "schema_type: xyzri:XYZProject\n"
+            "title: First standalone edit\n",
+        )
+        first_edit = self.repository.commit("first standalone edit")
+        head = self.repository.handoff()
+
+        report = self.inspect()
+
+        self.assertEqual("handoff", report["phase"])
+        self.assertEqual(first_edit, report["parent_sha"])
+        self.assertEqual(first_edit, report["source_commit"])
+        self.assertEqual(head, report["head_sha"])
+        self.assertEqual(2, report["commit_count"])
+
     def test_stale_mixed_and_nonregular_handoffs_fail_closed(self) -> None:
         self.repository.handoff(source_commit="f" * 40)
         with self.assertRaisesRegex(
@@ -290,6 +308,28 @@ class MaterializedCommitTests(unittest.TestCase):
         self.assertEqual(
             ["metadata/records/XYZProject/example.yaml"], verified["paths"]
         )
+
+    def test_metadata_root_stages_without_an_annotation_tree(self) -> None:
+        annotation_root = self.repository.root / "metadata/overlays/annotations"
+        self.assertFalse(annotation_root.exists())
+        self.repository.write(
+            "metadata/records/XYZProject/example.yaml",
+            "pid: https://example.test/projects/example\n"
+            "schema_type: xyzri:XYZProject\n"
+            "title: Materialized without annotations\n",
+        )
+
+        HANDOFF.inspect_materialized_changes(
+            self.repository.root,
+            source_commit=self.repository.base,
+        )
+        self.repository.git("add", "-A", "--", "metadata")
+
+        staged = self.repository.git(
+            "diff", "--cached", "--name-only", "--", "metadata"
+        ).stdout.splitlines()
+        self.assertEqual(["metadata/records/XYZProject/example.yaml"], staged)
+        self.assertFalse(annotation_root.exists())
 
     def test_empty_or_nonmetadata_materialization_is_rejected(self) -> None:
         with self.assertRaisesRegex(HANDOFF.HandoffError, "produced no"):

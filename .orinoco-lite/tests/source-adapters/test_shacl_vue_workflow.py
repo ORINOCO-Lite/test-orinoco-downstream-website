@@ -56,7 +56,7 @@ class ShaclVueWorkflowTests(unittest.TestCase):
         for checkout in (trusted, proposal):
             self.assertEqual("false", checkout["with"]["persist-credentials"])
 
-    def test_handoff_requires_exact_actor_authority_parent_and_fixed_path(self) -> None:
+    def test_handoff_requires_exact_actor_authority_history_and_fixed_path(self) -> None:
         resolve = self.steps["Resolve exact pull request and attributed head"]["run"]
         enforce = self.steps["Enforce the authenticated exact-head handoff boundary"][
             "run"
@@ -67,7 +67,8 @@ class ShaclVueWorkflowTests(unittest.TestCase):
         self.assertIn('author.get("type") == "User"', resolve)
         self.assertIn('os.environ["EVENT_SENDER"] == author["login"]', resolve)
         self.assertIn('[[ "$EVENT_AUTHOR_MATCH" == "true" ]]', enforce)
-        self.assertIn('[[ "$PARENT_SHA" == "$BASE_SHA" ]]', enforce)
+        self.assertNotIn("IS_CURATION", enforce)
+        self.assertNotIn('[[ "$PARENT_SHA" == "$BASE_SHA" ]]', enforce)
         self.assertIn("shacl_vue_handoff.py", classify)
         self.assertIn('--head-sha "$HEAD_SHA"', classify)
         self.assertIn('--base-sha "$BASE_SHA"', classify)
@@ -100,6 +101,11 @@ class ShaclVueWorkflowTests(unittest.TestCase):
         self.assertIn('GIT_COMMITTER_NAME="github-actions[bot]"', commit)
         self.assertIn('--source-commit "$SOURCE_COMMIT"', commit)
         self.assertIn("verify-commit", commit)
+        self.assertIn("git -C source add -A -- metadata", commit)
+        self.assertNotIn(
+            "metadata/records metadata/overlays/annotations",
+            commit,
+        )
 
     def test_replacement_is_one_exact_lease_then_retriggers_validation(self) -> None:
         push = self.steps["Replace only the exact handoff head with a lease"]["run"]
