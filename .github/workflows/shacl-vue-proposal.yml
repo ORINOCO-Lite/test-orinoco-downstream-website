@@ -35,8 +35,7 @@ jobs:
     permissions:
       actions: write
       contents: write
-      issues: write
-      pull-requests: read
+      pull-requests: write
     concurrency:
       group: shacl-vue-proposal-${{ github.event.pull_request.number || inputs.pull_request }}
       cancel-in-progress: false
