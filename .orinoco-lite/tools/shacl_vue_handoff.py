@@ -196,6 +196,25 @@ def _merge_base(root: Path, base_sha: str, head_sha: str) -> str:
     return values[0]
 
 
+def _trusted_merge_parent(
+    root: Path,
+    parents: Sequence[str],
+    base_sha: str,
+) -> str | None:
+    """Return the sole merge parent already present on the trusted base line."""
+
+    if len(parents) != 2:
+        return None
+    trusted: list[str] = []
+    for parent in parents:
+        try:
+            if _merge_base(root, parent, base_sha) == parent:
+                trusted.append(parent)
+        except HandoffError:
+            continue
+    return trusted[0] if len(trusted) == 1 else None
+
+
 def _validate_change(
     root: Path,
     parent: str,
@@ -223,6 +242,7 @@ def _validate_history(
     merge_base: str,
     head_sha: str,
     *,
+    base_sha: str,
     handoff: bool,
 ) -> int:
     lines = str(
@@ -239,9 +259,14 @@ def _validate_history(
         raise HandoffError("Proposal history has no commit")
     for line in lines:
         commit, *parents = line.split()
-        if len(parents) != 1:
-            raise HandoffError("Proposal history must contain only one-parent commits")
-        parent = parents[0]
+        if len(parents) == 1:
+            parent = parents[0]
+        else:
+            parent = _trusted_merge_parent(root, parents, base_sha)
+            if parent is None or (handoff and commit == head_sha):
+                raise HandoffError(
+                    "Proposal history merges must have one trusted-base parent"
+                )
         entries = _diff_entries(root, parent, commit)
         for status, path in entries:
             _validate_change(
@@ -295,11 +320,23 @@ def inspect_proposal(
     if _status(root):
         raise HandoffError("Proposal checkout must be clean")
     parents = _parents(root, head_sha)
-    if len(parents) != 1:
+    if len(parents) == 1:
+        parent_sha = parents[0]
+        head_entries = _diff_entries(root, parent_sha, head_sha)
+    elif len(parents) == 2 and base_sha in parents:
+        parent_sha = base_sha
+        head_entries = _diff_entries(root, base_sha, head_sha)
+    else:
         fixed = _tree_entry(root, head_sha, HANDOFF_PATH)
         net = _diff_entries(root, base_sha, head_sha)
-        if fixed is not None or any(_metadata_path(path) for _status, path in net):
-            raise HandoffError("Proposal head must be a one-parent commit")
+        if fixed is not None or any(
+            _metadata_path(path) is not None
+            or _decision_cache_path(path) is not None
+            for _status, path in net
+        ):
+            raise HandoffError(
+                "Canonical merge head must include the exact trusted base"
+            )
         return {
             "base_sha": base_sha,
             "head_sha": head_sha,
@@ -307,8 +344,6 @@ def inspect_proposal(
             "paths": [],
             "phase": "irrelevant",
         }
-    parent_sha = parents[0]
-    head_entries = _diff_entries(root, parent_sha, head_sha)
     changed = {path for _status_name, path in head_entries}
     metadata = sorted(path for path in changed if _metadata_path(path) is not None)
     curation_state = sorted(
@@ -323,6 +358,8 @@ def inspect_proposal(
             "phase": "irrelevant",
         }
     if HANDOFF_PATH in changed:
+        if len(parents) != 1:
+            raise HandoffError("The handoff head must be a one-parent commit")
         if head_entries != (("A", HANDOFF_PATH),):
             raise HandoffError(
                 "The handoff head must add exactly the fixed bundle path"
@@ -346,6 +383,7 @@ def inspect_proposal(
         root,
         merge_base,
         head_sha,
+        base_sha=base_sha,
         handoff=phase == "handoff",
     )
     report: dict[str, object] = {

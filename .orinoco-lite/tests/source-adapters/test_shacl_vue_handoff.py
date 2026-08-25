@@ -94,10 +94,10 @@ class HandoffHistoryTests(unittest.TestCase):
     def tearDown(self) -> None:
         self.temporary.cleanup()
 
-    def inspect(self) -> dict[str, object]:
+    def inspect(self, *, base_sha: str | None = None) -> dict[str, object]:
         return HANDOFF.inspect_proposal(
             self.repository.root,
-            base_sha=self.repository.base,
+            base_sha=base_sha or self.repository.base,
             head_sha=self.repository.head,
         )
 
@@ -233,6 +233,114 @@ class HandoffHistoryTests(unittest.TestCase):
         self.repository.commit("mixed canonical head")
         with self.assertRaisesRegex(HANDOFF.HandoffError, "also changes"):
             self.inspect()
+
+    def test_canonical_head_may_merge_the_exact_trusted_base(self) -> None:
+        self.repository.git("checkout", "-qb", "proposal")
+        self.repository.write(
+            "metadata/records/XYZProject/example.yaml",
+            "pid: https://example.test/projects/example\n"
+            "schema_type: xyzri:XYZProject\n"
+            "title: Canonical proposal\n",
+        )
+        proposal = self.repository.commit("canonical proposal")
+        self.repository.git("checkout", "-q", "main")
+        self.repository.write("README.md", "reviewed trusted update\n")
+        base = self.repository.commit("trusted default update")
+        self.repository.git("checkout", "-q", "proposal")
+        self.repository.git("merge", "--no-edit", base)
+
+        report = self.inspect(base_sha=base)
+
+        self.assertEqual("canonical", report["phase"])
+        self.assertEqual(base, report["parent_sha"])
+        self.assertEqual(2, report["commit_count"])
+        self.assertEqual(
+            ["metadata/records/XYZProject/example.yaml"], report["paths"]
+        )
+        self.assertTrue(
+            self.repository.git(
+                "merge-base", "--is-ancestor", proposal, self.repository.head
+            )
+        )
+
+    def test_one_parent_handoff_may_follow_a_trusted_base_merge(self) -> None:
+        self.repository.git("checkout", "-qb", "proposal")
+        self.repository.write(
+            "metadata/records/XYZProject/example.yaml",
+            "pid: https://example.test/projects/example\n"
+            "schema_type: xyzri:XYZProject\n"
+            "title: Canonical proposal\n",
+        )
+        self.repository.commit("canonical proposal")
+        self.repository.git("checkout", "-q", "main")
+        self.repository.write("README.md", "reviewed trusted update\n")
+        base = self.repository.commit("trusted default update")
+        self.repository.git("checkout", "-q", "proposal")
+        self.repository.git("merge", "--no-edit", base)
+        source_commit = self.repository.head
+        handoff = self.repository.handoff()
+
+        report = self.inspect(base_sha=base)
+
+        self.assertEqual("handoff", report["phase"])
+        self.assertEqual(source_commit, report["parent_sha"])
+        self.assertEqual(source_commit, report["source_commit"])
+        self.assertEqual(handoff, report["head_sha"])
+        self.assertEqual(3, report["commit_count"])
+
+    def test_merge_head_cannot_be_the_temporary_handoff(self) -> None:
+        self.repository.git("checkout", "-qb", "proposal")
+        self.repository.handoff()
+        self.repository.git("checkout", "-q", "main")
+        self.repository.write("README.md", "reviewed trusted update\n")
+        base = self.repository.commit("trusted default update")
+        self.repository.git("checkout", "-q", "proposal")
+        self.repository.git("merge", "--no-edit", base)
+
+        with self.assertRaisesRegex(HANDOFF.HandoffError, "one-parent commit"):
+            self.inspect(base_sha=base)
+
+    def test_merge_history_still_rejects_reverted_untrusted_code(self) -> None:
+        self.repository.git("checkout", "-qb", "proposal")
+        self.repository.write("untrusted.py", "raise SystemExit('do not run')\n")
+        self.repository.commit("temporarily add code")
+        (self.repository.root / "untrusted.py").unlink()
+        self.repository.commit("remove code")
+        self.repository.write(
+            "metadata/records/XYZProject/example.yaml",
+            "pid: https://example.test/projects/example\n"
+            "schema_type: xyzri:XYZProject\n"
+            "title: Canonical proposal\n",
+        )
+        self.repository.commit("canonical proposal")
+        self.repository.git("checkout", "-q", "main")
+        self.repository.write("README.md", "reviewed trusted update\n")
+        base = self.repository.commit("trusted default update")
+        self.repository.git("checkout", "-q", "proposal")
+        self.repository.git("merge", "--no-edit", base)
+
+        with self.assertRaisesRegex(HANDOFF.HandoffError, "unapproved path"):
+            self.inspect(base_sha=base)
+
+    def test_merge_resolution_may_not_add_an_unapproved_path(self) -> None:
+        self.repository.git("checkout", "-qb", "proposal")
+        self.repository.write(
+            "metadata/records/XYZProject/example.yaml",
+            "pid: https://example.test/projects/example\n"
+            "schema_type: xyzri:XYZProject\n"
+            "title: Canonical proposal\n",
+        )
+        self.repository.commit("canonical proposal")
+        self.repository.git("checkout", "-q", "main")
+        self.repository.write("README.md", "reviewed trusted update\n")
+        base = self.repository.commit("trusted default update")
+        self.repository.git("checkout", "-q", "proposal")
+        self.repository.git("merge", "--no-commit", base)
+        self.repository.write("untrusted.py", "raise SystemExit('do not run')\n")
+        self.repository.commit("resolve trusted base merge")
+
+        with self.assertRaisesRegex(HANDOFF.HandoffError, "unapproved path"):
+            self.inspect(base_sha=base)
 
     def test_cache_only_review_head_can_refresh_exact_editor_input(self) -> None:
         self.repository.write(
