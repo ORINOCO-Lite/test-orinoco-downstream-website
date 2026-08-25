@@ -11,7 +11,7 @@ runtime:
   manifest_sha256: 4ff3f2ff5a02d94084c262ca00ed5a8259a6ddfc420b9cfa0c4cd8cefe39bb3b
 template:
   source: gh:con/orinoco-lite-template
-  version: v0.2.0rc3
+  version: v0.2.0rc4
 workflow:
   repository: con/orinoco-lite-dev
   sha: 8bd328b17e359bf9594e83381c3efc1c7ab0ecac
