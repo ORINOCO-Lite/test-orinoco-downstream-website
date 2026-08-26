@@ -3,7 +3,7 @@ contract_version: 2
 site:
   name: "Center for Open Neuroscience — Orinoco Test Site"
   description: "Test-only full-content Orinoco Lite downstream for the Center for Open Neuroscience."
-  base_url: "https://con.github.io/test-orinoco-downstream-website/"
+  base_url: "https://orinoco-lite.github.io/test-orinoco-downstream-website/"
 
 paths:
   records: metadata/records

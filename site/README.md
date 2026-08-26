@@ -3,10 +3,7 @@
 This guide covers the site-owned layer of `test-orinoco-downstream-website`.
 It is for reviewing and operating this concrete full-content test site, not for maintaining the generic template or implementing the Orinoco engine.
 
-The repository deliberately carries the complete accepted CON content baseline,
-subsequent reviewed source-adapter metadata and provenance records, ten editorial
-sources, 71 declared content assets, the accepted presentation snapshot, and
-consumer-specific behavior tests.
+The repository deliberately carries the complete accepted CON content baseline, subsequent reviewed source-adapter metadata and provenance records, ten editorial sources, 71 declared content assets, the accepted presentation snapshot, and consumer-specific behavior tests.
 There is no content-selection subset.
 
 This repository is a distribution fixture, not a production-content approval.
@@ -110,7 +107,7 @@ The local command rejects stale commits or source digests, unknown or duplicate 
 Without `--write`, it does not modify record YAML.
 
 The current `/edit` interface requests the Google-hosted Roboto stylesheet and font files from `fonts.googleapis.com` and `fonts.gstatic.com` when it is opened with network access.
-Whether to remove, vendor, or explicitly permit that dependency remains an engineering-level privacy and archival decision in [HR-113 — external-resource and privacy posture](https://github.com/con/orinoco-lite-dev/blob/main/docs/human-review-decisions.md#hr-113--choose-the-external-resource-and-privacy-posture).
+Whether to remove, vendor, or explicitly permit that dependency remains an engineering-level privacy and archival decision in [HR-113 — external-resource and privacy posture](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/main/docs/human-review-decisions.md#hr-113--choose-the-external-resource-and-privacy-posture).
 
 ## Framework updates
 
@@ -137,11 +134,11 @@ Rolling back a merged framework-only update means reverting the complete update 
 
 ## Documentation above this layer
 
-- [Orinoco Lite template](https://github.com/con/orinoco-lite-template): generic creation, ownership, and update-facade maintenance.
-- [Orinoco Lite architecture](https://github.com/con/orinoco-lite-dev/blob/main/README.md#architecture): accepted overview of the engineering, distribution, and downstream layers.
-- [Orinoco Lite engine](https://github.com/con/orinoco-lite-dev/tree/main/packages/orinoco-lite): command and immutable runtime implementation.
-- [Orinoco Lite releases](https://github.com/con/orinoco-lite-dev/releases): immutable engine wheels, runtime archives, integrity manifests, and release evidence consumed through `orinoco.lock`.
-- [Milestone 4 distribution contract](https://github.com/con/orinoco-lite-dev/blob/main/docs/milestone-4.md): accepted cross-repository contracts and remaining production boundaries.
+- [Orinoco Lite template](https://github.com/ORINOCO-Lite/orinoco-lite-template): generic creation, ownership, and update-facade maintenance.
+- [Orinoco Lite architecture](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/main/README.md#architecture): accepted overview of the engineering, distribution, and downstream layers.
+- [Orinoco Lite engine](https://github.com/ORINOCO-Lite/orinoco-lite-dev/tree/main/packages/orinoco-lite): command and immutable runtime implementation.
+- [Orinoco Lite releases](https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases): immutable engine wheels, runtime archives, integrity manifests, and release evidence consumed through `orinoco.lock`.
+- [Milestone 4 distribution contract](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/main/docs/milestone-4.md): accepted cross-repository contracts and remaining production boundaries.
 
 Those layers should not acquire CON records, site-specific presentation policy, or this consumer's provenance.
 Conversely, this guide uses released commands and contracts and does not duplicate engine implementation details or template release procedures.

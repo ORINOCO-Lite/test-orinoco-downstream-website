@@ -5,11 +5,8 @@ The pull request and its proposal commit contain the actual record and annotatio
 Neither the pull- request body nor the review artifact is candidate or decision authority.
 
 Run **Curate source metadata** from the default branch to open a draft proposal.
-The workflow derives the selected source's reviewed adapter provenance identity
-from trusted `sources.toml`; an operator neither supplies nor overrides it.
-The candidate provider requires the corresponding reviewed
-`xyzri:XYZInstrument` record in `metadata/records/`, so a missing policy or
-record fails closed before a proposal is opened.
+The workflow derives the selected source's reviewed adapter provenance identity from trusted `sources.toml`; an operator neither supplies nor overrides it.
+The candidate provider requires the corresponding reviewed `xyzri:XYZInstrument` record in `metadata/records/`, so a missing policy or record fails closed before a proposal is opened.
 The caller must acknowledge that public proposal data, authenticated review identity, and decisions remain visible in GitHub history.
 
 ## Proposal and review artifact
@@ -89,5 +86,4 @@ Failure leaves the draft visibly blocked at the temporary handoff.
 The service and workflow do not retain a second bundle, choose a disposition, add provenance or cache entries, approve, mark ready, merge, deploy, or write to a source.
 The wrapper warns that a public Git host may retain the otherwise unreachable temporary object, so this path is only for data approved for public repository history.
 
-[profile]: https://github.com/con/orinoco-lite-dev/blob/main/docs/github-curation-review.md
-[human-edit-profile]: https://github.com/con/orinoco-lite-dev/blob/main/docs/github-shacl-vue-edit.md
+[profile]: https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/main/docs/github-curation-review.md [human-edit-profile]: https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/main/docs/github-shacl-vue-edit.md
