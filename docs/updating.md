@@ -51,6 +51,12 @@ Consumers older than template v0.1.3 require the narrow updater bootstrap docume
 Moving existing protected tests and provenance into `.orinoco-lite/` is a one-time semantic layout migration, not an ordinary framework update: review and merge that dedicated migration first.
 Afterward, the normal Pixi task invokes `.orinoco-lite/tools/update_orinoco.py` for subsequent updates.
 Do not bootstrap site-owned paths.
+Browser tests under `.orinoco-lite/tests/browser/` are protected in the same way.
+Pre-apply and review any site-specific compatibility repair before the framework update; for a Sigma graph scenario, validate the representative node in the serialized graph JSON and navigate through that node's URL rather than assuming the canvas renderer exposes a DOM link.
+
+The engine's open-reference default is not a site-policy migration.
+An existing `references.missing_targets: reject` or `graph.missing_external_targets: reject` remains byte-identical and strict through an update.
+To adopt preservation and dropped graph-view edges, review a separate site-owned change that removes those explicit overrides, then validate the resulting reference and edge diagnostics.
 
 ## Review and commit
 
