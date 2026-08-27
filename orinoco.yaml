@@ -4,8 +4,6 @@ site:
   name: "Center for Open Neuroscience — Orinoco Test Site"
   description: "Test-only full-content Orinoco Lite downstream for the Center for Open Neuroscience."
   base_url: "https://orinoco-lite.github.io/test-orinoco-downstream-website/"
-  repository: "ORINOCO-Lite/test-orinoco-downstream-website"
-  curation_service: "https://orinoco-curation-review.pages.dev"
 
 paths:
   records: metadata/records
