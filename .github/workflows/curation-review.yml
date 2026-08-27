@@ -475,7 +475,7 @@ jobs:
         run: |
           gh workflow run validate.yml --repo "$REPOSITORY" --ref "$BRANCH"
 
-      - name: Dispatch exact-head SHACL Vue input for the proposal
+      - name: Dispatch exact-head SHACL Vue validation for the proposal
         if: steps.plan.outputs.has_candidates == 'true'
         env:
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
@@ -1088,7 +1088,7 @@ jobs:
         run: |
           gh workflow run validate.yml --repo "$REPOSITORY" --ref "$HEAD_REF"
 
-      - name: Dispatch exact-head SHACL Vue input for the reviewed proposal
+      - name: Dispatch exact-head SHACL Vue validation for the reviewed proposal
         env:
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
           GH_TOKEN: ${{ github.token }}

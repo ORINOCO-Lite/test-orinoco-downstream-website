@@ -87,6 +87,9 @@ unrendered_classes:
   - xyzri:XYZInstrumentType
   - xyzri:XYZPublicationVenue
 
+references:
+  missing_targets: reject
+
 graph:
   producer: site/projection-tools/pool2graph.py
   node_classes:
