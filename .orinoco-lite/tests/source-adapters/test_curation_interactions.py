@@ -38,7 +38,7 @@ ZOTERO_AGENT = "xyzrins:source-adapters/zotero/v1"
 DUMP_AGENT = "xyzrins:source-adapters/dump-research-info/v2"
 ZOTERO_VERSION = 451
 REVIEWER = "https://github.com/fixture-curator"
-REPOSITORY = "con/test-orinoco-downstream-website"
+REPOSITORY = "ORINOCO-Lite/test-orinoco-downstream-website"
 REVIEWED_ADAPTER_AGENTS = (
     "xyzrins:source-adapters/dump-research-info/v1",
     DUMP_AGENT,
