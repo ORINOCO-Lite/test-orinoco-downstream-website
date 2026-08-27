@@ -3,7 +3,7 @@
 A framework update changes the pinned template, engine, runtime, and reusable workflow as one reviewable unit.
 It does not discover mutable "latest" aliases, merge itself, or silently rewrite site-owned content.
 
-Review the target [template release](https://github.com/con/orinoco-lite-template/releases) and [engine/runtime release](https://github.com/con/orinoco-lite-dev/releases) before starting.
+Review the target [template release](https://github.com/ORINOCO-Lite/orinoco-lite-template/releases) and [engine/runtime release](https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases) before starting.
 Record every exact version, URL, digest, and workflow commit.
 
 ## Check without changing the checkout
@@ -47,12 +47,9 @@ The updater:
 It stops on a moving or unavailable tag, an incomplete pin, a template-owned conflict, or an undeclared protected change.
 A newly introduced `.gitkeep` may be removed only when the protected directory already contains real data.
 
-Consumers older than template v0.1.3 require the narrow updater bootstrap
-documented by that target release. Moving existing protected tests and
-provenance into `.orinoco-lite/` is a one-time semantic layout migration, not
-an ordinary framework update: review and merge that dedicated migration first.
-Afterward, the normal Pixi task invokes `.orinoco-lite/tools/update_orinoco.py`
-for subsequent updates.
+Consumers older than template v0.1.3 require the narrow updater bootstrap documented by that target release.
+Moving existing protected tests and provenance into `.orinoco-lite/` is a one-time semantic layout migration, not an ordinary framework update: review and merge that dedicated migration first.
+Afterward, the normal Pixi task invokes `.orinoco-lite/tools/update_orinoco.py` for subsequent updates.
 Do not bootstrap site-owned paths.
 
 ## Review and commit

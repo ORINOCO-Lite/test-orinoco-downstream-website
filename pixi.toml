@@ -6,12 +6,12 @@ platforms = [{ platform = "osx-arm64", macos = "14.0" }, "linux-64"]
 [dependencies]
 python = ">=3.12,<3.13"
 copier = "==9.10.3"
-hugo = "==0.154.5"
+hugo = "==0.161.1"
 nodejs = ">=22,<23"
 pyyaml = "==6.0.2"
 
 [pypi-dependencies]
-orinoco-lite = { url = "https://github.com/con/orinoco-lite-dev/releases/download/v0.2.0rc4/orinoco_lite-0.2.0rc4-py3-none-any.whl#sha256=8801f7fcb6c305a8d1ba4bfe67f9418a70d105e9b4ec3cba5fb38087f8ff8c9a" }
+orinoco-lite = { url = "https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases/download/v0.2.0rc7/orinoco_lite-0.2.0rc7-py3-none-any.whl#sha256=ad1d1c12922e45996beb1ac811a557d0ffce5d87da174b205ad6ffc1d2af864f" }
 datalad = ">=1.6.2,<2"
 
 [tasks]
@@ -27,11 +27,11 @@ verify-deterministic = { depends-on = ["build", "build-repeat"], cmd = "python .
 verify-local-preview = { depends-on = ["build"], cmd = "python .orinoco-lite/tools/verify_local_preview.py build/site" }
 verify-build = { depends-on = ["verify-deterministic", "verify-local-preview"] }
 build-pages = { depends-on = ["hugo-projection-update"], cmd = "python .orinoco-lite/tools/build_pages.py build/pages" }
-build-browser-pages = { depends-on = ["hugo-projection-update"], cmd = "orinoco build --destination build/pages --base-url http://127.0.0.1:8766/test-orinoco-downstream-website/" }
+build-browser-pages = { depends-on = ["hugo-projection-update"], cmd = "orinoco build --destination build/pages --base-url /test-orinoco-downstream-website/" }
 serve = "orinoco serve --directory build/site --port 8765"
 apply-editor-bundle = "orinoco editor apply"
 verify-runtime = "orinoco runtime verify"
-verify-hugo = "python .orinoco-lite/tools/verify_hugo.py --version 0.154.5 --extended"
+verify-hugo = "python .orinoco-lite/tools/verify_hugo.py --version 0.161.1 --extended"
 verify-ownership = "python .orinoco-lite/tools/verify_template_ownership.py"
 update-orinoco = "python .orinoco-lite/tools/update_orinoco.py"
 update-check = "python .orinoco-lite/tools/update_orinoco.py --check"
