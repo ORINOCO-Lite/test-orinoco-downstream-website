@@ -86,6 +86,22 @@ The template therefore does not create that otherwise empty directory with a `.g
 The current complete example is the [downstream test website](https://github.com/ORINOCO-Lite/test-orinoco-downstream-website).
 The lightweight architecture roadmap tracks a future neutral starter profile; until one is released, selecting or authoring a profile is an explicit creation step rather than hidden template content.
 
+New site profiles inherit the engine's open-reference defaults.
+Omitting the `references` section preserves well-formed references whose targets are not local, and omitting `graph.missing_external_targets` drops only graph-view edges whose targets cannot materialize locally.
+Validation reports both preserved references and omitted edges without performing network lookup or creating identity records.
+
+An existing site that intentionally requires local closure keeps that policy explicitly in its site-owned `site/projection.yaml`:
+
+```yaml
+references:
+  missing_targets: reject
+graph:
+  # Retain the site's producer, node_classes, and relationship_fields.
+  missing_external_targets: reject
+```
+
+Framework updates preserve that file byte-for-byte and do not replace explicit `reject` policies with the new defaults.
+
 After the profile is present, install and exercise the locked facade:
 
 ```console

@@ -1,4 +1,4 @@
-_commit: v0.2.0rc11
+_commit: v0.2.0rc12
 _src_path: gh:ORINOCO-Lite/orinoco-lite-template
 project_name: Center for Open Neuroscience — Orinoco Test Site
 project_slug: test-orinoco-downstream-website
@@ -6,15 +6,15 @@ site_description: Test-only full-content Orinoco Lite downstream for the Center 
   Open Neuroscience.
 repository_slug: ORINOCO-Lite/test-orinoco-downstream-website
 site_base_url: https://orinoco-lite.github.io/test-orinoco-downstream-website/
-engine_version: 0.2.0rc7
-engine_url: https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases/download/v0.2.0rc7/orinoco_lite-0.2.0rc7-py3-none-any.whl
-engine_sha256: ad1d1c12922e45996beb1ac811a557d0ffce5d87da174b205ad6ffc1d2af864f
-runtime_version: 0.2.0rc7
-runtime_url: https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases/download/v0.2.0rc7/orinoco-runtime-0.2.0rc7.tar.gz
-runtime_sha256: f6043a67e962a93e64f5d9463ee6a3a51f49ce75f03a5c6ed3633b1b81169004
-runtime_manifest_sha256: 4bc1d4b5a9111ea9c3d8d651065b552b7e0650350441dd216fb1ed2eca9ed805
+engine_version: 0.2.0rc8
+engine_url: https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases/download/v0.2.0rc8/orinoco_lite-0.2.0rc8-py3-none-any.whl
+engine_sha256: f2e343698725fba75a6bd1e9de295409b10cc2f8333ff32656346015c6e78e34
+runtime_version: 0.2.0rc8
+runtime_url: https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases/download/v0.2.0rc8/orinoco-runtime-0.2.0rc8.tar.gz
+runtime_sha256: f9126ca35aeecdfb15d307772097b926c85a15e4ecc27896ba3c9acb06916a82
+runtime_manifest_sha256: 1d2fb70cccdd0a9e1c9b93ec14ecb8835f2267f1f2c648ac2fc1015fef76b1d6
 template_source: gh:ORINOCO-Lite/orinoco-lite-template
-template_version: v0.2.0rc11
+template_version: v0.2.0rc12
 workflow_repository: ORINOCO-Lite/orinoco-lite-dev
-workflow_sha: e9ce410f711495070126beb80ec2a89f0225bb9c
-workflow_ref: ORINOCO-Lite/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@e9ce410f711495070126beb80ec2a89f0225bb9c
+workflow_sha: b7201b2e3fefe3e30f9145b597aba9e0c64bccb7
+workflow_ref: ORINOCO-Lite/orinoco-lite-dev/.github/workflows/orinoco-consumer-ci.yml@b7201b2e3fefe3e30f9145b597aba9e0c64bccb7
