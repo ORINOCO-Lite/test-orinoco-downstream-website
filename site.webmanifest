@@ -1,0 +1,10 @@
+{
+  "name": "Center for Open Neuroscience",
+  "short_name": "CON",
+  "description": "Open software frameworks, platforms, data, and methodologies for neuroscience and beyond.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#245a8d",
+  "icons": [{"src": "favicon-32x32.png", "sizes": "any", "type": "image/png"}, {"src": "apple-touch-icon.png", "sizes": "any", "type": "image/png"}]
+}
