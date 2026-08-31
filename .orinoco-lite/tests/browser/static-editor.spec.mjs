@@ -31,12 +31,13 @@ async function assertCatalog(catalog) {
     version: contract.catalog.version,
   });
   expect(catalog.source_commit).toMatch(/^[0-9a-f]{40}$/);
+  expect(catalog.records.length).toBeGreaterThan(0);
   expect(new Set(catalog.records.map(({ pid }) => pid)).size).toBe(
     catalog.records.length,
   );
   for (const record of catalog.records) {
     expect(Object.keys(record).sort()).toEqual(contract.catalog.record_fields);
-    expect(record.path).toMatch(/^metadata\/records\/.+\.ya?ml$/);
+    expect(record.path).toMatch(/^site-specific\/metadata\/records\/.+\.ya?ml$/);
     const content = await readFile(path.join(ROOT, record.path));
     expect(record.sha256).toBe(sha256(content));
     expect(record.rdf_turtle).toEqual(expect.any(String));
