@@ -1,0 +1,13 @@
+---
+layout: orinoco-term
+title: "DataLad Registry"
+params:
+  graphRootNodePID: xyzrins:projects/datalad-registry
+---
+
+Service maintaining up-to-date information on an expanding collection of datasets, currently numbering over ten thousand. Provides automatic dataset registration, metadata extraction, and search functionality via web interface and RESTful API.
+
+## Part of
+- [Center for Open Neuroscience](/.)
+
+
