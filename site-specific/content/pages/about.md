@@ -1,5 +1,6 @@
 ---
 title: About CON
+url: /about/
 ---
 
 {{< figure src="img/editorial/homepage/hero.png" alt="Center for Open Neuroscience" class="mx-auto max-w-3xl" >}}
@@ -42,7 +43,7 @@ We work to make software and data accessible without hiding their provenance or 
 Neuroscience spans many disciplines, yet projects can still develop in isolation.
 CON participates in cross-community initiatives and helps build bridges among research groups.
 
-[Explore CON projects]({{< ref "/projects" >}}) or [meet the people behind them]({{< ref "/people" >}}).
+[Explore CON projects]({{< ref "/projects" >}}) or [meet the people behind them]({{< ref "/persons" >}}).
 
 ## Background reading
 
