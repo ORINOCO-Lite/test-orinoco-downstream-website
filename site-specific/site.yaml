@@ -4,6 +4,7 @@ identity:
   title: Center for Open Neuroscience
   description: Open software frameworks, platforms, data, and methodologies for neuroscience and
     beyond.
+  base_url: https://orinoco-lite.github.io/test-orinoco-downstream-website/
   copyright: CON website content is available under CC BY 3.0 unless otherwise noted.
 language:
   code: en

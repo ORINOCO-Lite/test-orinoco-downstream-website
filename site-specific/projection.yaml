@@ -5,7 +5,7 @@ routing:
 
 homepage:
   pid: xyzrins:.
-  template: .orinoco-lite/site/projection-templates/homepage.md.j2
+  template: presentation:page_templates/homepage.md.j2
   reverse_injections:
     - from: generated_by
       to: generated
@@ -21,7 +21,7 @@ homepage:
 
 pages:
   xyzri:XYZDataset:
-    template: .orinoco-lite/site/projection-templates/dataset.md.j2
+    template: presentation:page_templates/dataset.md.j2
     inline:
       - about
       - attributed_to
@@ -29,16 +29,16 @@ pages:
       - rules
       - characterized_by
   xyzri:XYZObjective:
-    template: .orinoco-lite/site/projection-templates/objective.md.j2
+    template: presentation:page_templates/objective.md.j2
     inline:
       - part_of
       - depends_on
   xyzri:XYZTopic:
-    template: .orinoco-lite/site/projection-templates/topic.md.j2
+    template: presentation:page_templates/topic.md.j2
     inline:
       - part_of
   xyzri:XYZProject:
-    template: .orinoco-lite/site/projection-templates/project.md.j2
+    template: presentation:page_templates/project.md.j2
     select:
       links_to:
         field: part_of
@@ -57,7 +57,7 @@ pages:
       - identifiers::creator
       - part_of
   xyzri:XYZPerson:
-    template: .orinoco-lite/site/projection-templates/person.md.j2
+    template: presentation:page_templates/person.md.j2
     select:
       linked_from:
         pid: xyzrins:.
@@ -67,12 +67,12 @@ pages:
       - delegated_by::roles
       - identifiers::creator
   xyzri:XYZPublication:
-    template: .orinoco-lite/site/projection-templates/publication.md.j2
+    template: presentation:page_templates/publication.md.j2
     inline:
       - about
       - attributed_to
   xyzri:XYZInstrument:
-    template: .orinoco-lite/site/projection-templates/instrument.md.j2
+    template: presentation:page_templates/instrument.md.j2
     inline:
       - about
       - attributed_to
@@ -88,7 +88,7 @@ unrendered_classes:
   - xyzri:XYZPublicationVenue
 
 graph:
-  producer: .orinoco-lite/site/projection-tools/pool2graph.py
+  producer: presentation:code/pool2graph.py
   node_classes:
     - xyzri:XYZDataset
     - xyzri:XYZInstrument
