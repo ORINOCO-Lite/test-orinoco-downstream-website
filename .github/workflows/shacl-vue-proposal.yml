@@ -34,7 +34,7 @@ jobs:
     permissions:
       actions: write
       contents: write
-      pull-requests: read
+      pull-requests: write
     concurrency:
       group: shacl-vue-proposal-${{ github.event.pull_request.number || inputs.pull_request }}
       cancel-in-progress: false
@@ -246,6 +246,37 @@ jobs:
           [[ "$EVENT_NAME" == "pull_request_target" ]]
           [[ "$EVENT_AUTHOR_MATCH" == "true" ]]
 
+      - name: Announce metadata materialization
+        if: steps.inspect.outputs.phase == 'handoff'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ steps.coordinates.outputs.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          export COMMENT_BODY=$'Metadata update from SHACL Vue.\n\nPlease wait for the workflow to create the corresponding edit to the metadata records.'
+          gh api "repos/${REPOSITORY}/issues/${NUMBER}/comments?per_page=100" \
+            > "$RUNNER_TEMP/shacl-vue-comments.json"
+          if python - "$RUNNER_TEMP/shacl-vue-comments.json" <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          comments = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          found = any(
+              comment.get("body") == os.environ["COMMENT_BODY"]
+              and comment.get("user", {}).get("login") == "github-actions[bot]"
+              for comment in comments
+          )
+          raise SystemExit(0 if found else 1)
+          PY
+          then
+            exit 0
+          fi
+          gh api "repos/${REPOSITORY}/issues/${NUMBER}/comments" \
+            --field body="$COMMENT_BODY" > /dev/null
+
       - name: Install the trusted locked Pixi environment
         if: steps.inspect.outputs.phase != 'irrelevant'
         uses: prefix-dev/setup-pixi@f00437f565399d418b0acc85936d12c1fb668347 # v0.10.1
@@ -280,9 +311,6 @@ jobs:
             --output "$RUNNER_TEMP/shacl-vue-review-bundle.json" \
             > "$RUNNER_TEMP/shacl-vue-extract.json"
           unset GH_TOKEN GITHUB_TOKEN
-          pixi run --manifest-path trusted/pixi.toml orinoco \
-            --root "$GITHUB_WORKSPACE/source" runtime verify --json \
-            > "$RUNNER_TEMP/shacl-vue-runtime.json"
           pixi run --manifest-path trusted/pixi.toml orinoco \
             --root "$GITHUB_WORKSPACE/source" editor apply \
             "$RUNNER_TEMP/shacl-vue-review-bundle.json" --write \
@@ -442,8 +470,16 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh api "repos/${REPOSITORY}/pulls/${NUMBER}" \
-            --jq '.head.sha' | grep -Fx "$REPLACEMENT_SHA"
+          observed=""
+          for attempt in 1 2 3 4 5; do
+            observed="$(gh api "repos/${REPOSITORY}/pulls/${NUMBER}" \
+              --jq '.head.sha')"
+            if [[ "$observed" == "$REPLACEMENT_SHA" ]]; then
+              break
+            fi
+            sleep 2
+          done
+          test "$observed" = "$REPLACEMENT_SHA"
           gh workflow run shacl-vue-proposal.yml \
             --repo "$REPOSITORY" \
             --ref "$DEFAULT_BRANCH" \
