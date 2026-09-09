@@ -5,33 +5,39 @@ identity:
   description: Open software frameworks, platforms, data, and methodologies for neuroscience and beyond.
   base_url: https://orinoco-lite.github.io/test-orinoco-downstream-website/
 navigation:
-  - name: About
-    page_ref: /about/
+  - name: People
+    page_ref: /persons/
+    icon: account-group
     weight: 10
   - name: Projects
     page_ref: /projects/
-    weight: 20
-  - name: People
-    page_ref: /persons/
-    weight: 30
+    icon: human-dolly
+    weight: 25
   - name: Publications
     page_ref: /publications/
-    weight: 50
+    icon: cast-education
+    weight: 30
   - name: Outputs
+    identifier: outputs
+    icon: export
+    weight: 32
+  - name: Datasets
+    page_ref: /datasets/
+    parent: outputs
+    icon: mdi-database-outline
+    weight: 34
+  - name: Instruments
     page_ref: /instruments/
-    weight: 60
+    parent: outputs
+    icon: mdi-microscope
+    weight: 36
   - name: Explore
     page_ref: /explore/
-    weight: 70
-  - name: Engage
-    page_ref: /engage/
-    weight: 80
-  - name: Support
-    page_ref: /support/
-    weight: 90
+    icon: circle-info
+    weight: 40
+footer_navigation:
   - name: Contact
     page_ref: /contact/
-    weight: 100
 presentation:
   color_scheme: con
   default_appearance: light
