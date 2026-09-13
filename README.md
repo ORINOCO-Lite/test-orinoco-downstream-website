@@ -22,6 +22,6 @@ The source boundary is:
 
 See [getting started](docs/getting-started.md), [ownership](docs/ownership.md), and [custom-domain setup](docs/custom-domain.md).
 
-The released package is the single authority for the upstream website and theme pins.
-The downstream selects its package, template, and workflow releases exactly in `orinoco.lock` and `.copier-answers.yml`.
-Resources and specifications required to build or operate Orinoco Lite are internal to the package and share its version and integrity boundary.
+The selected package revision is the single authority for the upstream website and theme pins.
+The downstream selects its package through Pixi, its template through `.copier-answers.yml`, and actions through pinned workflow references.
+Resources and specifications required to build or operate Orinoco Lite are internal to the selected package commit.
