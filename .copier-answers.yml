@@ -1,4 +1,4 @@
-_commit: v0.3.0rc3
+_commit: 445e5757cd7e8c168fe05c39644e8413bffd0bd8
 _src_path: gh:ORINOCO-Lite/orinoco-lite-template
 pr_previews: none
 project_name: Center for Open Neuroscience — Orinoco Test Site
@@ -6,3 +6,6 @@ project_slug: test-orinoco-downstream-website
 site_base_url: https://orinoco-lite.github.io/test-orinoco-downstream-website/
 site_description: Test-only full-content Orinoco Lite downstream for the Center for
   Open Neuroscience.
+package_repository: https://github.com/ORINOCO-Lite/orinoco-lite-dev.git
+package_revision: 300eff672931cddd1895edc163ffa43059a6bb9f
+include_site_specific: true

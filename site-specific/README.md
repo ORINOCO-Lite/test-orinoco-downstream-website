@@ -19,9 +19,9 @@ Media and third-party material remain subject to their item-specific licenses an
 | `site-specific/assets/`, `site-specific/static/` | Declared site assets and static payloads. |
 | `site-specific/sources/`, `site-specific/curation-records/` | Source evidence, site policy, and compact reviewed decisions. |
 | `extensions/source-adapters/` | Site-owned metadata acquisition and curation executables. |
-| `.orinoco-lite/` | Template-owned presentation adaptation, licensed assets, and helper tools. |
+| `.orinoco-lite/` | Template-owned presentation adaptation and licensed assets. |
 | `generated/`, `build/` | Ignored projection and website output. |
-| `orinoco.lock` | Exact package, template, and reusable-workflow release selection. |
+| `.copier-answers.yml`, `pixi.toml`, `pixi.lock` | Selected template, package source, tasks, and resolved dependencies. |
 
 The template supplies workflows, commands, ownership tools, and generic documentation.
 The current template ownership guide describes those boundaries.
@@ -38,7 +38,7 @@ pixi run serve
 
 The tasks regenerate ignored projection output from reviewed source records.
 Review the source diff and the rendered build; do not commit or hand-edit projection output.
-Before proposing a change, run `pixi run verify-release-selection`, `pixi run verify-hugo`, and `pixi run verify-build`.
+Before proposing a change, run `pixi run validate` and `pixi run verify-build`.
 Run an adapter's focused tests when changing its executable behavior.
 
 The homepage editorial source is `content/_index.md`.
@@ -81,23 +81,25 @@ Neither action changes accepted metadata until its pull request is reviewed and 
 See [custom-domain setup](../docs/custom-domain.md) for hosted editing configuration.
 Production choices remain subject to the [open decisions](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/main/docs/agents/open-decisions.md).
 
-## Adopt a reviewed release
+## Adopt a reviewed framework revision
 
-Review the package, template, and reusable-workflow selections together with the frozen `pixi.lock`.
-The `package` mapping in `orinoco.lock` records the wheel version, URL, and SHA-256 digest; `.copier-answers.yml` records `package_version`, `package_url`, and `package_sha256`.
-Package code and bundled resources share that version and integrity boundary.
+Review the package and template selections together with the normal frozen
+`pixi.lock`. `.copier-answers.yml` records the template selection and the
+package Git repository and revision; `pixi.toml` installs that package source.
+An exact commit from the official repository or a suitable fork is sufficient.
+A release tag is optional.
 
-Adopt a reviewed template release through a focused pull request.
+Adopt a reviewed template or package revision through a focused pull request.
 Keep site inputs and adapters unchanged unless the pull request explicitly includes a reviewed site-owned change.
 Run validation and build checks, review the resulting site, and follow the repository's human review and merge policy.
 Deferring an update leaves the default branch and deployment unchanged.
-A rollback reverts the reviewed update commit and restores the matching scaffold and release selections together.
+A rollback reverts the reviewed update commit and restores the matching scaffold and package selection together.
 
 ## Documentation above this layer
 
 - [Orinoco Lite template](https://github.com/ORINOCO-Lite/orinoco-lite-template): scaffold creation and maintenance.
 - [Project design charter](https://github.com/ORINOCO-Lite/orinoco-lite-dev/blob/main/docs/project-design.md): system responsibilities and data flows.
 - [Orinoco Lite package](https://github.com/ORINOCO-Lite/orinoco-lite-dev/tree/main/packages/orinoco-lite): commands and package integrity.
-- [Orinoco Lite releases](https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases): immutable wheels containing code and bundled resources.
+- [Orinoco Lite releases](https://github.com/ORINOCO-Lite/orinoco-lite-dev/releases): optional named package revisions.
 
 Those shared layers do not own CON records, site-specific policy, or this site's provenance.
